@@ -13,7 +13,7 @@ from sklearn.tree import DecisionTreeClassifier
 from sklearn import tree
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
-
+# from sklearn.metrics import accuracy_score
 
 
 # # Example 2: Land Mines Dataset
@@ -392,7 +392,7 @@ print('Accuracy: %.3f' % forest.score(X_test, y_test))
 # * metric='minkowski'
 # It is defined that the metric used to calculate the distance between points will be the metric 
 # of Minkowski.
-knn = KNeighborsClassifier(n_neighbors=5, 
+knn = KNeighborsClassifier(n_neighbors=2, 
                            p=2, 
                            metric='minkowski')
 
@@ -406,6 +406,8 @@ y_pred = knn.predict(X_test_std)
 print('Misclassification samples: %d' % (y_test != y_pred).sum())
 print(y_test != y_pred)
 print('Accuracy: %.3f' % knn.score(X_test_std, y_test))
+
+# print('Accuracy: %.3f' % accuracy_score(y_test, y_pred))
 
 
 # # Summary
