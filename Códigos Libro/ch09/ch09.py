@@ -2,6 +2,7 @@
 
 
 import sys
+# * from python_environment_check import check_packages
 from python_environment_check import check_packages
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -22,8 +23,6 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 
-
-
 # # Machine Learning with PyTorch and Scikit-Learn  
 # # -- Code Examples
 
@@ -33,6 +32,20 @@ from sklearn.ensemble import RandomForestRegressor
 
 
 
+# * import sys
+# Importa el módulo sys, que es un módulo de la biblioteca estándar de Python.
+# Este módulo proporciona acceso a variables y funciones que interactúan fuertemente con el
+# intérprete de Python, como la manipulación de la ruta de búsqueda de módulos y la entrada/salida
+# estándar, entre otros.
+# * sys.path
+# Es una lista que contiene las rutas en las que el intérprete de Python busca los módulos cuando
+# usas import. Al intentar importar un módulo, Python busca en las rutas especificadas en esta
+# lista.
+# * sys.path.insert(0, '..')
+# Inserta la ruta '..' (que representa el directorio padre) al inicio de la lista sys.path.
+# Al agregarla en la posición 0, se asegura que cuando Python busque módulos para importar,
+# primero verifique en el directorio padre antes de continuar con las rutas predeterminadas.
+
 sys.path.insert(0, '..')
 
 
@@ -40,7 +53,19 @@ sys.path.insert(0, '..')
 
 
 
-
+# Importa la función check_packages desde el módulo python_environment_check. 
+# Este módulo, por su nombre, parece estar diseñado para verificar que el entorno de Python 
+# tenga instaladas las versiones correctas de ciertos paquetes.
+# * d = {...}
+# Define un diccionario d que contiene como claves los nombres de varios paquetes 
+# (por ejemplo, numpy, scipy, matplotlib, etc.) y como valores las versiones mínimas 
+# requeridas de esos paquetes.
+# * check_packages(d)
+# La función check_packages toma como entrada el diccionario d y probablemente realiza una 
+# verificación en el entorno actual de Python para asegurarse de que las versiones instaladas 
+# de estos paquetes sean al menos las especificadas en el diccionario. Si alguno de los paquetes 
+# no está instalado o tiene una versión incorrecta, es posible que la función lance un error o 
+# sugiera instalar/actualizar los paquetes.
 
 d = {
     'numpy': '1.21.2',
@@ -53,7 +78,6 @@ check_packages(d)
 
 
 # # Chapter 09 - Predicting Continuous Target Variables with Regression Analysis
-
 
 # ### Overview
 
@@ -77,6 +101,17 @@ check_packages(d)
 
 
 
+# * from IPython.display
+# Importa desde el submódulo display del paquete IPython. Este módulo está diseñado para mostrar 
+# y renderizar diferentes tipos de datos dentro de entornos interactivos, como Jupyter Notebooks.
+# * import Image
+# Importa la clase Image desde el módulo display. La clase Image se utiliza para mostrar 
+# imágenes en el entorno interactivo (por ejemplo, en una celda de Jupyter Notebook).
+# * %matplotlib inline
+# Esto es una "magic command" (comando mágico) específico de IPython/Jupyter Notebook.
+# Habilita la visualización de gráficos de matplotlib directamente dentro de las celdas del 
+# notebook. Los gráficos se renderizan "en línea" (dentro del mismo cuaderno) sin necesidad 
+# de abrir ventanas emergentes.
 
 
 
@@ -86,12 +121,33 @@ check_packages(d)
 
 
 
+# * Image(...)
+# Usa la clase Image (probablemente importada desde IPython.display, como en el ejemplo anterior) 
+# para mostrar una imagen en un entorno interactivo como Jupyter Notebook.
+# * filename='./figures/09_01.png'
+# Especifica la ruta de la imagen que se desea mostrar. En este caso, la imagen se encuentra en el
+# archivo './figures/09_01.png', que es una ruta relativa al directorio actual.
+# * width=500
+# Ajusta el ancho de la imagen a 500 píxeles. Esto redimensiona la imagen para que ocupe ese 
+# espacio de ancho, mientras que su altura se ajusta proporcionalmente (si no se especifica una 
+# altura).
+
 
 
 # ## Multiple linear regression
 
 
 
+# * Image(...)
+# Usa la clase Image (probablemente importada desde IPython.display, como en el ejemplo anterior) 
+# para mostrar una imagen en un entorno interactivo como Jupyter Notebook.
+# * filename='./figures/09_01_2.png'
+# Especifica la ruta de la imagen que se desea mostrar. En este caso, la imagen se encuentra en el
+# archivo './figures/09_01_2.png', que es una ruta relativa al directorio actual.
+# * width=500
+# Ajusta el ancho de la imagen a 500 píxeles. Esto redimensiona la imagen para que ocupe ese 
+# espacio de ancho, mientras que su altura se ajusta proporcionalmente (si no se especifica una 
+# altura).
 
 
 
@@ -140,7 +196,6 @@ check_packages(d)
 
 
 
-
 columns = ['Overall Qual', 'Overall Cond', 'Gr Liv Area',
            'Central Air', 'Total Bsmt SF', 'SalePrice']
 
@@ -148,22 +203,39 @@ df = pd.read_csv('http://jse.amstat.org/v19n3/decock/AmesHousing.txt',
                  sep='\t',
                  usecols=columns)
 
-df.head()
+# sep='\t': This argument specifies that the file is tab-separated (\t is the tab character).
+# The default separator for CSV files os a comma, but since this is a tab-separated file, we explicitly define it here.
+
+# This function reads a file into a DataFrame.
+# usecols=columns: This argument tells pandas to only load the specified columns (the list you defined earlier)
+# from the dataset, tather than loading every column to the file.
+
+df.head() # This function displays the first five rows of the DataFrame df by default.
 
 
 
 
-df.shape
+df.shape # Attribute in Pandas is used to get the dimensions of the DataFrame df
 
 
 
 
 df['Central Air'] = df['Central Air'].map({'N': 0, 'Y': 1})
 
+# Converts the categorical values in the 'Central Air' column of the DataFrame df into numerical values.
+# df['Central Air']: This selects the 'Central Air' column from the DataFrame df.
+# The map() function is used to replace the categorical values in the column with the corresponding numerical values based on:
+# 'N' is replaced with 0 (indicating "No central air").
+# 'Y' is replaced with 1 (indicating "Yes, central air").
+
 
 
 
 df.isnull().sum()
+
+# This functions checks each value in the DataFrame df to see if it is NaN (Not a Number),
+# sum() sums up al the True values (the null values) in each column.
+# The sum() function, when applied to a DataFrame of Boolean values, treats True as 1 and False as 0.
 
 
 
@@ -171,8 +243,16 @@ df.isnull().sum()
 # remove rows that contain missing values
 
 df = df.dropna(axis=0)
+
+# dropna() is a function used to remove missiong data (NaN values) from a DataFrame.
+# axis=0: Specifies that you want to drop rows with missing values.
+# axis=0 means "rows". If you wanted to drop columns with missiong values, you would use axis=1.
+
+
+
 df.isnull().sum()
 
+# This function checks for null (missing) values again after rows with missing data have been removed.
 
 
 # ## Visualizing the important characteristics of a dataset
@@ -180,15 +260,24 @@ df.isnull().sum()
 
 
 
+# mlxtend.plotting: mlxtend (short for "machine learning extensions") is a Python library that contains additional tools for data analysis.
+
 
 
 
 scatterplotmatrix(df.values, figsize=(12, 10), 
                   names=df.columns, alpha=0.5)
+
+# names: This argument provides the names (labels) for each variable in the scatterplot matrix.
+# df.columns: This extracts the column names from the DataFrame df, so that each scatterplot in the matrix is labeled with the name of the
+# alpha sets the transparency level of the points in the scatterplot.
+
 plt.tight_layout()
+
+# plt.tight_layout() is used in Matplotlib to automatically adjust the spacing between subplots in a figure.
+
 #plt.savefig('figures/09_04.png', dpi=300)
 plt.show()
-
 
 
 
@@ -198,14 +287,14 @@ cm = np.corrcoef(df.values.T)
 hm = heatmap(cm, row_names=df.columns, column_names=df.columns)
 
 plt.tight_layout()
+
+# plt.tight_layout() is used in Matplotlib to automatically adjust the spacing between subplots in a figure.
+
 #plt.savefig('figures/09_05.png', dpi=300)
 plt.show()
 
 
-
 # # Implementing an ordinary least squares linear regression model
-
-# ...
 
 # ## Solving regression for regression parameters with gradient descent
 
@@ -243,8 +332,6 @@ class LinearRegressionGD:
 
 X = df[['Gr Liv Area']].values
 y = df['SalePrice'].values
-
-
 
 
 
@@ -303,7 +390,6 @@ print(f'Slope: {lr.w_[0]:.3f}')
 print(f'Intercept: {lr.b_[0]:.3f}')
 
 
-
 # ## Estimating the coefficient of a regression model via scikit-learn
 
 
@@ -313,10 +399,40 @@ print(f'Intercept: {lr.b_[0]:.3f}')
 
 
 slr = LinearRegression()
+
+# LinearRegression(): This is a class provided by the sci-kit learn library (imported as sklearn),
+# which implements linear regression algorithm.
+
 slr.fit(X, y)
+
+# fit(X, y): This method is used to train the linear regression model.
+# X: The 2D NumPy array containing the feature(s) (in this case, just 'Gr Liv Area').
+# y: The 1D NumPy array containing the target variable (in this case, 'SalePrice').
+
 y_pred = slr.predict(X)
+
+# predict(X): This method is used to make predictions based on the fitted model.
+
 print(f'Slope: {slr.coef_[0]:.3f}')
 print(f'Intercept: {slr.intercept_:.3f}')
+
+index = 2 # Index of the element you want to predict for
+single_feature_value = X[index] # Extract the single feature value
+
+print(single_feature_value)
+
+single_pred = slr.predict([single_feature_value])
+
+print(single_pred)
+
+
+
+
+# Check the result
+
+Slope = 111.666
+Intercept = 13342.979
+print(Slope * 1329 + Intercept)
 
 
 
@@ -342,7 +458,6 @@ w = np.dot(z, np.dot(Xb.T, y))
 
 print(f'Slope: {w[1]:.3f}')
 print(f'Intercept: {w[0]:.3f}')
-
 
 
 # # Fitting a robust regression model using RANSAC
@@ -390,10 +505,10 @@ print(f'Intercept: {ransac.estimator_.intercept_:.3f}')
 
 
 
-def mean_absolute_deviation(data):
-    return np.mean(np.abs(data - np.mean(data)))
+def median_absolute_deviation(data):
+    return np.median(np.abs(data - np.median(data)))
     
-mean_absolute_deviation(y)
+median_absolute_deviation(y)
 
 
 
@@ -432,7 +547,6 @@ plt.show()
 
 print(f'Slope: {ransac.estimator_.coef_[0]:.3f}')
 print(f'Intercept: {ransac.estimator_.intercept_:.3f}')
-
 
 
 # # Evaluating the performance of linear regression models
@@ -516,7 +630,6 @@ print(f'R^2 train: {r2_train:.2f}')
 print(f'R^2 test: {r2_test:.2f}')
 
 
-
 # # Using regularized methods for regression
 
 
@@ -566,7 +679,6 @@ lasso = Lasso(alpha=1.0)
 
 
 elanet = ElasticNet(alpha=1.0, l1_ratio=0.5)
-
 
 
 # # Turning a linear regression model into a curve - polynomial regression
@@ -636,7 +748,6 @@ r2_lin = r2_score(y, y_lin_pred)
 r2_quad = r2_score(y, y_quad_pred)
 print(f'Training R^2 linear: {r2_lin:.3f}'
       f', quadratic: {r2_quad:.3f}')
-
 
 
 # ## Modeling nonlinear relationships in the Ames Housing dataset
@@ -766,10 +877,7 @@ plt.tight_layout()
 plt.show()
 
 
-
 # # Dealing with nonlinear relationships using random forests
-
-# ...
 
 # ## Decision tree regression
 
@@ -799,7 +907,6 @@ plt.show()
 
 tree_r2 = r2_score(y, tree.predict(X))
 tree_r2
-
 
 
 # ## Random forest regression
@@ -867,10 +974,7 @@ plt.tight_layout()
 plt.show()
 
 
-
 # # Summary
-
-# ...
 
 # ---
 # 
@@ -878,9 +982,22 @@ plt.show()
 
 
 
-
-
-
-
+# Run a command in the terminal from a Python environment (such as a Jupyter Notebook or a 
+# script that allows system commands to convert a Jupyter notebook to a file Python script. 
+# * !
+# This symbol is used in environments such as Jupyter Notebooks to execute system commands 
+# operational directly from the notebook. In this case, the command is an execution of a 
+# python script.
+# * python convert_notebook_to_script.py
+# This command runs a Python script called convert_notebook_to_script.py. This file 
+# is located in the previous directory (../ indicates that it is one level up in the system 
+# files). The purpose of this script is to convert a Jupyter notebook (.ipynb) into a 
+# Python script file (.py).
+# * --input ch09.ipynb
+# This is an option or argument that tells the script what the input file is, in this 
+# case, the notebook ch09.ipynb.
+# * --output ch09.py
+# This option tells the script to save the output (the converted file) with the name
+# ch09.py, which is a Python script.
 
 
