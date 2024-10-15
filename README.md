@@ -16,8 +16,78 @@ IMPORTANTE: Para hacer uso del índice interactivo que viene implementado en el 
 
 Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro): Este directorio contiene todo el código fuente que se ve en el libro de la asignatura, además de varios ejemplos que se han visto durante las clases para facilitar la comprensión de los contenidos vistos en teoría.
 
-Directorio 'Prácticas': Cada uno de estos directorios corresponde a cada una de las prácticas realizadas en la asignatura, los cuáles incluyen código fuente y, en algunos casos, memorias en formato PDF que se han solicitado para mostrar datos, conclusiones, etc ...
+Directorio 'Prácticas': Cada uno de estos directorios corresponde a cada una de las prácticas realizadas en la asignatura, los cuáles incluyen código fuente y, en algunos casos, memorias en formato PDF que se han solicitado para mostrar datos, conclusiones, etc.
 
-## 4. Referencias
+## 3. Referencias
 
 Directorio ['Referencias'](https://github.com/aleon2020/AA_2024-2025/tree/main/Referencias): Se encuentra el libro que abarca todos los contenidos vistos en las clases de teoría.
+
+## 4. Activación del entorno Conda en los ordenadores de la universidad
+
+PASO 1: Activa Conda introduciendo el siguiente fragmento de texto en el fichero .bashrc de tu HOME.
+
+```bash
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/alumnos/USERNAME/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/alumnos/USERNAME/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/alumnos/USERNAME/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/alumnos/USERNAME/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+```
+
+IMPORTANTE: Sustituye USERNAME por tu nombre de usuario de los laboratorios de la universidad.
+Algunas de las rutas del fichero PUEDEN variar dependiendo de la ubicacion en la que hayas
+instalado Conda.
+
+PASO 2: Guarda los cambios en el fichero .bashrc, cierra y vuelve a abrir una nueva terminal,
+para que los cambios queden guardados.
+
+PASO 3: Una vez abierta una nueva terminal, tu prompt deberia aparecer de la siguiente forma.
+
+```sh
+(base) USERNAME@f-lXXXX-pcXX:~$
+```
+
+PASO 4: Una vez hecho esto, ejecuta los siguientes comandos en la terminal.
+
+```sh
+conda config --append channels conda-forge
+```
+
+```sh
+conda create -n "pyml-book" python=3.9 numpy=1.21.2 scipy=1.7.0 scikit-learn=1.0 matplotlib=3.4.3 pandas=1.3.2
+```
+
+```sh
+conda activate "pyml-book"
+```
+
+PASO 5: Una vez ejecutes este último comando, tu prompt deberia aparecer de la siguiente forma.
+
+```sh
+(pyml-book) USERNAME@f-lXXXX-pcXX:~$
+```
+
+PASO 6: Instala jupyterlab y la librería mlxtend para poder ejecutar correctamente archivos .ipynb.
+
+```sh
+conda install -c conda-forge jupyterlab
+```
+
+```sh
+conda install mlxtend
+```
+
+IMPORTANTE: Para instalar la librería mlxtend en tu linux personal, solo tienes que ejecutar el siguiente comando:
+
+```sh
+pip install mlxtend
+```
