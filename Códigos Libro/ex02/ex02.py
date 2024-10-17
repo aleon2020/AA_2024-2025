@@ -1,6 +1,9 @@
 # coding: utf-8
 
 
+import sys
+# * from python_environment_check import check_packages
+from python_environment_check import check_packages
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -15,7 +18,89 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 # from sklearn.metrics import accuracy_score
 
-# # Example 2: Land Mines Dataset
+# # Machine Learning with PyTorch and Scikit-Learn  
+# # -- Code Examples
+
+# ## Package version checks
+
+# Add folder to path in order to load from the check_packages.py script:
+
+
+
+# * import sys
+# Importa el módulo sys, que es un módulo de la biblioteca estándar de Python.
+# Este módulo proporciona acceso a variables y funciones que interactúan fuertemente con el
+# intérprete de Python, como la manipulación de la ruta de búsqueda de módulos y la entrada/salida
+# estándar, entre otros.
+# * sys.path
+# Es una lista que contiene las rutas en las que el intérprete de Python busca los módulos cuando
+# usas import. Al intentar importar un módulo, Python busca en las rutas especificadas en esta
+# lista.
+# * sys.path.insert(0, '..')
+# Inserta la ruta '..' (que representa el directorio padre) al inicio de la lista sys.path.
+# Al agregarla en la posición 0, se asegura que cuando Python busque módulos para importar,
+# primero verifique en el directorio padre antes de continuar con las rutas predeterminadas.
+
+sys.path.insert(0, '..')
+
+
+# Check recommended package versions:
+
+
+
+# Importa la función check_packages desde el módulo python_environment_check. 
+# Este módulo, por su nombre, parece estar diseñado para verificar que el entorno de Python 
+# tenga instaladas las versiones correctas de ciertos paquetes.
+# * d = {...}
+# Define un diccionario d que contiene como claves los nombres de varios paquetes 
+# (por ejemplo, numpy, scipy, matplotlib, etc.) y como valores las versiones mínimas 
+# requeridas de esos paquetes.
+# * check_packages(d)
+# La función check_packages toma como entrada el diccionario d y probablemente realiza una 
+# verificación en el entorno actual de Python para asegurarse de que las versiones instaladas 
+# de estos paquetes sean al menos las especificadas en el diccionario. Si alguno de los paquetes 
+# no está instalado o tiene una versión incorrecta, es posible que la función lance un error o 
+# sugiera instalar/actualizar los paquetes.
+
+d = {
+    'numpy': '1.21.2',
+    'mlxtend': '0.19.0',
+    'matplotlib': '3.4.3',
+    'sklearn': '1.0',
+    'pandas': '1.3.2',
+}
+check_packages(d)
+
+
+# # Example 02 - Land Mines Dataset
+
+# ### Overview
+
+# - [Data Analysis](#data-analysis)
+# - [Logistic Regression](#logistic-regression)
+# - [SVM (Support Vector Machines)](#svm-support-vector-machines)
+# - [Decision Tree](#decision-tree)
+# - [Random Forests](#random-forests)
+# - [KNN (K-Nearest Neighbors)](#knn-k-nearest-neighbors)
+# - [Summary](#summary)
+
+
+
+# * from IPython.display
+# Importa desde el submódulo display del paquete IPython. Este módulo está diseñado para mostrar 
+# y renderizar diferentes tipos de datos dentro de entornos interactivos, como Jupyter Notebooks.
+# * import Image
+# Importa la clase Image desde el módulo display. La clase Image se utiliza para mostrar 
+# imágenes en el entorno interactivo (por ejemplo, en una celda de Jupyter Notebook).
+# * %matplotlib inline
+# Esto es una "magic command" (comando mágico) específico de IPython/Jupyter Notebook.
+# Habilita la visualización de gráficos de matplotlib directamente dentro de las celdas del 
+# notebook. Los gráficos se renderizan "en línea" (dentro del mismo cuaderno) sin necesidad 
+# de abrir ventanas emergentes.
+
+
+
+# # Data Analysis
 
 
 
@@ -211,7 +296,7 @@ X_train_std = sc.transform(X_train)
 X_test_std = sc.transform(X_test)
 
 
-# ## Logistic Regression
+# # Logistic Regression
 
 
 
@@ -241,7 +326,7 @@ print(y_test != y_pred)
 print('Accuracy: %.3f' % lr.score(X_test_std, y_test))
 
 
-# ## SVM (Support Vector Machines)
+# # SVM (Support Vector Machines)
 
 
 
@@ -280,7 +365,7 @@ print(y_test != y_pred)
 print('Accuracy: %.3f' % svm.score(X_test_std, y_test))
 
 
-# ## Decision Tree
+# # Decision Tree
 
 
 
@@ -341,7 +426,7 @@ print(y_test != y_pred)
 print('Accuracy: %.3f' % tree_model.score(X_test, y_test))
 
 
-# ## Random Forests
+# # Random Forests
 
 
 
@@ -373,7 +458,7 @@ print(y_test != y_pred)
 print('Accuracy: %.3f' % forest.score(X_test, y_test))
 
 
-# ## KNN (K-Nearest Neighbors)
+# # KNN (K-Nearest Neighbors)
 
 
 
