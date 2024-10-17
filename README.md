@@ -6,21 +6,15 @@ A continuación se detallan brevemente todos los contenidos que se encuentran en
 
 IMPORTANTE: SI OBSERVAS QUE HAY ALGÚN ERROR O ALGO QUE FALTE EN ALGÚN ARCHIVO SUBIDO A ESTE REPOSITORIO (O SI HAY ALGUNA DUDA EN CUANTO A COMPRENSIÓN), DÉJAME UN ISSUE Y TRATARÉ DE RESOLVER EL PROBLEMA LO ANTES POSIBLE. NO TE OLVIDES DEJARME UNA STAR Y ESPERO QUE TODO ESTE MATERIAL TE SEA DE GRAN AYUDA.
 
-## 1. Resumen de los contenidos de teoría
-
-Fichero 'Resumen Teoría AA.pdf': Resumen de teoría en formato PDF.
-
-IMPORTANTE: Para hacer uso del índice interactivo que viene implementado en el resumen, debes descargar el documento en formato PDF.
-
-## 2. Ejercicios propuestos, prácticas y exámenes
+## 1. Ejercicios propuestos, prácticas y exámenes
 
 Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro): Este directorio contiene todo el código fuente que se ve en el libro de la asignatura, además de varios ejemplos que se han visto durante las clases para facilitar la comprensión de los contenidos vistos en teoría (chXX corresponde al código del libro, exXX a ejemplos vistos en clase y prXX a las prácticas).
 
-## 3. Referencias
+## 2. Referencias
 
 Directorio ['Referencias'](https://github.com/aleon2020/AA_2024-2025/tree/main/Referencias): Se encuentra el libro que abarca todos los contenidos vistos en las clases de teoría.
 
-## 4. Activación del entorno Conda en los ordenadores de la universidad
+## 3. Activación del entorno Conda en los ordenadores de la universidad
 
 PASO 1: Activa Conda introduciendo el siguiente fragmento de texto en el fichero .bashrc de tu HOME.
 
@@ -74,7 +68,7 @@ PASO 5: Una vez ejecutes este último comando, tu prompt deberia aparecer de la 
 (pyml-book) USERNAME@f-lXXXX-pcXX:~$
 ```
 
-PASO 6: Instala jupyterlab y las librería mlxtend y seaborn para poder ejecutar correctamente archivos .ipynb.
+PASO 6: Instala jupyterlab y las librerías mlxtend y seaborn para poder ejecutar correctamente archivos .ipynb.
 
 ```sh
 conda install -c conda-forge jupyterlab
@@ -88,8 +82,12 @@ conda install mlxtend
 conda install seaborn
 ```
 
-IMPORTANTE: Para instalar la librería mlxtend en tu linux personal, solo tienes que ejecutar el siguiente comando:
+IMPORTANTE: Para instalar las librerías mlxtend y seaborn en tu linux personal, solo tienes que ejecutar los siguientes comandos:
 
 ```sh
 pip install mlxtend
+```
+
+```sh
+pip install seaborn
 ```
