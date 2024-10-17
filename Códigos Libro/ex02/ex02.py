@@ -72,7 +72,7 @@ d = {
 check_packages(d)
 
 
-# # Example 02 - Land Mines Dataset
+# # Example 2 - Land Mines Dataset
 
 # ### Overview
 
