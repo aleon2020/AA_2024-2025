@@ -1,4 +1,4 @@
-##  Example 1: Admission Dataset
+##  Example 2: Land Mines Dataset
 
 ### Chapter Outline
 
