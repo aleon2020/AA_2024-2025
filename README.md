@@ -76,7 +76,7 @@ PASO 5: Una vez ejecutes este último comando, tu prompt deberia aparecer de la 
 (pyml-book) USERNAME@f-lXXXX-pcXX:~$
 ```
 
-PASO 6: Instala jupyterlab y la librería mlxtend para poder ejecutar correctamente archivos .ipynb.
+PASO 6: Instala jupyterlab y las librería mlxtend y seaborn para poder ejecutar correctamente archivos .ipynb.
 
 ```sh
 conda install -c conda-forge jupyterlab
@@ -84,6 +84,10 @@ conda install -c conda-forge jupyterlab
 
 ```sh
 conda install mlxtend
+```
+
+```sh
+conda install seaborn
 ```
 
 IMPORTANTE: Para instalar la librería mlxtend en tu linux personal, solo tienes que ejecutar el siguiente comando:

@@ -7,6 +7,7 @@ from python_environment_check import check_packages
 import pandas as pd
 import matplotlib.pyplot as plt
 from mlxtend.plotting import scatterplotmatrix
+import seaborn as sb
 import numpy as np
 from mlxtend.plotting import heatmap
 from sklearn.preprocessing import StandardScaler
@@ -277,6 +278,9 @@ plt.tight_layout()
 # plt.tight_layout() is used in Matplotlib to automatically adjust the spacing between subplots in a figure.
 
 #plt.savefig('figures/09_04.png', dpi=300)
+plt.show()
+
+sb.pairplot(df)
 plt.show()
 
 
