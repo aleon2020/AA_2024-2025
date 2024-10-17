@@ -14,9 +14,7 @@ IMPORTANTE: Para hacer uso del índice interactivo que viene implementado en el 
 
 ## 2. Ejercicios propuestos, prácticas y exámenes
 
-Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro): Este directorio contiene todo el código fuente que se ve en el libro de la asignatura, además de varios ejemplos que se han visto durante las clases para facilitar la comprensión de los contenidos vistos en teoría.
-
-Directorio 'Prácticas': Cada uno de estos directorios corresponde a cada una de las prácticas realizadas en la asignatura, los cuáles incluyen código fuente y, en algunos casos, memorias en formato PDF que se han solicitado para mostrar datos, conclusiones, etc.
+Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro): Este directorio contiene todo el código fuente que se ve en el libro de la asignatura, además de varios ejemplos que se han visto durante las clases para facilitar la comprensión de los contenidos vistos en teoría (chXX corresponde al código del libro, exXX a ejemplos vistos en clase y prXX a las prácticas).
 
 ## 3. Referencias
 
