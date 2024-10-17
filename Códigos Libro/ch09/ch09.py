@@ -524,12 +524,33 @@ ransac = RANSACRegressor(LinearRegression(),
                          residual_threshold=65000, # default 
                          random_state=123)
 
+# max_trials=100: This parameter controls the maximum number of iterations RANSAC will try.
+
+# min_samples: This specifies the minimum number of samples required to fit the base model (LinearRegression in this case).
+# min_samples=0.95 means that at least 95% of the dataset should be used for fitting the model in each iteration. It can be specified as an inlier.
+
+# The loss function used to evaluate how well the model fits the inlier data.
+# 'absolute error' is the default loss function, also known as the L1 loss.
+
+# residual_threshold=65000: The residual threshold defines the maximum allowed error for a data point to be classified as an inlier.
+# Any data point with a residual (error) larger than 65,000 will be considered an outlier and excluded from the model fitting.
+
+# random_state=123: A seed for the random number generator, ensuring that the randomization process in RANSAC is reproducible.
+
 ransac.fit(X, y)
 
 inlier_mask = ransac.inlier_mask_
+
+# ransac.inlier_mask_ is a boolean array that indicates whether each sample in the dataset is classified
+# as an inlier (True) or an outlier (False).
+
 outlier_mask = np.logical_not(inlier_mask)
 
+# np.logical_not(inlier_mask) is a NumPy function that negates the boolean values in inlier_mask.
+# It converts True values to False and viceversa.
+
 line_X = np.arange(3, 10, 1)
+
 line_y_ransac = ransac.predict(line_X[:, np.newaxis])
 plt.scatter(X[inlier_mask], y[inlier_mask],
             c='steelblue', edgecolor='white', 
