@@ -1,5 +1,3 @@
-
-
 ##  Chapter 9: Predicting Continuous Target Variables with Regression Analysis
 
 ### Chapter Outline

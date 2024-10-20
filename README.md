@@ -16,7 +16,21 @@ Directorio ['Referencias'](https://github.com/aleon2020/AA_2024-2025/tree/main/R
 
 ## 3. Activación del entorno Conda en los ordenadores de la universidad
 
-PASO 1: Activa Conda introduciendo el siguiente fragmento de texto en el fichero .bashrc de tu HOME.
+PASO 1: Ejecuta los siguientes comandos para instalar Conda en los ordenadores de la universidad.
+
+```sh
+mkdir $HOME/tmp/
+```
+
+```sh
+wget https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
+```
+
+```sh
+sh ./Anaconda3-2020.11-Linux-x86_64.sh
+```
+
+PASO 2: Asegúrate que tienes Conda activado si en el fichero .bashrc de tu HOME aparece el siguiente fragmento de texto.
 
 ```bash
 # >>> conda initialize >>>
@@ -35,20 +49,17 @@ unset __conda_setup
 # <<< conda initialize <<<
 ```
 
-IMPORTANTE: Sustituye USERNAME por tu nombre de usuario de los laboratorios de la universidad.
-Algunas de las rutas del fichero PUEDEN variar dependiendo de la ubicacion en la que hayas
-instalado Conda.
+IMPORTANTE: Sustituye USERNAME por tu nombre de usuario de los laboratorios de la universidad. Algunas de las rutas del fichero PUEDEN variar dependiendo de la ubicacion en la que hayas instalado Conda.
 
-PASO 2: Guarda los cambios en el fichero .bashrc, cierra y vuelve a abrir una nueva terminal,
-para que los cambios queden guardados.
+PASO 3: Guarda los cambios en el fichero .bashrc, cierra y vuelve a abrir una nueva terminal, para que los cambios queden guardados.
 
-PASO 3: Una vez abierta una nueva terminal, tu prompt deberia aparecer de la siguiente forma.
+PASO 4: Una vez abierta una nueva terminal, tu prompt deberia aparecer de la siguiente forma.
 
 ```sh
 (base) USERNAME@f-lXXXX-pcXX:~$
 ```
 
-PASO 4: Una vez hecho esto, ejecuta los siguientes comandos en la terminal.
+PASO 5: Una vez hecho esto, ejecuta los siguientes comandos en la terminal.
 
 ```sh
 conda config --append channels conda-forge
@@ -62,13 +73,13 @@ conda create -n "pyml-book" python=3.9 numpy=1.21.2 scipy=1.7.0 scikit-learn=1.0
 conda activate "pyml-book"
 ```
 
-PASO 5: Una vez ejecutes este último comando, tu prompt deberia aparecer de la siguiente forma.
+PASO 6: Una vez ejecutes este último comando, tu prompt deberia aparecer de la siguiente forma.
 
 ```sh
 (pyml-book) USERNAME@f-lXXXX-pcXX:~$
 ```
 
-PASO 6: Instala jupyterlab y las librerías mlxtend y seaborn para poder ejecutar correctamente archivos .ipynb.
+PASO 7: Instala jupyterlab y las librerías mlxtend y seaborn para poder ejecutar correctamente los ficheros .ipynb.
 
 ```sh
 conda install -c conda-forge jupyterlab
@@ -82,7 +93,7 @@ conda install mlxtend
 conda install seaborn
 ```
 
-IMPORTANTE: Para instalar las librerías mlxtend y seaborn en tu linux personal, solo tienes que ejecutar los siguientes comandos:
+NOTA: Para instalar las librerías mlxtend y seaborn en tu ordenador linux personal, ejecuta los siguientes comandos.
 
 ```sh
 pip install mlxtend
