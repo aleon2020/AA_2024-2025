@@ -207,7 +207,7 @@ El analisis de una correlacion esta identificada con las demas, donde un coefici
 
 \end{itemize}
 
-\bigskip
+\newpage
 
 \begin{itemize}
 
@@ -226,11 +226,14 @@ sb.heatmap(dataset.corr(), linewidth=0.5, annot=True)
 
 El grafico resultante proporciona una vision mas clara de las relaciones mas fuertes entre las variables, donde los colores oscuros indican una correlacion alta, mientras que los colores mas claros indican una correlacion baja.
 
-IMAGEN MAPA DE CALOR CORRELACIONES
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=14cm, height=14cm]{correlation_heatmap.png}
+\end{figure}
 
 \end{itemize}
 
-\bigskip
+\newpage
 
 \begin{itemize}
 
@@ -255,11 +258,14 @@ plt.show()
 
 Estos histogramas muestran la frecuencia de los valores dentro de ciertos intervalos, algo que ayuda a entender mejor la distribucion de los datos.
 
-IMAGEN HISTOGRAMA
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=14cm, height=14cm]{characteristics_frequency.png}
+\end{figure}
 
 \end{itemize}
 
-\bigskip
+\newpage
 
 \begin{itemize}
 
@@ -423,7 +429,7 @@ solver = 'lbfgs': El solver 'lbfgs' es un optimizador recomendado para soluciona
 
 \item
 multi-class = 'ovr': Procedente de las siglas OnevsRest (OVR), significa que para la
-clasificacion multiclase, el modelo entrenara un clasificador idenpendiente para cada 
+clasificacion multiclase, el modelo entrenara un clasificador independiente para cada 
 clase.
 
 \end{itemize}
@@ -444,7 +450,7 @@ Accuracy. 0.588
 \end{scriptsize}
 \end{tcolorbox}
 
-Se ha obtenido como resultado 165 muestras mal clasificadas, un numero relativamente bajo para este modelo, y se obtuvo una precision de 0.588, por lo que esa proporcion de  predicciones del modelo fur correcta.
+Se han obtenido como resultado 165 muestras mal clasificadas, un numero relativamente bajo para este modelo, y una precision de 0.588, por lo que esa proporcion de  predicciones del modelo es correcta.
 
 \end{itemize}
 
@@ -454,7 +460,7 @@ Se ha obtenido como resultado 165 muestras mal clasificadas, un numero relativam
 
 \item[2.4]  {\bf Maquinas de Soporte Vectorial (SVM)}
 
-SVM con kernel RBF es potente en la captura de relaciones no lineales entre las características. El modelo muestra un rendimiento sólido y, aunque los resultados dependen mucho de la selección de los parámetros gamma y C, en este caso el ajuste da buenos resultados.
+SVM con kernel RBF es potente en la captura de relaciones no lineales entre las características. El modelo muestra un rendimiento sólido y, aunque los resultados dependen mucho de la selección de los parámetros gamma y C, el ajuste da buenos resultados.
 
 A continuacion, se explican brevemente los parametros utilizados:
 
@@ -487,7 +493,7 @@ Accuracy. 0.608
 \end{scriptsize}
 \end{tcolorbox}
 
-Se ha obtenido como resultado 157 muestras mal clasificadas, un numero relativamente bajo para este modelo, y se obtuvo una precision de 0.608, una proporcion ligeramente superior a la obtenida con la Regresion Logistica.
+Se han obtenido como resultado 157 muestras mal clasificadas, un numero relativamente bajo para este modelo, y una precision de 0.608, una proporcion ligeramente superior a la obtenida con la Regresion Logistica.
 
 \end{itemize}
 
@@ -497,7 +503,7 @@ Se ha obtenido como resultado 157 muestras mal clasificadas, un numero relativam
 
 \item[2.5]  {\bf Arboles de Decision (Random Trees)}
 
-Los árboles de decisión tienden a sobreajustar los datos si no se limitan adecuadamente. En este caso, al limitar la profundidad a 4, se puede evitar el sobreajuste y el modelo puede ser generalizado adecuadamente. Sin embargo, en comparación con los otros modelos, el rendimiento fue ligeramente inferior, posiblemente porque el modelo no pudo capturar todas las complejidades de los datos con solo 4 niveles de profundidad.
+Los árboles de decisión tienden a sobreajustar los datos si no se limitan adecuadamente. En este caso, al limitar la profundidad a 4, se puede evitar el sobreajuste y el modelo puede ser generalizado adecuadamente. Sin embargo, en comparación con los otros modelos, el rendimiento es ligeramente inferior, posiblemente porque el modelo no pudo capturar todas las complejidades de los datos con solo 4 niveles de profundidad.
 
 A continuacion, se explican brevemente los parametros utilizados:
 
@@ -532,7 +538,7 @@ Accuracy. 0.570
 \end{scriptsize}
 \end{tcolorbox}
 
-Se ha obtenido como resultado 172 muestras mal clasificadas, un numero similar a los otros dos modelos, y se obtuvo una precision de 0.570, por lo que esa proporcion de  predicciones del modelo fur correcta.
+Se han obtenido como resultado 172 muestras mal clasificadas, un numero similar a los otros dos modelos, y una precision de 0.570, por lo que esa proporcion de predicciones del modelo es correcta.
 
 \end{itemize}
 
@@ -546,9 +552,9 @@ Se ha obtenido como resultado 172 muestras mal clasificadas, un numero similar a
 
 \item[3.1]  {\bf Introduccion}
 
-En este apartado se presentan los resultados de la clasificacion del conjunto de datos del fichero dataset.csv utilizando 3 metodos de aprendizaje supervisado: Regresion Logistica (Logistic Regression), Maquinas de Soporte Vectorial (SVM) y Arboles de Decision (Random Trees).
+En este apartado se presentan los resultados de la clasificacion de 4 de las columnas del fichero dataset.csv utilizando 3 metodos de aprendizaje supervisado: Regresion Logistica (Logistic Regression), Maquinas de Soporte Vectorial (SVM) y Arboles de Decision (Random Trees).
 
-Cada uno de estos clasificadores ha sido entrenado usando todas las caracteristicas del dataset. A continuacion, se iran describiendo los parametros utilizados para cada modelo, presentando los resultados obtenidos y discutiendo el rendimiento de cada clasificador.
+El objetivo de esto es comparar el rendimiento de estos modelos al reducir el numero de variables y analizar el impacto de esta reduccion en la precision de los clasificadores.
 
 \end{itemize}
 
@@ -558,19 +564,16 @@ Cada uno de estos clasificadores ha sido entrenado usando todas las caracteristi
 
 \item[3.2]  {\bf Seleccion de las 4 caracteristicas}
 
-En primer lugar, se realizó un análisis de correlación entre las variables del dataset completo para identificar las características más relevantes. Se seleccionaron las siguientes cuatro características basadas en su diversidad y posible relación con la variable objetivo:
+En primer lugar, se realiza un análisis de correlación entre las variables del dataset completo para identificar las características más relevantes. Para ello, se han seleccionado las caracteristicas Col1, Col5, Co7 y Col11.
 
-Col1
-Col5
-Col7
-Col11
-
-Estas variables se seleccionaron por su correlación baja entre sí y por su posible relevancia para la clasificación, a fin de evitar multicolinealidad y maximizar la capacidad predictiva del modelo.
+Las variables seleccionadas son aquellas que mejor coeficiente de correlacion poseen, ademas de poder aportar mucha relevancia para su clasificación, a fin de evitar multicolinealidad y maximizar la capacidad predictiva del modelo.
 
 \begin{tcolorbox}[width=14cm]
 \begin{scriptsize}
 \begin{verbatim}
-CODE
+dataset_4_characteristics = dataset_anonymized.drop(["Col2", "Col3", "Col4", "Col6",
+"Col8", "Col9", "Col10"], axis=1)
+dataset_4_characteristics.to_csv('dataset_4_characteristics.csv', index=False)
 \end{verbatim}
 \end{scriptsize}
 \end{tcolorbox}
@@ -583,19 +586,22 @@ CODE
 
 \item[3.3]  {\bf Preparacion de los datos}
 
-Antes de entrenar los modelos, primero se debe cargar el dataset, la anonimizacion de las caracteristicas y la separacion de las caracteristicas (X) respecto a la etiqueta objetivo (y). 
+Una vez hecho esto, el conjunto de datos se ha dividido en 2 subconjuntos: Entrenamiento (0.75) y prueba (0.25), lo que asegura que la distribucion de las clases sea equilibrada.
 
-Ademas de esto, tambien se realiza una estandarizacion de las caracteristicas, algo que es muy importante realizar para modelos como la Regresion Logistica (Logistic Regression) y SVM (Support Vector Machines), que son sensibles a las escalas de las variables.
+Ademas, los datos han sido estandarizados mediante StandardScaler(), algo importante en clasificadores como la Regresion Logistica (Logistic Regression) y SVM (Support Vector Machines), que son sensibles a la escala de los datos.
 
 \begin{tcolorbox}[width=14cm]
 \begin{scriptsize}
 \begin{verbatim}
-CODE
+X_train, X_test, y_train, y_test = train_test_split(X.values, y, test_size=0.25,
+random_state=1, stratify=y)
+sc = StandardScaler()
+sc.fit(X_train)
+X_train_std = sc.transform(X_train)
+X_test_std = sc.transform(X_test)
 \end{verbatim}
 \end{scriptsize}
 \end{tcolorbox}
-
-Por otro lado, el dataset se divide en dos conjuntos: Uno de entrenamiento (0.75) y otro de prueba (0.25). Esta division se hace de tal forma que la proporcion de clases en ambos conjuntos sea similar, evitando asi posibles desbalanceos.
 
 \end{itemize}
 
@@ -605,20 +611,20 @@ Por otro lado, el dataset se divide en dos conjuntos: Uno de entrenamiento (0.75
 
 \item[3.4]  {\bf Regresion Logistica (Logistic Regression)}
 
-La Regresion Logistica es un modelo lineal, por lo que es mas adecuado cuando las caracteristicas tienen relaciones lineales con las etiquetas. En este caso, el modelo muestra un buen rendimiento general, aunque la precision podria mejorar utilizando tecnicas de seleccion de caracteristicas o ajustando mas los parametros.
+La Regresion Logistica muestra un rendimiento satisfactorio utilizando solo 4 caracteristicas, lo que sugiere que las variables seleccionadas tienen una relacion significativa con la etiqueta objetivo. A pesar, tambien se puede suponer que la precision obtenida se ha visto limitada por la naturaleza lineal del modelo.
 
 A continuacion, se explican brevemente los parametros utilizados:
 
 \begin{itemize}
 
 \item
-C: El parametro de regularizacion C controla la penalizacion aplicada a los errores. Un valor alto de C indica que se permite una menor penalizacion, por lo que el modelo intenta ajustar mas los datos.
+C = 100.0: El parametro de regularizacion C controla la penalizacion aplicada a los errores. Un valor alto de C indica que se permite una menor penalizacion, por lo que el modelo intenta ajustar mas los datos.
 
 \item
-solver: El solver 'lbfgs' es un optimizador recomendado para solucionar problemas pequeños y medianos.
+solver = 'lbfgs': El solver 'lbfgs' es un optimizador recomendado para solucionar problemas pequeños y medianos.
 
 \item
-multi-class: Procedente de las siglas OnevsRest (OVR), significa que para la
+multi-class = 'ovr': Procedente de las siglas OnevsRest (OVR), significa que para la
 clasificacion multiclase, el modelo entrenara un clasificador idenpendiente para cada 
 clase.
 
@@ -627,12 +633,20 @@ clase.
 \begin{tcolorbox}[width=14cm]
 \begin{scriptsize}
 \begin{verbatim}
-CODE
+lr = LogisticRegression(C=100.0, solver='lbfgs', multi_class='ovr')
+lr.fit(X_train_std, y_train)
+y_pred = lr.predict(X_test_std)
+print('Misclassification samples: %d' % (y_test != y_pred).sum())
+print('Accuracy: %.3f' % lr.score(X_test_std, y_test))
+
+# RESULTADO
+Misclassification samples: 164
+Accuracy. 0.590
 \end{verbatim}
 \end{scriptsize}
 \end{tcolorbox}
 
-Se ha obtenido como resultado 165 muestras mal clasificadas, un numero relativamente bajo para este modelo, y se obtuvo una precision de 0.588, por lo que esa proporcion de  predicciones del modelo fur correcta.
+Se han obtenido como resultado 164 muestras mal clasificadas y una precision de 0.590.
 
 \end{itemize}
 
@@ -642,7 +656,9 @@ Se ha obtenido como resultado 165 muestras mal clasificadas, un numero relativam
 
 \item[3.5]  {\bf Maquinas de Soporte Vectorial (SVM)}
 
-SVM con kernel RBF es potente en la captura de relaciones no lineales entre las características. El modelo muestra un rendimiento sólido y, aunque los resultados dependen mucho de la selección de los parámetros gamma y C, en este caso el ajuste da buenos resultados.
+El uso de un kernel RBF permite capturar relaciones no lineales entre las caracteristicas, por lo que el modelo SVM sigue siendo altamente efectivo incluso teniendo unicamente 4 caracteristicas.
+
+Sin embargo, al reducir el numero de caracteristicas, el modelo podria quedar limitado a la hora de identificar patrones mas complejos.
 
 A continuacion, se explican brevemente los parametros utilizados:
 
@@ -662,12 +678,20 @@ C = 30.0: Controla el grado de penalización aplicado a los errores de clasifica
 \begin{tcolorbox}[width=14cm]
 \begin{scriptsize}
 \begin{verbatim}
-CODE
+svm = SVC(kernel='rbf', random_state=1, gamma=0.7, C=30.0)
+svm.fit(X_train_std, y_train)
+y_pred = svm.predict(X_test_std)
+print('Misclassification samples: %d' % (y_test != y_pred).sum())
+print('Accuracy: %.3f' % svm.score(X_test_std, y_test))
+
+# RESULTADO
+Misclassification samples: 174
+Accuracy. 0.565
 \end{verbatim}
 \end{scriptsize}
 \end{tcolorbox}
 
-Se ha obtenido como resultado 157 muestras mal clasificadas, un numero relativamente bajo para este modelo, y se obtuvo una precision de 0.608, una proporcion ligeramente superior a la obtenida con la Regresion Logistica.
+Se han obtenido como resultado 174 muestras mal clasificadas y una precision de 0.565.
 
 \end{itemize}
 
@@ -677,7 +701,7 @@ Se ha obtenido como resultado 157 muestras mal clasificadas, un numero relativam
 
 \item[3.6]  {\bf Arboles de Decision (Random Trees)}
 
-Los árboles de decisión tienden a sobreajustar los datos si no se limitan adecuadamente. En este caso, al limitar la profundidad a 4, se puede evitar el sobreajuste y el modelo puede ser generalizado adecuadamente. Sin embargo, en comparación con los otros modelos, el rendimiento fue ligeramente inferior, posiblemente porque el modelo no pudo capturar todas las complejidades de los datos con solo 4 niveles de profundidad.
+El arbol de decision tiene un rendimiento adecuado, aunque presenta una ligera tendencia al sobreajuste al tener solo 4 caracteristicas, algo que se ha solucionado limitando la profundidad, quedando a expensas de la precision en algunas ocasiones.
 
 A continuacion, se explican brevemente los parametros utilizados:
 
@@ -694,12 +718,22 @@ max-depth = 4: La profundidad máxima del árbol se fija en 4 para evitar el sob
 \begin{tcolorbox}[width=14cm]
 \begin{scriptsize}
 \begin{verbatim}
-CODE
+tree_model = DecisionTreeClassifier(criterion='gini', max_depth=4, random_state=1)
+tree_model.fit(X_train, y_train)
+tree.plot_tree(tree_model, feature_names=['Col1', 'Col5', 'Col7', 'Col11'], filled=True)
+plt.show()
+y_pred = tree_model.predict(X_test)
+print('Misclassification samples: %d' % (y_test != y_pred).sum())
+print('Accuracy: %.3f' % tree_model.score(X_test, y_test))
+
+# RESULTADO
+Misclassification samples: 174
+Accuracy. 0.565
 \end{verbatim}
 \end{scriptsize}
 \end{tcolorbox}
 
-Se ha obtenido como resultado 172 muestras mal clasificadas, un numero similar a los otros dos modelos, y se obtuvo una precision de 0.570, por lo que esa proporcion de  predicciones del modelo fur correcta.
+Se han obtenido como resultado 174 muestras mal clasificadas y una precision de 0.565.
 
 \end{itemize}
 
@@ -713,9 +747,9 @@ Se ha obtenido como resultado 172 muestras mal clasificadas, un numero similar a
 
 \item[4.1]  {\bf Introduccion}
 
-En este apartado se presentan los resultados de la clasificacion del conjunto de datos del fichero dataset.csv utilizando 3 metodos de aprendizaje supervisado: Regresion Logistica (Logistic Regression), Maquinas de Soporte Vectorial (SVM) y Arboles de Decision (Random Trees).
+En este apartado se presentan los resultados de la clasificacion de 2 de las columnas del fichero dataset.csv utilizando 3 metodos de aprendizaje supervisado: Regresion Logistica (Logistic Regression), Maquinas de Soporte Vectorial (SVM) y Arboles de Decision (Random Trees).
 
-Cada uno de estos clasificadores ha sido entrenado usando todas las caracteristicas del dataset. A continuacion, se iran describiendo los parametros utilizados para cada modelo, presentando los resultados obtenidos y discutiendo el rendimiento de cada clasificador.
+El objetivo de esto es comparar el rendimiento de estos modelos al reducir el numero de variables y analizar el impacto de esta reduccion en la precision de los clasificadores.
 
 \end{itemize}
 
@@ -725,19 +759,16 @@ Cada uno de estos clasificadores ha sido entrenado usando todas las caracteristi
 
 \item[4.2]  {\bf Seleccion de las 2 caracteristicas}
 
-En primer lugar, se realizó un análisis de correlación entre las variables del dataset completo para identificar las características más relevantes. Se seleccionaron las siguientes cuatro características basadas en su diversidad y posible relación con la variable objetivo:
+En primer lugar, se realiza un análisis de correlación entre las variables del dataset completo para identificar las características más relevantes. Para ello, se han seleccionado las caracteristicas Col1 y Col7.
 
-Col1
-Col5
-Col7
-Col11
-
-Estas variables se seleccionaron por su correlación baja entre sí y por su posible relevancia para la clasificación, a fin de evitar multicolinealidad y maximizar la capacidad predictiva del modelo.
+Las variables seleccionadas son aquellas que mejor coeficiente de correlacion poseen, ademas de poder aportar mucha relevancia para su clasificación, a fin de evitar multicolinealidad y maximizar la capacidad predictiva del modelo.
 
 \begin{tcolorbox}[width=14cm]
 \begin{scriptsize}
 \begin{verbatim}
-CODE
+dataset_2_characteristics = dataset_anonymized.drop(["Col2", "Col3", "Col4", "Col5",
+"Col6", "Col8", "Col9", "Col10", "Col11"], axis=1)
+dataset_2_characteristics.to_csv('dataset_2_characteristics.csv', index=False)
 \end{verbatim}
 \end{scriptsize}
 \end{tcolorbox}
@@ -750,42 +781,47 @@ CODE
 
 \item[4.3]  {\bf Preparacion de los datos}
 
-Antes de entrenar los modelos, primero se debe cargar el dataset, la anonimizacion de las caracteristicas y la separacion de las caracteristicas (X) respecto a la etiqueta objetivo (y). 
+Una vez hecho esto, el conjunto de datos se ha dividido en 2 subconjuntos: Entrenamiento (0.75) y prueba (0.25), lo que asegura que la distribucion de las clases sea equilibrada.
 
-Ademas de esto, tambien se realiza una estandarizacion de las caracteristicas, algo que es muy importante realizar para modelos como la Regresion Logistica (Logistic Regression) y SVM (Support Vector Machines), que son sensibles a las escalas de las variables.
+Ademas, los datos han sido estandarizados mediante StandardScaler(), algo importante en clasificadores como la Regresion Logistica (Logistic Regression) y SVM (Support Vector Machines), que son sensibles a la escala de los datos.
 
 \begin{tcolorbox}[width=14cm]
 \begin{scriptsize}
 \begin{verbatim}
-CODE
+X_train, X_test, y_train, y_test = train_test_split(X.values, y, test_size=0.25,
+random_state=1, stratify=y)
+sc = StandardScaler()
+sc.fit(X_train)
+X_train_std = sc.transform(X_train)
+X_test_std = sc.transform(X_test)
 \end{verbatim}
 \end{scriptsize}
 \end{tcolorbox}
 
-Por otro lado, el dataset se divide en dos conjuntos: Uno de entrenamiento (0.75) y otro de prueba (0.25). Esta division se hace de tal forma que la proporcion de clases en ambos conjuntos sea similar, evitando asi posibles desbalanceos.
-
 \end{itemize}
 
-\bigskip
+\newpage
 
 \begin{itemize}
 
 \item[4.4]  {\bf Regresion Logistica (Logistic Regression)}
 
-La Regresion Logistica es un modelo lineal, por lo que es mas adecuado cuando las caracteristicas tienen relaciones lineales con las etiquetas. En este caso, el modelo muestra un buen rendimiento general, aunque la precision podria mejorar utilizando tecnicas de seleccion de caracteristicas o ajustando mas los parametros.
+La Regresion Logistica muestra un rendimiento aceptable a pesar de la reduccion a solo 2 caracteristicas, lo que indica que las variables seleccionadas aportan informacion relevante para la clasificacion.
+
+Sin embargo, la reduccion a solo 2 variables limita la capacidad del modelo para capturar relaciones mas complejas.
 
 A continuacion, se explican brevemente los parametros utilizados:
 
 \begin{itemize}
 
 \item
-C: El parametro de regularizacion C controla la penalizacion aplicada a los errores. Un valor alto de C indica que se permite una menor penalizacion, por lo que el modelo intenta ajustar mas los datos.
+C = 100.0: El parametro de regularizacion C controla la penalizacion aplicada a los errores. Un valor alto de C indica que se permite una menor penalizacion, por lo que el modelo intenta ajustar mas los datos.
 
 \item
-solver: El solver 'lbfgs' es un optimizador recomendado para solucionar problemas pequeños y medianos.
+solver = 'lbfgs': El solver 'lbfgs' es un optimizador recomendado para solucionar problemas pequeños y medianos.
 
 \item
-multi-class: Procedente de las siglas OnevsRest (OVR), significa que para la
+multi-class = 'ovr': Procedente de las siglas OnevsRest (OVR), significa que para la
 clasificacion multiclase, el modelo entrenara un clasificador idenpendiente para cada 
 clase.
 
@@ -794,12 +830,20 @@ clase.
 \begin{tcolorbox}[width=14cm]
 \begin{scriptsize}
 \begin{verbatim}
-CODE
+lr = LogisticRegression(C=100.0, solver='lbfgs', multi_class='ovr')
+lr.fit(X_train_std, y_train)
+y_pred = lr.predict(X_test_std)
+print('Misclassification samples: %d' % (y_test != y_pred).sum())
+print('Accuracy: %.3f' % lr.score(X_test_std, y_test))
+
+# RESULTADO
+Misclassification samples: 167
+Accuracy. 0.583
 \end{verbatim}
 \end{scriptsize}
 \end{tcolorbox}
 
-Se ha obtenido como resultado 165 muestras mal clasificadas, un numero relativamente bajo para este modelo, y se obtuvo una precision de 0.588, por lo que esa proporcion de  predicciones del modelo fur correcta.
+Se han obtenido como resultado 167 muestras mal clasificadas y una precision de 0.583.
 
 \end{itemize}
 
@@ -809,7 +853,9 @@ Se ha obtenido como resultado 165 muestras mal clasificadas, un numero relativam
 
 \item[4.5]  {\bf Maquinas de Soporte Vectorial (SVM)}
 
-SVM con kernel RBF es potente en la captura de relaciones no lineales entre las características. El modelo muestra un rendimiento sólido y, aunque los resultados dependen mucho de la selección de los parámetros gamma y C, en este caso el ajuste da buenos resultados.
+El SVM con kernel RBF demuestra un rendimiento superior al capturar relaciones no lineales entre las dos caracteristicas seleccionadas.
+
+Sin embargo, en este caso, el clasificador se ha beneficiado de uso de un kernel no lineal, lo que sugiere que aunque el numero de caracteristicas sea bajo, el modelo puede seguir identificando patrones complejos en los datos.
 
 A continuacion, se explican brevemente los parametros utilizados:
 
@@ -829,12 +875,20 @@ C = 30.0: Controla el grado de penalización aplicado a los errores de clasifica
 \begin{tcolorbox}[width=14cm]
 \begin{scriptsize}
 \begin{verbatim}
-CODE
+svm = SVC(kernel='rbf', random_state=1, gamma=0.7, C=30.0)
+svm.fit(X_train_std, y_train)
+y_pred = svm.predict(X_test_std)
+print('Misclassification samples: %d' % (y_test != y_pred).sum())
+print('Accuracy: %.3f' % svm.score(X_test_std, y_test))
+
+# RESULTADO
+Misclassification samples: 167
+Accuracy. 0.583
 \end{verbatim}
 \end{scriptsize}
 \end{tcolorbox}
 
-Se ha obtenido como resultado 157 muestras mal clasificadas, un numero relativamente bajo para este modelo, y se obtuvo una precision de 0.608, una proporcion ligeramente superior a la obtenida con la Regresion Logistica.
+Se han obtenido como resultado 167 muestras mal clasificadas y una precision de 0.583.
 
 \end{itemize}
 
@@ -844,7 +898,9 @@ Se ha obtenido como resultado 157 muestras mal clasificadas, un numero relativam
 
 \item[4.6]  {\bf Arboles de Decision (Random Trees)}
 
-Los árboles de decisión tienden a sobreajustar los datos si no se limitan adecuadamente. En este caso, al limitar la profundidad a 4, se puede evitar el sobreajuste y el modelo puede ser generalizado adecuadamente. Sin embargo, en comparación con los otros modelos, el rendimiento fue ligeramente inferior, posiblemente porque el modelo no pudo capturar todas las complejidades de los datos con solo 4 niveles de profundidad.
+El Arbol de Decision logra un rendimiento decente, aunque la falta de complejidad en el modelo y al estar trabajando con solo 2 caracteristicas, es algo que podria haber limitado su capacidad predictiva.
+
+Por otro lado, el uso de una profundidad limitada evita que el modelo se sobreajuste a los datos de entrenamiento, algo que se considera muy importante cuando se esta trabajando con un numero tan reducido de caracteristicas.
 
 A continuacion, se explican brevemente los parametros utilizados:
 
@@ -861,12 +917,22 @@ max-depth = 4: La profundidad máxima del árbol se fija en 4 para evitar el sob
 \begin{tcolorbox}[width=14cm]
 \begin{scriptsize}
 \begin{verbatim}
-CODE
+tree_model = DecisionTreeClassifier(criterion='gini', max_depth=4, random_state=1)
+tree_model.fit(X_train, y_train)
+tree.plot_tree(tree_model, feature_names=['Col1', 'Col7'], filled=True)
+plt.show()
+y_pred = tree_model.predict(X_test)
+print('Misclassification samples: %d' % (y_test != y_pred).sum())
+print('Accuracy: %.3f' % tree_model.score(X_test, y_test))
+
+# RESULTADO
+Misclassification samples: 178
+Accuracy. 0.555
 \end{verbatim}
 \end{scriptsize}
 \end{tcolorbox}
 
-Se ha obtenido como resultado 172 muestras mal clasificadas, un numero similar a los otros dos modelos, y se obtuvo una precision de 0.570, por lo que esa proporcion de  predicciones del modelo fur correcta.
+Se han obtenido como resultado 178 muestras mal clasificadas y una precision de 0.555.
 
 \end{itemize}
 
@@ -880,9 +946,23 @@ Se ha obtenido como resultado 172 muestras mal clasificadas, un numero similar a
 
 \item[5.1]  {\bf Comparacion de los resultados}
 
-TABLA
+\begin{table}[h]
+  \begin{center}
+    \begin{tabular}{| c | c | c | c | }
+      \hline
+      Caracteristicas & Regresion Logistica & SVM & Arboles de Decision \\ \hline
+      Todas & 0.588 & 0.608 & 0.570 \\
+      4     & 0.590 & 0.565 & 0.565 \\
+      2     & 0.583 & 0.583 & 0.555 \\ \hline
+    \end{tabular}
+  \end{center}
+\end{table}
 
-El SVM con kernel RBF fue el modelo más consistente en cuanto a rendimiento en todas las configuraciones. La Regresión Logística mostró un rendimiento sólido pero decreciente a medida que se redujeron las características. Los Árboles de Decisión fueron los más afectados por la reducción de información, lo que sugiere que su capacidad para construir reglas de decisión eficaces depende más de la cantidad de características disponibles.
+El SVM con kernel RBF ha sido el modelo más consistente en cuanto a rendimiento en todos los casos. 
+
+Por otro lado, la Regresión Logística ha ido mostrando un rendimiento sólido pero decreciente a medida que se han ido reduciendo las características. 
+
+Y por ultimo, los Árboles de Decisión han sido los más afectados por la reducción de información, lo que sugiere que su capacidad para construir reglas de decisión eficaces depende más de la cantidad de características disponibles.
 
 \end{itemize}
 
@@ -892,15 +972,22 @@ El SVM con kernel RBF fue el modelo más consistente en cuanto a rendimiento en 
 
 \item[5.2]  {\bf Conclusiones}
 
-El rendimiento de los clasificadores depende significativamente del número de características utilizadas. Los hallazgos clave son:
+El rendimiento de los clasificadores ha ido dependiendo significativamente del número de características utilizadas. A continuacion se muestran algunos de los aspectos mas importantes a tener en cuenta en cada modelo:
 
-SVM (kernel RBF) fue el más robusto frente a la reducción de características, adaptándose bien incluso con solo dos variables.
+\begin{itemize}
 
-La Regresión Logística mostró un rendimiento decreciente cuando se redujo la cantidad de características, destacando su dependencia en información más completa para realizar predicciones precisas.
+\item
+SVM (Support Vector Machines): ha sido el más robusto frente a la reducción de características, adaptándose bien incluso en el caso en el que se han tenido solo 2 caracteristicas.
 
-Árboles de Decisión necesitan más características para crear reglas complejas y precisas; con menos variables, su capacidad para capturar patrones importantes se ve disminuida.
+\item
+Regresion Logistica (Logistic Regression): Ha ido mostrando un rendimiento decreciente cuando se han ido reduciendo la cantidad de características, destacando su dependencia en información más completa para realizar predicciones precisas.
 
-En general, reducir el número de características impacta el rendimiento de los modelos, pero algunos, como el SVM, pueden manejar esta reducción mejor que otros. Para futuros estudios, sería útil explorar técnicas de selección o extracción de características para mejorar el rendimiento mientras se reducen las dimensiones del dataset.
+\item
+Árboles de Decisión (Random Trees): Han necesitado más características para crear reglas complejas y precisas. Sin embargo, con menos variables, su capacidad para capturar patrones importantes se ha visto disminuida.
+
+\end{itemize}
+
+En general, reducir el número de características impacta el rendimiento de los modelos, pero algunos, como el SVM (Support Vector Machines), pueden manejar esta reducción mejor que otros.
 
 \end{itemize}
 
