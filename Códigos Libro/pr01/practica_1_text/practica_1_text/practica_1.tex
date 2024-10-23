@@ -165,7 +165,7 @@ pd.set_option('display.max_columns', len(dataset.columns))
 
 \item[1.2]  {\bf Inspeccion del dataset}
 
-A continuacion, se evalua la estructura del dataset observando las dimensiones (dataset.shape), las primeras filas (dataset.head(1), la informacion de cada columna y otras estadisticas descriptivas como la media, la desviacion estandar, minimos, maximos y cuartiles, ademas de otros valores atipicos y distribuciones inusuales (dataset.describe()).
+A continuacion, se evalua la estructura del dataset observando las dimensiones (dataset.shape), las primeras filas (dataset.head(1)), la informacion de cada columna y otras estadisticas descriptivas como la media, la desviacion estandar, minimos, maximos y cuartiles, ademas de otros valores atipicos y distribuciones inusuales (dataset.describe()).
 
 Todo esto permite conocer cuantas filas y columnas contiene el dataset (dataset.columns), el tipo de datos que maneja (dataset.info()), la aparicion de valores nulos o la presencia de inconsistencia en algun dato.
 
@@ -191,7 +191,7 @@ dataset.describe()
 
 Para poder analizar los datos, se ha creado un nuevo conjunto de datos anonimizado, en el que se ha eliminado la columna Target del dataset. Ademas de esto, se realiza un analisis de la correlacion entre todas las columnas/variables.
 
-Es importante realizar este paso para detectar altas correlaciones, las cuales suelen indicar multicolinealidad, algo que afectaria a los modelos predictivos.
+Es importante realizar este paso para detectar altas correlaciones, las cuales suelen indicar multicolinealidad, algo que afecta a los modelos predictivos.
 
 \begin{tcolorbox}[width=14cm]
 \begin{scriptsize}
@@ -203,7 +203,7 @@ dataset_anonymized.corr()
 \end{scriptsize}
 \end{tcolorbox}
 
-El analisis de una correlacion esta identificada con las demas, donde un coeficiente de correlacion cercano a 1 o -1 indica una relacion fuerte, mientras que un valor cercano a 0 indica una correlacion practicamente inexistente.
+El analisis de una correlacion esta identificada con las demas, donde un coeficiente de correlacion cercano a 1 o -1 indica una correlacion fuerte, mientras que un valor cercano a 0 indica una correlacion practicamente inexistente.
 
 \end{itemize}
 
@@ -213,7 +213,7 @@ El analisis de una correlacion esta identificada con las demas, donde un coefici
 
 \item[1.4]  {\bf Visualizacion de la matriz de correlacion}
 
-Una matriz de correlacion es visualizada mediante un mapa de calor utilizando la libreria seaborn, la cual facilita la identificacion de relaciones positivas o negativas entre las variables.
+La matriz de correlacion se visualiza mediante un mapa de calor utilizando la libreria seaborn, la cual facilita la identificacion de relaciones positivas o negativas entre las variables.
 
 \begin{tcolorbox}[width=14cm]
 \begin{scriptsize}
@@ -265,7 +265,7 @@ IMAGEN HISTOGRAMA
 
 \item[1.6]  {\bf Separacion de caracteristicas y etiquetas}
 
-Una vez hecho esto, se separan las caracteristicas (X) y las etiqeutas (y) del dataset, lo cual permite preparar los datos para los modelos de machine learning.
+Una vez hecho esto, se separan las caracteristicas (X) y las etiquetas (y) del dataset, lo cual permite preparar los datos para los modelos de machine learning.
 
 En este caso, X contiene la informacion de todas las columnas, exceptuando la columna Target, mientras que y contiene los valores de la variable objetivo Target.
 
@@ -311,7 +311,7 @@ X_train, X_test, y_train, y_test = train_test_split(X.values, y, test_size=0.25,
 
 \item[1.8]  {\bf Estandarizacion de los datos}
 
-La estandarizacion de los datos asegura que todas las caracteristicas se encuentren en la misma escala, algo que es considerado de gran importancia en modelos de regresion logistica, SVM o redes neuronales, donde se veran algunos de ellos mas adelante.
+La estandarizacion de los datos asegura que todas las caracteristicas se encuentren en la misma escala, algo que es considerado de gran importancia en modelos de regresion logistica, SVM o redes neuronales, los cuales se veran mas adelante.
 
 Para este caso, se utiliza StandardScaler() para normalizar los datos, los cuales se ajustan a las caracteristicas de los mismos para que tengan media 0 y desviacion estandar 1, lo que se traduce en una mejora de rendimiento a la hora de utilizar los algoritmos mencionados anteriormente.
 
@@ -416,13 +416,13 @@ A continuacion, se explican brevemente los parametros utilizados:
 \begin{itemize}
 
 \item
-C: El parametro de regularizacion C controla la penalizacion aplicada a los errores. Un valor alto de C indica que se permite una menor penalizacion, por lo que el modelo intenta ajustar mas los datos.
+C = 100.0: El parametro de regularizacion C controla la penalizacion aplicada a los errores. Un valor alto de C indica que se permite una menor penalizacion, por lo que el modelo intenta ajustar mas los datos.
 
 \item
-solver: El solver 'lbfgs' es un optimizador recomendado para solucionar problemas pequeños y medianos.
+solver = 'lbfgs': El solver 'lbfgs' es un optimizador recomendado para solucionar problemas pequeños y medianos.
 
 \item
-multi-class: Procedente de las siglas OnevsRest (OVR), significa que para la
+multi-class = 'ovr': Procedente de las siglas OnevsRest (OVR), significa que para la
 clasificacion multiclase, el modelo entrenara un clasificador idenpendiente para cada 
 clase.
 

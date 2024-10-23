@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1729616495 "practica_1.tex" "practica_1.pdf" "practica_1" 1729616495
+["pdflatex"] 1729675985 "practica_1.tex" "practica_1.pdf" "practica_1" 1729675985
   "/etc/texmf/web2c/texmf.cnf" 1729616418 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty" 1359763108 5949 3f3fd50a8cc94c3d4cbf4fc66cd3df1c ""
   "/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty" 1359763108 13829 94730e64147574077f8ecfea9bb69af4 ""
@@ -19,8 +19,8 @@
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1644012257 39432 7155514e09a3d69036fac785183a21c2 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1729616442 1405652 cb684c51ff4cbbace31b81b2ac376308 ""
-  "practica_1.aux" 1729616084 654 0ece44cc5389140d3ab5bcc1a1daad43 "pdflatex"
-  "practica_1.tex" 1729616495 31774 c072f8dc795ae7f77c270d7c1cddb0e3 ""
+  "practica_1.aux" 1729616084 654 0ece44cc5389140d3ab5bcc1a1daad43 ""
+  "practica_1.tex" 1729675983 31786 6cc487b4abb96f0ade58588288cad09e ""
   "tikz.sty" 0 -1 0 ""
   (generated)
   "practica_1.log"
