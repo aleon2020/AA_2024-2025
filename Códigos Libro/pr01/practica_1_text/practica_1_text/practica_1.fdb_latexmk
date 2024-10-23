@@ -1,6 +1,6 @@
 # Fdb version 4
-["pdflatex"] 1729686439.8141 "practica_1.tex" "practica_1.pdf" "practica_1" 1729686441.00926 0
-  "/etc/texmf/web2c/texmf.cnf" 1725286852.23126 475 c0e671620eb5563b2130f56340a5fde8 ""
+["pdflatex"] 1729690231.0616 "practica_1.tex" "practica_1.pdf" "practica_1" 1729690232.24308 0
+  "/etc/texmf/web2c/texmf.cnf" 1725288395.79139 475 c0e671620eb5563b2130f56340a5fde8 ""
   "/usr/share/texlive/texmf-dist/fonts/map/fontname/texfonts.map" 1577235249 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/cmextra/cmex7.tfm" 1246382020 1004 54797486969f23fa377b128694d548df ""
   "/usr/share/texlive/texmf-dist/fonts/tfm/public/amsfonts/symbols/msam10.tfm" 1246382020 916 f87d7c45f9c908e672703b83b72241a3 ""
@@ -146,13 +146,13 @@
   "/usr/share/texlive/texmf-dist/tex/latex/xcolor/xcolor.sty" 1700082560 55487 80a65caedd3722f4c20a14a69e785d8f ""
   "/usr/share/texlive/texmf-dist/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
   "/usr/share/texmf/web2c/texmf.cnf" 1707919699 40399 f2c302f7d2af602abb742093540a5834 ""
-  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1725288690.49944 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
-  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1725288821 8214719 7850f0e1ba991488e7f617a8e8300984 ""
+  "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1725289353.03015 5472669 54eaf61a88b6b7896ebd0dac973cb29c ""
+  "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1725289373 8213944 31fd587fe80af0c956e23d0c119e1de2 ""
   "characteristics_frequency.png" 1729682139.57785 54064 407fd1fb50bca4201a4b9e70e6b542f2 ""
   "correlation_heatmap.png" 1729682082.329 70119 8cb0f494995775f3f0c1a957cccd9497 ""
-  "practica_1.aux" 1729686440.90666 655 c28d375d9f492a499ba81171901e8bc1 "pdflatex"
-  "practica_1.out" 1729686440.91066 240 600cc8bb5fd49286db10eeb0145ffb3a "pdflatex"
-  "practica_1.tex" 1729686438.57462 33849 477547b3f0928f3d87e0b6a2ebd615a4 ""
+  "practica_1.aux" 1729690232.17977 655 c28d375d9f492a499ba81171901e8bc1 "pdflatex"
+  "practica_1.out" 1729690232.18377 240 600cc8bb5fd49286db10eeb0145ffb3a "pdflatex"
+  "practica_1.tex" 1729690229.78374 33826 5ec46659d5dc7801f540da9e13e6ec1b ""
   (generated)
   "practica_1.aux"
   "practica_1.log"
