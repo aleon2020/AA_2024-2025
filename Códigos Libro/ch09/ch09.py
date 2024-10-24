@@ -332,6 +332,8 @@ class LinearRegressionGD:
         return self.net_input(X)
 
 
+# ## <span style="color: red;"> Using only one feature </span>
+
 
 
 X = df[['Gr Liv Area']].values
@@ -437,6 +439,24 @@ print(single_pred)
 Slope = 111.666
 Intercept = 13342.979
 print(Slope * 1329 + Intercept)
+
+
+# ## <span style="color: red;"> Single prediction </span>
+
+
+
+# Predict SalePrice for new features: Gr liv Area=850
+new_data = ([[850]])
+predicted_price = slr.predict(new_data)
+
+print("Predicted SalePrice: ", predicted_price)
+
+
+# ## <span style="color: red;"> Check the single prediction manually </span>
+
+
+
+print(850 * 111.666 + 13342.979)
 
 
 
@@ -730,6 +750,11 @@ pr = LinearRegression()
 quadratic = PolynomialFeatures(degree=2)
 X_quad = quadratic.fit_transform(X)
 
+print(X_quad)
+print(258**2)
+print(270**2)
+print(294**2)
+
 
 
 
@@ -997,6 +1022,78 @@ plt.tight_layout()
 
 #plt.savefig('figures/09_16.png', dpi=300)
 plt.show()
+
+
+# ## <span style="color: red;"> Modeling multiple nonlinear relationships in the Ames Housing dataset: linear </span>
+
+
+
+X = df[['Overall Qual', 'Total Bsmt SF', 'Gr Liv Area']].values
+y = df['SalePrice'].values
+# ...
+# ...
+
+slr = LinearRegression()
+# ...
+
+slr.fit(X, y)
+# ...
+
+
+# **In a Jupyter Environment, please rerun this cell to show the HTML representation or trust the notebook.**
+# **On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.**
+
+
+
+# Print the coefficient of determination
+y_pred = slr.predict(X)
+# ...
+# ...
+
+
+
+
+# Calculate evaluation metrics
+mae = mean_absolute_error(y, y_pred)
+mse = mean_squared_error(y, y_pred)
+R2 = r2_score(y, y_pred)
+
+print("Mean Absolute Error (MAE):", mae)
+print("Mean Squared Error (MSE):", mse)
+print("R-squared:", R2)
+
+
+
+
+coefficients = slr.coef_        # Coefficients from the trained model
+intercept = slr.intercept_      # Intercept from the trained model
+
+# Print the coefficients
+print("Coefficients:", coefficients)
+
+# If you also want to print the intercept
+print("Intercept:", intercept)
+
+
+# ## <span style="color: red;"> Make a single prediction </span>
+
+
+
+# CODE
+
+
+# ## <span style="color: red;"> Check the result manually </span>
+
+
+
+# CODE
+
+
+# ## <span style="color: red;"> Modeling multiple nonlinear relationships in the Ames Housing dataset: quadratic </span>
+
+
+
+# CODE
 
 
 # # Summary
