@@ -744,11 +744,21 @@ y = np.array([236.4, 234.4, 252.8,
 
 
 
-
 lr = LinearRegression()
+# Initializes a simple linear regression model, stored in the variable lr
+
 pr = LinearRegression()
+# Initializes a simple linear regression model, stored in the variable pr
+
 quadratic = PolynomialFeatures(degree=2)
+# PolynomialFeatures is a transformer class from sklearn.preprocessing.
+# It creates new features by raising the original features to higher powers
+# degree=2: This specifies that you want to include features raised to the 2nd power (i.e., quadratic terms).
+# You could raise it higher by changing the drgree (e.g., degree=3 for cubic features).
+
 X_quad = quadratic.fit_transform(X)
+# fit_transform(): This method is used to fit the transformer to the data and then transform the data in one step.
+# X-quad. This is the transformed input data, which contains the original features plus the quadratic (degree 2) features (e.g., squares).
 
 print(X_quad)
 print(258**2)
@@ -759,13 +769,29 @@ print(294**2)
 
 
 # fit linear features
+
 lr.fit(X, y)
+# fit(X, y): This methos trains the linear regression model using X and y
+
 X_fit = np.arange(250, 600, 10)[:, np.newaxis]
+# This creates an array of values from 250 to 590, with a step size of 10.
+# [:, np.newaxis]: This reshapes the 1D array into a 2D array (with one column).
+# This is necessary because scikit-learn expects the input features (X) to be 2D (rows as data points, columns as features).
+
 y_lin_fit = lr.predict(X_fit)
+# predict(X_fit): This method uses the trained linear regression model (lr) to predict target values for the input X_fit.
+# y_lin_fit: This is the array of predicted target values based on the linear model.
 
 # fit quadratic features
 pr.fit(X_quad, y)
+
+# pr.fit(X_quad, y): This methos trains another linear regression model using the transformed input data X_quad and y
+# pr: This is the polynomial regression model (which is still a linear model but fitted on polynomial-transformed features).
+
 y_quad_fit = pr.predict(quadratic.fit_transform(X_fit))
+# pr.predict(quadratic.fit_transform(X_fit)): This uses the trained polynomial regression model to predict target values
+# based on the transformed input values.
+# y_quad_fit: This is the array of predicted target values based on the polynomial model.
 
 # plot results
 plt.scatter(X, y, label='Training points')
@@ -821,6 +847,8 @@ X_cubic = cubic.fit_transform(X)
 
 # fit features
 X_fit = np.arange(X.min()-1, X.max()+2, 1)[:, np.newaxis]
+# np.arrange(start, stop, step): This function from the NumPy library creates an array of evenly spaced values within a specified range.
+# [:, np.newaxis]: Reshapes this range into a 2D array (required for prediction).
 
 regr = regr.fit(X, y)
 y_lin_fit = regr.predict(X_fit)
@@ -1030,25 +1058,26 @@ plt.show()
 
 X = df[['Overall Qual', 'Total Bsmt SF', 'Gr Liv Area']].values
 y = df['SalePrice'].values
-# ...
-# ...
+# X is a 2D array with multiple features (Overall Qual, Total Bsmt SF, and GR Liv Area), which are the input variables.
+# y is a 1D array containing the dependent variable (output), which is the sale price of each house.
 
 slr = LinearRegression()
-# ...
+# LinearRegression(): This initializes a linear regression model from sci-kit learn. The variable slr now holds this model.
 
 slr.fit(X, y)
-# ...
+# fit(X, y): This method trains (or "fits") the linear regression model using the data.
 
 
 # **In a Jupyter Environment, please rerun this cell to show the HTML representation or trust the notebook.**
+# 
 # **On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.**
 
 
 
 # Print the coefficient of determination
 y_pred = slr.predict(X)
-# ...
-# ...
+# slr: Is the linear regression model we trained earlier using slr.fit(X, y).
+# predict(X): Is the method used to predict the target values (y_pred) based on the input features (X).
 
 
 
@@ -1079,21 +1108,108 @@ print("Intercept:", intercept)
 
 
 
-# CODE
+# Predict SalePrice for new features: Overall Qual = 7, Total Bsmt SF = 1000, Gr Liv Area = 1500
+new_data = [[7, 1000, 1500]]
+predicted_price = slr.predict(new_data)
+
+print("Predicted Saleprice:", predicted_price)
 
 
 # ## <span style="color: red;"> Check the result manually </span>
 
 
 
-# CODE
+new_data = np.array([7, 1000, 1500])        # Example data: Overall Qual = 7, Total Bsmt SF = 1000, Gr Liv Area = 1500
+
+# Manually calculate the prediction
+coefficients = slr.coef_                    # Coefficients from the train model
+intercept = slr.intercept_                  # Intercept from the trained model
+
+# Multiply the coefficients by the new data and add the intercept
+manual_prediction = np.dot(coefficients, new_data) + intercept
+
+print("Manual Prediction:", manual_prediction)
 
 
 # ## <span style="color: red;"> Modeling multiple nonlinear relationships in the Ames Housing dataset: quadratic </span>
 
 
 
-# CODE
+
+# X = df[['Overall Qual']].values
+# y = df['SalePrice'].values
+
+X = df[['Overall Qual', 'Total Bsmt SF', 'Gr Liv Area']].values
+y = df['SalePrice'].values
+
+regr = LinearRegression()
+
+# create quadratic features
+quadratic = PolynomialFeatures(degree=2)
+X_quadratic = quadratic.fit_transform(X)
+
+regr_quadratic = regr.fit(X_quadratic, y)
+
+# Print the coefficients and intercept for the quadratic model
+print("Quadratic Model Coefficients:", regr_quadratic.coef_)
+print("Quadratic Model Intercept:", regr_quadratic.intercept_)
+
+# New data for which we want to predict: Overall Qual = 7, Total Bsmt SF = 1000, Gr Liv Area = 1500
+new_data = np.array([[7, 1000, 1500]])
+
+
+# Step 1: Transform the new data using the quadratic features
+new_data_quadratic = quadratic.transform(new_data)
+
+# Step 2: Use the trained model to predict the SalePrice for the new data
+predicted_price = regr_quadratic.predict(new_data_quadratic)
+
+print("Predicted SalePrice:", predicted_price)
+
+
+
+
+# Assuming these are the coefficients from the trained model
+coefficients = regr_quadratic.coef_
+intercept = regr_quadratic.intercept_
+
+# Example input (after transformation to quadratic terms)
+transformed_new_data = np.array(
+    [1,             # Intercept Term
+    7,              # X1 (Overall Qual)
+    1000,           # X2 (Total Bsmt SF)
+    1500,           # X3 (Gr Liv Area)
+    49,             # X1 ^ 2
+    7000,           # X1 * X2
+    10500,          # X1 * X3
+    1000000,        # X2 ^ 2
+    1500000,        # X2 * X3
+    2250000])       # X3 ^ 2
+
+# 1 is the intercept term.
+# 7, 1000, 1500 are the original features.T
+# 49 = 7 ^ 2, 7000 = 7 * 1000, 10500 = 7 * 1500.
+# 1000000 = 1000 ^ 2, 1500000 = 1000 * 1500.
+# 2250000 = 1500 ^ 2.
+
+# Manually calculate the predicition by performing the dot product between the coefficients and the transformed features
+manual_prediction = np.dot(coefficients, transformed_new_data) + intercept
+
+print("Manually Calculated SalePrice:", manual_prediction)
+
+
+
+
+y_pred = regr.predict(X_quadratic)
+
+# Calculate evaluation metrics
+mae = mean_absolute_error(y, y_pred)
+mse = mean_squared_error(y, y_pred)
+R2 = r2_score(y, y_pred)
+
+print("Mean Absolute Error (MAE):", mae)
+print("Mean Sqaured Error (MSE):", mse)
+print("R-squared:", R2)
 
 
 # # Summary
