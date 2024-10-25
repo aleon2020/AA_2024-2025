@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.9.2)  23 OCT 2024 15:30
+This is pdfTeX, Version 3.141592653-2.6-1.40.25 (TeX Live 2023/Debian) (preloaded format=pdflatex 2024.8.30)  25 OCT 2024 12:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -710,9 +710,10 @@ Package hyperref Info: Link coloring OFF on input line 25.
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
 
-Overfull \hbox (0.34726pt too wide) in paragraph at lines 66--67
+Overfull \hbox (3.12505pt too wide) in paragraph at lines 66--67
 \OT1/cmss/m/n/10 con los dis-tin-tos m^^Setodos y de-posita el c^^Sodigo Python
- en Aula Vir-tual en el fichero \OT1/cmtt/m/n/10 answer2.ipynb 
+ en Aula Vir-tual en el fichero \OT1/cmtt/m/n/10 answer2.ipynb\OT1/cmss/m/n/10 
+. 
  []
 
 
@@ -769,17 +770,17 @@ Package rerunfilecheck Info: File `practica_1.out' has not changed.
  ) 
 Here is how much of TeX's memory you used:
  23237 strings out of 474222
- 448090 string characters out of 5748734
+ 448090 string characters out of 5748733
  1937975 words of memory out of 5000000
  45124 multiletter control sequences out of 15000+600000
  561898 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,8n,93p,466b,531s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,9n,93p,466b,531s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmss10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmssbx10.pfb></usr/sh
 are/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt8.pfb>
-Output written on practica_1.pdf (14 pages, 184338 bytes).
+Output written on practica_1.pdf (14 pages, 184465 bytes).
 PDF statistics:
  121 PDF objects out of 1000 (max. 8388607)
  92 compressed objects within 1 object stream

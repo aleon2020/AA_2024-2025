@@ -63,7 +63,7 @@ Random Trees
 
 \end{itemize}
 
-para clasificar los datos. Describe en el informe los par\'ametros usados y los resultados obtenidos con los distintos m\'etodos y deposita el c\'odigo Python en Aula Virtual en el fichero \texttt{answer2.ipynb}
+para clasificar los datos. Describe en el informe los par\'ametros usados y los resultados obtenidos con los distintos m\'etodos y deposita el c\'odigo Python en Aula Virtual en el fichero \texttt{answer2.ipynb}.
 
 \end{itemize}
 
@@ -157,7 +157,7 @@ pd.set_option('display.max_columns', len(dataset.columns))
 
 \item[1.2]  {\bf Inspecci\'on del dataset}
 
-A continuaci\'on, se eval\'ua la estructura del dataset observando las dimensiones (dataset.shape), las primeras filas (dataset.head(1)), la informaci\'on de cada columna y otras estad\'isticas descriptivas como la media, la desviaci\'on estandar, m\'inimos, m\'aximos y cuartiles, ademas de otros valores at\'ipicos y distribuciones inusuales (dataset.describe()).
+A continuaci\'on, se eval\'ua la estructura del dataset observando las dimensiones (dataset.shape), las primeras filas (dataset.head(1)), la informaci\'on de cada columna y otras estad\'isticas descriptivas como la media, la desviaci\'on estandar, m\'inimos, m\'aximos y cuartiles, adem\'as de otros valores at\'ipicos y distribuciones inusuales (dataset.describe()).
 
 Todo esto permite conocer cu\'antas filas y columnas contiene el dataset (dataset.columns), el tipo de datos que maneja (dataset.info()), la aparici\'on de valores nulos o la presencia de inconsistencia en alg\'un dato.
 
@@ -181,7 +181,7 @@ dataset.describe()
 
 \item[1.3]  {\bf Anonimizaci\'on de los datos y an\'alisis de correlaci\'on}
 
-Para poder analizar los datos, se ha creado un nuevo conjunto de datos anonimizado, en el que se ha eliminado la columna \texttt{Target} del dataset. Ademas de esto, se realiza un an\'alisis de la correlaci\'on entre todas las variables.
+Para poder analizar los datos, se ha creado un nuevo conjunto de datos anonimizado, en el que se ha eliminado la columna \texttt{Target} del dataset. Adem\'as de esto, se realiza un an\'alisis de la correlaci\'on entre todas las variables.
 
 Es importante realizar este paso para detectar altas correlaciones, las cuales suelen indicar multicolinealidad, algo que afecta a los modelos predictivos.
 
@@ -205,7 +205,7 @@ El an\'alisis de una correlacion est\'a identificada con las dem\'as, donde un c
 
 \item[1.4]  {\bf Visualizaci\'on de la matriz de correlaci\'on}
 
-La matriz de correlaci\'on se visualiza mediante un mapa de calor utilizando la librer\'ia seaborn, la cual facilita la identificaci\'on de relaciones positivas o negativas entre las variables.
+La matriz de correlaci\'on se visualiza mediante un mapa de calor utilizando la librer\'ia \texttt{seaborn}, la cual facilita la identificaci\'on de relaciones positivas o negativas entre las variables.
 
 \begin{tcolorbox}[width=14cm]
 \begin{scriptsize}
@@ -216,7 +216,7 @@ sb.heatmap(dataset.corr(), linewidth=0.5, annot=True)
 \end{scriptsize}
 \end{tcolorbox}
 
-El gr\'afico resultante proporciona una visi\'on mas clara de las relaciones m\'as fuertes entre las variables, donde los colores oscuros indican una correlaci\'on alta, mientras que los colores m\'as claros indican una correlaci\'on baja.
+El gr\'afico resultante proporciona una visi\'on m\'as clara de las relaciones m\'as fuertes entre las variables, donde los colores oscuros indican una correlaci\'on alta, mientras que los colores m\'as claros indican una correlaci\'on baja.
 
 \begin{figure}[h]
   \centering
@@ -288,7 +288,7 @@ Class labels: [3 4 5 6 7 8]
 
 \item[1.7]  {\bf Divisi\'on del dataset en entrenamiento y prueba}
 
-El dataset se divide en dos conjuntos: Uno de entrenamiento (0.75) y otro de prueba (0.25). Esta divisi\'on se hace de tal forma que la proporci\'on de clases en ambos conjuntos sea similar, evitando asi posibles desbalanceos.
+El dataset se divide en dos conjuntos: Uno de entrenamiento (0.75) y otro de prueba (0.25). Esta divisi\'on se hace de tal forma que la proporci\'on de clases en ambos conjuntos sea similar, evitando as\'i posibles desbalanceos.
 
 Es necesario realizar este paso para poder entrenar los modelos con una parte del dataset y luego probar su rendimiento con datos que no han sido vistos previamente.
 
@@ -309,7 +309,7 @@ X_train, X_test, y_train, y_test = train_test_split(X.values, y, test_size=0.25,
 
 \item[1.8]  {\bf Estandarizaci\'on de los datos}
 
-La estandarizaci\'on de los datos asegura que todas las caracter\'isticas se encuentren en la misma escala, algo que es considerado de gran importancia en modelos de regresi\'on log\'istica, SVM o redes neuronales, los cuales se veran m\'as adelante.
+La estandarizaci\'on de los datos asegura que todas las caracter\'isticas se encuentren en la misma escala, algo que es considerado de gran importancia en modelos de regresi\'on log\'istica, SVM o redes neuronales, los cuales se ver\'an m\'as adelante.
 
 Para este caso, se utiliza StandardScaler() para normalizar los datos, los cuales se ajustan a las caracter\'isticas de los mismos para que tengan media 0 y desviaci\'on est\'andar 1, lo que se traduce en una mejora de rendimiento a la hora de utilizar los algoritmos mencionados anteriormente.
 
@@ -365,7 +365,7 @@ Es importante mencionar que el balance de clases da una idea de si existe predom
 
 \item[2.1]  {\bf Introducci\'on}
 
-En este apartado se presentan los resultados de la clasificaci\'on del conjunto de datos del fichero \texttt{dataset.csv} utilizando 3 m\'etodos de aprendizaje supervisado: Regresi\'on Logistica (Logistic Regression), M\'aquinas de Soporte Vectorial (SVM) y \'Arboles de Decision (Random Trees).
+En este apartado se presentan los resultados de la clasificaci\'on del conjunto de datos del fichero \texttt{dataset.csv} utilizando 3 m\'etodos de aprendizaje supervisado: Regresi\'on Logistica (Logistic Regression), M\'aquinas de Soporte Vectorial (SVM) y \'Arboles de Decisi\'on (Random Trees).
 
 Cada uno de estos clasificadores ha sido entrenado usando todas las caracter\'isticas del dataset. A continuacion, se ir\'an describiendo los par\'ametros utilizados para cada modelo, presentando los resultados obtenidos y discutiendo el rendimiento de cada clasificador.
 
@@ -488,7 +488,7 @@ Se han obtenido como resultado 157 muestras mal clasificadas, un n\'umero relati
 
 \item[2.5]  {\bf \'Arboles de Decisi\'on (Random Trees)}
 
-Los \'arboles de decisi\'on tienden a sobreajustar los datos si no se limitan adecuadamente. En este caso, al limitar la profundidad a 4, se puede evitar el sobreajuste y el modelo puede ser generalizado adecuadamente. Sin embargo, en comparaci\'on con los otros modelos, el rendimiento es ligeramente inferior, posiblemente porque el modelo no pudo capturar todas las complejidades de los datos con solo 4 niveles de profundidad.
+Los \'Arboles de Decisi\'on tienden a sobreajustar los datos si no se limitan adecuadamente. En este caso, al limitar la profundidad a 4, se puede evitar el sobreajuste y el modelo puede ser generalizado adecuadamente. Sin embargo, en comparaci\'on con los otros modelos, el rendimiento es ligeramente inferior, posiblemente porque el modelo no pudo capturar todas las complejidades de los datos con solo 4 niveles de profundidad.
 
 A continuacion, se explican brevemente los par\'ametros utilizados:
 
@@ -533,7 +533,7 @@ Se han obtenido como resultado 172 muestras mal clasificadas, un n\'umero simila
 
 \item[3.1]  {\bf Introducci\'on}
 
-En este apartado se presentan los resultados de la clasificaci\'on de 4 de las columnas del fichero \texttt{dataset.csv} utilizando 3 m\'etodos de aprendizaje supervisado: Regresi\'on Logistica (Logistic Regression), M\'aquinas de Soporte Vectorial (SVM) y \'Arboles de Decisi\'on (Random Trees).
+En este apartado se presentan los resultados de la clasificaci\'on de 4 de las columnas del fichero \texttt{dataset.csv} utilizando 3 m\'etodos de aprendizaje supervisado: Regresi\'on Log\'istica (Logistic Regression), M\'aquinas de Soporte Vectorial (SVM) y \'Arboles de Decisi\'on (Random Trees).
 
 El objetivo de todo esto es comparar el rendimiento de estos modelos al reducir el n\'umero de variables y analizar el impacto de esta reducci\'on en la precisi\'on de los clasificadores.
 
@@ -606,7 +606,7 @@ solver = 'lbfgs': El solver 'lbfgs' es un optimizador recomendado para soluciona
 
 \item
 multi-class = 'ovr': Procedente de las siglas OnevsRest (OVR), significa que para la
-clasificaci\'on multiclase, el modelo entrenara un clasificador independiente para cada clase.
+clasificaci\'on multiclase, el modelo entrenar\'a un clasificador independiente para cada clase.
 
 \end{itemize}
 
@@ -632,9 +632,9 @@ Se han obtenido como resultado 164 muestras mal clasificadas y una precisi\'on d
 
 \item[3.5]  {\bf M\'aquinas de Soporte Vectorial (SVM)}
 
-El uso de un kernel RBF permite capturar relaciones no lineales entre las caracter\'isticas, por lo que el modelo SVM sigue siendo altamente efectivo incluso teniendo \'unicamente 4 caracteristicas.
+El uso de un kernel RBF permite capturar relaciones no lineales entre las caracter\'isticas, por lo que el modelo SVM sigue siendo altamente efectivo incluso teniendo \'unicamente 4 caracter\'isticas.
 
-Sin embargo, al reducir el n\'umero de caracteristicas, el modelo podria quedar limitado a la hora de identificar patrones mas complejos.
+Sin embargo, al reducir el n\'umero de caracter\'isticas, el modelo podr\'ia quedar limitado a la hora de identificar patrones m\'as complejos.
 
 A continuaci\'on, se explican brevemente los par\'ametros utilizados:
 
@@ -671,7 +671,7 @@ Se han obtenido como resultado 174 muestras mal clasificadas y una precisi\'on d
 
 \begin{itemize}
 
-\item[3.6]  {\bf \'Arboles de Decision (Random Trees)}
+\item[3.6]  {\bf \'Arboles de Decisi\'on (Random Trees)}
 
 El \'arbol de decisi\'on tiene un rendimiento adecuado, aunque presenta una ligera tendencia al sobreajuste al tener solo 4 caracter\'isticas, algo que se ha solucionado limitando la profundidad, quedando a expensas de la precisi\'on en algunas ocasiones.
 
@@ -717,7 +717,7 @@ Se han obtenido como resultado 174 muestras mal clasificadas y una precisi\'on d
 
 \item[4.1]  {\bf Introducci\'on}
 
-En este apartado se presentan los resultados de la clasificaci\'on de 2 de las columnas del fichero \texttt{dataset.csv} utilizando 3 m\'etodos de aprendizaje supervisado: Regresi\'on Log\'istica (Logistic Regression), M\'aquinas de Soporte Vectorial (SVM) y \'Arboles de Decision (Random Trees).
+En este apartado se presentan los resultados de la clasificaci\'on de 2 de las columnas del fichero \texttt{dataset.csv} utilizando 3 m\'etodos de aprendizaje supervisado: Regresi\'on Log\'istica (Logistic Regression), M\'aquinas de Soporte Vectorial (SVM) y \'Arboles de Decisi\'on (Random Trees).
 
 El objetivo de todo esto es comparar el rendimiento de estos modelos al reducir el n\'umero de variables y analizar el impacto de esta reducci\'on en la precisi\'on de los clasificadores.
 
@@ -785,7 +785,7 @@ A continuaci\'on, se explican brevemente los par\'ametros utilizados:
 \begin{itemize}
 
 \item
-C = 100.0: El par\'ametro de regularizacion C controla la penalizaci\'on aplicada a los errores. Un valor alto de C indica que se permite una menor penalizaci\'on, por lo que el modelo intenta ajustar m\'as los datos.
+C = 100.0: El par\'ametro de regularizaci\'on C controla la penalizaci\'on aplicada a los errores. Un valor alto de C indica que se permite una menor penalizaci\'on, por lo que el modelo intenta ajustar m\'as los datos.
 
 \item
 solver = 'lbfgs': El solver 'lbfgs' es un optimizador recomendado para solucionar problemas pequeños y medianos.
@@ -820,7 +820,7 @@ Se han obtenido como resultado 167 muestras mal clasificadas y una precision de 
 
 El SVM con kernel RBF demuestra un rendimiento superior al capturar relaciones no lineales entre las dos caracter\'isticas seleccionadas.
 
-Sin embargo, en este caso, el clasificador se ha beneficiado del uso de un kernel no lineal, lo que sugiere que aunque el n\'umero de caracteristicas sea bajo, el modelo puede seguir identificando patrones complejos en los datos.
+Sin embargo, en este caso, el clasificador se ha beneficiado del uso de un kernel no lineal, lo que sugiere que aunque el n\'umero de caracter\'isticas sea bajo, el modelo puede seguir identificando patrones complejos en los datos.
 
 A continuaci\'on, se explican brevemente los par\'ametros utilizados:
 
@@ -909,7 +909,7 @@ Se han obtenido como resultado 178 muestras mal clasificadas y una precisi\'on d
   \begin{center}
     \begin{tabular}{| c | c | c | c | }
       \hline
-      Caracteristicas & Regresion Logistica & SVM & Arboles de Decision \\ \hline
+      Caracter\'isticas & Regresi\'on Log\'istica & SVM & \'Arboles de Decisi\'on \\ \hline
       Todas & 0.588 & 0.608 & 0.570 \\
       4     & 0.590 & 0.565 & 0.565 \\
       2     & 0.583 & 0.583 & 0.555 \\ \hline
