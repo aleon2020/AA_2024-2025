@@ -1073,22 +1073,18 @@ slr.fit(X, y)
 # fit(X, y): This method trains (or "fits") the linear regression model using the data.
 
 
-# **In a Jupyter Environment, please rerun this cell to show the HTML representation or trust the notebook.**
-# 
-# **On GitHub, the HTML representation is unable to render, please try loading this page with nbviewer.org.**
-
 
 
 # Print the coefficient of determination
-y_pred = slr.predict(X)
+y_pred = slr.predict(X_test)
 # slr: Is the linear regression model we trained earlier using slr.fit(X, y).
 # predict(X): Is the method used to predict the target values (y_pred) based on the input features (X).
 
 
 # Calculate evaluation metrics
-mae = mean_absolute_error(y, y_pred)
-mse = mean_squared_error(y, y_pred)
-R2 = r2_score(y, y_pred)
+mae = mean_absolute_error(y_test, y_pred)
+mse = mean_squared_error(y_test, y_pred)
+R2 = r2_score(y_test, y_pred)
 
 print("Mean Absolute Error (MAE):", mae)
 print("Mean Squared Error (MSE):", mse)
@@ -1219,7 +1215,165 @@ print("R-squared:", R2)
 
 
 
-# CODE
+
+
+
+X = df[['Overall Qual', 'Total Bsmt SF', 'Gr Liv Area']].values
+y = df['SalePrice'].values
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=123)
+
+regr = LinearRegression()
+
+# create cubic features
+cubic = PolynomialFeatures(degree=3)
+X_train_cubic = cubic.fit_transform(X_train)
+
+regr_cubic = regr.fit(X_train_cubic, y_train)
+
+# Print the coefficients and intercept for the cubic model
+print("Cubic Model Coefficients:", regr_cubic.coef_)
+print("Cubic Model Intercept:", regr_cubic.intercept_)
+
+# New data for which we want to predict: Overall Qual = 7, Total Bsmt SF = 1000, Gr Liv Area = 1500
+new_data_cubic = np.array([[7, 1000, 1500]])
+
+# Step 1: Transform the new data using using the cubic features
+transformed_new_data_cubic = cubic.transform(new_data_cubic)
+print("Cubic Transformed Data:", transformed_new_data_cubic[0])
+
+# Step 2: Use the train model to predict the SalePrice for the new data
+predicted_price_cubic = regr_cubic.predict(transformed_new_data_cubic)
+
+print("Predicted SalePrice:", predicted_price_cubic)
+
+
+
+
+# Assuming these are the coefficients from the trained model
+coefficients_cubic = regr_cubic.coef_
+intercept_cubic = regr_cubic.intercept_
+
+# Example input (after transformation to cubic terms)
+transformed_new_data_cubic = np.array(
+    [1,             # Intercept Term
+    7,              # X1 (Overall Qual)
+    1000,           # X2 (Total Bsmt SF)
+    1500,           # X3 (Gr Liv Area)
+    49,             # X1 ^ 2
+    7000,           # X1 * X2
+    10500,          # X1 * X3
+    1000000,        # X2 ^ 2
+    1500000,        # X2 * X3
+    2250000,        # X3 ^ 2
+    343,            # X2 ^ 3
+    49000,          # X1 ^ 2 * X2
+    73500,          # X1 ^ 2 * X3
+    7000000,        # X2 ^ 2 * X1
+    10500000,       # X1 * X2 * X3
+    15750000,       # X3 ^ 2 * X1
+    1000000000,     # X2 ^ 3
+    1500000000,     # X2 ^ 2 * X3
+    2250000000,     # X3 ^ 2 * X2
+    3375000000])    # X3 ^ 3
+
+# Manually calculate the prediction by performing the dot product between the coefficients and the transformed features
+manual_prediction_cubic = np.dot(coefficients_cubic, transformed_new_data_cubic) + intercept
+
+print("Manually Calculated SalePrice:", manual_prediction_cubic)
+
+
+
+
+X_test_cubic = cubic.fit_transform(X_test)
+
+y_pred_cubic = regr_cubic.predict(X_test_cubic)
+
+print(y_pred_cubic)
+
+# Calculate evaluation metrics
+
+
+mae = mean_absolute_error(y_test, y_pred_cubic)
+mse = mean_squared_error(y_test, y_pred_cubic)
+R2 = r2_score(y_test, y_pred_cubic)
+
+print("Mean Absolute Error (MAE):", mae)
+print("Mean Squared Error (MSE):", mse)
+print("R-squared:", R2)
+
+
+# ## <span style="color: red;"> Modeling multiple nonlinear relationships in the Ames Housing dataset: decision tree regression </span>
+
+
+
+
+
+X = df[['Overall Qual', 'Total Bsmt SF', 'Gr Liv Area']].values
+y = df['SalePrice'].values
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=123)
+
+tree = DecisionTreeRegressor(max_depth=3)   # The parameter specifies themaximum depth of the decision tree.
+tree.fit(X_train, y_train)
+
+
+
+
+y_pred_random_tree = tree.predict(X_test)
+
+print(y_pred_random_tree)
+
+
+
+
+# Calculate evaluation metrics
+
+
+mae = mean_absolute_error(y_test, y_pred_random_tree)
+mse = mean_squared_error(y_test, y_pred_random_tree)
+R2 = r2_score(y_test, y_pred_random_tree)
+
+print("Mean Absolute Error (MAE):", mae)
+print("Mean Squared Error (MSE):", mse)
+print("R-squared:", R2)
+
+
+# ## <span style="color: red;"> Modeling multiple nonlinear relationships in the Ames Housing dataset: random forests regression </span>
+
+
+
+
+
+X = df[['Overall Qual', 'Total Bsmt SF', 'Gr Liv Area']].values
+y = df['SalePrice'].values
+
+x_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=123)
+
+forest = RandomForestRegressor(n_estimators=1000,
+                               criterion='squared_error',
+                               random_state=1,
+                               n_jobs=1)
+forest.fit(X_train, y_train)
+
+y_pred_random_forest = forest.predict(X_test)
+
+
+
+
+# Calculate evaluation metrics
+
+
+mae = mean_absolute_error(y_test, y_pred_random_forest)
+mse = mean_squared_error(y_test, y_pred_random_forest)
+R2 = r2_score(y_test, y_pred_random_forest)
+
+print("Mean Absolute Error (MAE):", mae)
+print("Mean Squared Error (MSE):", mse)
+print("R-squared:", R2)
 
 
 # # Summary
