@@ -1061,6 +1061,11 @@ y = df['SalePrice'].values
 # X is a 2D array with multiple features (Overall Qual, Total Bsmt SF, and GR Liv Area), which are the input variables.
 # y is a 1D array containing the dependent variable (output), which is the sale price of each house.
 
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=123)
+
+
 slr = LinearRegression()
 # LinearRegression(): This initializes a linear regression model from sci-kit learn. The variable slr now holds this model.
 
@@ -1078,8 +1083,6 @@ slr.fit(X, y)
 y_pred = slr.predict(X)
 # slr: Is the linear regression model we trained earlier using slr.fit(X, y).
 # predict(X): Is the method used to predict the target values (y_pred) based on the input features (X).
-
-
 
 
 # Calculate evaluation metrics
@@ -1112,7 +1115,7 @@ print("Intercept:", intercept)
 new_data = [[7, 1000, 1500]]
 predicted_price = slr.predict(new_data)
 
-print("Predicted Saleprice:", predicted_price)
+print("Predicted SalePrice:", predicted_price)
 
 
 # ## <span style="color: red;"> Check the result manually </span>
@@ -1187,7 +1190,7 @@ transformed_new_data = np.array(
     2250000])       # X3 ^ 2
 
 # 1 is the intercept term.
-# 7, 1000, 1500 are the original features.T
+# 7, 1000, 1500 are the original features.
 # 49 = 7 ^ 2, 7000 = 7 * 1000, 10500 = 7 * 1500.
 # 1000000 = 1000 ^ 2, 1500000 = 1000 * 1500.
 # 2250000 = 1500 ^ 2.
@@ -1208,8 +1211,15 @@ mse = mean_squared_error(y, y_pred)
 R2 = r2_score(y, y_pred)
 
 print("Mean Absolute Error (MAE):", mae)
-print("Mean Sqaured Error (MSE):", mse)
+print("Mean Squared Error (MSE):", mse)
 print("R-squared:", R2)
+
+
+# ## <span style="color: red;"> Modeling multiple nonlinear relationships in the Ames Housing dataset: cubic </span>
+
+
+
+# CODE
 
 
 # # Summary
