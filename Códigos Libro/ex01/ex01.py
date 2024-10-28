@@ -67,7 +67,7 @@ d = {
 check_packages(d)
 
 
-# # Example 01 - Admission Dataset
+# # Example 1 - Admission Dataset
 
 # ### Overview
 
@@ -184,7 +184,7 @@ plt.show()
 
 
 fig, ax = plt.subplots(figsize=(7,7))
-sb.heatmap(dataset_anonymized.corr(), linewidth=0.5, annot=True)
+sb.heatmap(dataset.corr(), linewidth=0.5, annot=True)
 
 
 

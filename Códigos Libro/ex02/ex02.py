@@ -206,7 +206,7 @@ print('Class labels:', np.unique(y))
 # Knowing this, the variable X is observed in more detail, from which its correlation is calculated.
 
 fig, ax = plt.subplots(figsize=(7,7))
-sb.heatmap(dataset_anonymized.corr(), linewidth = 0.5, annot=True)
+sb.heatmap(dataset.corr(), linewidth = 0.5, annot=True)
 
 
 
