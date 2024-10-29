@@ -249,8 +249,6 @@ df = df.dropna(axis=0)
 # axis=0: Specifies that you want to drop rows with missing values.
 # axis=0 means "rows". If you wanted to drop columns with missiong values, you would use axis=1.
 
-
-
 df.isnull().sum()
 
 # This function checks for null (missing) values again after rows with missing data have been removed.
@@ -441,24 +439,6 @@ Intercept = 13342.979
 print(Slope * 1329 + Intercept)
 
 
-# ## <span style="color: red;"> Single prediction </span>
-
-
-
-# Predict SalePrice for new features: Gr liv Area=850
-new_data = ([[850]])
-predicted_price = slr.predict(new_data)
-
-print("Predicted SalePrice: ", predicted_price)
-
-
-# ## <span style="color: red;"> Check the single prediction manually </span>
-
-
-
-print(850 * 111.666 + 13342.979)
-
-
 
 
 lin_regplot(X, y, slr)
@@ -482,6 +462,24 @@ w = np.dot(z, np.dot(Xb.T, y))
 
 print(f'Slope: {w[1]:.3f}')
 print(f'Intercept: {w[0]:.3f}')
+
+
+# ## <span style="color: red;"> Single prediction </span>
+
+
+
+# Predict SalePrice for new features: Gr Liv Area = 850
+new_data = ([[850]])
+predicted_price = slr.predict(new_data)
+
+print("Predicted SalePrice: ", predicted_price)
+
+
+# ## <span style="color: red;"> Check the single prediction manually </span>
+
+
+
+print(850 * 111.666 + 13342.979)
 
 
 # # Fitting a robust regression model using RANSAC
@@ -645,6 +643,8 @@ plt.tight_layout()
 plt.show()
 
 
+# ## <span style="color: red;"> Calculating the Mean Squared Error </span>
+
 
 
 
@@ -655,6 +655,8 @@ print(f'MSE train: {mse_train:.2f}')
 print(f'MSE test: {mse_test:.2f}')
 
 
+# ## <span style="color: red;">  Calculating the Mean Absolute Error </span>
+
 
 
 
@@ -664,6 +666,8 @@ mae_test = mean_absolute_error(y_test, y_test_pred)
 print(f'MAE train: {mae_train:.2f}')
 print(f'MAE test: {mae_test:.2f}')
 
+
+# ## <span style="color: red;">  Calculating the Coefficient of Determination </span>
 
 
 
@@ -1069,7 +1073,7 @@ X_train, X_test, y_train, y_test = train_test_split(
 slr = LinearRegression()
 # LinearRegression(): This initializes a linear regression model from sci-kit learn. The variable slr now holds this model.
 
-slr.fit(X, y)
+slr.fit(X_train, y_train)
 # fit(X, y): This method trains (or "fits") the linear regression model using the data.
 
 
@@ -1134,34 +1138,42 @@ print("Manual Prediction:", manual_prediction)
 
 
 
-
 # X = df[['Overall Qual']].values
 # y = df['SalePrice'].values
 
 X = df[['Overall Qual', 'Total Bsmt SF', 'Gr Liv Area']].values
 y = df['SalePrice'].values
+# X is a 2D array with multiple features (Overall Qual, Total Bsmt SF, and Gr Liv Area), which are the input variables.
+# y is a 1D array containing the dependent variable (output), which is the sale price of each house.
+
+
+
+X_train, X_test, y_train, y_test = train_test_split(
+    X, y, test_size=0.3, random_state=123)
+
 
 regr = LinearRegression()
 
 # create quadratic features
 quadratic = PolynomialFeatures(degree=2)
-X_quadratic = quadratic.fit_transform(X)
+X_train_quadratic = quadratic.fit_transform(X_train)
 
-regr_quadratic = regr.fit(X_quadratic, y)
+regr_quadratic = regr.fit(X_train_quadratic, y_train)
 
 # Print the coefficients and intercept for the quadratic model
 print("Quadratic Model Coefficients:", regr_quadratic.coef_)
 print("Quadratic Model Intercept:", regr_quadratic.intercept_)
 
 # New data for which we want to predict: Overall Qual = 7, Total Bsmt SF = 1000, Gr Liv Area = 1500
-new_data = np.array([[7, 1000, 1500]])
-
+new_data_quadratic = np.array([[7, 1000, 1500]])
 
 # Step 1: Transform the new data using the quadratic features
-new_data_quadratic = quadratic.transform(new_data)
+transformed_new_data_quadratic = quadratic.transform(new_data_quadratic)
+
+print("Quadratic Trasformed Data:", transformed_new_data_quadratic[0])
 
 # Step 2: Use the trained model to predict the SalePrice for the new data
-predicted_price = regr_quadratic.predict(new_data_quadratic)
+predicted_price = regr_quadratic.predict(transformed_new_data_quadratic)
 
 print("Predicted SalePrice:", predicted_price)
 
@@ -1199,12 +1211,14 @@ print("Manually Calculated SalePrice:", manual_prediction)
 
 
 
-y_pred = regr.predict(X_quadratic)
+X_test_quadratic = quadratic.fit_transform(X_test)
+
+y_pred_quadratic = regr.predict(X_test_quadratic)
 
 # Calculate evaluation metrics
-mae = mean_absolute_error(y, y_pred)
-mse = mean_squared_error(y, y_pred)
-R2 = r2_score(y, y_pred)
+mae = mean_absolute_error(y_test, y_pred_quadratic)
+mse = mean_squared_error(y_test, y_pred_quadratic)
+R2 = r2_score(y_test, y_pred_quadratic)
 
 print("Mean Absolute Error (MAE):", mae)
 print("Mean Squared Error (MSE):", mse)
@@ -1241,6 +1255,7 @@ new_data_cubic = np.array([[7, 1000, 1500]])
 
 # Step 1: Transform the new data using using the cubic features
 transformed_new_data_cubic = cubic.transform(new_data_cubic)
+
 print("Cubic Transformed Data:", transformed_new_data_cubic[0])
 
 # Step 2: Use the train model to predict the SalePrice for the new data
@@ -1279,7 +1294,7 @@ transformed_new_data_cubic = np.array(
     3375000000])    # X3 ^ 3
 
 # Manually calculate the prediction by performing the dot product between the coefficients and the transformed features
-manual_prediction_cubic = np.dot(coefficients_cubic, transformed_new_data_cubic) + intercept
+manual_prediction_cubic = np.dot(coefficients_cubic, transformed_new_data_cubic) + intercept_cubic
 
 print("Manually Calculated SalePrice:", manual_prediction_cubic)
 
@@ -1290,7 +1305,10 @@ X_test_cubic = cubic.fit_transform(X_test)
 
 y_pred_cubic = regr_cubic.predict(X_test_cubic)
 
-print(y_pred_cubic)
+# print(y_pred_cubic)
+
+
+
 
 # Calculate evaluation metrics
 
@@ -1316,7 +1334,7 @@ y = df['SalePrice'].values
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=123)
 
-tree = DecisionTreeRegressor(max_depth=3)   # The parameter specifies themaximum depth of the decision tree.
+tree = DecisionTreeRegressor(max_depth=3)   # The parameter specifies the maximum depth of the decision tree.
 tree.fit(X_train, y_train)
 
 
@@ -1324,7 +1342,7 @@ tree.fit(X_train, y_train)
 
 y_pred_random_tree = tree.predict(X_test)
 
-print(y_pred_random_tree)
+# print(y_pred_random_tree)
 
 
 
@@ -1353,11 +1371,11 @@ y = df['SalePrice'].values
 x_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=123)
 
-forest = RandomForestRegressor(n_estimators=1000,
-                               criterion='squared_error',
-                               random_state=1,
-                               n_jobs=1)
-forest.fit(X_train, y_train)
+forest = RandomForestRegressor(n_estimators=1000,           # Number of decision trees in the random forest.
+                               criterion='squared_error',   # Function (MSE) used to measure the quality of a split 
+                               random_state=1,              # within each decision tree.
+                               n_jobs=-1)                   # This allows the random forest to use all available
+forest.fit(X_train, y_train)                                # CPU cores for parallel processing.
 
 y_pred_random_forest = forest.predict(X_test)
 
