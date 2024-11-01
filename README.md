@@ -28,7 +28,7 @@ A continuación se detallan los contenidos vistos que abarcan el temario del Exa
 * [Práctica 2 Curso 2018-2019](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/pr02_2018-2019) (PR)
 
 **Formulario**
-* [Formulario Examen Parcial 1 Aprendizaje Automático](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/formulario_ep1) (PR)
+* [Formulario Examen Parcial 1](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/formulario_ep1) (PR)
 
 PR: Pendiente de Resolución, es decir, está incompleto o pendiente de confirmar si está bien implementado.
 
