@@ -8,7 +8,29 @@ IMPORTANTE: SI OBSERVAS QUE HAY ALGÚN ERROR O ALGO QUE FALTE EN ALGÚN ARCHIVO 
 
 ## 1. Ejercicios propuestos, prácticas y exámenes
 
-Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro): Este directorio contiene todo el código fuente que se ve en el libro de la asignatura, además de varios ejemplos que se han visto durante las clases para facilitar la comprensión de los contenidos vistos en teoría (chXX corresponde al código del libro, exXX a ejemplos vistos en clase y prXX a las prácticas).
+Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro): Este directorio contiene todo el código fuente que se ve en el libro de la asignatura, además de varios ejemplos que se han visto durante las clases para facilitar la comprensión de los contenidos vistos en teoría (chXX corresponde a los capítulos del libro, exXX a ejemplos vistos en clase y prXX_20XX-20XX a las prácticas).
+
+A continuación se detallan los contenidos vistos que abarcan el temario del Examen Parcial del Jueves 07/11/2024:
+
+**Capítulos del Libro**
+* Chapter 1: Giving Computers the Ability to Learn from Data
+* Chapter 2: Training Simple Machine Learning Algorithms for Classification
+* Chapter 3: A Tour of Machine Learning Classifiers Using scikit-learn
+* Chapter 9: Predicting Continuous Target Variables with Regression Analysis
+
+**Ejemplos**
+* Example 1: Admission Dataset
+* Example 2: Land Mines Dataset
+* Example 3: Regression Dataset (PR)
+
+**Prácticas**
+* Práctica 1 Curso 2024-2025
+* Práctica 2 Curso 2018-2019 (PR)
+
+**Formulario**
+* Formulario Examen Parcial 1 Aprendizaje Automático (PR)
+
+PR: Pendiente de Resolución, es decir, está incompleto o pendiente de confirmar si está bien implementado.
 
 ## 2. Referencias
 
