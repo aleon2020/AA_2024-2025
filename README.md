@@ -13,22 +13,22 @@ Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/mai
 A continuación se detallan los contenidos vistos que abarcan el temario del Examen Parcial del Jueves 07/11/2024:
 
 **Capítulos del Libro**
-* Chapter 1: Giving Computers the Ability to Learn from Data
-* Chapter 2: Training Simple Machine Learning Algorithms for Classification
-* Chapter 3: A Tour of Machine Learning Classifiers Using scikit-learn
-* Chapter 9: Predicting Continuous Target Variables with Regression Analysis
+* [Chapter 1](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ch01): Giving Computers the Ability to Learn from Data
+* [Chapter 2](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ch02): Training Simple Machine Learning Algorithms for Classification
+* [Chapter 3](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ch03): A Tour of Machine Learning Classifiers Using scikit-learn
+* [Chapter 9](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ch09): Predicting Continuous Target Variables with Regression Analysis
 
 **Ejemplos**
-* Example 1: Admission Dataset
-* Example 2: Land Mines Dataset
-* Example 3: Regression Dataset (PR)
+* [Example 1](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex01): Admission Dataset
+* [Example 2](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex02): Land Mines Dataset
+* [Example 3](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex03): Regression Dataset (PR)
 
 **Prácticas**
-* Práctica 1 Curso 2024-2025
-* Práctica 2 Curso 2018-2019 (PR)
+* [Práctica 1 Curso 2024-2025](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/pr01_2024-2025)
+* [Práctica 2 Curso 2018-2019](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/pr02_2018-2019) (PR)
 
 **Formulario**
-* Formulario Examen Parcial 1 Aprendizaje Automático (PR)
+* [Formulario Examen Parcial 1 Aprendizaje Automático](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/formulario_ep1) (PR)
 
 PR: Pendiente de Resolución, es decir, está incompleto o pendiente de confirmar si está bien implementado.
 
