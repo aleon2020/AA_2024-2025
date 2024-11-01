@@ -17,11 +17,36 @@ from sklearn import tree
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 
-# # FORMULARIO PARCIAL APRENDIZAJE AUTOMÁTICO
+# # FORMULARIO EXAMEN PARCIAL 1
+# # APRENDIZAJE AUTOMÁTICO
 
 # # ÍNDICE
 
-# ...
+# - [TEMA 1: Configuración y Visualización del Entorno](#tema-1-configuración-y-visualización-del-entorno)
+#     - [1.1 Configuración de las Rutas de Importación](#11-configuración-de-las-rutas-de-importación)
+#     - [1.2 Verificación de las Versiones de los Paquetes](#12-verificación-de-las-versiones-de-los-paquetes)
+#     - [1.3 Visualización de Imágenes](#13-visualización-de-imágenes)
+#     - [1.4 Importación de Paquetes](#14-importación-de-paquetes)
+# - [TEMA 2: Análisis Exploratorio de Datos (Clasificadores)](#tema-2-análisis-exploratorio-de-datos-clasificadores)
+#     - [2.1 Carga y Exploración Inicial del Dataset](#21-carga-y-exploración-inicial-del-dataset)
+#     - [2.2 Anonimización y Cálculo de la Correlación entre Características](#22-anonimización-y-cálculo-de-la-correlación-entre-características)
+#     - [2.3 División de Variables Independientes y Dependiente](#23-división-de-variables-independientes-y-dependiente)
+#     - [2.4 Mapa de Calor de Correlaciones](#24-mapa-de-calor-de-correlaciones)
+#     - [2.5 Histogramas de Distribución de las Características](#25-histogramas-de-distribución-de-las-características)
+#     - [2.6 División de Datos y Estandarización](#26-división-de-datos-y-estandarización)
+# - [TEMA 3: Clasificadores](#tema-3-clasificadores)
+#     - [3.1 Regresión Logística (Logistic Regression)](#31-regresión-logística-logistic-regression)
+#     - [3.2 Máquinas de Soporte Vectorial (SVM)](#32-máquinas-de-soporte-vectorial-svm)
+#     - [3.3 Árboles de Decisión (Decision Trees)](#33-árboles-de-decisión-decision-trees)
+#     - [3.4 Bosque Aleatorio (Random Forest)](#34-bosque-aleatorio-random-forest)
+#     - [3.5 Vecinos Más Cercanos (KNN)](#35-vecinos-más-cercanos-knn)
+# - [TEMA 4: Análisis Exploratorio de Datos (Regresión)](#tema-4-análisis-exploratorio-de-datos-regresión)
+#     - ...
+# - [TEMA 5: Métodos de Regresión](#tema-5-métodos-de-regresión)
+#     - ...
+# - [ANEXO: Convertir Jupyter Notebook a Fichero Python](#anexo-convertir-jupyter-notebook-a-fichero-python)
+#     - [A.1 Script en el Directorio Actual](#a1-script-en-el-directorio-actual)
+#     - [A.2 Script en el Directorio Padre](#a2-script-en-el-directorio-padre)
 
 # # TEMA 1: Configuración y Visualización del Entorno
 
