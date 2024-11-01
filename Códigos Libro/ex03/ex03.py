@@ -78,22 +78,24 @@ check_packages(d)
 
 # ### Overview
 
-# - [Importación de bibliotecas para análisis de datos y escalado](#importación-de-bibliotecas-para-análisis-de-datos-y-escalado)
-# - [Carga del dataset desde un archivo CSV](#carga-del-dataset-desde-un-archivo-csv)
-# - [Anonimización y análisis de la correlación del dataset](#anonimización-y-análisis-de-la-correlación-del-dataset)
-# - [Separación de características y etiquetas del dataset](#separación-de-características-y-etiquetas-del-dataset)
-# - [Visualización de la matriz de correlación en un mapa de calor](#visualización-de-la-matriz-de-correlación-en-un-mapa-de-calor)
-# - [Visualización de las distribuciones en histogramas](#visualización-de-las-distribuciones-en-histogramas)
-# - [División del dataset en entrenamiento (70%) y prueba (30%)](#división-del-dataset-en-entrenamiento-70-y-prueba-30)
-# - [Cálculo del error cuadrático medio](#cálculo-del-error-cuadrático-medio)
-# - [Cálculo del error absoluto medio](#cálculo-del-error-absoluto-medio)
-# - [Cálculo del coeficiente de determinación](#cálculo-del-coeficiente-de-determinación)
-# - [Entrenamiento y evaluación del modelo por regresión lineal (Linear Regression)](#entrenamiento-y-evaluación-del-modelo-por-regresión-lineal-linear-regression)
-# - [Entrenamiento y evaluación del modelo por regresión polinómica cuadrática (Quadratic Polynomial Regression)](#entrenamiento-y-evaluación-del-modelo-por-regresión-polinómica-cuadrática-quadratic-polynomial-regression)
-# - [Entrenamiento y evaluación del modelo por regresión polinómica cúbica (Cubic Polynomial Regression)](#entrenamiento-y-evaluación-del-modelo-por-regresión-polinómica-cúbica-cubic-polynomial-regression)
-# - [Entrenamiento y evaluación del modelo por árboles de decisión (Decision Tree Regression)](#entrenamiento-y-evaluación-del-modelo-por-árboles-de-decisión-decision-tree-regression)
-# - [Entrenamiento y evaluación del modelo por bosques aleatorios (Random Forest Regression)](#entrenamiento-y-evaluación-del-modelo-por-bosques-aleatorios-random-forest-regression)
-# - [Conversión de Jupyter Notebook en un archivo Python](#conversión-de-jupyter-notebook-en-un-archivo-python)
+# - [Data Analysis](#data-analysis)
+#     - [Importing libraries for data analysis and scaling](#importing-libraries-for-data-analysis-and-scaling)
+#     - [Loading the dataset from a CSV file](#loading-the-dataset-from-a-csv-file)
+#     - [Anonymization and correlation analysis of the dataset](#anonymization-and-correlation-analysis-of-the-dataset)
+#     - [Separation of dataset features and labels](#separation-of-dataset-features-and-labels)
+#     - [Visualization of the correlation matrix in a heat map](#visualization-of-the-correlation-matrix-in-a-heat-map)
+#     - [Viewing distributions in histograms](#viewing-distributions-in-histograms)
+#     - [Division of the dataset into training (70%) and test (30%)](#division-of-the-dataset-into-training-70-and-test-30)
+#     - [Calculation of mean squared error](#calculation-of-mean-squared-error)
+#     - [Calculation of the mean absolute error](#calculation-of-the-mean-absolute-error)
+#     - [Calculation of the coefficient of determination](#calculation-of-the-coefficient-of-determination)
+# - [Regression Methods](#regression-methods)
+#     - [Training and evaluation of the model by linear regression](#training-and-evaluation-of-the-model-by-linear-regression)
+#     - [Training and evaluation of the model by quadratic polynomial regression](#training-and-evaluation-of-the-model-by-quadratic-polynomial-regression)
+#     - [Training and evaluation of the model by cubic polynomial regression](#training-and-evaluation-of-the-model-by-cubic-polynomial-regression)
+#     - [Training and evaluation of the model by Decision Tree regression](#training-and-evaluation-of-the-model-by-decision-tree-regression)
+#     - [Training and evaluation of the model by Random Forest regression](#training-and-evaluation-of-the-model-by-random-forest-regression)
+# - [Summary](#summary)
 
 
 
@@ -111,13 +113,15 @@ check_packages(d)
 
 
 
-# ## Importación de bibliotecas para análisis de datos y escalado
+# # Data Analysis
+
+# ## Importing libraries for data analysis and scaling
 
 
 
 
 
-# ## Carga del dataset desde un archivo CSV
+# ## Loading the dataset from a CSV file
 
 
 
@@ -139,7 +143,7 @@ df.info()
 df.describe()
 
 
-# ## Anonimización y análisis de la correlación del dataset
+# ## Anonymization and correlation analysis of the dataset
 
 
 
@@ -148,7 +152,7 @@ dataset_anonymized.to_csv('dataset_para_regresion_anonymized.csv', index=False)
 dataset_anonymized.corr()
 
 
-# ## Separación de características y etiquetas del dataset
+# ## Separation of dataset features and labels
 
 
 
@@ -157,7 +161,7 @@ y = df.get("Target")
 print('Class labels:', np.unique(y))
 
 
-# ## Visualización de la matriz de correlación en un mapa de calor
+# ## Visualization of the correlation matrix in a heat map
 
 
 
@@ -170,7 +174,7 @@ plt.tight_layout()
 plt.show()
 
 
-# ## Visualización de las distribuciones en histogramas
+# ## Viewing distributions in histograms
 
 
 
@@ -186,7 +190,7 @@ sb.pairplot(df)
 plt.show()
 
 
-# ## División del dataset en entrenamiento (70%) y prueba (30%)
+# ## Division of the dataset into training (70%) and test (30%)
 
 
 
@@ -236,7 +240,7 @@ plt.tight_layout()
 plt.show()
 
 
-# ## Cálculo del error cuadrático medio
+# ## Calculation of mean squared error
 
 
 
@@ -247,7 +251,7 @@ print(f'MSE train: {mse_train:.2f}')
 print(f'MSE test: {mse_test:.2f}')
 
 
-# ## Cálculo del error absoluto medio
+# ## Calculation of the mean absolute error
 
 
 
@@ -258,7 +262,7 @@ print(f'MAE train: {mae_train:.2f}')
 print(f'MAE test: {mae_test:.2f}')
 
 
-# ## Cálculo del coeficiente de determinación
+# ## Calculation of the coefficient of determination
 
 
 
@@ -269,7 +273,9 @@ print(f'R^2 train: {r2_train:.2f}')
 print(f'R^2 test: {r2_test:.2f}')
 
 
-# ## Entrenamiento y evaluación del modelo por regresión lineal (Linear Regression)
+# # Regression Methods
+
+# ## Training and evaluation of the model by linear regression
 
 
 
@@ -310,7 +316,7 @@ print("Coefficients:", coefficients)
 print("Intercept:", intercept)
 
 
-# ## Entrenamiento y evaluación del modelo por regresión polinómica cuadrática (Quadratic Polynomial Regression)
+# ## Training and evaluation of the model by quadratic polynomial regression
 
 
 
@@ -381,7 +387,7 @@ print("Mean Squared Error (MSE):", mse)
 print("R-squared:", R2)
 
 
-# ## Entrenamiento y evaluación del modelo por regresión polinómica cúbica (Cubic Polynomial Regression)
+# ## Training and evaluation of the model by cubic polynomial regression
 
 
 
@@ -470,7 +476,7 @@ print("Mean Squared Error (MSE):", mse)
 print("R-squared:", R2)
 
 
-# ## Entrenamiento y evaluación del modelo por árboles de decisión (Decision Tree Regression)
+# ## Training and evaluation of the model by Decision Tree regression
 
 
 
@@ -505,7 +511,7 @@ print("Mean Squared Error (MSE):", mse)
 print("R-squared:", R2)
 
 
-# ## Entrenamiento y evaluación del modelo por bosques aleatorios (Random Forest Regression)
+# ## Training and evaluation of the model by Random Forest regression
 
 
 
@@ -538,8 +544,30 @@ print("Mean Squared Error (MSE):", mse)
 print("R-squared:", R2)
 
 
-# ## Conversión de Jupyter Notebook en un archivo Python
+# # Summary
+
+# ---
+# 
+# Readers may ignore the next cell.
 
 
+
+# Run a command in the terminal from a Python environment (such as a Jupyter Notebook or a 
+# script that allows system commands to convert a Jupyter notebook to a file Python script. 
+# * !
+# This symbol is used in environments such as Jupyter Notebooks to execute system commands 
+# operational directly from the notebook. In this case, the command is an execution of a 
+# python script.
+# * python ../.convert_notebook_to_script.py
+# This command runs a Python script called convert_notebook_to_script.py. This file 
+# is located in the previous directory (../ indicates that it is one level up in the system 
+# files). The purpose of this script is to convert a Jupyter notebook (.ipynb) into a 
+# Python script file (.py).
+# * --input ex03.ipynb
+# This is an option or argument that tells the script what the input file is, in this 
+# case, the notebook ex03.ipynb.
+# * --output ex03.py
+# This option tells the script to save the output (the converted file) with the name
+# ex03.py, which is a Python script.
 
 
