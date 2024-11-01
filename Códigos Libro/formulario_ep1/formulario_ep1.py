@@ -18,7 +18,6 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.neighbors import KNeighborsClassifier
 
 # # FORMULARIO EXAMEN PARCIAL 1
-# # APRENDIZAJE AUTOMÁTICO
 
 # # ÍNDICE
 
