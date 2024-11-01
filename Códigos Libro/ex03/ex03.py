@@ -30,18 +30,18 @@ from sklearn.ensemble import RandomForestRegressor
 
 
 # * import sys
-# Importa el módulo sys, que es un módulo de la biblioteca estándar de Python.
-# Este módulo proporciona acceso a variables y funciones que interactúan fuertemente con el
-# intérprete de Python, como la manipulación de la ruta de búsqueda de módulos y la entrada/salida
-# estándar, entre otros.
+# Import the sys module, which is a Python standard library module.
+# This module provides access to variables and functions that interact strongly with the
+# Python interpreter, such as manipulating module search path and input/output
+# standard, among others.
 # * sys.path
-# Es una lista que contiene las rutas en las que el intérprete de Python busca los módulos cuando
-# usas import. Al intentar importar un módulo, Python busca en las rutas especificadas en esta
-# lista.
+# It is a list containing the paths in which the Python interpreter looks for modules when
+# you use import. When you try to import a module, Python searches the paths specified in this
+# list.
 # * sys.path.insert(0, '..')
-# Inserta la ruta '..' (que representa el directorio padre) al inicio de la lista sys.path.
-# Al agregarla en la posición 0, se asegura que cuando Python busque módulos para importar,
-# primero verifique en el directorio padre antes de continuar con las rutas predeterminadas.
+# Insert the path '..' (representing the parent directory) at the beginning of the sys.path list.
+# Adding it in position 0 ensures that when Python looks for modules to import,
+# first check in the parent directory before continuing with the default paths.
 
 sys.path.insert(0, '..')
 
@@ -50,19 +50,19 @@ sys.path.insert(0, '..')
 
 
 
-# Importa la función check_packages desde el módulo python_environment_check. 
-# Este módulo, por su nombre, parece estar diseñado para verificar que el entorno de Python 
-# tenga instaladas las versiones correctas de ciertos paquetes.
+# Import the check_packages function from the python_environment_check module. 
+# This module, from its name, appears to be designed to verify that the Python environment 
+# have the correct versions of certain packages installed.
 # * d = {...}
-# Define un diccionario d que contiene como claves los nombres de varios paquetes 
-# (por ejemplo, numpy, scipy, matplotlib, etc.) y como valores las versiones mínimas 
-# requeridas de esos paquetes.
+# Defines a dictionary d that contains the names of several packages as keys 
+# (e.g. numpy, scipy, matplotlib, etc.) and as values ​​the minimum versions 
+# required from those packages.
 # * check_packages(d)
-# La función check_packages toma como entrada el diccionario d y probablemente realiza una 
-# verificación en el entorno actual de Python para asegurarse de que las versiones instaladas 
-# de estos paquetes sean al menos las especificadas en el diccionario. Si alguno de los paquetes 
-# no está instalado o tiene una versión incorrecta, es posible que la función lance un error o 
-# sugiera instalar/actualizar los paquetes.
+# The check_packages function takes as input the dictionary d and probably performs a 
+# check on current Python environment to ensure installed versions 
+# of these packages are at least those specified in the dictionary. If any of the packages 
+# is not installed or has the wrong version, the function may throw an error or 
+# suggest installing/updating the packages.
 
 d = {
     'numpy': '1.21.2',
@@ -100,16 +100,16 @@ check_packages(d)
 
 
 # * from IPython.display
-# Importa desde el submódulo display del paquete IPython. Este módulo está diseñado para mostrar 
-# y renderizar diferentes tipos de datos dentro de entornos interactivos, como Jupyter Notebooks.
+# Import from the display submodule of the IPython package. This module is designed to display 
+# and render different types of data within interactive environments, such as Jupyter Notebooks.
 # * import Image
-# Importa la clase Image desde el módulo display. La clase Image se utiliza para mostrar 
-# imágenes en el entorno interactivo (por ejemplo, en una celda de Jupyter Notebook).
+# Import the Image class from the display module. The Image class is used to display 
+# images in the interactive environment (for example, in a Jupyter Notebook cell).
 # * %matplotlib inline
-# Esto es una "magic command" (comando mágico) específico de IPython/Jupyter Notebook.
-# Habilita la visualización de gráficos de matplotlib directamente dentro de las celdas del 
-# notebook. Los gráficos se renderizan "en línea" (dentro del mismo cuaderno) sin necesidad 
-# de abrir ventanas emergentes.
+# This is a magic command specific to IPython/Jupyter Notebook.
+# Enables display of matplotlib plots directly within cells of the 
+# notebook. Graphics are rendered "inline" (within the same notebook) without the need 
+# to open pop-up windows.
 
 
 
@@ -557,7 +557,7 @@ print("R-squared:", R2)
 # * !
 # This symbol is used in environments such as Jupyter Notebooks to execute system commands 
 # operational directly from the notebook. In this case, the command is an execution of a 
-# python script.
+# Python Script.
 # * python ../.convert_notebook_to_script.py
 # This command runs a Python script called convert_notebook_to_script.py. This file 
 # is located in the previous directory (../ indicates that it is one level up in the system 

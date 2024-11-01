@@ -2,6 +2,7 @@
 
 
 import sys
+# * from python_environment_check import check_packages
 from python_environment_check import check_packages
 import pandas as pd
 from sklearn.model_selection import train_test_split
@@ -25,6 +26,20 @@ import matplotlib.patheffects as PathEffects
 
 
 
+# * import sys
+# Import the sys module, which is a Python standard library module.
+# This module provides access to variables and functions that interact strongly with the
+# Python interpreter, such as manipulating module search path and input/output
+# standard, among others.
+# * sys.path
+# It is a list containing the paths in which the Python interpreter looks for modules when
+# you use import. When you try to import a module, Python searches the paths specified in this
+# list.
+# * sys.path.insert(0, '..')
+# Insert the path '..' (representing the parent directory) at the beginning of the sys.path list.
+# Adding it in position 0 ensures that when Python looks for modules to import,
+# first check in the parent directory before continuing with the default paths.
+
 sys.path.insert(0, '..')
 
 
@@ -32,7 +47,19 @@ sys.path.insert(0, '..')
 
 
 
-
+# Import the check_packages function from the python_environment_check module. 
+# This module, from its name, appears to be designed to verify that the Python environment 
+# have the correct versions of certain packages installed.
+# * d = {...}
+# Defines a dictionary d that contains the names of several packages as keys 
+# (e.g. numpy, scipy, matplotlib, etc.) and as values ​​the minimum versions 
+# required from those packages.
+# * check_packages(d)
+# The check_packages function takes as input the dictionary d and probably performs a 
+# check on current Python environment to ensure installed versions 
+# of these packages are at least those specified in the dictionary. If any of the packages 
+# is not installed or has the wrong version, the function may throw an error or 
+# suggest installing/updating the packages.
 
 d = {
     'numpy': '1.21.2',
@@ -45,10 +72,9 @@ check_packages(d)
 
 # # Chapter 5 - Compressing Data via Dimensionality Reduction
 
-
 # ### Overview
 
-# - [Unsupervised dimensionality reduction via principal component analysis 128](#Unsupervised-dimensionality-reduction-via-principal-component-analysis-128)
+# - [Unsupervised dimensionality reduction via principal component analysis](#Unsupervised-dimensionality-reduction-via-principal-component-analysis)
 #   - [The main steps behind principal component analysis](#The-main-steps-behind-principal-component-analysis)
 #   - [Extracting the principal components step-by-step](#Extracting-the-principal-components-step-by-step)
 #   - [Total and explained variance](#Total-and-explained-variance)
@@ -68,6 +94,17 @@ check_packages(d)
 
 
 
+# * from IPython.display
+# Import from the display submodule of the IPython package. This module is designed to display 
+# and render different types of data within interactive environments, such as Jupyter Notebooks.
+# * import Image
+# Import the Image class from the display module. The Image class is used to display 
+# images in the interactive environment (for example, in a Jupyter Notebook cell).
+# * %matplotlib inline
+# This is a magic command specific to IPython/Jupyter Notebook.
+# Enables display of matplotlib plots directly within cells of the 
+#notebook. Graphics are rendered "inline" (within the same notebook) without the need 
+# to open pop-up windows.
 
 
 
@@ -76,6 +113,17 @@ check_packages(d)
 # ## The main steps behind principal component analysis
 
 
+
+# * Image(...)
+# Use the Image class (probably imported from IPython.display, as in the previous example) 
+# to display an image in an interactive environment such as Jupyter Notebook.
+# * filename='./figures/05_01.png'
+# Specifies the path of the image to display. In this case, the image is located in the
+# file './figures/05_01.png', which is a relative path to the current directory.
+# * width=400
+# Set the image width to 400 pixels. This resizes the image so that it occupies that 
+# space width, while its height is adjusted proportionally (if you do not specify a 
+# height).
 
 
 
@@ -111,7 +159,8 @@ df_wine.head()
 
 X, y = df_wine.iloc[:, 1:].values, df_wine.iloc[:, 0].values
 
-X_train, X_test, y_train, y_test =     train_test_split(X, y, test_size=0.3, 
+X_train, X_test, y_train, y_test = \
+    train_test_split(X, y, test_size=0.3, 
                      stratify=y,
                      random_state=0)
 
@@ -130,9 +179,9 @@ X_test_std = sc.transform(X_test)
 # 
 # **Note**
 # 
-# Accidentally, I wrote `X_test_std = sc.fit_transform(X_test)` instead of `X_test_std = sc.transform(X_test)`. In this case, it wouldn't make a big difference since the mean and standard deviation of the test set should be (quite) similar to the training set. However, as remember from Chapter 3, the correct way is to re-use parameters from the training set if we are doing any kind of transformation -- the test set should basically stand for "new, unseen" data.
+# Accidentally, I wrote `X_test_std = sc.fit_transform(X_test)` instead of `X_test_std = sc.transform(X_test)`. In this case, it wouldn't make a big difference since the mean and standard deviation of the test set should be (quite) similar to the training set. However, as you remember from Chapter 3, the correct way is to re-use parameters from the training set if we are doing any kind of transformation -- the test set should basically stand for "new, unseen" data.
 # 
-# My initial typo reflects a common mistake is that some people are *not* re-using these parameters from the model training/building and standardize the new data "from scratch." Here's simple example to explain why this is a problem.
+# My initial typo reflects a common mistake which is that some people are *not* re-using these parameters from the model training/building and standardize the new data "from scratch." Here is a simple example to explain why this is a problem.
 # 
 # Let's assume we have a simple training set consisting of 3 examples with 1 feature (let's call this feature "length"):
 # 
@@ -154,17 +203,17 @@ X_test_std = sc.transform(X_test)
 # - new_5: 6 cm -> class ?
 # - new_6: 7 cm -> class ?
 # 
-# If we look at the "unstandardized "length" values in our training datast, it is intuitive to say that all of these examples are likely belonging to class_2. However, if we standardize these by re-computing standard deviation and and mean you would get similar values as before in the training set and your classifier would (probably incorrectly) classify examples 4 and 5 as class 2.
+# If we look at the "unstandardized "length" values in our training datast, it is intuitive to say that all of these examples are likely belonging to class_2. However, if we standardize these by re-computing standard deviation and mean you would get similar values as before in the training set and your classifier would (probably incorrectly) classify examples 4 and 5 as class_2.
 # 
-# - new_std_4: -1.21 -> class 2
-# - new_std_5: 0 -> class 2
-# - new_std_6: 1.21 -> class 1
+# - new_std_4: -1.21 -> class_2
+# - new_std_5: 0 -> class_2
+# - new_std_6: 1.21 -> class_1
 # 
 # However, if we use the parameters from your "training set standardization," we'd get the values:
 # 
-# - example5: -18.37 -> class 2
-# - example6: -17.15 -> class 2
-# - example7: -15.92 -> class 2
+# - example5: -18.37 -> class_2
+# - example6: -17.15 -> class_2
+# - example7: -15.92 -> class_2
 # 
 # The values 5 cm, 6 cm, and 7 cm are much lower than anything we have seen in the training set previously. Thus, it only makes sense that the standardized features of the "new examples" are much lower than every standardized feature in the training set.
 # 
@@ -186,7 +235,6 @@ print('\nEigenvalues \n', eigen_vals)
 #     <pre>>>> eigen_vals, eigen_vecs = np.linalg.eig(cov_mat)</pre>
 #     This is not really a "mistake," but probably suboptimal. It would be better to use [`numpy.linalg.eigh`](http://docs.scipy.org/doc/numpy/reference/generated/numpy.linalg.eigh.html) in such cases, which has been designed for [Hermetian matrices](https://en.wikipedia.org/wiki/Hermitian_matrix). The latter always returns real  eigenvalues; whereas the numerically less stable `np.linalg.eig` can decompose nonsymmetric square matrices, you may find that it returns complex eigenvalues in certain cases. (S.R.)
 # 
-
 
 # ## Total and explained variance
 
@@ -211,7 +259,6 @@ plt.legend(loc='best')
 plt.tight_layout()
 # plt.savefig('figures/05_02.png', dpi=300)
 plt.show()
-
 
 
 # ## Feature transformation
@@ -268,12 +315,11 @@ plt.tight_layout()
 plt.show()
 
 
-
 # ## Principal component analysis in scikit-learn
 
 # **NOTE**
 # 
-# The following four code cells has been added in addition to the content to the book, to illustrate how to replicate the results from our own PCA implementation in scikit-learn:
+# The following four code cells have been added in addition to the content to the book, to illustrate how to replicate the results from our own PCA implementation in scikit-learn:
 
 
 
@@ -423,17 +469,26 @@ plt.savefig('figures/05_05_03.png', dpi=300)
 plt.show()
 
 
-
 # # Supervised data compression via linear discriminant analysis
 
 # ## Principal component analysis versus linear discriminant analysis
 
 
 
+# * Image(...)
+# Use the Image class (probably imported from IPython.display, as in the previous example) 
+# to display an image in an interactive environment such as Jupyter Notebook.
+# * filename='./figures/05_06.png'
+# Specifies the path of the image to display. In this case, the image is located in the
+# file './figures/05_06.png', which is a relative path to the current directory.
+# * width=400
+# Set the image width to 400 pixels. This resizes the image so that it occupies that 
+# space width, while its height is adjusted proportionally (if you do not specify a 
+# height).
+
 
 
 # ## The inner workings of linear discriminant analysis
-
 
 # ## Computing the scatter matrices
 
@@ -505,7 +560,6 @@ print('Between-class scatter matrix: '
       f'{S_B.shape[0]}x{S_B.shape[1]}')
 
 
-
 # ## Selecting linear discriminants for the new feature subspace
 
 # Solve the generalized eigenvalue problem for the matrix $S_W^{-1}S_B$:
@@ -566,7 +620,6 @@ w = np.hstack((eigen_pairs[0][1][:, np.newaxis].real,
 print('Matrix W:\n', w)
 
 
-
 # ## Projecting examples onto the new feature space
 
 
@@ -586,7 +639,6 @@ plt.legend(loc='lower right')
 plt.tight_layout()
 plt.savefig('figures/05_08.png', dpi=300)
 plt.show()
-
 
 
 # ## LDA via scikit-learn
@@ -626,10 +678,20 @@ plt.tight_layout()
 plt.show()
 
 
-
 # # Nonlinear dimensionality reduction techniques
 
 
+
+# * Image(...)
+# Use the Image class (probably imported from IPython.display, as in the previous example) 
+# to display an image in an interactive environment such as Jupyter Notebook.
+# * filename='./figures/03_03.png'
+# Specifies the path of the image to display. In this case, the image is located in the
+# file './figures/03_03.png', which is a relative path to the current directory.
+# * width=500
+# Set the image width to 500 pixels. This resizes the image so that it occupies that 
+# space width, while its height is adjusted proportionally (if you do not specify a 
+# height).
 
 
 
@@ -695,15 +757,31 @@ plot_projection(X_digits_tsne, y_digits)
 plt.show()
 
 
-
 # # Summary
-
-# ...
 
 # ---
 # 
 # Readers may ignore the next cell.
 
 
+
+# Run a command in the terminal from a Python environment (such as a Jupyter Notebook or a 
+# script that allows system commands to convert a Jupyter notebook to a file 
+# Python script. 
+# * !
+# This symbol is used in environments such as Jupyter Notebooks to execute system commands 
+# operational directly from the notebook. In this case, the command is an execution of a 
+# python script.
+# * python ../.convert_notebook_to_script.py
+# This command runs a Python script called convert_notebook_to_script.py. This file 
+# is located in the previous directory (../ indicates that it is one level up in the system 
+# files). The purpose of this script is to convert a Jupyter notebook (.ipynb) into a 
+# Python script file (.py).
+# * --input ch05.ipynb
+# This is an option or argument that tells the script what the input file is, in this 
+# case, the notebook ch05.ipynb.
+# * --output ch05.py
+# This option tells the script to save the output (the converted file) with the name 
+# ch05.py, which is a Python script.
 
 

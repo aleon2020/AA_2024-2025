@@ -32,18 +32,18 @@ from sklearn.neighbors import KNeighborsClassifier
 
 
 # * import sys
-# Importa el módulo sys, que es un módulo de la biblioteca estándar de Python.
-# Este módulo proporciona acceso a variables y funciones que interactúan fuertemente con el
-# intérprete de Python, como la manipulación de la ruta de búsqueda de módulos y la entrada/salida
-# estándar, entre otros.
+# Import the sys module, which is a Python standard library module.
+# This module provides access to variables and functions that interact strongly with the
+# Python interpreter, such as manipulating module search path and input/output
+# standard, among others.
 # * sys.path
-# Es una lista que contiene las rutas en las que el intérprete de Python busca los módulos cuando
-# usas import. Al intentar importar un módulo, Python busca en las rutas especificadas en esta
-# lista.
+# It is a list containing the paths in which the Python interpreter looks for modules when
+# you use import. When you try to import a module, Python searches the paths specified in this
+# list.
 # * sys.path.insert(0, '..')
-# Inserta la ruta '..' (que representa el directorio padre) al inicio de la lista sys.path.
-# Al agregarla en la posición 0, se asegura que cuando Python busque módulos para importar,
-# primero verifique en el directorio padre antes de continuar con las rutas predeterminadas.
+# Insert the path '..' (representing the parent directory) at the beginning of the sys.path list.
+# Adding it in position 0 ensures that when Python looks for modules to import,
+# first check in the parent directory before continuing with the default paths.
 
 sys.path.insert(0, '..')
 
@@ -52,19 +52,19 @@ sys.path.insert(0, '..')
 
 
 
-# Importa la función check_packages desde el módulo python_environment_check. 
-# Este módulo, por su nombre, parece estar diseñado para verificar que el entorno de Python 
-# tenga instaladas las versiones correctas de ciertos paquetes.
+# Import the check_packages function from the python_environment_check module. 
+# This module, from its name, appears to be designed to verify that the Python environment 
+# have the correct versions of certain packages installed.
 # * d = {...}
-# Define un diccionario d que contiene como claves los nombres de varios paquetes 
-# (por ejemplo, numpy, scipy, matplotlib, etc.) y como valores las versiones mínimas 
-# requeridas de esos paquetes.
+# Defines a dictionary d that contains the names of several packages as keys 
+# (e.g. numpy, scipy, matplotlib, etc.) and as values ​​the minimum versions 
+# required from those packages.
 # * check_packages(d)
-# La función check_packages toma como entrada el diccionario d y probablemente realiza una 
-# verificación en el entorno actual de Python para asegurarse de que las versiones instaladas 
-# de estos paquetes sean al menos las especificadas en el diccionario. Si alguno de los paquetes 
-# no está instalado o tiene una versión incorrecta, es posible que la función lance un error o 
-# sugiera instalar/actualizar los paquetes.
+# The check_packages function takes as input the dictionary d and probably performs a 
+# check on current Python environment to ensure installed versions 
+# of these packages are at least those specified in the dictionary. If any of the packages 
+# is not installed or has the wrong version, the function may throw an error or 
+# suggest installing/updating the packages.
 
 d = {
     'numpy': '1.21.2',
@@ -103,16 +103,16 @@ check_packages(d)
 
 
 # * from IPython.display
-# Importa desde el submódulo display del paquete IPython. Este módulo está diseñado para mostrar 
-# y renderizar diferentes tipos de datos dentro de entornos interactivos, como Jupyter Notebooks.
+# Import from the display submodule of the IPython package. This module is designed to display 
+# and render different types of data within interactive environments, such as Jupyter Notebooks.
 # * import Image
-# Importa la clase Image desde el módulo display. La clase Image se utiliza para mostrar 
-# imágenes en el entorno interactivo (por ejemplo, en una celda de Jupyter Notebook).
+# Import the Image class from the display module. The Image class is used to display 
+# images in the interactive environment (for example, in a Jupyter Notebook cell).
 # * %matplotlib inline
-# Esto es una "magic command" (comando mágico) específico de IPython/Jupyter Notebook.
-# Habilita la visualización de gráficos de matplotlib directamente dentro de las celdas del 
-# notebook. Los gráficos se renderizan "en línea" (dentro del mismo cuaderno) sin necesidad 
-# de abrir ventanas emergentes.
+# This is a magic command specific to IPython/Jupyter Notebook.
+# Enables display of matplotlib plots directly within cells of the 
+#notebook. Graphics are rendered "inline" (within the same notebook) without the need 
+# to open pop-up windows.
 
 
 
@@ -124,42 +124,42 @@ check_packages(d)
 
 
 
-# IMPORTACIÓN DE BIBLIOTECAS
+# LIBRARY IMPORT
 # * sklearn.datasets
-# Se importa el módulo datasets de scikit-learn, que contiene varios conjuntos de datos clásicos, 
-# como el Iris, que es utilizado en ejemplos de clasificación.
+# The scikit-learn datasets module is imported, which contains several classic data sets, 
+# like Iris, which is used in classification examples.
 # * numpy (np)
-# Se importa la biblioteca numpy bajo el alias np para manejar operaciones numéricas.
+# The numpy library is imported under the alias np to handle numerical operations.
 
-# CARGA DEL CONJUNTO DE DATOS IRIS
+# LOADING THE IRIS DATA SET
 # * load_iris() 
-# Carga el conjunto de datos Iris, un dataset clásico que contiene características de tres tipos 
-# de flores de iris: Setosa, Versicolor, y Virginica. El conjunto de datos incluye 150 
-# ejemplos, con 4 características por ejemplo (longitud y anchura de sépalo y pétalo), y las 
-# etiquetas de las clases correspondientes a las especies.
+# Load the Iris dataset, a classic dataset that contains features of three types 
+# of iris flowers: Setosa, Versicolor, and Virginica. The data set includes 150 
+# examples, with 4 characteristics for example (length and width of sepal and petal), and the 
+# class labels corresponding to the species.
 iris = datasets.load_iris()
 
-# SELECCIÓN DE CARACTERÍSTICAS
+# FEATURE SELECTION
 # * iris.data
-# Contiene una matriz de 150 filas y 4 columnas, donde cada fila es un ejemplo con sus 4 
-# características.
-# * [:, [2, 3]]
-# Se seleccionan únicamente las columnas 2 y 3, que corresponden a la longitud y anchura
-# del pétalo, respectivamente. Así, X contiene solo estas dos características.
+# Contains a matrix of 150 rows and 4 columns, where each row is an example with its 4 
+# characteristics.
+# * [:, [23]]
+# Only columns 2 and 3 are selected, which correspond to the length and width
+# of the petal, respectively. Thus, X contains only these two characteristics.
 X = iris.data[:, [2, 3]]
 
-# ASIGNACIÓN DE ETIQUETAS DE CLASE
+# CLASS LABEL ASSIGNMENT
 # * iris.target
-# Contiene las etiquetas de clase para cada ejemplo en el conjunto de datos. Las etiquetas 
-# son 0, 1, y 2, que corresponden a las tres especies de flores de iris (Setosa, Versicolor, 
-# y Virginica).
+# Contains the class labels for each example in the data set. The labels 
+# are 0, 1, and 2, which correspond to the three species of iris flowers (Setosa, Versicolor, 
+# and Virginica).
 y = iris.target
 
-# IMPRESIÓN DE LAS ETIQUETAS DE CLASE ÚNICAS
+# PRINTING THE UNIQUE CLASS LABELS
 # * np.unique(y)
-# Esta función de NumPy devuelve los valores únicos de las etiquetas en y. En este caso, 
-# imprimirá las etiquetas de clase únicas: [0, 1, 2], que representan las tres especies de 
-# flores en el dataset Iris.
+# This NumPy function returns the unique values ​​of the labels in y. In this case, 
+# will print the unique class labels: [0, 1, 2], which represent the three species of 
+# flowers in the Iris dataset.
 print('Class labels:', np.unique(y))
 
 
@@ -167,64 +167,64 @@ print('Class labels:', np.unique(y))
 
 
 
-# IMPORTACIÓN DEL MÓDULO
-# Se importa la función train_test_split del módulo model_selection de scikit-learn. 
-# Esta función se utiliza para dividir un conjunto de datos en dos subconjuntos: 
-# uno para entrenamiento y otro para prueba.
+# MODULE IMPORT
+# The train_test_split function is imported from the model_selection module of scikit-learn. 
+# This function is used to split a data set into two subsets: 
+# one for training and one for testing.
 
-# DIVISIÓN DE LOS DATOS
+# DIVISION OF DATA
 # * X
-# Son las características (variables independientes) del conjunto de datos.
+# They are the characteristics (independent variables) of the data set.
 # * y
-# Son las etiquetas (la variable dependiente o de clase).
-# La función train_test_split divide estos datos en cuatro subconjuntos:
+# They are the labels (the dependent or class variable).
+# The train_test_split function splits this data into four subsets:
 # * X_train
-# Conjunto de características para entrenamiento.
+# Set of features for training.
 # * X_test
-# Conjunto de características para prueba.
+# Feature set for testing.
 # * y_train
-# Etiquetas correspondientes al conjunto de entrenamiento.
+# Labels corresponding to the training set.
 # * y_test
-# Etiquetas correspondientes al conjunto de prueba.
+# Labels corresponding to the test set.
 
-# PARÁMETROS
+# PARAMETERS
 # * test_size=0.3
-# Indica que el 30% de los datos (0.3) se reservará para el conjunto de prueba, y el 70% 
-# restante se usará para entrenamiento.
+# Indicates that 30% of the data (0.3) will be reserved for the test set, and 70% 
+# remaining will be used for training.
 # * random_state=1
-# Establece una semilla aleatoria para que la división sea reproducible, es decir, al usar 
-# la misma semilla (1), se obtendrá la misma división cada vez que se ejecute.
+# Set a random seed to make the split reproducible, i.e. when using 
+# the same seed (1), the same division will be obtained every time it is executed.
 # * stratify=y
-# Garantiza que la proporción de clases en y (las etiquetas) sea la misma en ambos conjuntos 
-# (entrenamiento y prueba). Esto es útil cuando las clases están desbalanceadas.
+# Ensures that the proportion of classes in y (the labels) is the same in both sets 
+# (training and testing). This is useful when classes are unbalanced.
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=1, stratify=y)
 
 
 
 
-# IMPRESIÓN DEL CONTEO DE ETIQUETAS EN Y
+# PRINTING Y LABEL COUNT
 # * np.bincount(y)
-# Esta función cuenta la cantidad de veces que aparece cada valor entero en el array y. 
-# En este caso, y contiene las etiquetas de clase (0, 1, 2) del conjunto de datos completo.
-# El resultado es una lista en la que cada posición corresponde a una etiqueta, y el valor en 
-# esa posición indica cuántas veces aparece esa etiqueta en y.
-# * Ejemplo
-# Si y tiene 50 ejemplos de la clase 0, 50 de la clase 1, y 50 de la clase 2, el resultado 
-# será algo como [50, 50, 50].
+# This function counts the number of times each integer value appears in the y array. 
+# In this case, y contains the class labels (0, 1, 2) of the entire data set.
+# The result is a list in which each position corresponds to a tag, and the value in 
+# that position indicates how many times that tag appears in y.
+# * Example
+# If y has 50 examples of class 0, 50 of class 1, and 50 of class 2, the result 
+# will be something like [50, 50, 50].
 print('Labels counts in y:', np.bincount(y))
 
-# IMPRESIÓN DEL CONTEO DE ETIQUETAS EN Y_TRAIN
-# Similar al caso anterior, esta línea cuenta las ocurrencias de cada etiqueta en el conjunto 
-# de entrenamiento (y_train), que se obtuvo después de dividir los datos con train_test_split.
-# Como se usó el parámetro stratify al dividir los datos, el conteo de etiquetas en y_train 
-# mantendrá las proporciones de las clases originales.
+# PRINTING TAG COUNT ON Y_TRAIN
+# Similar to the previous case, this line counts the occurrences of each tag in the set 
+# training (y_train), which was obtained after splitting the data with train_test_split.
+# Since the stratify parameter was used when splitting the data, the tag count in y_train 
+# will maintain the proportions of the original classes.
 print('Labels counts in y_train:', np.bincount(y_train))
 
-# IMPRESIÓN DEL CONTEO DE ETIQUETAS EN Y_TEST
-# Aquí se cuenta cuántas veces aparece cada etiqueta en el conjunto de prueba (y_test).
-# Nuevamente, las proporciones de las clases en y_test serán las mismas que en los datos 
-# originales debido al uso de stratify.
+# PRINT LABEL COUNT IN Y_TEST
+# Here we count how many times each label appears in the test set (y_test).
+# Again, the proportions of the classes in y_test will be the same as in the data 
+# originals due to the use of stratify.
 print('Labels counts in y_test:', np.bincount(y_test))
 
 
@@ -232,36 +232,36 @@ print('Labels counts in y_test:', np.bincount(y_test))
 
 
 
-# IMPORTACIÓN DEL MÓDULO
-# Se importa la clase StandardScaler del módulo sklearn.preprocessing. Esta clase se utiliza 
-# para estandarizar características, es decir, hacer que los datos tengan una media de 0 y una 
-# desviación estándar de 1.
+# MODULE IMPORT
+# The StandardScaler class is imported from the sklearn.preprocessing module. This class is used 
+# to standardize features, that is, make the data have a mean of 0 and a 
+# standard deviation of 1.
 
-# CREACIÓN DE UN OBJETO STANDARD SCALER
-# Se crea una instancia de StandardScaler llamada sc. Este objeto se usará para ajustar 
-# (calcular los parámetros) y transformar los datos.
+# CREATION OF A STANDARD SCALER OBJECT
+# A StandardScaler instance called sc is created. This object will be used to adjust 
+# (calculate the parameters) and transform the data.
 sc = StandardScaler()
 
-# AJUSTE DEL ESCALADOR EN EL CONJUNTO DE ENTRENAMIENTO
-# El método fit(X_train) ajusta el escalador usando los datos de entrenamiento (X_train). 
-# Durante este proceso, el StandardScaler calcula la media y la desviación estándar de cada 
-# característica en X_train. Estos valores se almacenan y se usarán posteriormente para 
-# transformar tanto los datos de entrenamiento como los de prueba.
+# FITTING THE CLIMBER ON THE TRAINING SET
+# The fit(X_train) method fits the scaler using the training data (X_train). 
+# During this process, the StandardScaler calculates the mean and standard deviation of each 
+# feature in X_train. These values ​​are stored and will be used later to 
+# transform both training and test data.
 sc.fit(X_train)
 
-# TRANSFORMACIÓN DEL CONJUNTO DE ENTRENAMIENTO
-# El método transform(X_train) utiliza los valores de la media y desviación estándar 
-# calculados en el paso anterior para transformar las características de X_train. Cada valor 
-# de las características de X_train se estandariza restando la media y dividiendo por la 
-# desviación estándar. El resultado es un nuevo conjunto de datos X_train_std, donde las 
-# características tienen una media de 0 y una desviación estándar de 1.
+# TRAINING SET TRANSFORMATION
+# The transform(X_train) method uses the mean and standard deviation values 
+# calculated in the previous step to transform the features of X_train. Each value 
+# of X_train features are standardized by subtracting the mean and dividing by the 
+# standard deviation. The result is a new data set X_train_std, where the 
+# features have a mean of 0 and a standard deviation of 1.
 X_train_std = sc.transform(X_train)
 
-# TRANSFORMACIÓN DEL CONJUNTO DE PRUEBA
-# Se aplica la misma transformación a los datos de prueba (X_test) utilizando los parámetros 
-# de estandarización (media y desviación estándar) calculados a partir del conjunto de 
-# entrenamiento. Esto garantiza que las transformaciones en los datos de prueba sean 
-# consistentes con las del conjunto de entrenamiento. El resultado es el conjunto estandarizado 
+#TEST SET TRANSFORMATION
+# The same transformation is applied to the test data (X_test) using the parameters 
+# of standardization (mean and standard deviation) calculated from the set of 
+# training. This ensures that transformations on the test data are 
+# consistent with those of the training set. The result is the standardized set 
 # X_test_std.
 X_test_std = sc.transform(X_test)
 
@@ -270,121 +270,121 @@ X_test_std = sc.transform(X_test)
 
 
 
-# IMPORTACIÓN DE PERCEPTRÓN
-# Se importa la clase Perceptron del módulo sklearn.linear_model. El Perceptrón es un algoritmo 
-# de clasificación lineal que actualiza los pesos mediante la regla de aprendizaje del perceptrón.
+#PERCEPTRON IMPORT
+# The Perceptron class from the sklearn.linear_model module is imported. The Perceptron is an algorithm 
+# Linear classification that updates weights using perceptron learning rule.
 
-# CREACIÓN DE UN MODELO PERCEPTRÓN
-# Se crea una instancia del modelo Perceptrón con los siguientes parámetros:
+# CREATION OF A PERCEPTRON MODEL
+# An instance of the Perceptron model is created with the following parameters:
 # * eta0=0.1
-# Tasa de aprendizaje, que controla cuánto se ajustan los pesos en cada iteración.
+# Learning rate, which controls how much the weights are adjusted in each iteration.
 # * random_state=1
-# Establece una semilla aleatoria para asegurar la reproducibilidad de los resultados.
+# Set a random seed to ensure reproducibility of results.
 ppn = Perceptron(eta0=0.1, random_state=1)
 
-# ENTRENAMIENTO DEL MODELO
-# El modelo ppn se entrena con el conjunto de datos estandarizados de entrenamiento 
-# (X_train_std) y sus etiquetas correspondientes (y_train).
-# El método fit ajusta el modelo calculando los pesos que mejor separan las clases en los 
-# datos de entrenamiento.
+# MODEL TRAINING
+# The ppn model is trained with the standardized training data set 
+# (X_train_std) and its corresponding tags (y_train).
+# The fit method adjusts the model by calculating the weights that best separate the classes in the 
+# training data.
 ppn.fit(X_train_std, y_train)
 
 
 
 
-# PREDICCIÓN SOBRE EL CONJUNTO DE PRUEBA
-# Se utiliza el modelo entrenado para hacer predicciones sobre el conjunto de prueba 
-# estandarizado (X_test_std), generando las predicciones de clase y_pred.
+# PREDICTION ON THE TEST SET
+# The trained model is used to make predictions on the test set 
+# standardized (X_test_std), generating the y_pred class predictions.
 y_pred = ppn.predict(X_test_std)
 
-# CÁLCULO DE EJEMPLOS MAL CLASIFICADOS
-# Se compara las etiquetas reales (y_test) con las predicciones del modelo (y_pred) para contar 
-# cuántos ejemplos fueron mal clasificados. Esto se logra con la expresión 
-# (y_test != y_pred).sum(), que cuenta cuántos valores son diferentes entre y_test y y_pred.
+# CALCULATION OF MISCLASSIFIED EXAMPLES
+# Compare the actual labels (y_test) with the model predictions (y_pred) to count 
+# how many examples were misclassified. This is achieved with the expression 
+# (y_test != y_pred).sum(), which counts how many values ​​are different between y_test and y_pred.
 print('Misclassified examples: %d' % (y_test != y_pred).sum())
 
 
 
 
-# CÁLCULO DE LA PRECISIÓN (ACCURACY)
-# Se importa la función accuracy_score del módulo sklearn.metrics para calcular la precisión 
-# (el porcentaje de ejemplos correctamente clasificados) comparando y_test con y_pred.
-# La precisión se imprime con tres decimales usando la expresión '%.3f'.
+# ACCURACY CALCULATION
+# Import the accuracy_score function from the sklearn.metrics module to calculate accuracy 
+# (the percentage of correctly classified examples) comparing y_test with y_pred.
+# Precision is printed to three decimal places using the expression '%.3f'.
 print('Accuracy: %.3f' % accuracy_score(y_test, y_pred))
 
 
 
 
-# PRECISIÓN UTILIZANDO EL MÉTODO SCORE DEL PERCEPTRÓN
-# Alternativamente, se calcula la precisión usando el método score del Perceptrón (ppn), que 
-# también devuelve la precisión del modelo sobre el conjunto de prueba (X_test_std y y_test).
+# PRECISION USING THE PERCEPTRON SCORE METHOD
+# Alternatively, precision is calculated using the Perceptron (ppn) score method, which 
+# also returns the accuracy of the model on the test set (X_test_std and y_test).
 print('Accuracy: %.3f' % ppn.score(X_test_std, y_test))
 
 
 
 
-# IMPORTACIÓN DE LAS BIBLIOTECAS
+# IMPORT OF LIBRARIES
 # * ListedColormap
-# Permite crear un mapa de colores personalizado para la visualización.
+# Allows you to create a custom color map for the display.
 # * matplotlib.pyplot
-# Proporciona funciones para generar gráficos.
+# Provides functions for generating graphs.
 # * numpy
-# Es la biblioteca para realizar cálculos numéricos.
+# It is the library to perform numerical calculations.
 # * LooseVersion
-# Se importa para verificar la compatibilidad de versiones de matplotlib 
-# (aunque no se utiliza en este fragmento).
+# Imported to check matplotlib version compatibility 
+# (although not used in this snippet).
 
-# DEFINICIÓN DE LA FUNCIÓN PLOT_DECISION_REGIONS
+# DEFINITION OF THE PLOT_DECISION_REGIONS FUNCTION
 # * X
-# El conjunto de datos con dos características (columnas) a visualizar.
+# The data set with two features (columns) to display.
 # * y
-# Las etiquetas de clase asociadas a los datos.
+# The class labels associated with the data.
 # * classifier
-# El modelo de clasificación que se utilizará para predecir las clases.
+# The classification model that will be used to predict the classes.
 # * test_idx
-# Índices opcionales para resaltar los ejemplos del conjunto de prueba.
+# Optional indexes to highlight test set examples.
 # * resolution
-# La resolución de la malla que se dibujará para las regiones de decisión.
+# The resolution of the mesh to draw for the decision regions.
 def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
 
-    # CONFIGURACIÓN DE LOS COLORES Y MARCADORES
-    # Se definen varios tipos de marcadores (o, s, ^, etc.) y colores para cada clase.
-    # El mapa de colores cmap se genera para que cada clase tenga un color único, en 
-    # función del número de clases en los datos (np.unique(y)).
+    # CONFIGURATION OF COLORS AND MARKERS
+    # Various marker types (o, s, ^, etc.) and colors are defined for each class.
+    # The cmap color map is generated so that each class has a unique color, in 
+    # function of the number of classes in the data (np.unique(y)).
     markers = ('o', 's', '^', 'v', '<')
     colors = ('red', 'blue', 'lightgreen', 'gray', 'cyan')
     cmap = ListedColormap(colors[:len(np.unique(y))])
 
-    # GENERACIÓN DE LA MALLA DE DECISIÓN
-    # Se calcula el rango de valores de las dos características (X[:, 0] y X[:, 1]) para 
-    # crear una malla (grid) de puntos que cubra todo el espacio bidimensional. Los 
-    # límites se amplían en 1 unidad para que no se recorten los datos.
-    # Se utiliza np.meshgrid para crear matrices de coordenadas que cubren el espacio.
+    # GENERATION OF THE DECISION MESH
+    # The range of values ​​of the two characteristics (X[:, 0] and X[:, 1]) is calculated for 
+    # create a mesh (grid) of points that covers the entire two-dimensional space. The 
+    # limits are extended by 1 unit so that data is not clipped.
+    # np.meshgrid is used to create coordinate arrays that cover space.
     x1_min, x1_max = X[:, 0].min() - 1, X[:, 0].max() + 1
     x2_min, x2_max = X[:, 1].min() - 1, X[:, 1].max() + 1
     xx1, xx2 = np.meshgrid(np.arange(x1_min, x1_max, resolution),
                            np.arange(x2_min, x2_max, resolution))
     
-    # PREDICCIÓN SOBRE LA MALLA
-    # Se aplican las predicciones del clasificador sobre cada punto de la malla generada.
-    # Los resultados se transforman y reorganizan para coincidir con la forma de la malla, 
-    # permitiendo crear un gráfico continuo de las regiones de decisión.
+    # PREDICTION ON THE MESH
+    # The classifier predictions are applied to each point of the generated mesh.
+    # The results are transformed and rearranged to match the shape of the mesh, 
+    # allowing you to create a continuous graph of the decision regions.
     lab = classifier.predict(np.array([xx1.ravel(), xx2.ravel()]).T)
     lab = lab.reshape(xx1.shape)
 
-    # DIBUJO DE LAS REGIONES DE DECISIÓN
+    # DRAWING OF THE DECISION REGIONS
     # * contourf
-    # Se utiliza para dibujar las regiones de decisión, coloreando cada región según las 
-    # predicciones del clasificador.
-    # Se ajustan los límites de los ejes para que coincidan con el rango de valores de las 
-    # características.
+    # Used to draw the decision regions, coloring each region according to the 
+    # classifier predictions.
+    # The axis limits are adjusted to match the range of values ​​of the 
+    # characteristics.
     plt.contourf(xx1, xx2, lab, alpha=0.3, cmap=cmap)
     plt.xlim(xx1.min(), xx1.max())
     plt.ylim(xx2.min(), xx2.max())
 
-    # VISUALIZACIÓN DE LOS PUNTOS DE DATOS
-    # Se dibujan los puntos de datos originales sobre las regiones de decisión. Cada clase 
-    # tiene un color y marcador diferentes, y los puntos tienen un borde negro para resaltarlos.
+    # VIEWING DATA POINTS
+    # The original data points are drawn over the decision regions. each class 
+    # has a different color and marker, and the points have a black border to highlight them.
     for idx, cl in enumerate(np.unique(y)):
         plt.scatter(x=X[y == cl, 0], 
                     y=X[y == cl, 1],
@@ -394,9 +394,9 @@ def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
                     label=f'Class {cl}', 
                     edgecolor='black')
 
-    # RESALTADO DE LOS EJEMPLOS DEL CONJUNTO DE PRUEBA
-    # Si se proporcionan índices de los ejemplos de prueba (test_idx), estos puntos se resaltan 
-    # en el gráfico usando un círculo grande con borde negro y sin color de relleno (c='none').
+    # HIGHLIGHTING TEST SET EXAMPLES
+    # If indexes of the test examples (test_idx) are provided, these points are highlighted 
+    # on the graph using a large circle with a black border and no fill color (c='none').
     if test_idx:
         X_test, y_test = X[test_idx, :], y[test_idx]
         plt.scatter(X_test[:, 0],
@@ -414,55 +414,55 @@ def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
 
 
 
-# COMBINACIÓN DE CONJUNTOS DE DATOS
+# COMBINATION OF DATASETS
 # * np.vstack
-# Se utiliza para apilar verticalmente los conjuntos de datos estandarizados de entrenamiento 
-# (X_train_std) y prueba (X_test_std). Esto genera una única matriz X_combined_std que contiene 
-# todos los datos estandarizados.
+# Used to vertically stack standardized training data sets 
+# (X_train_std) and test (X_test_std). This generates a single X_combined_std array containing 
+# all data standardized.
 # * np.hstack
-# Se utiliza para apilar horizontalmente las etiquetas de las clases del conjunto de 
-# entrenamiento (y_train) y del conjunto de prueba (y_test). Esto crea un solo array y_combined 
-# que contiene todas las etiquetas de clase.
+# Used to horizontally stack class labels in the set 
+# training (y_train) and test set (y_test). This creates a single y_combined array 
+# containing all class tags.
 X_combined_std = np.vstack((X_train_std, X_test_std))
 y_combined = np.hstack((y_train, y_test))
 
-# VISUALIZACIÓN DE LAS REGIONES DE DECISIÓN
-# Se llama a la función plot_decision_regions (definida previamente) para visualizar las 
-# regiones de decisión del modelo Perceptrón (ppn).
-# Los parámetros pasados son:
+# VISUALIZATION OF DECISION REGIONS
+# The plot_decision_regions function (defined previously) is called to display the 
+# decision regions of the Perceptron (ppn) model.
+# The parameters passed are:
 # * X=X_combined_std
-# Los datos estandarizados combinados.
+# The standardized data combined.
 # * y=y_combined
-# Las etiquetas combinadas.
+# The combined tags.
 # * classifier=ppn
-# El clasificador utilizado para predecir las clases.
+# The classifier used to predict the classes.
 # * test_idx=range(105, 150)
-# Indica qué ejemplos del conjunto de prueba deben ser resaltados en la visualización. 
-# Aquí se están resaltando los índices 105 a 149.
+# Indicates which examples from the test set should be highlighted in the visualization. 
+#Indices 105 to 149 are being highlighted here.
 plot_decision_regions(X=X_combined_std, y=y_combined,
                       classifier=ppn, test_idx=range(105, 150))
 
-# ETIQUETADO DE LOS EJES
-# Se añaden etiquetas a los ejes X e Y del gráfico, que representan las características de 
-# longitud y ancho de los pétalos estandarizados.
+# AXLE LABELING
+# Labels are added to the X and Y axes of the graph, representing the characteristics of 
+# length and width of standardized petals.
 plt.xlabel('Petal length [standardized]')
 plt.ylabel('Petal width [standardized]')
 
-# LEYENDA
-# Se añade una leyenda al gráfico en la esquina superior izquierda para identificar las 
-# diferentes clases.
+# LEGEND
+# A legend is added to the chart in the upper left corner to identify the 
+# different classes.
 plt.legend(loc='upper left')
 
-# AJUSTES DEL DISEÑO
-# Esta función ajusta automáticamente el espaciado del gráfico para que los elementos no se 
-# superpongan y se vean más ordenados.
+# DESIGN SETTINGS
+# This function automatically adjusts the spacing of the chart so that elements do not overlap. 
+# overlap and look more organized.
 plt.tight_layout()
 
-# MOSTRAR EL GRÁFICO
-# La línea que guarda el gráfico como un archivo PNG está comentada. Si se descomenta, el 
-# gráfico se guardaría en la ruta especificada con una resolución de 300 dpi.
+# SHOW THE GRAPH
+# The line that saves the graph as a PNG file is commented out. If it is uncommented, the 
+# graphic would be saved to the specified path with a resolution of 300 dpi.
 # * plt.show()
-# Muestra el gráfico generado en una ventana emergente.
+# Display the generated graph in a popup window.
 # plt.savefig('figures/03_01.png', dpi=300)
 plt.show()
 
@@ -473,61 +473,61 @@ plt.show()
 
 
 
-# IMPORTACIÓN DE BIBLIOTECAS
+# LIBRARY IMPORT
 # * matplotlib.pyplot
-# Se utiliza para crear gráficos en Python.
+# Used to create graphs in Python.
 # * numpy
-# Se emplea para realizar cálculos numéricos y manipular arreglos.
+# Used to perform numerical calculations and manipulate arrays.
 
-# DEFINICIÓN DE LA FUNCIÓN SIGMOIDE
-# Se define la función sigmoid, que toma un valor (o un arreglo de valores) z y aplica la 
-# fórmula de la función sigmoide. La salida está en el rango de (0, 1), lo que la hace útil 
-# para interpretar como probabilidades.
+# DEFINITION OF THE SIGMOID FUNCTION
+# The sigmoid function is defined, which takes a value (or an array of values) z and applies the 
+# formula for the sigmoid function. The output is in the range of (0, 1), which makes it useful 
+# to interpret as probabilities.
 def sigmoid(z):
     return 1.0 / (1.0 + np.exp(-z))
 
-# GENERACIÓN DE VALORES PARA Z
-# Se crea un arreglo z que contiene valores desde -7 hasta 7 (sin incluir 7), con un paso de 
-# 0.1. Este rango cubre la mayoría del comportamiento interesante de la función sigmoide.
+# GENERATION OF VALUES FOR Z
+# An array z containing values ​​from -7 to 7 (not including 7) is created, with a step of 
+#0.1. This range covers most of the interesting behavior of the sigmoid function.
 z = np.arange(-7, 7, 0.1)
 
-# CÁLCULO DE LA FUNCIÓN SIGMOIDE
-# Se aplica la función sigmoide a todos los valores de z y se almacena el resultado en sigma_z.
+# CALCULATION OF THE SIGMOID FUNCTION
+# The sigmoid function is applied to all values ​​of z and the result is stored in sigma_z.
 sigma_z = sigmoid(z)
 
-# CREACIÓN DEL GRÁFICO
+# CHART CREATION
 # * plt.plot(z, sigma_z)
-# Se traza el gráfico de la función sigmoide con z en el eje X y sigma_z en el eje Y.
+# The graph of the sigmoid function is plotted with z on the X axis and sigma_z on the Y axis.
 # * plt.axvline(0.0, color='k')
-# Se dibuja una línea vertical en z = 0 (en color negro), lo que ayuda a visualizar el punto 
-# en el que la función sigmoide es 0.5.
+# A vertical line is drawn at z = 0 (in black), which helps visualize the point 
+# in which the sigmoid function is 0.5.
 # * plt.ylim(-0.1, 1.1)
-# Se establecen los límites del eje Y para que el gráfico se vea más limpio.
-# * plt.xlabel('z') y plt.ylabel('$\sigma (z)$')
-# Se añaden etiquetas a los ejes X e Y, respectivamente. La etiqueta del eje Y usa notación 
-# matemática para mostrar la función sigmoide.
+# Y axis limits are set to make the graph look cleaner.
+# * plt.xlabel('z') and plt.ylabel('$\sigma (z)$')
+# Labels are added to the X and Y axes, respectively. Y axis label uses notation 
+# math to show the sigmoid function.
 plt.plot(z, sigma_z)
 plt.axvline(0.0, color='k')
 plt.ylim(-0.1, 1.1)
 plt.xlabel('z')
 plt.ylabel('$\sigma (z)$')
 
-# CONFIGURACIÓN DE LAS MARCAS Y LÍNEAS DE LA CUADRÍCULA
+# CONFIGURATION OF GRID MARKS AND LINES
 # * plt.yticks([0.0, 0.5, 1.0])
-# Se configuran las marcas del eje Y para que solo muestre 0.0, 0.5 y 1.0.
-# ax.yaxis.grid(True)
-# Se activan las líneas de la cuadrícula en el eje Y para mejorar la legibilidad del gráfico.
+# Set the Y axis ticks to only show 0.0, 0.5, and 1.0.
+# * ax.yaxis.grid(True)
+# Grid lines on the Y axis are enabled to improve chart readability.
 plt.yticks([0.0, 0.5, 1.0])
 ax = plt.gca()
 ax.yaxis.grid(True)
 
-# AJUSTE DEL DISEÑO Y VISUALIZACIÓN
+# LAYOUT SETTING AND DISPLAY
 # * plt.tight_layout()
-# Ajusta el diseño del gráfico para que no haya superposiciones.
-# La línea que guarda el gráfico como un archivo PNG está comentada. Si se descomenta, 
-# el gráfico se guardaría en la ruta especificada con una resolución de 300 dpi.
+# Adjust the layout of the chart so that there are no overlaps.
+# The line that saves the graph as a PNG file is commented out. If uncommented, 
+# the graph would be saved to the specified path with a resolution of 300 dpi.
 # * plt.show()
-# Muestra el gráfico generado en una ventana emergente.
+# Display the generated graph in a popup window.
 plt.tight_layout()
 # plt.savefig('figures/03_02.png', dpi=300)
 plt.show()
@@ -536,30 +536,30 @@ plt.show()
 
 
 # * Image(...)
-# Usa la clase Image (probablemente importada desde IPython.display, como en el ejemplo anterior) 
-# para mostrar una imagen en un entorno interactivo como Jupyter Notebook.
+# Use the Image class (probably imported from IPython.display, as in the previous example) 
+# to display an image in an interactive environment such as Jupyter Notebook.
 # * filename='./figures/03_03.png'
-# Especifica la ruta de la imagen que se desea mostrar. En este caso, la imagen se encuentra en el
-# archivo './figures/03_03.png', que es una ruta relativa al directorio actual.
+# Specifies the path of the image to display. In this case, the image is located in the
+# file './figures/03_03.png', which is a relative path to the current directory.
 # * width=500
-# Ajusta el ancho de la imagen a 500 píxeles. Esto redimensiona la imagen para que ocupe ese 
-# espacio de ancho, mientras que su altura se ajusta proporcionalmente (si no se especifica una 
-# altura).
+# Set the image width to 500 pixels. This resizes the image so that it occupies that 
+# space width, while its height is adjusted proportionally (if you do not specify a 
+# height).
 
 
 
 
 
 # * Image(...)
-# Usa la clase Image (probablemente importada desde IPython.display, como en el ejemplo anterior) 
-# para mostrar una imagen en un entorno interactivo como Jupyter Notebook.
+# Use the Image class (probably imported from IPython.display, as in the previous example) 
+# to display an image in an interactive environment such as Jupyter Notebook.
 # * filename='./figures/03_25.png'
-# Especifica la ruta de la imagen que se desea mostrar. En este caso, la imagen se encuentra en el
-# archivo './figures/03_25.png', que es una ruta relativa al directorio actual.
+# Specifies the path of the image to display. In this case, the image is located in the
+# file './figures/03_25.png', which is a relative path to the current directory.
 # * width=500
-# Ajusta el ancho de la imagen a 500 píxeles. Esto redimensiona la imagen para que ocupe ese 
-# espacio de ancho, mientras que su altura se ajusta proporcionalmente (si no se especifica una 
-# altura).
+# Set the image width to 500 pixels. This resizes the image so that it occupies that 
+# space width, while its height is adjusted proportionally (if you do not specify a 
+# height).
 
 
 
@@ -567,61 +567,63 @@ plt.show()
 
 
 
-# DEFINICIÓN DE FUNCIONES DE PÉRDIDA
+# DEFINITION OF LOSS FUNCTIONS
 # * loss_1(z)
-# Calcula la función de pérdida cuando la etiqueta de clase es 1. Utiliza la función sigmoide y la fórmula de pérdida de entropía cruzada para clasificaciones positivas.
+# Calculate the loss function when the class label is 1. Use the sigmoid function and cross 
+# entropy loss formula for positive classifications.
 # * loss_0(z)
-# Calcula la función de pérdida cuando la etiqueta de clase es 0. Similarmente, usa la fórmula de pérdida de entropía cruzada para clasificaciones negativas.
+# Calculate the loss function when the class label is 0. Similarly, use the cross entropy 
+# loss formula for negative classifications.
 def loss_1(z):
     return - np.log(sigmoid(z))
 def loss_0(z):
     return - np.log(1 - sigmoid(z))
 
-# GENERACIÓN DE VALORES PARA Z
-# Se crea un arreglo z que contiene valores desde -10 hasta 10 (sin incluir 10), con un paso de 
-# 0.1. Esto permite observar cómo se comportan las funciones de pérdida en un rango amplio de 
-# valores.
-# Se calcula sigma_z, que representa los valores de la función sigmoide evaluados en el rango 
-# de z.
+# GENERATION OF VALUES FOR Z
+# An array z containing values ​​from -10 to 10 (not including 10) is created, with a step of 
+#0.1. This allows us to observe how the loss functions behave in a wide range of 
+# values.
+# sigma_z is calculated, which represents the values ​​of the sigmoid function evaluated in the range 
+# of z.
 z = np.arange(-10, 10, 0.1)
 sigma_z = sigmoid(z)
 
-# CÁLCULO DE LA PÉRDIDA PARA CUANDO Y=1
-# Se utiliza una comprensión de lista para calcular la pérdida usando loss_1 para cada valor en 
-# z. El resultado se almacena en c1.
-# Luego, se grafica c1 en función de sigma_z, etiquetando la línea como L(w, b) if y=1.
+# CALCULATION OF THE LOSS FOR WHEN Y=1
+# A list comprehension is used to calculate the loss using loss_1 for each value in 
+#z. The result is stored in c1.
+# Next, c1 is plotted as a function of sigma_z, labeling the line L(w, b) if y=1.
 c1 = [loss_1(x) for x in z]
 plt.plot(sigma_z, c1, label='L(w, b) if y=1')
 
-# CÁLCULO DE LA PÉRDIDA PARA CUANDO Y=0
-# Similar al paso anterior, se calcula la pérdida usando loss_0 para cada valor en z y se 
-# almacena en c0.
-# Se grafica c0 en función de sigma_z, usando un estilo de línea discontinua (linestyle='--') 
-# y etiquetándola como L(w, b) if y=0.
+# CALCULATION OF THE LOSS FOR WHEN Y=0
+# Similar to the previous step, the loss is calculated using loss_0 for each value in z and 
+# stored in c0.
+# Plot c0 as a function of sigma_z, using a dashed line style (linestyle='--') 
+# and labeling it L(w, b) if y=0.
 c0 = [loss_0(x) for x in z]
 plt.plot(sigma_z, c0, linestyle='--', label='L(w, b) if y=0')
 
-# CONFIGURACIÓN DE LOS LÍMITES Y ETIQUETAS DEL GRÁFICO
+# SETTING CHART LIMITS AND LABELS
 # * plt.ylim(0.0, 5.1)
-# Establece el límite del eje Y entre 0 y 5.1 para centrarse en las pérdidas calculadas.
+# Set the Y axis limit between 0 and 5.1 to focus on calculated losses.
 # * plt.xlim([0, 1])
-# Establece el límite del eje X entre 0 y 1, que es el rango de la función sigmoide.
-# Se añaden etiquetas a los ejes X e Y, mostrando que el eje X representa la salida de la 
-# función sigmoide y el eje Y representa la pérdida.
+# Sets the limit of the X axis between 0 and 1, which is the range of the sigmoid function.
+# Labels are added to the X and Y axes, showing that the X axis represents the output of the 
+# sigmoid function and the Y axis represents the loss.
 plt.ylim(0.0, 5.1)
 plt.xlim([0, 1])
 plt.xlabel('$\sigma(z)$')
 plt.ylabel('L(w, b)')
 
-# ADICIÓN DE LEYENDA Y AJUSTE DEL DISEÑO
+# ADDING LEGEND AND ADJUSTING THE LAYOUT
 # * plt.legend(loc='best')
-# Añade una leyenda al gráfico en la mejor posición disponible.
+# Add a legend to the chart in the best available position.
 # * plt.tight_layout()
-# Ajusta automáticamente el diseño del gráfico para que no haya superposiciones.
-# La línea que guarda el gráfico como un archivo PNG está comentada. Si se descomenta, 
-# el gráfico se guardaría en la ruta especificada con una resolución de 300 dpi.
+# Automatically adjusts the chart layout so there are no overlaps.
+# The line that saves the graph as a PNG file is commented out. If uncommented, 
+# the graph would be saved to the specified path with a resolution of 300 dpi.
 # * plt.show()
-# Muestra el gráfico generado en una ventana emergente.
+# Display the generated graph in a popup window.
 plt.legend(loc='best')
 plt.tight_layout()
 # plt.savefig('figures/03_04.png', dpi=300)
@@ -630,39 +632,39 @@ plt.show()
 
 
 
-# DEFINICIÓN DE LA CLASE LOGISTICREGRESSIONGD
-# Esta clase implementa un clasificador de regresión logística basado en el algoritmo de 
-# descenso de gradiente. La docstring proporciona detalles sobre los parámetros y atributos 
-# de la clase.
+# DEFINITION OF THE LOGISTICREGRESSIONGD CLASS
+# This class implements a logistic regression classifier based on the algorithm 
+# gradient descent. The docstring provides details about the parameters and attributes 
+# of the class.
 class LogisticRegressionGD:
 
-    # PARÁMETROS DE INICIALIZACIÓN
+    # INITIALIZATION PARAMETERS
     # * eta
-    # Tasa de aprendizaje que determina el tamaño del paso en cada iteración del descenso 
-    # de gradiente.
+    # Learning rate that determines the step size in each iteration of the descent 
+    # of gradient.
     # * n_iter
-    # Número de pasadas (épocas) sobre el conjunto de entrenamiento.
+    # Number of passes (epochs) over the training set.
     # * random_state
-    # Semilla para el generador de números aleatorios, que se utiliza para 
-    # la inicialización de pesos.
+    # Seed for the random number generator, which is used to 
+    # the initialization of weights.
     def __init__(self, eta=0.01, n_iter=50, random_state=1):
         self.eta = eta
         self.n_iter = n_iter
         self.random_state = random_state
 
-    # MÉTODO DE AJUSTE
-    # Este método ajusta el modelo a los datos de entrenamiento.
-    # - X: Matriz de características de entrada (n_examples, n_features).
-    # - y: Vector de etiquetas objetivo (n_examples).
-    # Dentro del método fit:
-    # - Inicializa los pesos y el sesgo con valores aleatorios pequeños.
-    # - Crea una lista para almacenar la pérdida durante el entrenamiento.
-    # Para cada iteración:
-    # - Calcula la entrada neta (net_input).
-    # - Aplica la función sigmoide para obtener la salida del modelo (activation).
-    # - Calcula los errores (diferencia entre la salida esperada y la salida del modelo).
-    # - Actualiza los pesos y el sesgo usando la regla de actualización del descenso de gradiente.
-    # - Calcula la pérdida utilizando la función de pérdida logarítmica (log loss) y la almacena
+    # ADJUSTMENT METHOD
+    # This method fits the model to the training data.
+    # - X: Array of input features (n_examples, n_features).
+    # - y: Vector of target labels (n_examples).
+    # Inside the fit method:
+    # - Initializes the weights and bias with small random values.
+    # - Create a list to store the loss during training.
+    # For each iteration:
+    # - Calculates the net input (net_input).
+    # - Apply the sigmoid function to obtain the model output (activation).
+    # - Calculates the errors (difference between the expected output and the model output).
+    # - Updates the weights and bias using the gradient descent update rule.
+    # - Calculates the loss using the log loss function and stores it.
     def fit(self, X, y):
         rgen = np.random.RandomState(self.random_state)
         self.w_ = rgen.normal(loc=0.0, scale=0.01, size=X.shape[1])
@@ -678,65 +680,65 @@ class LogisticRegressionGD:
             self.losses_.append(loss)
         return self
 
-    # MÉTODO DE ENTRADA NETA
-    # Calcula la entrada neta del modelo, que es el producto punto de las características de 
-    # entrada con los pesos más el sesgo.
+    # NET INPUT METHOD
+    # Calculates the net input of the model, which is the dot product of the characteristics of 
+    # input with the weights plus the bias.
     def net_input(self, X):
         return np.dot(X, self.w_) + self.b_
 
-    # FUNCIÓN DE ACTIVACIÓN
-    # Aplica la función sigmoide a la entrada neta, lo que transforma los valores en un rango 
-    # entre 0 y 1. Utiliza np.clip para evitar desbordamientos numéricos.
+    # ACTIVATION FUNCTION
+    # Applies the sigmoid function to the net input, which transforms the values ​​into a range 
+    # between 0 and 1. Use np.clip to avoid numeric overflows.
     def activation(self, z):
         return 1. / (1. + np.exp(-np.clip(z, -250, 250)))
 
-    # MÉTODO DE PREDICCIÓN
-    # Devuelve la etiqueta de clase (0 o 1) para las muestras de entrada. Si la activación es 
-    # mayor o igual a 0.5, devuelve 1; de lo contrario, devuelve 0.
+    # PREDICTION METHOD
+    # Returns the class label (0 or 1) for the input samples. If the activation is 
+    # greater than or equal to 0.5, returns 1; otherwise it returns 0.
     def predict(self, X):
         return np.where(self.activation(self.net_input(X)) >= 0.5, 1, 0)
 
 
 
 
-# FILTRADO DE DATOS
+# DATA FILTERING
 # * X_train_01_subset
-# Crea un subconjunto de las características de entrenamiento (X_train_std) que incluye solo 
-# las muestras donde la etiqueta (y_train) es 0 o 1. Esto se hace para simplificar el problema 
-# de clasificación a un caso binario, eliminando las clases adicionales.
+# Create a subset of the training features (X_train_std) that includes only 
+# the samples where the label (y_train) is 0 or 1. This is done to simplify the problem 
+# classification to a binary case, removing the extra classes.
 # * y_train_01_subset
-# Similarmente, crea un vector de etiquetas que contiene solo las etiquetas correspondientes 
-# a las clases 0 y 1.
+# Similarly, create a label vector containing only the corresponding labels 
+# to classes 0 and 1.
 X_train_01_subset = X_train_std[(y_train == 0) | (y_train == 1)]
 y_train_01_subset = y_train[(y_train == 0) | (y_train == 1)]
 
-# INSTANCIACIÓN Y ENTRENAMIENTO DEL MODELO
-# * lrgd
-# Se instancia un objeto de la clase LogisticRegressionGD con una tasa de aprendizaje (eta) 
-# de 0.3 y un número de iteraciones (n_iter) de 1000. La random_state se establece en 1 para 
-# garantizar la reproducibilidad de los resultados.
+# MODEL INSTALLATION AND TRAINING
+#*lrgd
+# An object of the LogisticRegressionGD class with a learning rate (eta) is instantiated 
+# of 0.3 and a number of iterations (n_iter) of 1000. The random_state is set to 1 to 
+# guarantee the reproducibility of the results.
 # * fit
-# El método fit se llama para ajustar el modelo a los datos de entrenamiento del subconjunto 
-# binario (0 y 1).
+# The fit method is called to fit the model to the subset training data 
+# (0 and 1).
 lrgd = LogisticRegressionGD(eta=0.3, n_iter=1000, random_state=1)
 lrgd.fit(X_train_01_subset,
          y_train_01_subset)
 
-# VISUALIZACIÓN DE REGIONES DE DECISIÓN
+# VISUALIZATION OF DECISION REGIONS
 # * plot_decision_regions
-# Esta función visualiza las regiones de decisión del clasificador entrenado. Muestra cómo el 
-# modelo divide el espacio de características entre las clases 0 y 1.
+# This function displays the decision regions of the trained classifier. Shows how the 
+# model divides the feature space between classes 0 and 1.
 plot_decision_regions(X=X_train_01_subset, 
                       y=y_train_01_subset,
                       classifier=lrgd)
 
-# ETIQUETAS, VISUALIZACIÓN Y LEYENDA
-# Se añaden etiquetas a los ejes X e Y para indicar que representan la longitud y el ancho de 
-# los pétalos, respectivamente. Se incluye una leyenda en la esquina superior izquierda.
+# TAGS, DISPLAY AND LEGEND
+# Labels are added to the X and Y axes to indicate that they represent the length and width of 
+# the petals, respectively. A legend is included in the upper left corner.
 # * tight_layout
-# Ajusta el diseño para que no se solapen elementos de la gráfica.
+# Adjust the layout so that graph elements do not overlap.
 # * show
-# Muestra la gráfica generada.
+# Shows the generated graph.
 plt.xlabel('Petal length [standardized]')
 plt.ylabel('Petal width [standardized]')
 plt.legend(loc='upper left')
@@ -749,44 +751,44 @@ plt.show()
 
 
 
-# IMPORTACIÓN DEL MODELO
-# Se importa la clase LogisticRegression de scikit-learn, que permite crear un clasificador 
-# basado en regresión logística.
+# MODEL IMPORT
+# The LogisticRegression class is imported from scikit-learn, which allows creating a classifier 
+# based on logistic regression.
 
-# INSTANCIACIÓN DEL CLASIFICADOR
+# INSTANTATION OF THE CLASSIFIER
 # * C=100.0
-# Este parámetro inverso de regularización controla la cantidad de regularización aplicada 
-# al modelo. Un valor alto como 100.0 significa poca regularización, lo que puede permitir 
-# que el modelo se ajuste más a los datos de entrenamiento.
+# This inverse regularization parameter controls the amount of regularization applied 
+# to the model. A high value like 100.0 means little regularization, which can allow 
+# make the model fit better to the training data.
 # * solver='lbfgs'
-# Especifica el algoritmo a utilizar para optimizar la función de pérdida. lbfgs es un método 
-# que utiliza aproximaciones de tipo cuasi-Newton.
+# Specifies the algorithm to use to optimize the loss function. lbfgs is a method 
+# which uses quasi-Newton approximations.
 # * multi_class='ovr'
-# Establece el enfoque para manejar problemas de clasificación multiclase. El método 'ovr' 
-# (One-vs-Rest) entrena un clasificador por cada clase contra las demás.
+# Sets the approach for handling multi-class classification problems. The 'ovr' method 
+# (One-vs-Rest) trains a classifier for each class against the others.
 lr = LogisticRegression(C=100.0, solver='lbfgs', multi_class='ovr')
 
-# ENTRENAMIENTO DEL MODELO
-# Se entrena el modelo lr utilizando el conjunto de datos X_train_std (características 
-# estandarizadas) y y_train (etiquetas de clase). El modelo ajusta los parámetros internos 
-# para minimizar la función de pérdida en el conjunto de entrenamiento.
+# MODEL TRAINING
+# The lr model is trained using the X_train_std data set (features 
+# standardized) and y_train (class tags). The model adjusts the internal parameters 
+# to minimize the loss function on the training set.
 lr.fit(X_train_std, y_train)
 
-# VISUALIZACIÓN DE LAS REGIONES DE DECISIÓN
-# Se llama a la función plot_decision_regions, que visualiza las regiones de decisión 
-# generadas por el modelo entrenado lr. Esto muestra cómo el modelo clasifica el espacio de 
-# características basado en las clases en y_combined.
+# VISUALIZATION OF DECISION REGIONS
+# The plot_decision_regions function is called, which displays the decision regions 
+# generated by the trained lr model. This shows how the model classifies the space of 
+# features based on the classes in y_combined.
 plot_decision_regions(X_combined_std, y_combined,
                       classifier=lr, test_idx=range(105, 150))
 
-# ETIQUETAS, VISUALIZACIÓN Y LEYENDA
-# Se añaden etiquetas a los ejes X e Y para indicar que representan la longitud y el ancho 
-# de los pétalos estandarizados.
-# Se incluye una leyenda en la esquina superior izquierda.
+# TAGS, DISPLAY AND LEGEND
+# Labels are added to the X and Y axes to indicate that they represent length and width 
+# of standardized petals.
+# A legend is included in the upper left corner.
 # * tight_layout
-# Ajusta el diseño para que no se solapen elementos de la gráfica.
+# Adjust the layout so that graph elements do not overlap.
 # * show
-# Muestra la gráfica generada.
+# Show the generated graph
 plt.xlabel('Petal length [standardized]')
 plt.ylabel('Petal width [standardized]')
 plt.legend(loc='upper left')
@@ -797,70 +799,70 @@ plt.show()
 
 
 
-# DESCRIPCIÓN
-# Esta línea llama al método predict_proba del clasificador lr, que devuelve las probabilidades 
-# de clase para las muestras en X_test_std.
-# DETALLES
-# X_test_std[:3, :] selecciona las primeras 3 muestras del conjunto de datos de prueba 
-# estandarizado.
-# El resultado es un arreglo de probabilidades en el que cada fila corresponde a una muestra 
-# y cada columna a la probabilidad de pertenecer a cada clase.
+# DESCRIPTION
+# This line calls the predict_proba method of the lr classifier, which returns the probabilities 
+# of class for the samples in X_test_std.
+# DETAILS
+# X_test_std[:3, :] selects the first 3 samples from the test data set 
+# standardized.
+# The result is an array of probabilities in which each row corresponds to a sample 
+# and each column to the probability of belonging to each class.
 
 lr.predict_proba(X_test_std[:3, :])
 
 
 
 
-# DESCRIPCIÓN
-# Esta línea calcula la suma de las probabilidades predichas para cada una de las 3 muestras.
-# DETALLES
-# sum(axis=1) suma las probabilidades a lo largo de las columnas (es decir, para cada muestra).
-# El resultado debe ser un arreglo con valor 1 para cada muestra, ya que las probabilidades 
-# de pertenencia a todas las clases deben sumar 1.
+# DESCRIPTION
+# This line calculates the sum of the predicted probabilities for each of the 3 samples.
+# DETAILS
+# sum(axis=1) sums the probabilities across the columns (i.e., for each sample).
+# The result must be an array with a value of 1 for each sample, since the probabilities 
+# of membership in all classes must add up to 1.
 
 lr.predict_proba(X_test_std[:3, :]).sum(axis=1)
 
 
 
 
-# DESCRIPCIÓN
-# Esta línea encuentra el índice de la clase con la mayor probabilidad para cada una de las 3 
-# muestras.
-# DETALLES
-# argmax(axis=1) devuelve el índice de la clase con la probabilidad más alta para cada fila 
-# (muestra).
-# Esto permite identificar cuál es la clase más probable según el modelo para cada una de las 
-# muestras.
+# DESCRIPTION
+# This line finds the index of the class with the highest probability for each of the 3 
+# samples.
+# DETAILS
+# argmax(axis=1) returns the index of the class with the highest probability for each row 
+# (sample).
+# This allows us to identify which is the most probable class according to the model for each of the 
+# samples.
 
 lr.predict_proba(X_test_std[:3, :]).argmax(axis=1)
 
 
 
 
-# DESCRIPCIÓN
-# Esta línea predice las clases para las primeras 3 muestras en el conjunto de datos de prueba 
-# estandarizado.
-# DETALLES
-# El método predict devuelve las clases predichas directamente, basándose en las probabilidades 
-# calculadas.
-# Utiliza un umbral de 0.5 para clasificar si una muestra pertenece a la clase positiva o 
-# negativa, o utiliza el índice de la clase con la mayor probabilidad en el caso de múltiples 
-# clases.
+# DESCRIPTION
+# This line predicts the classes for the first 3 samples in the test data set 
+# standardized.
+# DETAILS
+# The predict method returns the predicted classes directly, based on the probabilities 
+# calculated.
+# Uses a threshold of 0.5 to classify whether a sample belongs to the positive class or 
+# negative, or use the index of the class with the highest probability in the case of multiple 
+# classes.
 
 lr.predict(X_test_std[:3, :])
 
 
 
 
-# DESCRIPCIÓN
-# Esta línea predice la clase de una única muestra (la primera) del conjunto de datos de prueba 
-# estandarizado.
-# DETALLES
-# X_test_std[0, :].reshape(1, -1) reestructura la primera muestra para que tenga la forma 
-# adecuada que espera el método predict.
-# Al usar reshape(1, -1), se convierte la muestra en un arreglo de una fila con las 
-# características en columnas, lo que es necesario para que el modelo funcione correctamente 
-# con una sola muestra.
+# DESCRIPTION
+# This line predicts the class of a single (first) sample of the test data set 
+# standardized.
+# DETAILS
+# X_test_std[0, :].reshape(1, -1) reshapes the first sample to have the shape 
+# appropriate that the predict method expects.
+# Using reshape(1, -1) converts the sample to a one-row array with the 
+# features in columns, which is necessary for the model to work correctly 
+# with a single sample.
 
 lr.predict(X_test_std[0, :].reshape(1, -1))
 
@@ -870,55 +872,55 @@ lr.predict(X_test_std[0, :].reshape(1, -1))
 
 
 # * Image(...)
-# Usa la clase Image (probablemente importada desde IPython.display, como en el ejemplo anterior) 
-# para mostrar una imagen en un entorno interactivo como Jupyter Notebook.
+# Use the Image class (probably imported from IPython.display, as in the previous example) 
+# to display an image in an interactive environment such as Jupyter Notebook.
 # * filename='./figures/03_07.png'
-# Especifica la ruta de la imagen que se desea mostrar. En este caso, la imagen se encuentra en el
-# archivo './figures/03_07.png', que es una ruta relativa al directorio actual.
+# Specifies the path of the image to display. In this case, the image is located in the
+# file './figures/03_07.png', which is a relative path to the current directory.
 # * width=700
-# Ajusta el ancho de la imagen a 500 píxeles. Esto redimensiona la imagen para que ocupe ese 
-# espacio de ancho, mientras que su altura se ajusta proporcionalmente (si no se especifica una 
-# altura).
+# Set the image width to 500 pixels. This resizes the image so that it occupies that 
+# space width, while its height is adjusted proportionally (if you do not specify a 
+# height).
 
 
 
 
 
-# INICIALIZACIÓN DE LISTAS
-# Se crean dos listas vacías: weights para almacenar los coeficientes del modelo y params para 
-# almacenar los valores de C.
+# INITIALIZATION OF LISTS
+# Two empty lists are created: weights to store the model coefficients and params to 
+# store the C values.
 weights, params = [], []
 
-# BUCLE SOBRE VALORES DE C
-# Se itera sobre un rango de valores de c desde -5 hasta 5.
-# Para cada valor de c:
-# - Se define un modelo de regresión logística con el parámetro de regularización C = 10^C . 
-# Este parámetro controla la regularización: valores más pequeños de C aumentan la 
-# regularización, mientras que valores más grandes permiten más complejidad en el modelo.
-# - Se ajusta el modelo (fit) usando los datos de entrenamiento estandarizados 
-# (X_train_std y y_train).
-# - Se almacenan los coeficientes del modelo (lr.coef_[1] que corresponde a la segunda clase 
-# en un modelo de clasificación binaria) en la lista weights.
-# - También se agrega el valor de C (calculado como 10^C) en la lista params.
+# LOOP OVER C VALUES
+# It iterates over a range of c values ​​from -5 to 5.
+# For each value of c:
+# - A logistic regression model is defined with the regularization parameter C = 10^C. 
+# This parameter controls regularization: smaller values ​​of C increase the 
+# regularization, while larger values ​​allow more complexity in the model.
+# - Fit the model using standardized training data 
+# (X_train_std and y_train).
+# - The model coefficients are stored (lr.coef_[1] which corresponds to the second class 
+# in a binary classification model) in the weights list.
+# - The value of C (calculated as 10^C) is also added to the params list.
 for c in np.arange(-5, 5):
     lr = LogisticRegression(C=10.**c)
     lr.fit(X_train_std, y_train)
     weights.append(lr.coef_[1])
     params.append(10.**c)
 
-# CONVERSIÓN A NUMPY ARRAY
-# Se convierte la lista de pesos a un arreglo de Numpy para facilitar el manejo de los datos.
+# CONVERSION TO NUMPY ARRAY
+# Convert the list of weights to a Numpy array to facilitate data management.
 weights = np.array(weights)
 
-# VISUALIZACIÓN DE RESULTADOS
-# Se grafican los coeficientes de las características (longitud y ancho del pétalo) en 
-# función de los valores de C.
-# Se utiliza plt.plot para trazar los coeficientes correspondientes a la longitud del 
-# pétalo y el ancho del pétalo.
-# Se añaden etiquetas a los ejes y una leyenda para identificar cada línea.
-# Se establece la escala del eje x como logarítmica (plt.xscale('log')) para visualizar mejor 
-# los cambios en los coeficientes a lo largo de varios órdenes de magnitud.
-# Finalmente, se muestra el gráfico.
+# DISPLAY RESULTS
+# The coefficients of the characteristics (length and width of the petal) are plotted in 
+# function of C values.
+# plt.plot is used to plot the coefficients corresponding to the length of the 
+# petal and the width of the petal.
+# Labels are added to the axes and a legend to identify each line.
+# Set the x-axis scale to logarithmic (plt.xscale('log')) for better visualization 
+# changes in coefficients over several orders of magnitude.
+# Finally, the graph is displayed.
 plt.plot(params, weights[:, 0],
          label='Petal length')
 plt.plot(params, weights[:, 1], linestyle='--',
@@ -936,15 +938,15 @@ plt.show()
 
 
 # * Image(...)
-# Usa la clase Image (probablemente importada desde IPython.display, como en el ejemplo anterior) 
-# para mostrar una imagen en un entorno interactivo como Jupyter Notebook.
+# Use the Image class (probably imported from IPython.display, as in the previous example) 
+# to display an image in an interactive environment such as Jupyter Notebook.
 # * filename='./figures/03_09.png'
-# Especifica la ruta de la imagen que se desea mostrar. En este caso, la imagen se encuentra en el
-# archivo './figures/03_09.png', que es una ruta relativa al directorio actual.
+# Specifies the path of the image to display. In this case, the image is located in the
+# file './figures/03_09.png', which is a relative path to the current directory.
 # * width=700
-# Ajusta el ancho de la imagen a 700 píxeles. Esto redimensiona la imagen para que ocupe ese 
-# espacio de ancho, mientras que su altura se ajusta proporcionalmente (si no se especifica una 
-# altura).
+# Set the image width to 700 pixels. This resizes the image so that it occupies that 
+# space width, while its height is adjusted proportionally (if you do not specify a 
+# height).
 
 
 
@@ -955,71 +957,71 @@ plt.show()
 
 
 # * Image(...)
-# Usa la clase Image (probablemente importada desde IPython.display, como en el ejemplo anterior) 
-# para mostrar una imagen en un entorno interactivo como Jupyter Notebook.
+# Use the Image class (probably imported from IPython.display, as in the previous example) 
+# to display an image in an interactive environment such as Jupyter Notebook.
 # * filename='./figures/03_10.png'
-# Especifica la ruta de la imagen que se desea mostrar. En este caso, la imagen se encuentra en el
-# archivo './figures/03_10.png', que es una ruta relativa al directorio actual.
+# Specifies the path of the image to display. In this case, the image is located in the
+# file './figures/03_10.png', which is a relative path to the current directory.
 # * width=600
-# Ajusta el ancho de la imagen a 600 píxeles. Esto redimensiona la imagen para que ocupe ese 
-# espacio de ancho, mientras que su altura se ajusta proporcionalmente (si no se especifica una 
-# altura).
+# Set the image width to 600 pixels. This resizes the image so that it occupies that 
+# space width, while its height is adjusted proportionally (if you do not specify a 
+# height).
 
 
 
 
 
-# IMPLEMENTACIÓN DE LA CLASE SVC
-# Se importa la clase SVC (Support Vector Classifier) de la biblioteca sklearn, que permite crear 
-# modelos de clasificación utilizando Máquinas de Soporte Vectorial.
+# SVC CLASS IMPLEMENTATION
+# The SVC (Support Vector Classifier) ​​class is imported from the sklearn library, which allows creating 
+# classification models using Support Vector Machines.
 
-# CREACIÓN DEL MODELO SVM
-# Se crea una instancia del clasificador SVM
+# SVM MODEL CREATION
+# An instance of the SVM classifier is created
 # * kernel='linear'
-# Se especifica que se usará un kernel lineal, lo que significa que se busca una frontera de 
-# decisión lineal entre las clases.
+# It is specified that a linear kernel will be used, which means that a boundary of 
+# linear decision between classes.
 # * C=1.0
-# Este parámetro de regularización controla el equilibrio entre un margen más amplio y la 
-# clasificación de los puntos de datos. Un valor de C más alto intenta clasificar todos los 
-# puntos de datos correctamente, mientras que un valor más bajo permite un margen más amplio, 
-# incluso si eso significa que algunos puntos están mal clasificados.
+# This regularization parameter controls the balance between a wider margin and the 
+# classification of data points. A higher C value attempts to classify all 
+# data points correctly, while a lower value allows a wider margin, 
+# even if it means some points are misclassified.
 # * random_state=1
-# Este parámetro se establece para garantizar la reproducibilidad de los resultados,
-# especialmente en la inicialización aleatoria de los modelos.
+# This parameter is set to ensure the reproducibility of the results,
+# especially in random model initialization.
 svm = SVC(kernel='linear', C=1.0, random_state=1)
 
-# ENTRENAMIENTO DEL MODELO
-# Se ajusta el modelo SVM a los datos de entrenamiento (X_train_std y y_train), donde:
+# MODEL TRAINING
+# The SVM model is fitted to the training data (X_train_std and y_train), where:
 # * X_train_std
-# Características de los datos de entrenamiento estandarizados.
+# Characteristics of standardized training data.
 # * y_train
-# Etiquetas de las clases correspondientes a los datos de entrenamiento.
+# Labels of the classes corresponding to the training data.
 svm.fit(X_train_std, y_train)
 
-# VISUALIZACIÓN DE LA FRONTERA DE DECISIÓN
-# Se llama a la función plot_decision_regions, que grafica la frontera de decisión del 
-# clasificador SVM.
+# VISUALIZATION OF THE DECISION BORDER
+# The plot_decision_regions function is called, which plots the decision boundary of the 
+# SVM classifier.
 # * X_combined_std
-# Datos combinados (tanto de entrenamiento como de prueba) estandarizados para la visualización.
+# Combined data (both training and testing) standardized for visualization.
 # * y_combined
-# Etiquetas de clase correspondientes a los datos combinados.
+# Class labels corresponding to the combined data.
 # * classifier=svm
-# Se pasa el clasificador SVM entrenado para que la función pueda utilizarlo para predecir la 
-# clase y graficar la frontera de decisión.
+# The trained SVM classifier is passed so that the function can use it to predict the 
+# class and graph the decision boundary.
 # * test_idx=range(105, 150)
-# Índices de los puntos de prueba que se destacarán en la visualización.
+# Indices of the test points to be highlighted in the display.
 plot_decision_regions(X_combined_std, 
                       y_combined,
                       classifier=svm, 
                       test_idx=range(105, 150))
 
-# ETIQUETAS Y ESTÉTICA DE LA GRÁFICA
-# Se configuran las etiquetas de los ejes (xlabel y ylabel) para describir las características 
-# utilizadas en el gráfico.
-# Se añade una leyenda para identificar las clases en el gráfico.
-# plt.tight_layout() ajusta el diseño del gráfico para que no se superpongan los elementos.
-# Finalmente, plt.show() muestra la gráfica en pantalla. La línea comentada con plt.savefig 
-# sugiere que se podría guardar la figura generada como un archivo PNG.
+# LABELS AND AESTHETICS OF THE GRAPHIC
+# Axis labels (xlabel and ylabel) are set to describe the characteristics 
+# used in the graph.
+# A legend is added to identify the classes in the graph.
+# plt.tight_layout() adjusts the layout of the chart so that elements do not overlap.
+# Finally, plt.show() displays the graph on the screen. The line commented out with plt.savefig 
+# suggests that you could save the generated figure as a PNG file.
 plt.xlabel('Petal length [standardized]')
 plt.ylabel('Petal width [standardized]')
 plt.legend(loc='upper left')
@@ -1032,31 +1034,31 @@ plt.show()
 
 
 
-# IMPORTACIÓN DEL CLASIFICADOR SGDCLASSIFIER
-# Se importa la clase SGDClassifier de la biblioteca sklearn, que permite implementar diferentes 
-# algoritmos de clasificación utilizando el método de descenso de gradiente estocástico.
+# SGDCLASSIFIER CLASSIFIER IMPORT
+# The SGDClassifier class is imported from the sklearn library, which allows implementing different 
+# Classification algorithms using the stochastic gradient descent method.
 
-# CREACIÓN DE UN CLASIFICADOR PERCEPTRON
-# Se crea una instancia del clasificador con la función de pérdida del Perceptrón:
+# CREATION OF A PERCEPTRON CLASSIFIER
+# An instance of the classifier is created with the Perceptron loss function:
 # * loss='perceptron'
-# Especifica que se usará la regla de aprendizaje del perceptrón, un clasificador lineal que se 
-# entrena utilizando la técnica de aprendizaje en línea.
+# Specifies to use the perceptron learning rule, a linear classifier that is 
+# train using online learning technique.
 ppn = SGDClassifier(loss='perceptron')
 
-# CREACIÓN DE UN CLASIFICADOR DE REGRESIÓN LOGÍSTICA
-# Se crea una instancia del clasificador con la función de pérdida de Regresión Logística:
+# CREATION OF A LOGISTIC REGRESSION CLASSIFIER
+# An instance of the classifier is created with the Logistic Regression loss function:
 # * loss='log'
-# Indica que se utilizará la función de pérdida logarítmica, adecuada para la clasificación 
-# binaria, lo que significa que el modelo se ajustará para maximizar la probabilidad de las 
-# clases utilizando la regresión logística.
+# Indicates that the logarithmic loss function will be used, suitable for classification 
+# binary, meaning the model will be adjusted to maximize the probability of the 
+# classes using logistic regression.
 lr = SGDClassifier(loss='log')
 
-# CREACIÓN DE UN CLASIFICADOR SVM
-# Se crea una instancia del clasificador con la función de pérdida Hinge:
+# CREATION OF AN SVM CLASSIFIER
+# The classifier is instantiated with the Hinge loss function:
 # * loss='hinge'
-# Utiliza la función de pérdida hinge, que es comúnmente empleada en Máquinas de Soporte 
-# Vectorial (SVM) para clasificaciones lineales. Este tipo de clasificador busca maximizar 
-# el margen entre las clases.
+# Uses the hinge loss function, which is commonly used in Support Machines 
+# Vector (SVM) for linear classifications. This type of classifier seeks to maximize 
+# the margin between classes.
 svm = SGDClassifier(loss='hinge')
 
 
@@ -1064,39 +1066,39 @@ svm = SGDClassifier(loss='hinge')
 
 
 
-# IMPORTACIÓN DE BIBLIOTECAS
-# Se importan las bibliotecas necesarias: matplotlib.pyplot para crear gráficos y numpy para 
-# manipular datos numéricos.
+# LIBRARY IMPORT
+# The necessary libraries are imported: matplotlib.pyplot to create plots and numpy to 
+# manipulate numeric data.
 
-# CONFIGURACIÓN DE LA SEMILLA ALEATORIA
-# Se establece una semilla para el generador de números aleatorios de numpy para garantizar la 
-# reproducibilidad de los resultados, de modo que se obtengan los mismos números aleatorios en 
-# cada ejecución.
+# RANDOM SEED SETUP
+# A seed is set for numpy's random number generator to ensure consistency. 
+# reproducibility of the results, so that the same random numbers are obtained in 
+# each execution.
 np.random.seed(1)
 
-# GENERACIÓN DE DATOS ALEATORIOS
-# Se generan 200 puntos de datos aleatorios en un espacio bidimensional (2 características) 
-# utilizando una distribución normal estándar (media 0 y desviación estándar 1).
+# RANDOM DATA GENERATION
+# 200 random data points are generated in two-dimensional space (2 features) 
+# using a standard normal distribution (mean 0 and standard deviation 1).
 X_xor = np.random.randn(200, 2)
 
-# CREACIÓN DE ETIQUETAS XOR
-# Se utiliza la función np.logical_xor para asignar etiquetas (clases) a los puntos de datos. 
-# La clase 1 se asigna a los puntos donde una de las coordenadas es positiva y la otra es 
-# negativa, mientras que la clase 0 se asigna donde ambas coordenadas son iguales 
-# (ambas positivas o ambas negativas).
-# El resultado es un array y_xor que contiene 1s y 0s, representando las dos clases.
+# CREATION OF XOR TAGS
+# The np.logical_xor function is used to assign labels (classes) to data points. 
+# Class 1 is assigned to points where one of the coordinates is positive and the other is 
+# negative, while class 0 is assigned where both coordinates are equal 
+# (both positive or both negative).
+# The result is a y_xor array containing 1s and 0s, representing the two classes.
 y_xor = np.logical_xor(X_xor[:, 0] > 0,
                        X_xor[:, 1] > 0)
 y_xor = np.where(y_xor, 1, 0)
 print(X_xor[1])
 print(y_xor[1])
 
-# VISUALIZACIÓN DE LOS DATOS
-# Se grafican los puntos de datos en un gráfico de dispersión (scatter plot).
-# Los puntos de clase 1 (etiquetados como 1 en y_xor) se representan con cuadrados de color 
-# azul ('royalblue').
-# Los puntos de clase 0 (etiquetados como 0 en y_xor) se representan con círculos de color 
-# rojo ('tomato').
+# DATA VISUALIZATION
+# Data points are plotted in a scatter plot.
+# Class 1 points (labeled 1 in y_xor) are represented with colored squares 
+# blue ('royalblue').
+# Points of class 0 (labeled 0 in y_xor) are represented with colored circles 
+# red ('tomato').
 plt.scatter(X_xor[y_xor == 1, 0],
             X_xor[y_xor == 1, 1],
             c='royalblue',
@@ -1108,10 +1110,10 @@ plt.scatter(X_xor[y_xor == 0, 0],
             marker='o',
             label='Class 0')
 
-# CONFIGURACIÓN DE LOS EJES Y LEYENDA
-# Se establecen los límites de los ejes x e y.
-# Se etiquetan los ejes.
-# Se añade una leyenda para identificar las clases.
+# AXIS CONFIGURATION AND LEGEND
+# The limits of the x and y axes are set.
+# The axes are labeled.
+# A legend is added to identify the classes.
 plt.xlim([-3, 3])
 plt.ylim([-3, 3])
 plt.xlabel('Feature 1')
@@ -1119,9 +1121,9 @@ plt.ylabel('Feature 2')
 plt.legend(loc='best')
 plt.tight_layout()
 
-# VISUALIZACIÓN FINAL
-# Se descomenta la línea (si se desea) para guardar el gráfico como una imagen PNG.
-# Finalmente, se muestra el gráfico con plt.show().
+# FINAL DISPLAY
+# Uncomment the line (if desired) to save the graph as a PNG image.
+# Finally, the graph is shown with plt.show().
 # plt.savefig('figures/03_12.png', dpi=300)
 plt.show()
 
@@ -1129,15 +1131,15 @@ plt.show()
 
 
 # * Image(...)
-# Usa la clase Image (probablemente importada desde IPython.display, como en el ejemplo anterior) 
-# para mostrar una imagen en un entorno interactivo como Jupyter Notebook.
+# Use the Image class (probably imported from IPython.display, as in the previous example) 
+# to display an image in an interactive environment such as Jupyter Notebook.
 # * filename='./figures/03_13.png'
-# Especifica la ruta de la imagen que se desea mostrar. En este caso, la imagen se encuentra en el
-# archivo './figures/03_13.png', que es una ruta relativa al directorio actual.
+# Specifies the path of the image to display. In this case, the image is located in the
+# file './figures/03_13.png', which is a relative path to the current directory.
 # * width=700
-# Ajusta el ancho de la imagen a 700 píxeles. Esto redimensiona la imagen para que ocupe ese 
-# espacio de ancho, mientras que su altura se ajusta proporcionalmente (si no se especifica una 
-# altura).
+# Set the image width to 700 pixels. This resizes the image so that it occupies that 
+# space width, while its height is adjusted proportionally (if you do not specify a 
+# height).
 
 
 
@@ -1145,44 +1147,43 @@ plt.show()
 
 
 
-# CREACIÓN DEL CLASIFICADOR SVM
-# Se crea un objeto SVC (Support Vector Classification) con los siguientes parámetros:
+# CREATION OF THE SVM CLASSIFIER
+# An SVC (Support Vector Classification) object is created with the following parameters:
 # * kernel='rbf'
-# Utiliza un núcleo radial (Radial Basis Function), que es adecuado para problemas no lineales 
-# como el XOR. Este tipo de núcleo permite que el SVM encuentre límites de decisión más complejos.
+# Uses a radial kernel (Radial Basis Function), which is suitable for nonlinear problems 
+# like XOR. This type of kernel allows the SVM to find more complex decision boundaries.
 # * random_state=1
-# Establece una semilla para el generador de números aleatorios para asegurar la reproducibilidad 
-# del modelo.
+# Set a seed for the random number generator to ensure reproducibility model.
 # * gamma=0.10
-# Este parámetro controla la influencia de un solo ejemplo de entrenamiento. Un valor más alto 
-# de gamma implica que el modelo considerará puntos más cercanos a los vectores de soporte, lo 
-# que puede llevar a una mayor complejidad en el modelo.
+# This parameter controls the influence of a single training example. Higher value 
+# of gamma implies that the model will consider points closer to the support vectors, which 
+# which can lead to greater complexity in the model.
 # * C=10.0
-# Este parámetro controla la penalización por errores de clasificación. Un valor alto de C 
-# significa que se penaliza más fuertemente los errores, lo que puede resultar en un modelo 
-# más complejo.
+# This parameter controls the penalty for classification errors. A high C value 
+# means that errors are penalized more heavily, which can result in a model 
+# more complex.
 svm = SVC(kernel='rbf', random_state=1, gamma=0.10, C=10.0)
 
-# ENTRENAMIENTO DEL MODELO
-# Se entrena el clasificador SVM utilizando el conjunto de datos X_xor (las características) 
-# y y_xor (las etiquetas de clase). El modelo ajusta sus parámetros internos para poder separar 
-# las dos clases de datos.
+# MODEL TRAINING
+# The SVM classifier is trained using the X_xor data set (the features) 
+# and y_xor (the class labels). The model adjusts its internal parameters to be able to separate 
+# the two kinds of data.
 svm.fit(X_xor, y_xor)
 
-# VISUALIZACIÓN DE LAS REGIONES DE DECISIÓN
-# Se llama a la función plot_decision_regions, que probablemente fue definida en un bloque de 
-# código anterior. Esta función genera un gráfico que muestra las regiones de decisión del 
-# clasificador SVM entrenado. Cada región en el gráfico representa una clase diferente basada 
-# en las predicciones del modelo. Los puntos de datos se grafican junto con las regiones 
-# coloreadas que indican las clases predichas.
+# VISUALIZATION OF DECISION REGIONS
+# The plot_decision_regions function is called, which was probably defined in a block of 
+# code above. This function generates a graph showing the decision regions of the 
+# trained SVM classifier. Each region in the graph represents a different class based 
+# in the model predictions. Data points are plotted along with regions 
+# colored indicating the predicted classes.
 plot_decision_regions(X_xor, y_xor,
                       classifier=svm)
 
-# CONFIGURACIÓN DE LA LEYENDA Y VISUALIZACIÓN
-# Se añade una leyenda en la esquina superior izquierda del gráfico para identificar las clases.
-# plt.tight_layout() ajusta los elementos del gráfico para que no se superpongan.
-# Finalmente, se muestra el gráfico con plt.show(). Si se descomenta la línea plt.savefig(...), 
-# se guardaría el gráfico como un archivo PNG.
+# LEGEND SETTING AND DISPLAY
+# A legend is added to the upper left corner of the graph to identify the classes.
+# plt.tight_layout() adjusts the chart elements so that they do not overlap.
+# Finally, the graph is shown with plt.show(). If the line plt.savefig(...) is uncommented, 
+# the graph would be saved as a PNG file.
 plt.legend(loc='upper left')
 plt.tight_layout()
 # plt.savefig('figures/03_14.png', dpi=300)
@@ -1191,51 +1192,51 @@ plt.show()
 
 
 
-# IMPORTACIÓN DE LA CLASE SVC
-# Se importa la clase SVC de sklearn.svm, que se utiliza para crear un clasificador de soporte 
-# vectorial.
+# SVC CLASS IMPORT
+# The SVC class is imported from sklearn.svm, which is used to create a supporting classifier 
+# vector.
 
-# CREACIÓN DEL CLASIFICADOR SVM
-# Se inicializa un objeto de la clase SVC con los siguientes parámetros:
+# CREATION OF THE SVM CLASSIFIER
+# An object of class SVC is initialized with the following parameters:
 # * kernel='rbf'
-# Especifica que se utilizará un núcleo de función base radial (RBF). Este tipo de núcleo es 
-# adecuado para problemas no lineales, ya que permite que el modelo encuentre límites de 
-# decisión más complejos.
+# Specifies that a radial basis function (RBF) kernel will be used. This type of core is 
+# suitable for nonlinear problems, as it allows the model to find limits of 
+# more complex decision.
 # * random_state=1
-# Establece una semilla para el generador de números aleatorios, lo que garantiza que los 
-# resultados sean reproducibles.
+# Sets a seed for the random number generator, ensuring that the 
+# results are reproducible.
 # * gamma=0.2
-# Este parámetro controla el alcance de la influencia de un solo vector de soporte. Un valor de 
-# gamma más bajo implica que el modelo será más suave y puede ser más general, mientras que un 
-# valor más alto puede dar lugar a un modelo más ajustado que se adapta mejor a los datos de 
-# entrenamiento.
+# This parameter controls the extent of influence of a single support vector. A value of 
+# lower gamma implies that the model will be smoother and may be more general, while a 
+# Higher value may result in a tighter model that better fits the data 
+# training.
 # * C=1.0
-# Este parámetro determina la penalización por errores de clasificación. Un valor de C más alto 
-# tiende a crear un modelo que se ajusta más a los datos de entrenamiento, mientras que un valor 
-# más bajo puede permitir más errores, favoreciendo una mayor generalización.
+# This parameter determines the penalty for classification errors. Higher C value 
+# tends to create a model that fits the training data more closely, while a value 
+# may allow for more errors, favoring greater generalization.
 svm = SVC(kernel='rbf', random_state=1, gamma=0.2, C=1.0)
 
-# ENTRENAMIENTO DEL MODELO
-# Se entrena el modelo SVM utilizando el conjunto de datos de entrenamiento X_train_std 
-# (características estandarizadas) y y_train (etiquetas de clase). El modelo ajusta sus 
-# parámetros internos en función de los datos de entrenamiento.
+# MODEL TRAINING
+# The SVM model is trained using the training data set X_train_std 
+# (standardized features) and y_train (class tags). The model adjusts its 
+# internal parameters based on training data.
 svm.fit(X_train_std, y_train)
 
-# VISUALIZACIÓN DE LAS REGIONES DE DECISIÓN
-# Se llama a la función plot_decision_regions, que visualiza las regiones de decisión del 
-# clasificador SVM entrenado. Se utiliza X_combined_std y y_combined, que probablemente 
-# contienen tanto los datos de entrenamiento como los de prueba, y test_idx se usa para 
-# resaltar ejemplos específicos de prueba en el gráfico.
+# VISUALIZATION OF DECISION REGIONS
+# The plot_decision_regions function is called, which displays the decision regions of the 
+# trained SVM classifier. It uses X_combined_std and y_combined, which probably 
+# contain both training and test data, and test_idx is used to 
+# highlight specific test examples on the chart.
 plot_decision_regions(X_combined_std, y_combined,
                       classifier=svm, test_idx=range(105, 150))
 
-# CONFIGURACIÓN DE ETIQUETAS Y VISUALIZACIÓN
-# Se añaden etiquetas a los ejes X e Y del gráfico para indicar qué características se están 
-# representando (longitud y ancho de los pétalos).
-# Se añade una leyenda en la esquina superior izquierda para identificar las clases.
-# plt.tight_layout() ajusta los elementos del gráfico para evitar superposiciones.
-# Finalmente, plt.show() muestra el gráfico. La línea que está comentada (plt.savefig(...)) 
-# se utilizaría para guardar el gráfico como un archivo PNG si se descomenta.
+# LABEL AND DISPLAY SETUP
+# Labels are added to the X and Y axes of the chart to indicate which features are being 
+# representing (length and width of petals).
+# A legend is added in the upper left corner to identify the classes.
+# plt.tight_layout() adjusts chart elements to avoid overlaps.
+# Finally, plt.show() shows the graph. The line that is commented out (plt.savefig(...)) 
+# would be used to save the graphic as a PNG file if uncommented.
 plt.xlabel('Petal length [standardized]')
 plt.ylabel('Petal width [standardized]')
 plt.legend(loc='upper left')
@@ -1246,47 +1247,47 @@ plt.show()
 
 
 
-# CREACIÓN DEL CLASIFICADOR SVM
-# Se inicializa un objeto de la clase SVC (Support Vector Classifier) con los siguientes 
-# parámetros:
+# CREATION OF THE SVM CLASSIFIER
+# An object of the SVC (Support Vector Classifier) ​​class is initialized with the following 
+# parameters:
 # * kernel='rbf'
-# Utiliza un núcleo de función base radial (RBF). Este núcleo es adecuado para problemas no 
-# lineales, permitiendo que el clasificador encuentre límites de decisión complejos.
+# Uses a radial basis function (RBF) kernel. This core is suitable for problems not 
+# linear, allowing the classifier to find complex decision boundaries.
 # * random_state=1
-# Fija la semilla del generador de números aleatorios para garantizar que los resultados sean 
-# reproducibles.
+# Set the seed of the random number generator to ensure that the results are 
+# reproducible.
 # * gamma=100.0
-# Este parámetro determina el alcance de la influencia de un solo vector de soporte. Un valor 
-# alto de gamma, como 100.0, hace que el modelo se ajuste más a los datos de entrenamiento, 
-# pudiendo resultar en un sobreajuste (overfitting) si no se maneja adecuadamente.
+# This parameter determines the extent of influence of a single support vector. a value 
+# of gamma, such as 100.0, makes the model fit the training data more closely, 
+# can result in overfitting if not handled properly.
 # * C=1.0
-# Este parámetro controla la penalización por errores de clasificación. Un valor de C más 
-# alto hace que el modelo penalice más los errores, buscando un ajuste más exacto a los datos 
-# de entrenamiento.
+# This parameter controls the penalty for classification errors. One more C value 
+# high makes the model penalize errors more, seeking a more exact fit to the data 
+# of training.
 svm = SVC(kernel='rbf', random_state=1, gamma=100.0, C=1.0)
 
-# ENTRENAMIENTO DEL MODELO
-# Se entrena el clasificador SVM usando el conjunto de datos de entrenamiento X_train_std 
-# (que ha sido estandarizado) y y_train (las etiquetas de clase correspondientes). Durante este 
-# proceso, el modelo ajusta sus parámetros internos según los datos proporcionados.
+# MODEL TRAINING
+# The SVM classifier is trained using the training data set X_train_std 
+# (which has been standardized) and y_train (the corresponding class labels). During this 
+# process, the model adjusts its internal parameters according to the data provided.
 svm.fit(X_train_std, y_train)
 
-# VISUALIZACIÓN DE LAS REGIONES DE DECISIÓN
-# Se llama a la función plot_decision_regions, que crea un gráfico que visualiza las regiones 
-# de decisión del clasificador SVM entrenado. Utiliza X_combined_std y y_combined, que 
-# probablemente contengan tanto los datos de entrenamiento como los de prueba, y test_idx se 
-# usa para destacar ejemplos específicos de prueba en el gráfico.
+# VISUALIZATION OF DECISION REGIONS
+# The plot_decision_regions function is called, which creates a plot that displays the regions 
+# of the trained SVM classifier. It uses X_combined_std and y_combined, which 
+# probably contain both training and test data, and test_idx will be 
+# used to highlight specific test examples in the chart.
 plot_decision_regions(X_combined_std, y_combined, 
                       classifier=svm, test_idx=range(105, 150))
 
-# CONFIGURACIÓN DE ETIQUETAS Y VISUALIZACIÓN
-# Se añaden etiquetas a los ejes X e Y del gráfico para indicar qué características se están 
-# representando (longitud y ancho de los pétalos).
-# Se añade una leyenda en la esquina superior izquierda para identificar las clases 
-# representadas en el gráfico.
-# plt.tight_layout() ajusta automáticamente el espacio del gráfico para evitar superposiciones.
-# Finalmente, plt.show() muestra el gráfico en pantalla. La línea comentada (plt.savefig(...)) 
-# podría utilizarse para guardar el gráfico como un archivo PNG si se descomenta.
+# LABEL AND DISPLAY SETUP
+# Labels are added to the X and Y axes of the chart to indicate which features are being 
+# representing (length and width of petals).
+# A legend is added in the upper left corner to identify the classes 
+# represented in the graph.
+# plt.tight_layout() automatically adjusts the plot spacing to avoid overlaps.
+# Finally, plt.show() displays the graph on the screen. The commented line (plt.savefig(...)) 
+# could be used to save the graph as a PNG file if uncommented.
 plt.xlabel('Petal length [standardized]')
 plt.ylabel('Petal width [standardized]')
 plt.legend(loc='upper left')
@@ -1300,49 +1301,49 @@ plt.show()
 
 
 # * Image(...)
-# Usa la clase Image (probablemente importada desde IPython.display, como en el ejemplo anterior) 
-# para mostrar una imagen en un entorno interactivo como Jupyter Notebook.
+# Use the Image class (probably imported from IPython.display, as in the previous example) 
+# to display an image in an interactive environment such as Jupyter Notebook.
 # * filename='./figures/03_17.png'
-# Especifica la ruta de la imagen que se desea mostrar. En este caso, la imagen se encuentra en el
-# archivo './figures/03_17.png', que es una ruta relativa al directorio actual.
+# Specifies the path of the image to display. In this case, the image is located in the
+# file './figures/03_17.png', which is a relative path to the current directory.
 # * width=500
-# Ajusta el ancho de la imagen a 500 píxeles. Esto redimensiona la imagen para que ocupe ese 
-# espacio de ancho, mientras que su altura se ajusta proporcionalmente (si no se especifica una 
-# altura).
+# Set the image width to 500 pixels. This resizes the image so that it occupies that 
+# space width, while its height is adjusted proportionally (if you do not specify a 
+# height).
 
 
 
 
 
-# DEFINICIÓN DE LA FUNCIÓN DE ENTROPÍA
-# Esta función calcula la entropía H de una distribución binaria dada una probabilidad p de que 
-# un evento pertenezca a la clase 1. La entropía se mide en bits y se utiliza para cuantificar 
-# la incertidumbre de una distribución:
-# La fórmula tiene en cuenta tanto la probabilidad p de que un evento pertenezca a la clase 1 
-# como la probabilidad 1-p de que pertenezca a la clase 0.
+# DEFINITION OF THE ENTROPY FUNCTION
+# This function calculates the entropy H of a binary distribution given a probability p that 
+# an event belongs to class 1. Entropy is measured in bits and is used to quantify 
+# the uncertainty of a distribution:
+# The formula takes into account both the probability p that an event belongs to class 1 
+# as the 1-p probability that it belongs to class 0.
 def entropy(p):
     return - p * np.log2(p) - (1 - p) * np.log2((1 - p))
 
-# GENERACIÓN DE VALORES DE PROBABILIDAD
-# Se crea un array x que contiene valores desde 0.0 hasta 1.0 (sin incluir 1.0), con un paso 
-# de 0.01. Esto representa diferentes probabilidades p para la clase 1.
+# GENERATION OF PROBABILITY VALUES
+# An array x containing values ​​from 0.0 to 1.0 (not including 1.0) is created, with a step 
+# of 0.01. This represents different probabilities p for class 1.
 x = np.arange(0.0, 1.0, 0.01)
 
-# CÁLCULO DE LA ENTROPÍA PARA CADA PROBABILIDAD
-# Se utiliza una lista por comprensión para calcular la entropía para cada valor de p en el 
+# CALCULATION OF ENTROPY FOR EACH PROBABILITY
+# A list comprehension is used to calculate the entropy for each value of p in the 
 # array x.
-# Si p es igual a 0, se asigna None para evitar el cálculo de logaritmos de cero, ya que 
-# log(0) no está definido.
+# If p is equal to 0, None is assigned to avoid calculating logarithms of zero, since 
+# log(0) is not defined.
 ent = [entropy(p) if p != 0 else None 
        for p in x]
 
-# VISUALIZACIÓN DE LA ENTROPÍA
-# Se añaden etiquetas a los ejes del gráfico:
-# El eje Y representa la entropía.
-# El eje X representa la probabilidad de pertenencia a la clase 1 (p(i=1)).
-# Se utiliza plt.plot(x, ent) para graficar la entropía en función de las probabilidades.
-# Finalmente, plt.show() muestra el gráfico en pantalla. La línea comentada (plt.savefig(...)) 
-# podría ser utilizada para guardar el gráfico como un archivo PNG si se descomenta.
+# ENTROPY DISPLAY
+# Labels are added to the chart axes:
+# The Y axis represents entropy.
+# The X axis represents the probability of belonging to class 1 (p(i=1)).
+# Plt.plot(x, ent) is used to plot entropy as a function of probabilities.
+# Finally, plt.show() displays the graph on the screen. The commented line (plt.savefig(...)) 
+# could be used to save the graphic as a PNG file if it is uncommented.
 plt.ylabel('Entropy')
 plt.xlabel('Class-membership probability p(i=1)')
 plt.plot(x, ent)
@@ -1353,15 +1354,15 @@ plt.show()
 
 
 # * Image(...)
-# Usa la clase Image (probablemente importada desde IPython.display, como en el ejemplo anterior) 
-# para mostrar una imagen en un entorno interactivo como Jupyter Notebook.
+# Use the Image class (probably imported from IPython.display, as in the previous example) 
+# to display an image in an interactive environment such as Jupyter Notebook.
 # * filename='./figures/03_18.png'
-# Especifica la ruta de la imagen que se desea mostrar. En este caso, la imagen se encuentra en el
-# archivo './figures/03_18.png', que es una ruta relativa al directorio actual.
+# Specifies the path of the image to display. In this case, the image is located in the
+# file './figures/03_18.png', which is a relative path to the current directory.
 # * width=500
-# Ajusta el ancho de la imagen a 500 píxeles. Esto redimensiona la imagen para que ocupe ese 
-# espacio de ancho, mientras que su altura se ajusta proporcionalmente (si no se especifica una 
-# altura).
+# Set the image width to 500 pixels. This resizes the image so that it occupies that 
+# space width, while its height is adjusted proportionally (if you do not specify a 
+# height).
 
 
 
@@ -1369,44 +1370,44 @@ plt.show()
 
 
 
-# IMPORTACIÓN DE BIBLIOTECAS
-# Se importan matplotlib.pyplot para crear gráficos y numpy para realizar cálculos numéricos.
+# LIBRARY IMPORT
+# Matplotlib.pyplot is imported to create plots and numpy is imported to perform numerical calculations.
 
-# DEFINICIÓN DE FUNCIONES DE IMPUREZA
+# DEFINITION OF IMPURITY FUNCTIONS
 
 # GINI
-# Calcula la impureza de Gini, que mide la probabilidad de que un elemento se clasifique 
-# incorrectamente cuando se elige aleatoriamente.
+# Calculates the Gini impurity, which measures the probability that an element will be classified 
+# incorrectly when chosen randomly.
 def gini(p):
     return p * (1 - p) + (1 - p) * (1 - (1 - p))
 
-# ENTROPÍA
-# Calcula la entropía, que mide la incertidumbre en la clasificación.
+# ENTROPY
+# Calculates entropy, which measures the uncertainty in the classification.
 def entropy(p):
     return - p * np.log2(p) - (1 - p) * np.log2((1 - p))
 
-# ERROR DE CLASIFICACIÓN
-# Calcula el error de clasificación, que es 1 menos la probabilidad máxima de pertenencia a 
-# cualquiera de las clases.
+# CLASSIFICATION ERROR
+# Calculate the classification error, which is 1 minus the maximum probability of membership 
+# any of the classes.
 def error(p):
     return 1 - np.max([p, 1 - p])
 
-# GENERACIÓN DE VALORES DE PROBABILIDAD
-# Se crea un array x que contiene valores de probabilidad que van de 0.0 a 1.0 (sin incluir 1.0), 
-# con un paso de 0.01.
+# GENERATION OF PROBABILITY VALUES
+# An array x is created containing probability values ​​ranging from 0.0 to 1.0 (not including 1.0), 
+# with a step of 0.01.
 x = np.arange(0.0, 1.0, 0.01)
 
-# CÁLCULO DE LOS ÍNDICES DE IMPUREZA
-# Se calcula la entropía para cada valor de p, escalada a la mitad (sc_ent).
-# También se calcula el error de clasificación para cada valor de p.
+# CALCULATION OF IMPURITY INDICES
+# The entropy is calculated for each value of p, scaled by half (sc_ent).
+# The classification error is also calculated for each p value.
 ent = [entropy(p) if p != 0 else None for p in x]
 sc_ent = [e * 0.5 if e else None for e in ent]
 err = [error(i) for i in x]
 
-# VISUALIZACIÓN DE LOS RESULTADOS
-# Se crea una figura y un eje para el gráfico.
-# Se utilizan un bucle for para graficar cada índice de impureza en función de p. Cada línea se 
-# etiquetará y se le asignará un estilo de línea y un color.
+# VIEWING THE RESULTS
+# A figure and an axis are created for the graph.
+# A for loop is used to plot each impurity index as a function of p. Each line is 
+# will be labeled and assigned a line style and color.
 fig = plt.figure()
 ax = plt.subplot(111)
 for i, lab, ls, c, in zip([ent, sc_ent, gini(x), err], 
@@ -1416,12 +1417,12 @@ for i, lab, ls, c, in zip([ent, sc_ent, gini(x), err],
                           ['black', 'lightgray', 'red', 'green', 'cyan']):
     line = ax.plot(x, i, label=lab, linestyle=ls, lw=2, color=c)
 
-# CONFIGURACIÓN DEL GRÁFICO
-# Se añade una leyenda al gráfico que muestra qué línea corresponde a qué índice de impureza.
-# Se añaden líneas horizontales en y=0.5 y y=1.0 como referencia.
-# Se ajustan los límites del eje Y y se etiquetan los ejes.
-# Finalmente, se muestra el gráfico utilizando plt.show(). La línea comentada (plt.savefig(...)) 
-# podría ser utilizada para guardar el gráfico como un archivo PNG si se descomenta.
+# CHART SETUP
+# A legend is added to the graph showing which line corresponds to which impurity index.
+# Horizontal lines are added at y=0.5 and y=1.0 for reference.
+# The Y axis limits are adjusted and the axes are labeled.
+# Finally, the graph is displayed using plt.show(). The commented line (plt.savefig(...)) 
+# could be used to save the graphic as a PNG file if it is uncommented.
 ax.legend(loc='upper center', bbox_to_anchor=(0.5, 1.15),
           ncol=5, fancybox=True, shadow=False)
 ax.axhline(y=0.5, linewidth=1, color='k', linestyle='--')
@@ -1437,53 +1438,52 @@ plt.show()
 
 
 
-# IMPORTACIÓN DEL MODELO DE ÁRBOL DE DECISIÓN
-# Se importa DecisionTreeClassifier, que es el clasificador de árbol de decisión de la biblioteca 
+# IMPORT DECISION TREE MODEL
+# DecisionTreeClassifier is imported, which is the library's decision tree classifier 
 # scikit-learn.
 
-# CREACIÓN DEL MODELO DE ÁRBOL DE DECISIÓN
-# Se instancia un objeto de DecisionTreeClassifier llamado tree_model con los siguientes 
-# parámetros:
+# CREATION OF THE DECISION TREE MODEL
+# A DecisionTreeClassifier object called tree_model is instantiated with the following 
+# parameters:
 # * criterion='gini'
-# Utiliza la impureza de Gini como criterio para la división de los nodos.
+# Uses the Gini impurity as a criterion for the division of nodes.
 # * max_depth=4
-# Limita la profundidad máxima del árbol a 4, lo que ayuda a evitar el sobreajuste.
+# Limits the maximum tree depth to 4, which helps prevent overfitting.
 # * random_state=1
-# Establece una semilla para el generador de números aleatorios, asegurando que los 
-# resultados sean reproducibles.
+# Sets a seed for the random number generator, ensuring that the 
+# results are reproducible.
 tree_model = DecisionTreeClassifier(criterion='gini', 
                                     max_depth=4, 
                                     random_state=1)
 
-# ENTRENAMIENTO DEL MODELO
-# Se entrena el modelo con los datos de entrenamiento (X_train como características y y_train 
-# como etiquetas).
+# MODEL TRAINING
+# The model is trained with the training data (X_train as features and y_train 
+# as tags).
 tree_model.fit(X_train, y_train)
 
-# PREPARACIÓN DE LOS DATOS COMBINADOS
-# Se combinan los conjuntos de datos de entrenamiento y prueba. X_combined contiene todas las 
-# características de ambos conjuntos, y y_combined contiene las etiquetas correspondientes.
+# PREPARATION OF COMBINED DATA
+# Training and testing data sets are combined. X_combined contains all 
+# features of both sets, and y_combined contains the corresponding tags.
 X_combined = np.vstack((X_train, X_test))
 y_combined = np.hstack((y_train, y_test))
 
-# VISUALIZACIÓN DE LAS REGIONES DE DECISIÓN
-# Se llama a la función plot_decision_regions, que se utiliza para visualizar las regiones 
-# de decisión del clasificador.
-# classifier=tree_model especifica el modelo a visualizar.
-# test_idx=range(105, 150) resalta los puntos de datos en el conjunto de prueba, que se 
-# encuentran en el rango de índices 105 a 150.
+# VISUALIZATION OF DECISION REGIONS
+# The plot_decision_regions function is called, which is used to display the regions.
+# classifier=tree_model specifies the model to display.
+# test_idx=range(105, 150) highlights the data points in the test set, which are 
+# found in the index range 105 to 150.
 plot_decision_regions(X_combined, y_combined, 
                       classifier=tree_model,
                       test_idx=range(105, 150))
 
-# ETIQUETADO Y FORMATO DEL GRÁFICO
-# Se etiquetan los ejes X e Y para indicar que representan la longitud y el ancho de los 
-# pétalos, respectivamente.
-# Se añade una leyenda en la parte superior izquierda.
-# plt.tight_layout() se asegura de que los elementos del gráfico se ajusten bien sin superponerse.
-# La línea comentada (plt.savefig(...)) se puede utilizar para guardar el gráfico como un 
-# archivo PNG si se descomenta.
-# Finalmente, plt.show() muestra el gráfico en pantalla.
+# LABELING AND GRAPH FORMAT
+# The X and Y axes are labeled to indicate that they represent the length and width of the 
+# petals, respectively.
+# A legend is added to the top left.
+# plt.tight_layout() makes sure that the chart elements fit tightly without overlapping.
+# The commented line (plt.savefig(...)) can be used to save the graph as a 
+# PNG file if uncommented.
+# Finally, plt.show() displays the graph on the screen.
 plt.xlabel('Petal length [cm]')
 plt.ylabel('Petal width [cm]')
 plt.legend(loc='upper left')
@@ -1494,36 +1494,36 @@ plt.show()
 
 
 
-# IMPORTACIÓN DEL MÓDULO DE ÁRBOLES
-# Se importa el módulo tree de scikit-learn, que contiene funciones y clases para trabajar 
-# con árboles de decisión.
+# TREE MODULE IMPORT
+# The scikit-learn tree module is imported, which contains functions and classes to work with 
+# with decision trees.
 
-# DEFINICIÓN DE NOMBRES DE CARACTERÍSTICAS
-# Se crea una lista llamada feature_names que contiene los nombres de las características que 
-# se utilizaron para entrenar el modelo. Estos nombres corresponden a las medidas de las flores 
-# en el conjunto de datos, probablemente el conjunto de datos Iris.
+# DEFINITION OF FEATURE NAMES
+# A list called feature_names is created that contains the names of the features that 
+# were used to train the model. These names correspond to the measurements of the flowers 
+# in the data set, probably the Iris data set.
 feature_names = ['Sepal length', 'Sepal width',
                  'Petal length', 'Petal width']
 
-# VISUALIZACIÓN DEL ÁRBOL DE DECISIÓN
-# Se llama a la función plot_tree para visualizar el árbol de decisión representado por tree_model.
+# DECISION TREE DISPLAY
+# The plot_tree function is called to display the decision tree represented by tree_model.
 # * tree_model
-# El modelo de árbol de decisión que fue entrenado previamente.
+# The decision tree model that was pre-trained.
 # * feature_names=feature_names
-# Se pasan los nombres de las características para que aparezcan en el gráfico, lo que facilita 
-# la interpretación del árbol.
+# Feature names are passed to appear on the graph, making it easy 
+# the interpretation of the tree.
 # * filled=True
-# Este parámetro indica que se debe llenar los nodos con colores basados en las clases predichas, 
-# lo que ayuda a visualizar la decisión del árbol de manera más clara.
+# This parameter indicates that the nodes should be filled with colors based on the predicted classes, 
+# which helps visualize the decision tree more clearly.
 tree.plot_tree(tree_model,
                feature_names=feature_names,
                filled=True)
 
-# MOSTRAR EL GRÁFICO
-# La línea comentada (plt.savefig(...)) sugiere que el gráfico se podría guardar como un archivo 
-# PDF si se descomenta.
-# plt.show() se utiliza para mostrar el gráfico en pantalla, permitiendo a los usuarios 
-# visualizar el árbol de decisión.
+# SHOW THE GRAPH
+# The commented line (plt.savefig(...)) suggests that the graph could be saved as a file 
+# PDF if uncommented.
+# plt.show() is used to display the graph on the screen, allowing users 
+# display the decision tree.
 # plt.savefig('figures/03_21_1.pdf')
 plt.show()
 
@@ -1532,54 +1532,54 @@ plt.show()
 
 
 
-# IMPORTACIÓN DEL CLASIFICADOR DE BOSQUE ALEATORIO
-# Se importa la clase RandomForestClassifier del módulo ensemble de scikit-learn. 
-# Este clasificador utiliza múltiples árboles de decisión para mejorar la precisión y reducir 
-# el sobreajuste.
+# RANDOM FOREST CLASSIFIER IMPORT
+# The RandomForestClassifier class is imported from the scikit-learn ensemble module. 
+# This classifier uses multiple decision trees to improve accuracy and reduce 
+# overfitting.
 
-# CREACIÓN DEL MODELO DE BOSQUE ALEATORIO
-# Se instancia un objeto de la clase RandomForestClassifier llamado forest.
+# CREATION OF THE RANDOM FOREST MODEL
+# An object of the RandomForestClassifier class called forest is instantiated.
 # * n_estimators=25
-# Este parámetro indica que se crearán 25 árboles de decisión en el bosque. Más árboles 
-# generalmente mejoran la precisión del modelo, pero aumentan el tiempo de entrenamiento.
+# This parameter indicates that 25 decision trees will be created in the forest. More trees 
+# They generally improve model accuracy, but increase training time.
 # * random_state=1
-# Se establece una semilla aleatoria para asegurar la reproducibilidad de los resultados; 
-# es decir, el modelo producirá los mismos resultados cada vez que se ejecute con esta semilla.
+# A random seed is set to ensure the reproducibility of the results; 
+# that is, the model will produce the same results every time it is run with this seed.
 # * n_jobs=2
-# Este parámetro permite utilizar 2 núcleos de procesamiento para entrenar el modelo en 
-# paralelo, lo que puede acelerar el proceso, especialmente con un gran conjunto de datos.
+# This parameter allows using 2 processing cores to train the model in 
+# parallel, which can speed up the process, especially with a large data set.
 forest = RandomForestClassifier(n_estimators=25, 
                                 random_state=1,
                                 n_jobs=2)
 
-# ENTRENAMIENTO DEL MODELO
-# Se entrena el modelo forest utilizando los datos de entrenamiento X_train (características) y 
-# y_train (etiquetas o clases).
+# MODEL TRAINING
+# The forest model is trained using the training data X_train (features) and 
+# y_train (tags or classes).
 forest.fit(X_train, y_train)
 
-# VISUALIZACIÓN DE LAS REGIONES DE DECISIÓN
-# Se llama a la función plot_decision_regions para visualizar las regiones de decisión del 
-# clasificador en el espacio de características.
+# VISUALIZATION OF DECISION REGIONS
+# The plot_decision_regions function is called to display the decision regions of the 
+# classifier in feature space.
 # * X_combined
-# Contiene tanto los datos de entrenamiento como de prueba.
+# Contains both training and test data.
 # * y_combined
-# Contiene las etiquetas correspondientes para los datos combinados.
+# Contains the corresponding labels for the combined data.
 # * classifier=forest
-# Se pasa el modelo de bosque aleatorio entrenado para que se tracen sus regiones de decisión.
+# The trained random forest model is passed so that its decision regions are plotted.
 # * test_idx=range(105, 150)
-# Se especifica un rango de índices para resaltar las instancias de prueba en el gráfico, 
-# lo que permite observar cómo el modelo clasifica estos puntos.
+# A range of indices is specified to highlight test instances in the graph, 
+# which allows us to observe how the model classifies these points.
 plot_decision_regions(X_combined, y_combined, 
                       classifier=forest, test_idx=range(105, 150))
 
-# ETIQUETADO Y PRESENTACIÓN DEL GRÁFICO
-# Se establecen las etiquetas de los ejes X e Y.
-# Se añade una leyenda en la parte superior izquierda del gráfico.
-# plt.tight_layout() ajusta automáticamente los parámetros del gráfico para que se vea bien en 
-# la figura.
-# La línea comentada plt.savefig(...) sugiere que se podría guardar el gráfico como un archivo 
-# de imagen si se descomenta.
-# plt.show() se utiliza para mostrar el gráfico en pantalla.
+# LABELING AND PRESENTATION OF THE GRAPH
+# The X and Y axis labels are set.
+# A legend is added to the top left of the chart.
+# plt.tight_layout() automatically adjusts the chart parameters so that it looks good on 
+# the figure.
+# The commented line plt.savefig(...) suggests that the graph could be saved as a file 
+# if uncommented.
+# plt.show() is used to display the graph on the screen.
 plt.xlabel('Petal length [cm]')
 plt.ylabel('Petal width [cm]')
 plt.legend(loc='upper left')
@@ -1593,71 +1593,71 @@ plt.show()
 
 
 # * Image(...)
-# Usa la clase Image (probablemente importada desde IPython.display, como en el ejemplo anterior) 
-# para mostrar una imagen en un entorno interactivo como Jupyter Notebook.
+# Use the Image class (probably imported from IPython.display, as in the previous example) 
+# to display an image in an interactive environment such as Jupyter Notebook.
 # * filename='./figures/03_23.png'
-# Especifica la ruta de la imagen que se desea mostrar. En este caso, la imagen se encuentra en el
-# archivo './figures/03_23.png', que es una ruta relativa al directorio actual.
+# Specifies the path of the image to display. In this case, the image is located in the
+# file './figures/03_23.png', which is a relative path to the current directory.
 # * width=400
-# Ajusta el ancho de la imagen a 400 píxeles. Esto redimensiona la imagen para que ocupe ese 
-# espacio de ancho, mientras que su altura se ajusta proporcionalmente (si no se especifica una 
-# altura).
+# Set the image width to 400 pixels. This resizes the image so that it occupies that 
+# space width, while its height is adjusted proportionally (if you do not specify a 
+# height).
 
 
 
 
 
-# IMPOTACIÓN DEL CLASIFICADOR KNN
-# Se importa la clase KNeighborsClassifier del módulo neighbors de scikit-learn, que se utiliza 
-# para crear un modelo de clasificación basado en el algoritmo KNN.
+# KNN CLASSIFIER IMPORTATION
+# The KNeighborsClassifier class is imported from the neighbors module of scikit-learn, which is used 
+# to create a classification model based on the KNN algorithm.
 
-# CREACIÓN DEL MODELO KNN
-# Se instancia un objeto de la clase KNeighborsClassifier llamado knn con los siguientes 
-# parámetros:
+# KNN MODEL CREATION
+# An object of the KNeighborsClassifier class called knn is instantiated with the following 
+# parameters:
 # * n_neighbors=5
-# Este parámetro indica que el modelo considerará los 5 vecinos más cercanos al realizar la 
-# clasificación.
+# This parameter indicates that the model will consider the 5 nearest neighbors when performing the 
+# classification.
 # * p=2
-# Este parámetro especifica la distancia que se utilizará. Con p=2, se utiliza la distancia 
-# euclidiana (que es una forma de la métrica de Minkowski).
+# This parameter specifies the distance to use. With p=2, the distance is used 
+# Euclidean (which is a form of the Minkowski metric).
 # * metric='minkowski'
-# Se define que la métrica utilizada para calcular la distancia entre puntos será la métrica 
-# de Minkowski.
+# It is defined that the metric used to calculate the distance between points will be the metric 
+# of Minkowski.
 knn = KNeighborsClassifier(n_neighbors=5, 
                            p=2, 
                            metric='minkowski')
 
-# ENTRENAMIENTO DEL MODELO
-# Se entrena el modelo knn utilizando los datos de entrenamiento X_train_std (características 
-# estandarizadas) y y_train (etiquetas o clases). En el contexto de KNN, no se realiza un 
-# entrenamiento explícito, pero se almacena la información de los datos de entrenamiento para 
-# la clasificación futura.
+# MODEL TRAINING
+# The knn model is trained using the training data X_train_std (features 
+# standardized) and y_train (tags or classes). In the context of KNN, no 
+# explicit training, but training data information is stored for 
+# future classification.
 knn.fit(X_train_std, y_train)
 
-# VISUALIZACIÓN DE LAS REGLAS DE DECISIÓN
-# Se llama a la función plot_decision_regions para visualizar las regiones de decisión del 
-# clasificador KNN en el espacio de características.
+# DISPLAY OF DECISION RULES
+# The plot_decision_regions function is called to display the decision regions of the 
+# KNN classifier in feature space.
 # * X_combined_std
-# Contiene tanto los datos de entrenamiento como de prueba (ya estandarizados).
+# Contains both training and test data (already standardized).
 # * y_combined
-# Contiene las etiquetas correspondientes para los datos combinados.
+# Contains the corresponding labels for the combined data.
 # * classifier=knn
-# Se pasa el modelo KNN entrenado para que se tracen sus regiones de decisión.
+# The trained KNN model is passed so that its decision regions are plotted.
 # * test_idx=range(105, 150)
-# Se especifica un rango de índices para resaltar las instancias de prueba en el gráfico, 
-# permitiendo observar cómo el modelo clasifica estos puntos.
+# A range of indices is specified to highlight test instances in the graph, 
+# allowing you to observe how the model classifies these points.
 plot_decision_regions(X_combined_std, y_combined, 
                       classifier=knn, test_idx=range(105, 150))
 
-# ETIQUETADO Y PRESENTACIÓN DEL GRÁFICO
-# Se establecen las etiquetas de los ejes X e Y para indicar las características que se están 
-# visualizando.
-# Se añade una leyenda en la parte superior izquierda del gráfico para identificar las clases.
-# plt.tight_layout() ajusta automáticamente los parámetros del gráfico para que se vea bien 
-# en la figura.
-# La línea comentada plt.savefig(...) sugiere que se podría guardar el gráfico como un archivo 
-# de imagen si se descomenta.
-# plt.show() se utiliza para mostrar el gráfico en pantalla.
+# LABELING AND PRESENTATION OF THE GRAPH
+# The X and Y axis labels are set to indicate the characteristics that are being 
+# viewing.
+# A legend is added to the top left of the graph to identify the classes.
+# plt.tight_layout() automatically adjusts the chart parameters to make it look nice 
+# in the figure.
+# The commented line plt.savefig(...) suggests that the graph could be saved as a file 
+Image # if uncommented.
+# plt.show() is used to display the graph on the screen.
 plt.xlabel('Petal length [standardized]')
 plt.ylabel('Petal width [standardized]')
 plt.legend(loc='upper left')
@@ -1674,23 +1674,23 @@ plt.show()
 
 
 
-# Ejecuta un comando en la terminal desde un entorno de Python (como un Jupyter Notebook o un 
-# script que permite comandos de sistema) para convertir un notebook de Jupyter en un archivo 
-# de script de Python. 
+# Run a command in the terminal from a Python environment (such as a Jupyter Notebook or a 
+# script that allows system commands to convert a Jupyter notebook to a file 
+# Python script. 
 # * !
-# Este símbolo se utiliza en entornos como Jupyter Notebooks para ejecutar comandos del sistema 
-# operativo directamente desde el notebook. En este caso, el comando es una ejecución de un 
-# script de Python.
+# This symbol is used in environments such as Jupyter Notebooks to execute system commands 
+# operational directly from the notebook. In this case, the command is an execution of a 
+# python script.
 # * python ../.convert_notebook_to_script.py
-# Este comando ejecuta un script de Python llamado convert_notebook_to_script.py. Este archivo 
-# se encuentra en el directorio anterior (../ indica que está un nivel arriba en el sistema de 
-# archivos). El propósito de este script es convertir un notebook de Jupyter (.ipynb) en un 
-# archivo de script de Python (.py).
+# This command runs a Python script called convert_notebook_to_script.py. This file 
+# is located in the previous directory (../ indicates that it is one level up in the system 
+# files). The purpose of this script is to convert a Jupyter notebook (.ipynb) into a 
+# Python script file (.py).
 # * --input ch03.ipynb
-# Esta es una opción o argumento que le indica al script cuál es el archivo de entrada, en este 
-# caso, el notebook ch03.ipynb.
+# This is an option or argument that tells the script what the input file is, in this 
+# case, the notebook ch03.ipynb.
 # * --output ch03.py
-# Esta opción le indica al script que guarde la salida (el archivo convertido) con el nombre 
-# ch03.py, que es un script de Python.
+# This option tells the script to save the output (the converted file) with the name 
+#ch03.py, which is a Python script.
 
 
