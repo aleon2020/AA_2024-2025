@@ -9,7 +9,7 @@
     - 1.4 Importación de Paquetes
 - TEMA 2: Análisis Exploratorio de Datos (Clasificadores)
     - 2.1 Carga y Exploración Inicial del Dataset
-    - 2.2 Anonimización y Cálculo de la Correlación entre Características]
+    - 2.2 Anonimización y Cálculo de la Correlación entre Características
     - 2.3 División de Variables Independientes y Dependiente
     - 2.4 Mapa de Calor de Correlaciones
     - 2.5 Histogramas de Distribución de las Características
