@@ -21,16 +21,14 @@ A continuación se detallan los contenidos vistos que abarcan el temario del Exa
 **Ejemplos**
 * [Example 1](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex01): Admission Dataset
 * [Example 2](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex02): Land Mines Dataset
-* [Example 3](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex03): Regression Dataset (PR)
+* [Example 3](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex03): Regression Dataset
 
 **Prácticas**
 * [Práctica 1 Curso 2024-2025](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/pr01_2024-2025)
-* [Práctica 2 Curso 2018-2019](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/pr02_2018-2019) (PR)
+* [Práctica 2 Curso 2018-2019](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/pr02_2018-2019)
 
 **Formulario**
-* [Formulario Examen Parcial 1](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/formulario_ep1) (PR)
-
-PR: Pendiente de Resolución, es decir, está incompleto o pendiente de confirmar si está bien implementado.
+* [Formulario Examen Parcial 1](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/formulario_ep1)
 
 ## 2. Referencias
 
