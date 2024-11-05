@@ -11,7 +11,7 @@ from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 from matplotlib.colors import ListedColormap
 from sklearn.linear_model import LogisticRegression
-from sklearn.decomposition import PCA
+from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 
 # # Machine Learning with PyTorch and Scikit-Learn  
 # # -- Code Examples
@@ -66,17 +66,29 @@ d = {
 check_packages(d)
 
 
-# # Example 4 - Wine Dataset (PCA)
+# # Example 7: LDA (Linear Discriminant Analysis) Exercise
 
 # ### Overview
 
 # - [Importing libraries for data analysis and scaling](#importing-libraries-for-data-analysis-and-scaling)
 # - [Extracting the principal components step by step](#extracting-the-principal-components-step-by-step)
-# - [Total and explained variance](#total-and-explained-variance)
-# - [Feature transformation](#feature-transformation)
-# - [Principal component analysis in scikit-learn](#principal-component-analysis-in-scikit-learn)
-# - [Assessing feature contributions](#assessing-feature-contributions)
+# - [Computing the scatter matrices](#computing-the-scatter-matrices)
+# - [Selecting linear discriminants for the new feature subspace](#selecting-linear-discriminants-for-the-new-feature-subspace)
+# - [Projecting examples onto the new feature space](#projecting-examples-onto-the-new-feature-space)
+# - [LDA via scikit-learn](#lda-via-scikit-learn)
 # - [Summary](#summary)
+
+# STATEMENT
+# 
+# - In this exercise, you will perform a linear discriminant analysis (LDA) using the data set provided in the 'dataset1.csv' file.
+# 
+# - The analysis will be carried out in two different ways: First through a manual implementation (without using specific LDA libraries) and later using scikit-learn.
+# 
+# - For both cases, you must calculate the linear discriminants considered and obtain the weight matrix (W) and the projections (X').
+# 
+# - Additionally, you must create visualizations that show the projections (X') labeled according to their category.
+# 
+# - Finally, you will compare the results obtained by both methods.
 
 
 
@@ -105,27 +117,25 @@ check_packages(d)
 
 
 # Download the wine dataset from the UCI Machine Learning Repository
-df_wine = pd.read_csv(
-    'https://archive.ics.uci.edu/ml/machine-learning-databases/wine/wine.data',
-    header=None)
+df = pd.read_csv('dataset1.csv')
 
 
 
 
 # Show the first five rows of the dataset
-df_wine.head()
+df.head()
 
 
 
 
 # Show the shape of the dataset
-df_wine.shape
+df.shape
 
 
 
 
 # Splitting the dataset into features and target variable
-X, y = df_wine.iloc[:, 1:].values, df_wine.iloc[:, 0].values # Target variable is the first column
+X, y = df.iloc[:, 0:-1].values, df.iloc[:, -1].values # Target variable is the first column
 
 
 
@@ -143,47 +153,52 @@ X_train_std = sc.fit_transform(X_train)
 X_test_std = sc.transform(X_test)
 
 
-
-
-# Calculate the covariance matrix
-cov_mat = np.cov(X_train_std.T)
+# ## Computing the scatter matrices
 
 
 
-
-# Calculate the eigenvalues and eigenvectors of the covariance matrix
-eigen_vals, eigen_vecs = np.linalg.eig(cov_mat)
-
-
-
-
-print('\nEigenvalues \n', eigen_vals)
+# Compute one mean vector for each label
+mean_vecs = []
+for label in range(0, 2):
+    mean_vecs.append(np.mean(X_train_std[y_train == label], axis=0))
+    print(f'MV {label}: {mean_vecs[label - 1]}\n')
 
 
 
 
-print('\nEigenvectors \n', eigen_vecs)
+# Compute the within-class scatter matrix
+d = 8  # number of features
+S_W = np.zeros((d, d))
+for label, mv in zip(range(0, 2), mean_vecs):
+    class_scatter = np.cov(X_train_std[y_train == label].T)
+    S_W += class_scatter
+    
+print(f'Within-class scatter matrix: {S_W.shape[0]}x{S_W.shape[1]}')
 
 
-# ## Total and explained variance
+
+
+# Calculate the between-class scatter matrix
+mean_overall = np.mean(X_train_std, axis=0)
+mean_overall = mean_overall.reshape(d, 1)
+d = 8 # number of features
+S_B = np.zeros((d, d))
+for i, mean_vec in enumerate(mean_vecs):
+    n = X_train_std[y_train == i + 1, :].shape[0]
+    mean_vec = mean_vec.reshape(d, 1) # make column vector
+    S_B += n * (mean_vec - mean_overall).dot(
+        (mean_vec - mean_overall).T)
+
+print('Between-class scatter matrix: ' f'{S_B.shape[0]}x{S_B.shape[1]}')
+
+
+# ## Selecting linear discriminants for the new feature subspace
 
 
 
-# Calculate the explained variance ratio
-tot = sum(eigen_vals)
-var_exp = [(i / tot) for i in sorted(eigen_vals, reverse=True)]
-cum_var_exp = np.cumsum(var_exp)
+# Calculate the eigenvalues and eigenvectors of the matrix 𝑺𝑊−1·𝑺𝐵 :
+eigen_vals, eigen_vecs = np.linalg.eig(np.linalg.inv(S_W).dot(S_B))
 
-plt.bar(range(1,14), var_exp, align='center', label='Individual explained variance')
-plt.step(range(1,14), cum_var_exp, where='mid', label='Cumulative explained variance')
-plt.ylabel('Explained variance ratio')
-plt.xlabel('Principal component index')
-plt.legend(loc='best')
-plt.tight_layout()
-plt.show()
-
-
-# ## Feature transformation
 
 
 
@@ -193,14 +208,20 @@ eigen_pairs = [(np.abs(eigen_vals[i]), eigen_vecs[:, i]) for i in range(len(eige
 # Sort the (eigenvalue, eigenvector) tuples from high to low
 eigen_pairs.sort(key=lambda k: k[0], reverse=True)
 
+print('Eigenvalues in descending order:\n')
+for eigen_val in eigen_pairs:
+    print(eigen_val[0])
+
 
 
 
 # Construct the projection matrix 
 # In this case, we will reduce the high-dimensional feature space to a 2-dimensional feature subspace
-w = np.hstack((eigen_pairs[0][1][:, np.newaxis], eigen_pairs[1][1][:, np.newaxis]))
+w = np.hstack((eigen_pairs[0][1][:, np.newaxis].real, eigen_pairs[1][1][:, np.newaxis].real))
 print('Matrix W:\n', w)
 
+
+# ## Projecting examples onto the new feature space
 
 
 
@@ -211,7 +232,7 @@ X_train_std[0].dot(w)
 
 
 # Transform the entire training dataset using the projection matrix
-X_train_pca = X_train_std.dot(w)
+X_train_lda = X_train_std.dot(w)
 
 
 
@@ -220,17 +241,15 @@ X_train_pca = X_train_std.dot(w)
 colors = ['r', 'b', 'g']
 markers = ['o', 's', '^']
 for l, c, m in zip(np.unique(y_train), colors, markers):
-    plt.scatter(X_train_pca[y_train==l, 0],
-                X_train_pca[y_train==l, 1],
+    plt.scatter(X_train_lda[y_train==l, 0],
+                X_train_lda[y_train==l, 1],
                 c=c, label=f'Class {l}', marker=m)
-plt.xlabel('PC 1')
-plt.ylabel('PC 2')
-plt.legend(loc='lower left')
+plt.xlabel('LD 1')
+plt.ylabel('LD 2')
+plt.legend(loc='lower right')
 plt.tight_layout()
 plt.show()
 
-
-# ## Principal component analysis in scikit-learn
 
 
 
@@ -261,85 +280,43 @@ def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
         edgecolor='black')
 
 
+# ## LDA via scikit-learn
+
 
 
 # scikit-learn
-# Initializing the PCA transformer
-pca = PCA(n_components=2)
+# Initializing the LDA transformer
+lda = LDA(n_components=1)
 
 # Initializing the logistic regression estimator:
 lr = LogisticRegression(multi_class='ovr', random_state=1, solver='lbfgs') # ovr = One-vs-Rest, lbfgs = Limited-memory Broyden-Fletcher-Goldfarb-Shanno
 
 # Dimensionality reduction
-X_train_pca = pca.fit_transform(X_train_std)
-X_test_pca = pca.transform(X_test_std)
+X_train_lda = lda.fit_transform(X_train_std, y_train)
+X_test_lda = lda.transform(X_test_std)
 
 # Fitting the logistic regression model on the reduced dataset:
-lr.fit(X_train_pca, y_train)
+lr.fit(X_train_lda, y_train)
 
 # Plotting the decision regions in the reduced space for the training dataset
-plot_decision_regions(X_train_pca, y_train, classifier=lr)
-plt.xlabel('PC 1')
-plt.ylabel('PC 2')
-plt.legend(loc='lower left')
-plt.tight_layout()
-plt.show()
+# plot_decision_regions(X_train_lda, y_train, classifier=lr)
+# plt.xlabel('PC 1')
+# plt.ylabel('PC 2')
+# plt.legend(loc='lower left')
+# plt.tight_layout()
+# plt.show()
 
 
 
 
 # scikit-learn
 # Plotting the decision regions in the reduced space for the test dataset
-plot_decision_regions(X_test_pca, y_test, classifier=lr)
-plt.xlabel('PC 1')
-plt.ylabel('PC 2')
-plt.legend(loc='lower left')
-plt.tight_layout()
-plt.show()
-
-
-
-
-# scikit-learn
-# Explained variance ratios
-pca = PCA(n_components=None)
-X_train_pca = pca.fit_transform(X_train_std)
-print(pca.explained_variance_ratio_)
-
-
-# ## Assessing feature contributions
-
-
-
-# Calculate the loadings
-loadings = eigen_vecs * np.sqrt(eigen_vals)
-
-# Plot the loadings for the first principal component
-fig, ax = plt.subplots()
-ax.bar(range(13), loadings[:, 0], align='center')
-ax.set_ylabel('Loadings for PC 1')
-ax.set_xticks(range(13))
-ax.set_xticklabels(df_wine.columns[1:], rotation=90)
-plt.ylim([-1, 1])
-plt.tight_layout()
-plt.show()
-
-
-
-
-# scikit-learn
-# Calculate the loadings
-sklearn_loadings = pca.components_.T * np.sqrt(pca.explained_variance_)
-
-# Plot the loadings for the first principal component
-fig, ax = plt.subplots()
-ax.bar(range(13), sklearn_loadings[:, 0], align='center')
-ax.set_ylabel('Loadings for PC 1')
-ax.set_xticks(range(13))
-ax.set_xticklabels(df_wine.columns[1:], rotation=90)
-plt.ylim([-1, 1])
-plt.tight_layout()
-plt.show()
+# plot_decision_regions(X_test_lda, y_test, classifier=lr)
+# plt.xlabel('PC 1')
+# plt.ylabel('PC 2')
+# plt.legend(loc='lower left')
+# plt.tight_layout()
+# plt.show()
 
 
 # # Summary
@@ -361,11 +338,11 @@ plt.show()
 # is located in the previous directory (../ indicates that it is one level up in the system 
 # files). The purpose of this script is to convert a Jupyter notebook (.ipynb) into a 
 # Python script file (.py).
-# * --input ex04.ipynb
+# * --input ex07.ipynb
 # This is an option or argument that tells the script what the input file is, in this 
-# case, the notebook ex04.ipynb.
-# * --output ex04.py
+# case, the notebook ex07.ipynb.
+# * --output ex07.py
 # This option tells the script to save the output (the converted file) with the name
-# ex04.py, which is a Python script.
+# ex07.py, which is a Python script.
 
 

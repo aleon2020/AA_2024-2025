@@ -1,11 +1,11 @@
-##  Example 4: Wine Dataset
+##  Example 4: Wine Dataset (PCA)
 
 ### Chapter Outline
 
 - Importing libraries for data analysis and scaling
 - Extracting the principal components step by step
 - Total and explained variance
-- Feature transformation](#feature-transformation)
+- Feature transformation
 - Principal component analysis in scikit-learn
 - Assessing feature contributions
 - Summary

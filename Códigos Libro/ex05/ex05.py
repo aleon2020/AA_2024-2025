@@ -66,7 +66,7 @@ d = {
 check_packages(d)
 
 
-# # Example 4 - Wine Dataset
+# # Example 5 - PCA (Principal Component Analysis) Exercise
 
 # ### Overview
 
@@ -77,6 +77,18 @@ check_packages(d)
 # - [Principal component analysis in scikit-learn](#principal-component-analysis-in-scikit-learn)
 # - [Assessing feature contributions](#assessing-feature-contributions)
 # - [Summary](#summary)
+
+# STATEMENT
+# 
+# - In this exercise, you will perform a principal component analysis (PCA) using the data set provided in the 'dataset1.csv' file.
+# 
+# - The analysis will be carried out in two different ways: First through a manual implementation (without using specific PCA libraries) and later using sickit-learn.
+# 
+# - For both cases, you must calculate the first three principal components and obtain: The weight matrix (W), the projections (X'), the explained variance ratios (including their graphic representation), and the loadings (including the graphic representation for the second principal component).
+# 
+# - Additionally, you must create visualizations that show the projections (X') labeled according to their category.
+# 
+# - Finally, compare the results obtained by both methods.
 
 
 
@@ -105,25 +117,25 @@ check_packages(d)
 
 
 # Download the wine dataset from the UCI Machine Learning Repository
-df_wine = pd.read_csv('dataset1.csv')
+df = pd.read_csv('dataset1.csv')
 
 
 
 
 # Show the first five rows of the dataset
-df_wine.head()
+df.head()
 
 
 
 
 # Show the shape of the dataset
-df_wine.shape
+df.shape
 
 
 
 
 # Splitting the dataset into features and target variable
-X, y = df_wine.iloc[:, 0:-1].values, df_wine.iloc[:, -1].values # Target variable is the first column
+X, y = df.iloc[:, 0:-1].values, df.iloc[:, -1].values # Target variable is the first column
 
 
 
@@ -317,7 +329,7 @@ fig, ax = plt.subplots()
 ax.bar(range(8), loadings[:, 0], align='center')
 ax.set_ylabel('Loadings for PC 1')
 ax.set_xticks(range(8))
-ax.set_xticklabels(df_wine.columns[0:-1], rotation=90)
+ax.set_xticklabels(df.columns[0:-1], rotation=90)
 plt.ylim([-1, 1])
 plt.tight_layout()
 plt.show()
@@ -334,7 +346,7 @@ fig, ax = plt.subplots()
 ax.bar(range(8), sklearn_loadings[:, 0], align='center')
 ax.set_ylabel('Loadings for PC 1')
 ax.set_xticks(range(8))
-ax.set_xticklabels(df_wine.columns[0:-1], rotation=90)
+ax.set_xticklabels(df.columns[0:-1], rotation=90)
 plt.ylim([-1, 1])
 plt.tight_layout()
 plt.show()
