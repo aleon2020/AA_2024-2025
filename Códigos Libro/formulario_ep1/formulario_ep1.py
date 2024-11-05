@@ -804,13 +804,13 @@ regr_quadratic = regr.fit(X_train_quadratic, y_train)
 print("Quadratic Model Coefficients:", regr_quadratic.coef_)
 print("Quadratic Model Intercept:", regr_quadratic.intercept_)
 
-# new_data_quadratic = np.array([[7, 1000, 1500]])
+new_data_quadratic = np.array([[2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048]])
 
-# transformed_new_data_quadratic = quadratic.transform(new_data_quadratic)
-# print("Quadratic Trasformed Data:", transformed_new_data_quadratic[0])
+transformed_new_data_quadratic = quadratic.transform(new_data_quadratic)
+print("Quadratic Trasformed Data:", transformed_new_data_quadratic[0])
 
-# predicted_price = regr_quadratic.predict(transformed_new_data_quadratic)
-# print("Predicted SalePrice:", predicted_price)
+predicted_price = regr_quadratic.predict(transformed_new_data_quadratic)
+print("Predicted Target:", predicted_price)
 
 
 
@@ -831,7 +831,7 @@ print("Quadratic Model Intercept:", regr_quadratic.intercept_)
 #     2250000])       # X3 ^ 2
 
 # manual_prediction = np.dot(coefficients, transformed_new_data) + intercept
-# print("Manually Calculated SalePrice:", manual_prediction)
+# print("Manually Calculated Target:", manual_prediction)
 
 
 # Y por último, se calcula el Error Absoluto Medio (MAE), el Error Cuadrático Medio (MSE) y el Coeficiente de Determinación (R²) para poder evaluar la precisión del modelo cuadrático.
@@ -889,13 +889,13 @@ regr_cubic = regr.fit(X_train_cubic, y_train)
 print("Cubic Model Coefficients:", regr_cubic.coef_)
 print("Cubic Model Intercept:", regr_cubic.intercept_)
 
-# new_data_cubic = np.array([[7, 1000, 1500]])
+new_data_cubic = np.array([[2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048]])
 
-# transformed_new_data_cubic = cubic.transform(new_data_cubic)
-# print("Cubic Transformed Data:", transformed_new_data_cubic[0])
+transformed_new_data_cubic = cubic.transform(new_data_cubic)
+print("Cubic Transformed Data:", transformed_new_data_cubic[0])
 
-# predicted_price_cubic = regr_cubic.predict(transformed_new_data_cubic)
-# print("Predicted SalePrice:", predicted_price_cubic)
+predicted_price_cubic = regr_cubic.predict(transformed_new_data_cubic)
+print("Predicted Target:", predicted_price_cubic)
 
 
 
@@ -926,7 +926,7 @@ print("Cubic Model Intercept:", regr_cubic.intercept_)
 #     3375000000])    # X3 ^ 3
 
 # manual_prediction_cubic = np.dot(coefficients_cubic, transformed_new_data_cubic) + intercept_cubic
-# print("Manually Calculated SalePrice:", manual_prediction_cubic)
+# print("Manually Calculated Target:", manual_prediction_cubic)
 
 
 
