@@ -131,13 +131,13 @@ display(HTML("""
 
 # ## 2.1 Carga y Exploración Inicial del Dataset
 
-# En primer lugar, se carga el dataset 'dataset.csv' y se configura la visualización de todas sus columnas. Además, se exploran las características más importantes del dataset como las columnas, su forma, una muestra de los primeros registros, así como un resumen de la información general y otras estadísticas descriptivas.
+# En primer lugar, se carga el dataset 'dataset_classifiers.csv' y se configura la visualización de todas sus columnas. Además, se exploran las características más importantes del dataset como las columnas, su forma, una muestra de los primeros registros, así como un resumen de la información general y otras estadísticas descriptivas.
 
 
 
 # PÁGINA 30
 
-dataset = pd.read_csv("dataset.csv")
+dataset = pd.read_csv("dataset_classifiers.csv")
 pd.set_option('display.max_columns', len(dataset.columns))
 
 dataset.columns
@@ -480,14 +480,14 @@ print('Accuracy: %.3f' % knn.score(X_test_std, y_test))
 
 # ## 4.1 Carga y Exploración Inicial del Dataset
 
-# En primer lugar, se carga el dataset 'dataset.csv' y se configura la visualización de todas sus columnas. Además, se exploran las características más importantes del dataset como las columnas, su forma, una muestra de los primeros registros, así como un resumen de la información general y otras estadísticas descriptivas.
+# En primer lugar, se carga el dataset 'dataset_regression.csv' y se configura la visualización de todas sus columnas. Además, se exploran las características más importantes del dataset como las columnas, su forma, una muestra de los primeros registros, así como un resumen de la información general y otras estadísticas descriptivas.
 
 
 
 # PÁGINAS 272 Y 273
 
 columns = ['Col1', 'Col2', 'Col3', 'Col4', 'Col5', 'Col6', 'Col7', 'Col8', 'Col9', 'Col10', 'Col11', 'Target']
-df = pd.read_csv('dataset.csv', sep=',', usecols=columns)
+df = pd.read_csv('dataset_regression.csv', sep=',', usecols=columns)
 
 df.columns
 df.shape
@@ -498,7 +498,7 @@ df.describe()
 
 # ANÁLISIS DE LOS RESULTADOS
 # 
-# El dataset contiene un total de 12 columnas y 1599 filas. La exploración inicial revela la media, la desviación estándar, el mínimo, el máximo y los cuartiles de cada columna, lo que permite observar detalladamente la dispersión y la distribución de los datos, además de poder detectar problemas como valores nulos o distribuciones atípicas que puedan afectar al análsis posterior.
+# El dataset contiene un total de 12 columnas y 731 filas. La exploración inicial revela la media, la desviación estándar, el mínimo, el máximo y los cuartiles de cada columna, lo que permite observar detalladamente la dispersión y la distribución de los datos, además de poder detectar problemas como valores nulos o distribuciones atípicas que puedan afectar al análsis posterior.
 
 # ## 4.2 Anonimización y Cálculo de la Correlación entre Características
 
@@ -539,7 +539,7 @@ print('Class labels:', np.unique(y))
 
 # ANÁLISIS DE LOS RESULTADOS
 # 
-# El dataset contiene 6 clases (3, 4, 5, 6, 7 y 8), lo que implica un problema de clasificación con múltiples etiquetas. El balance entre clases se verifica a través de la distribución de etiquetas, permitiendo conocer si existe un desbalance significativo que pudiera requerir estrategias adicionales de ajuste o balanceo en el modelo.
+# El dataset contiene muchísimas clases, lo que implica un problema de clasificación con múltiples etiquetas. El balance entre clases se verifica a través de la distribución de etiquetas, permitiendo conocer si existe un desbalance significativo que pudiera requerir estrategias adicionales de ajuste o balanceo en el modelo.
 
 # ## 4.4 Mapa de Calor de Correlaciones
 
@@ -562,17 +562,17 @@ plt.show()
 # 
 # Para otros apartados, habrá que seleccionar N de las mejores columnas entre todas las posibles, respectivamente. Para saber qué columnas poseen una mayor/mejor correlación, se seleccionan todos los valores de la fila 'Target' y pasarlos a valor absoluto, y una vez hecho esto, seleccionar los N valores más altos.
 # 
-# - Col1:   |-0.39|   =   0.39
-# - Col2:   |-0.17|   =   0.17
-# - Col3:   |-0.06|   =   0.06
-# - Col4:   |-0.19|   =   0.19
-# - Col5:   |0.25|    =   0.25
-# - Col6:   |-0.13|   =   0.13
-# - Col7:   |0.48|    =   0.48
-# - Col8:   |-0.05|   =   0.05
-# - Col9:   |0.12|    =   0.12
-# - Col10:  |0.01|    =   0.01
-# - Col11:  |0.23|    =   0.23
+# - Col1:   |0.57|   =   0.57
+# - Col2:   |-0.30|  =   0.30
+# - Col3:   |-0.23|  =   0.23
+# - Col4:   |0.06|   =   0.06
+# - Col5:   |0.28|   =   0.28
+# - Col6:   |0.07|   =   0.07
+# - Col7:   |-0.10|  =   0.10
+# - Col8:   |0.63|   =   0.63
+# - Col9:   |0.63|   =   0.63
+# - Col10:  |0.41|   =   0.41
+# - Col11:  |-0.07|  =   0.07
 
 # ## 4.5 Histogramas de Distribución de las Características
 
@@ -669,7 +669,7 @@ print(f'MSE test: {mse_test:.2f}')
 # 
 # Como se puede ver, un MSE bajo en ambos conjuntos, tanto en el de entrenamiento como en el de prueba indican un buen ajuste del modelo. Sin embargo, si el MSE en el conjunto de prueba es significativamente mayor que en el de entrenamiento, se tendría un indicador de sobreajuste.
 # 
-# En este caso, los valores del MSE obtenidos son de 0.41 para el conjunto de entrenamiento y de 0.43 para el conjunto de prueba.
+# En este caso, los valores del MSE obtenidos son de 775973.75 para el conjunto de entrenamiento y de 730543.32 para el conjunto de prueba.
 
 # ## 4.8 Error Absoluto Medio (MAE)
 
@@ -689,7 +689,7 @@ print(f'MAE test: {mae_test:.2f}')
 # 
 # El MAE ofrece una interpretación directa de la media del error en las predicciones. Al igual que con el MSE, un MAE menor en el conjunto de prueba que en el de entrenamiento, sugiere que el modelo realiza una buena generalización. Sin embargo, si se tienen valores altos, esto indicaría la necesidad de mejorar el ajuste del modelo.
 # 
-# En este caso, los valores del MAE obtenidos son de 0.50, tanto para el conjunto de entrenamiento como para el conjunto de prueba.
+# En este caso, los valores del MAE obtenidos son de 652.58 para el conjunto de entrenamiento y de 633.57 para el conjunto de prueba.
 
 # ## 4.9 Coeficiente de Determinación (R²)
 
@@ -709,7 +709,7 @@ print(f'R^2 test: {r2_test:.2f}')
 # 
 # El valor de R² indica la proporción de la variación en y explicada por X, por lo que un valor cercano a 1 para los conjuntos de entrenamiento y prueba señalan un buen ajuste. Sin embargo, una gran diferencia entre el R² de entrenamiento y de prueba podría sugerir un caso de sobreajuste.
 # 
-# En este caso, los valores de R² obtenidos son de 0.39 para el conjunto de entrenamiento y de 0.28 para el conjunto de prueba.
+# En este caso, los valores de R² obtenidos son de 0.79 para el conjunto de entrenamiento y de 0.81 para el conjunto de prueba.
 
 # # TEMA 5: Métodos de Regresión
 
@@ -766,11 +766,11 @@ print("Intercept:", intercept)
 
 # ANÁLISIS DE LOS RESULTADOS
 # 
-# * MAE: Un MAE de 0.5026385105672768 indica que, en promedio, las predicciones se desvían de los valores reales en aproximadamente 0.5026385105672768 unidades, lo que además sugiere la precisión general del modelo.
+# * MAE: Un MAE de 633.5742018072091 indica que, en promedio, las predicciones se desvían de los valores reales en aproximadamente 633.5742018072091 unidades, lo que además sugiere la precisión general del modelo.
 # 
-# * MSE: Un MSE de 0.43455004866201363 indica que el modelo muestra una desviación cuadrática promedio de 0.43455004866201363 unidades respecto a los valores reales, lo que refleja un nivel de error mayor en predicciones extremas.
+# * MSE: Un MSE de 730543.31878569 indica que el modelo muestra una desviación cuadrática promedio de 730543.31878569 unidades respecto a los valores reales, lo que refleja un nivel de error mayor en predicciones extremas.
 # 
-# * R²: Un R² de 0.2793728634848818 indica que el modelo explica aproximadamente el 27.93728634848818% de la variabilidad en la columna 'Target'.
+# * R²: Un R² de 0.8115778967581124 indica que el modelo explica aproximadamente el 81.15778967581124% de la variabilidad en la columna 'Target'.
 
 # ## 5.2 Regresión Cuadrática (Quadratic Regression)
 
@@ -807,30 +807,15 @@ print("Quadratic Model Intercept:", regr_quadratic.intercept_)
 new_data_quadratic = np.array([[2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048]])
 
 transformed_new_data_quadratic = quadratic.transform(new_data_quadratic)
-print("Quadratic Trasformed Data:", transformed_new_data_quadratic[0])
+print("Quadratic Transformed Data:", transformed_new_data_quadratic[0])
 
-predicted_price = regr_quadratic.predict(transformed_new_data_quadratic)
-print("Predicted Target:", predicted_price)
+predicted_target_quadratic = regr_quadratic.predict(transformed_new_data_quadratic)
+print("Predicted Target:", predicted_target_quadratic)
 
-
-
-
+# CÁLCULO MANUAL
 # coefficients = regr_quadratic.coef_
 # intercept = regr_quadratic.intercept_
-
-# transformed_new_data = np.array(
-#     [1,             # Intercept Term
-#     7,              # X1 (Overall Qual)
-#     1000,           # X2 (Total Bsmt SF)
-#     1500,           # X3 (Gr Liv Area)
-#     49,             # X1 ^ 2
-#     7000,           # X1 * X2
-#     10500,          # X1 * X3
-#     1000000,        # X2 ^ 2
-#     1500000,        # X2 * X3
-#     2250000])       # X3 ^ 2
-
-# manual_prediction = np.dot(coefficients, transformed_new_data) + intercept
+# manual_prediction = np.dot(coefficients, transformed_new_data_quadratic[0]) + intercept
 # print("Manually Calculated Target:", manual_prediction)
 
 
@@ -853,11 +838,11 @@ print("R-squared:", R2)
 
 # ANÁLISIS DE LOS RESULTADOS
 # 
-# * MAE: un MAE de 0.513535914951333 indica que el modelo cuadrático mejora la precisión en comparación con el modelo lineal si el valor es menor, ya que captura relaciones no lineales en los datos.
+# * MAE: un MAE de 1594.9704545454545 indica que el modelo cuadrático mejora la precisión en comparación con el modelo lineal si el valor es menor, ya que captura relaciones no lineales en los datos.
 # 
-# * MSE: Un MSE de 0.4462239183173426 representa la penalización por errores más grandes. Si el valor obtenido en este caso es menor que el obtenido en el modelo lineal, se puede suponer que el modelo cuadrático estaría capturando las variaciones mejor que el modelo lineal.
+# * MSE: Un MSE de 12181805.05340909 representa la penalización por errores más grandes. Si el valor obtenido en este caso es menor que el obtenido en el modelo lineal, se puede suponer que el modelo cuadrático estaría capturando las variaciones mejor que el modelo lineal.
 # 
-# * R²: un R² de 0.2600137418194426 indica que el modelo cuadrático abarca un 26.00137418194426% de la variabilidad de la columna 'Target'. Si el valor de R² obtenido en este caso es mayor que el obtenido en el modelo lineal, se considera más adecuado el modelo cuadrático.
+# * R²: un R² de -2.141937336804724. Si el valor de R² obtenido en este caso es mayor que el obtenido en el modelo lineal, se considera más adecuado el modelo cuadrático.
 
 # ## 5.3 Regresión Cúbica (Cubic Regression)
 
@@ -894,39 +879,14 @@ new_data_cubic = np.array([[2, 4, 8, 16, 32, 64, 128, 256, 512, 1024, 2048]])
 transformed_new_data_cubic = cubic.transform(new_data_cubic)
 print("Cubic Transformed Data:", transformed_new_data_cubic[0])
 
-predicted_price_cubic = regr_cubic.predict(transformed_new_data_cubic)
-print("Predicted Target:", predicted_price_cubic)
+predicted_target_cubic = regr_cubic.predict(transformed_new_data_cubic)
+print("Predicted Target:", predicted_target_cubic)
 
-
-
-
-# coefficients_cubic = regr_cubic.coef_
-# intercept_cubic = regr_cubic.intercept_
-
-# transformed_new_data_cubic = np.array(
-#     [1,             # Intercept Term
-#     7,              # X1 (Overall Qual)
-#     1000,           # X2 (Total Bsmt SF)
-#     1500,           # X3 (Gr Liv Area)
-#     49,             # X1 ^ 2
-#     7000,           # X1 * X2
-#     10500,          # X1 * X3
-#     1000000,        # X2 ^ 2
-#     1500000,        # X2 * X3
-#     2250000,        # X3 ^ 2
-#     343,            # X2 ^ 3
-#     49000,          # X1 ^ 2 * X2
-#     73500,          # X1 ^ 2 * X3
-#     7000000,        # X2 ^ 2 * X1
-#     10500000,       # X1 * X2 * X3
-#     15750000,       # X3 ^ 2 * X1
-#     1000000000,     # X2 ^ 3
-#     1500000000,     # X2 ^ 2 * X3
-#     2250000000,     # X3 ^ 2 * X2
-#     3375000000])    # X3 ^ 3
-
-# manual_prediction_cubic = np.dot(coefficients_cubic, transformed_new_data_cubic) + intercept_cubic
-# print("Manually Calculated Target:", manual_prediction_cubic)
+# CÁLCULO MANUAL
+# coefficients = regr_cubic.coef_
+# intercept = regr_cubic.intercept_
+# manual_prediction = np.dot(coefficients, transformed_new_data_cubic[0]) + intercept
+# print("Manually Calculated Target:", manual_prediction)
 
 
 
@@ -951,11 +911,11 @@ print("R-squared:", R2)
 
 # ANÁLISIS DE LOS RESULTADOS
 # 
-# * MAE: Un MAE de 0.7091287257843457 indica que el modelo cúbico reduce el error promedio en comparación con modelos de menor grado, en caso de que el MAE obtenido en este caso sea menor que el obtenidos en los otros modelos de menor grado.
+# * MAE: Un MAE de 49651320517.6826 indica que el modelo cúbico reduce el error promedio en comparación con modelos de menor grado, en caso de que el MAE obtenido en este caso sea menor que el obtenidos en los otros modelos de menor grado.
 # 
-# * MSE: Un MSE de 2.0499047678552964 indica un ajuste más preciso para relaciones más complejas en los datos. Sin embargo, si este valor es inferior al obtenido en modelos anteriores, se refleja una mejora.
+# * MSE: Un MSE de 1.3583083718944588e+23 indica un ajuste más preciso para relaciones más complejas en los datos. Sin embargo, si este valor es inferior al obtenido en modelos anteriores, se refleja una mejora.
 # 
-# * R²: Un R² de -2.3994174147181084 indica que el modelo podría capturar relaciones más intrincadas en los datos, pero si el valor obtenido en este modelo es menor que el obtenido en los otros modelos, podría tenerse un signo claro de sobreajuste.
+# * R²: Un R² de -3.5033558408122044e+16 indica que el modelo podría capturar relaciones más intrincadas en los datos, pero si el valor obtenido en este modelo es menor que el obtenido en los otros modelos, podría tenerse un signo claro de sobreajuste.
 
 # ## 5.4 Regresión con Árboles de Decisión (Decision Tree Regression)
 
@@ -1002,11 +962,11 @@ print("R-squared:", R2)
 
 # ANÁLISIS DE LOS RESULTADOS
 # 
-# * MAE: Un MAE de 0.5435151604013354 indica la precisión del modelo en las predicciones. Si se obtiene un valor relativamente bajo, se supone que el árbol captura correctamente patrones en los datos.
+# * MAE: Un MAE de 678.516076560234 indica la precisión del modelo en las predicciones. Si se obtiene un valor relativamente bajo, se supone que el árbol captura correctamente patrones en los datos.
 # 
-# * MSE: Un MSE de 0.4882864235878708 refleja el Error Cuadrático Medio. Si el valor obtenido es mayor en comparación con otros modelos, se puede suponer que el árbol de decisión pueda estar limitado por la profundidad impuesta (en este caso, 3).
+# * MSE: Un MSE de 816306.3073106996 refleja el Error Cuadrático Medio. Si el valor obtenido es mayor en comparación con otros modelos, se puede suponer que el árbol de decisión pueda estar limitado por la profundidad impuesta (en este caso, 3).
 # 
-# * R²: Un R² de 0.19026025123514279 indica que el modelo abarca un 19.026025123514279% de la variabilidad en 'Target'. Si el valor de R² obtenido es bajo, se supone que se necesita un valor mayor de la profundidad para mejorar la captura de relaciones complejas.
+# * R²: Un R² de 0.7894578632670762 indica que el modelo abarca un 78.94578632670762% de la variabilidad en 'Target'. Si el valor de R² obtenido es bajo, se supone que se necesita un valor mayor de la profundidad para mejorar la captura de relaciones complejas.
 
 # ## 5.5 Regresión con Bosque Aleatorio (Random Forest Regression)
 
@@ -1054,11 +1014,11 @@ print("R-squared:", R2)
 
 # ANÁLISIS DE LOS RESULTADOS
 # 
-# * MAE:Un MAE de 0.42310625 indica que el modelo de Bosque Aleatorio logra ser preciso en sus predicciones, reflejando su robustez a la hora de capturar patrones complejos.
+# * MAE: Un MAE de 414.3948818181817 indica que el modelo de Bosque Aleatorio logra ser preciso en sus predicciones, reflejando su robustez a la hora de capturar patrones complejos.
 # 
-# * MSE: Un MSE de 0.3368855354166667 indica una mejora frente a otros modelos, en caso de que el valor obtenido sea menor que el de los tros modelos, por lo que los errores son menos penalizados.
+# * MSE: Un MSE de 390019.91855095455 indica una mejora frente a otros modelos, en caso de que el valor obtenido sea menor que el de los tros modelos, por lo que los errores son menos penalizados.
 # 
-# * R²: Un R² de 0.4413328005182279 indica que el modelo abarca un 44.13328005182279% de la variabilidad en 'Target'. Este valor suele ser alto en Bosques Aleatorios, lo que le permite representar una mejora frente a otros métodos, ya que los Bosques Aleatorios manejan la complejidad mejor que los modelos polinómicos.
+# * R²: Un R² de 0.8994058648270811 indica que el modelo abarca un 89.94058648270811% de la variabilidad en 'Target'. Este valor suele ser alto en Bosques Aleatorios, lo que le permite representar una mejora frente a otros métodos, ya que los Bosques Aleatorios manejan la complejidad mejor que los modelos polinómicos.
 
 # # ANEXO: Convertir Jupyter Notebook a Fichero Python
 
