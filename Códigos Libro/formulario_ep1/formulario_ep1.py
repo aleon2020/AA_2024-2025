@@ -166,7 +166,7 @@ dataset_anonymized_classifiers.corr()
 
 # USANDO N CARACTERÍSTICAS DE LOS DATOS
 # dataset_anonymized_classifiers = dataset.drop(["Target"], axis=1)
-# dataset_N_characteristics = dataset_anonymized_classifiers.drop(["Col1", "Col2", ..., "ColN"], axis=1)
+# dataset_N_characteristics = dataset_anonymized_classifiers.drop(['Col1', 'Col2', ..., 'ColN'], axis=1)
 # dataset_N_characteristics.to_csv('dataset_N_characteristics.csv', index=False)
 # dataset_N_characteristics.corr()
 
