@@ -136,8 +136,9 @@ display(HTML("""
 
 
 # PÁGINA 30
-
 dataset = pd.read_csv("dataset_classifiers.csv")
+# ---------
+
 pd.set_option('display.max_columns', len(dataset.columns))
 
 dataset.columns
@@ -145,6 +146,7 @@ dataset.shape
 dataset.head(1)
 dataset.info()
 dataset.describe()
+# dataset.tail()
 
 
 # ANÁLISIS DE LOS RESULTADOS
@@ -175,17 +177,21 @@ dataset_anonymized_classifiers.corr()
 
 
 
-# PÁGINAS 54 Y 55
-
 # USANDO TODAS LAS CARACTERÍSTICAS DE LOS DATOS
 X = dataset_anonymized_classifiers
 y = dataset.get("Target")
+
+# PÁGINA 55
 print('Class labels:', np.unique(y))
+# ---------
 
 # USANDO N CARACTERÍSTICAS DE LOS DATOS
 # X = dataset_N_characteristics
 # y = dataset.get("Target")
+
+# PÁGINA 55
 # print('Class labels:', np.unique(y))
+# ---------
 
 
 # ANÁLISIS DE LOS RESULTADOS
@@ -243,28 +249,28 @@ plt.show()
 
 
 # PÁGINA 55
-
 X_train, X_test, y_train, y_test = train_test_split(
-    X.values, y, test_size=0.25, random_state=1, stratify=y)
+    X, y, test_size=0.25, random_state=1, stratify=y)
+# ---------
 
 
 
 
 # PÁGINA 56
-
 sc = StandardScaler()
 sc.fit(X_train)
 X_train_std = sc.transform(X_train)
 X_test_std = sc.transform(X_test)
+# ---------
 
 
 
 
 # PÁGINA 55
-
 print('Labels counts in y:', np.bincount(y))
 print('Labels counts in y_train:', np.bincount(y_train))
 print('Labels counts in y_test:', np.bincount(y_test))
+# ---------
 
 
 # ANÁLISIS DE LOS RESULTADOS
@@ -286,21 +292,26 @@ print('Labels counts in y_test:', np.bincount(y_test))
 
 
 # PÁGINA 70
-
-lr = LogisticRegression(C=100.0, solver='lbfgs', multi_class='ovr')
+lr = LogisticRegression(C=100.0, solver='lbfgs', 
+                        multi_class='ovr')
 lr.fit(X_train_std, y_train)
+# ---------
 
 # PÁGINA 56
-
 y_pred = lr.predict(X_test_std)
 print('Misclassification samples: %d' % (y_test != y_pred).sum())
+# ---------
+
 print(y_test != y_pred)
-print('Accuracy: %.3f' % lr.score(X_test_std, y_test))
 
 # PÁGINA 57
+print('Accuracy: %.3f' % lr.score(X_test_std, y_test))
+# ---------
 
+# PÁGINA 57
 # CÁLCULO DE LA PRECISIÓN CON ACCURACY SCORE
 # print('Accuracy: %.3f' % accuracy_score(y_test, y_pred))
+# ---------
 
 
 # ÁNÁLISIS DE LOS RESULTADOS
@@ -321,22 +332,26 @@ print('Accuracy: %.3f' % lr.score(X_test_std, y_test))
 
 
 
-# PÁGINA 78
-
+# PÁGINA 84
 svm = SVC(kernel='rbf', random_state=1, gamma=0.7, C=30.0)
 svm.fit(X_train_std, y_train)
+# ---------
 
 # PÁGINA 56
-
 y_pred = svm.predict(X_test_std)
 print('Misclassification samples: %d' % (y_test != y_pred).sum())
+# ---------
+
 print(y_test != y_pred)
-print('Accuracy: %.3f' % svm.score(X_test_std, y_test))
 
 # PÁGINA 57
+print('Accuracy: %.3f' % svm.score(X_test_std, y_test))
+# ---------
 
+# PÁGINA 57
 # CÁLCULO DE LA PRECISIÓN CON ACCURACY SCORE
 # print('Accuracy: %.3f' % accuracy_score(y_test, y_pred))
+# ---------
 
 
 # ANÁLISIS DE LOS RESULTADOS
@@ -356,42 +371,43 @@ print('Accuracy: %.3f' % svm.score(X_test_std, y_test))
 
 
 # PÁGINA 93
-
 tree_model = DecisionTreeClassifier(criterion='gini', 
                                     max_depth=4, 
                                     random_state=1)
 tree_model.fit(X_train, y_train)
 X_combined = np.vstack((X_train, X_test))
 y_combined = np.hstack((y_train, y_test))
+# ---------
 
 
 
 
 # PÁGINA 94
-
-
 # USANDO TODAS LAS CARACTERÍSTICAS DE LOS DATOS
 feature_names = ['Col1', 'Col2', 'Col3', 'Col4', 'Col5', 'Col6', 'Col7', 'Col8', 'Col9', 'Col10', 'Col11']
-
 # USANDO N CARACTERÍSTICAS DE LOS DATOS
 # feature_names = ['Col1', 'Col2', ..., 'ColN']
-
 tree.plot_tree(tree_model,
                feature_names=feature_names,
                filled=True)
 plt.show()
+# ---------
 
 # PÁGINA 56
-
 y_pred = tree_model.predict(X_test)
 print('Misclassification samples: %d' % (y_test != y_pred).sum())
+# ---------
+
 print(y_test != y_pred)
-print('Accuracy: %.3f' % tree_model.score(X_test, y_test))
 
 # PÁGINA 57
+print('Accuracy: %.3f' % tree_model.score(X_test, y_test))
+# ---------
 
+# PÁGINA 57
 # CÁLCULO DE LA PRECISIÓN CON ACCURACY SCORE
 # print('Accuracy: %.3f' % accuracy_score(y_test, y_pred))
+# ---------
 
 
 # ANÁLISIS DE LOS RESULTADOS
@@ -413,23 +429,27 @@ print('Accuracy: %.3f' % tree_model.score(X_test, y_test))
 
 
 # PÁGINA 97
-
 forest = RandomForestClassifier(n_estimators=25, 
                                 random_state=1,
                                 n_jobs=2)
 forest.fit(X_train, y_train)
+# ---------
 
 # PÁGINA 56
-
 y_pred = forest.predict(X_test)
 print('Misclassification samples: %d' % (y_test != y_pred).sum())
+# ---------
+
 print(y_test != y_pred)
-print('Accuracy: %.3f' % forest.score(X_test, y_test))
 
 # PÁGINA 57
+print('Accuracy: %.3f' % forest.score(X_test, y_test))
+# ---------
 
+# PÁGINA 57
 # CÁLCULO DE LA PRECISIÓN CON ACCURACY SCORE
 # print('Accuracy: %.3f' % accuracy_score(y_test, y_pred))
+# ---------
 
 
 # ANÁLISIS DE LOS RESULTADOS
@@ -451,23 +471,26 @@ print('Accuracy: %.3f' % forest.score(X_test, y_test))
 
 
 # PÁGINA 100
-
-knn = KNeighborsClassifier(n_neighbors=2, 
-                           p=2, 
+knn = KNeighborsClassifier(n_neighbors=2, p=2, 
                            metric='minkowski')
 knn.fit(X_train_std, y_train)
+# ----------
 
 # PÁGINA 56
-
 y_pred = knn.predict(X_test_std)
 print('Misclassification samples: %d' % (y_test != y_pred).sum())
+# ---------
+
 print(y_test != y_pred)
-print('Accuracy: %.3f' % knn.score(X_test_std, y_test))
 
 # PÁGINA 57
+print('Accuracy: %.3f' % knn.score(X_test_std, y_test))
+# ---------
 
+# PÁGINA 57
 # CÁLCULO DE LA PRECISIÓN CON ACCURACY SCORE
 # print('Accuracy: %.3f' % accuracy_score(y_test, y_pred))
+# ---------
 
 
 # ANÁLISIS DE LOS RESULTADOS
@@ -484,16 +507,20 @@ print('Accuracy: %.3f' % knn.score(X_test_std, y_test))
 
 
 
-# PÁGINAS 272 Y 273
-
+# PÁGINA 272
 columns = ['Col1', 'Col2', 'Col3', 'Col4', 'Col5', 'Col6', 'Col7', 'Col8', 'Col9', 'Col10', 'Col11', 'Target']
+# ----------
+
+# PÁGINA 273
 df = pd.read_csv('dataset_regression.csv', sep=',', usecols=columns)
+# ----------
 
 df.columns
 df.shape
 df.head(1)
 df.info()
 df.describe()
+# df.tail()
 
 
 # ANÁLISIS DE LOS RESULTADOS
@@ -524,17 +551,21 @@ dataset_anonymized_regression.corr()
 
 
 
-# PÁGINAS 54 Y 55
-
 # USANDO TODAS LAS CARACTERÍSTICAS DE LOS DATOS
 X = dataset_anonymized_regression
 y = df.get("Target")
+
+# PÁGINA 55
 print('Class labels:', np.unique(y))
+# ---------
 
 # USANDO N CARACTERÍSTICAS DE LOS DATOS
 # X = dataset_N_characteristics
 # y = df.get("Target")
+
+# PÁGINA 55
 # print('Class labels:', np.unique(y))
+# ---------
 
 
 # ANÁLISIS DE LOS RESULTADOS
@@ -547,13 +578,12 @@ print('Class labels:', np.unique(y))
 
 
 
-# PÁGINAS 277 Y 278
-
-
+# PÁGINA 277
 cm = np.corrcoef(df.values.T)
 hm = heatmap(cm, row_names=df.columns, column_names=df.columns)
 plt.tight_layout()
 plt.show()
+# ----------
 
 
 # ANÁLISIS DE LOS RESULTADOS
@@ -580,12 +610,12 @@ plt.show()
 
 
 
-# PÁGINA 274 Y 275
-
+# PÁGINA 274
 scatterplotmatrix(df.values, figsize=(12, 10), 
                   names=df.columns, alpha=0.5)
 plt.tight_layout()
 plt.show()
+# ---------- 
 
 sb.pairplot(df)
 plt.show()
@@ -597,38 +627,35 @@ plt.show()
 
 
 
-# PÁGINAS 288 Y 289
-
-
+# PÁGINA 288
 target = 'Target'
 features = df.columns[df.columns != target]
-
 X = df[features].values
 y = df[target].values
+# ----------
 
+# PÁGINA 289
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=123)
-
-
-
-
-# PÁGINAS 288 Y 289
-
-slr = LinearRegression()
-slr.fit(X_train, y_train)
-y_train_pred = slr.predict(X_train)
-y_test_pred = slr.predict(X_test)
+# ----------
 
 
 
 
 # PÁGINA 289
+slr = LinearRegression()
+slr.fit(X_train, y_train)
+y_train_pred = slr.predict(X_train)
+y_test_pred = slr.predict(X_test)
+# ----------
 
+
+
+
+# PÁGINA 289
 x_max = np.max([np.max(y_train_pred), np.max(y_test_pred)])
 x_min = np.min([np.min(y_train_pred), np.min(y_test_pred)])
-
 fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(7, 3), sharey=True)
-
 ax1.scatter(y_test_pred, y_test_pred - y_test,
             c='limegreen', marker='s', edgecolor='white',
             label='Test data')
@@ -636,15 +663,13 @@ ax2.scatter(y_train_pred, y_train_pred - y_train,
             c='steelblue', marker='o', edgecolor='white',
             label='Training data')
 ax1.set_ylabel('Residuals')
-
 for ax in (ax1, ax2):
     ax.set_xlabel('Predicted values')
     ax.legend(loc='upper left')
     ax.hlines(y=0, xmin=x_min-100, xmax=x_max+100, color='black', lw=2)
-
 plt.tight_layout()
-
 plt.show()
+# ----------
 
 
 # ANÁLISIS DE LOS RESULTADOS
@@ -657,12 +682,15 @@ plt.show()
 
 
 
-# PÁGINAS 290 Y 291
-
+# PÁGINA 290
 mse_train = mean_squared_error(y_train, y_train_pred)
 mse_test = mean_squared_error(y_test, y_test_pred)
+# ----------
+
+# PÁGINA 291
 print(f'MSE train: {mse_train:.2f}')
 print(f'MSE test: {mse_test:.2f}')
+# ----------
 
 
 # ANÁLISIS DE LOS RESULTADOS
@@ -678,11 +706,11 @@ print(f'MSE test: {mse_test:.2f}')
 
 
 # PÁGINA 291
-
 mae_train = mean_absolute_error(y_train, y_train_pred)
 mae_test = mean_absolute_error(y_test, y_test_pred)
 print(f'MAE train: {mae_train:.2f}')
 print(f'MAE test: {mae_test:.2f}')
+# ----------
 
 
 # ANÁLISIS DE LOS RESULTADOS
@@ -698,11 +726,11 @@ print(f'MAE test: {mae_test:.2f}')
 
 
 # PÁGINA 292
-
 r2_train = r2_score(y_train, y_train_pred)
 r2_test =r2_score(y_test, y_test_pred)
 print(f'R^2 train: {r2_train:.2f}')
 print(f'R^2 test: {r2_test:.2f}')
+# ----------
 
 
 # ANÁLISIS DE LOS RESULTADOS
@@ -721,29 +749,33 @@ print(f'R^2 test: {r2_test:.2f}')
 
 
 
+# PÁGINA 299
 # USANDO TODAS LAS CARACTERÍSTICAS DE LOS DATOS
 X = df[['Col1', 'Col2', 'Col3', 'Col4', 'Col5', 'Col6', 'Col7', 'Col8', 'Col9', 'Col10', 'Col11']].values
 y = df['Target'].values
-
 # USANDO N CARACTERÍSTICAS DE LOS DATOS
 # X = ['Col1', 'Col2', ..., 'ColN'].values
 # y = df['Target'].values
+# ----------
 
-
+# PÁGINA 55
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=123)
+# ---------
 
-
+# PÁGINA 289
 slr = LinearRegression()
-
 slr.fit(X_train, y_train)
+# ----------
 
 
 # Y por último, se calcula el Error Absoluto Medio (MAE), el Error Cuadrático Medio (MSE) y el Coeficiente de Determinación (R²) para poder evaluar el rendimiento del modelo.
 
 
 
+# PÁGINA 289
 y_pred = slr.predict(X_test)
+# ----------
 
 
 mae = mean_absolute_error(y_test, y_pred)
@@ -780,18 +812,20 @@ print("Intercept:", intercept)
 
 
 
+# PÁGINA 299
 # USANDO TODAS LAS CARACTERÍSTICAS DE LOS DATOS
 X = df[['Col1', 'Col2', 'Col3', 'Col4', 'Col5', 'Col6', 'Col7', 'Col8', 'Col9', 'Col10', 'Col11']].values
 y = df['Target'].values
-
 # USANDO N CARACTERÍSTICAS DE LOS DATOS
 # X = ['Col1', 'Col2', ..., 'ColN'].values
 # y = df['Target'].values
+# ----------
 
 
-
+# PÁGINA 55
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=123)
+# ---------
 
 
 regr = LinearRegression()
@@ -826,6 +860,11 @@ print("Predicted Target:", predicted_target_quadratic)
 X_test_quadratic = quadratic.fit_transform(X_test)
 
 y_pred_quadratic = regr.predict(X_test_quadratic)
+# print(y_pred_quadratic)
+
+
+
+
 
 mae = mean_absolute_error(y_test, y_pred_quadratic)
 mse = mean_squared_error(y_test, y_pred_quadratic)
@@ -851,18 +890,19 @@ print("R-squared:", R2)
 
 
 
-
-
+# PÁGINA 299
 # USANDO TODAS LAS CARACTERÍSTICAS DE LOS DATOS
 X = df[['Col1', 'Col2', 'Col3', 'Col4', 'Col5', 'Col6', 'Col7', 'Col8', 'Col9', 'Col10', 'Col11']].values
 y = df['Target'].values
-
 # USANDO N CARACTERÍSTICAS DE LOS DATOS
 # X = ['Col1', 'Col2', ..., 'ColN'].values
 # y = df['Target'].values
+# ----------
 
+# PÁGINA 55
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=123)
+# ---------
 
 regr = LinearRegression()
 
@@ -923,23 +963,24 @@ print("R-squared:", R2)
 
 
 
-# PÁGINAS 300 Y 301
-
-
-
+# PÁGINA 300
 # USANDO TODAS LAS CARACTERÍSTICAS DE LOS DATOS
 X = df[['Col1', 'Col2', 'Col3', 'Col4', 'Col5', 'Col6', 'Col7', 'Col8', 'Col9', 'Col10', 'Col11']].values
 y = df['Target'].values
-
 # USANDO N CARACTERÍSTICAS DE LOS DATOS
 # X = ['Col1', 'Col2', ..., 'ColN'].values
 # y = df['Target'].values
+# ----------
 
+# PÁGINA 55
 X_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=123)
+# ---------
 
+# PÁGINA 300
 tree = DecisionTreeRegressor(max_depth=3)
 tree.fit(X_train, y_train)
+# ----------
 
 
 
@@ -975,32 +1016,25 @@ print("R-squared:", R2)
 
 
 # PÁGINA 302
-
-
-
 # USANDO TODAS LAS CARACTERÍSTICAS DE LOS DATOS
 X = df[['Col1', 'Col2', 'Col3', 'Col4', 'Col5', 'Col6', 'Col7', 'Col8', 'Col9', 'Col10', 'Col11']].values
 y = df['Target'].values
-
 # USANDO N CARACTERÍSTICAS DE LOS DATOS
 # X = ['Col1', 'Col2', ..., 'ColN'].values
 # y = df['Target'].values
-
 x_train, X_test, y_train, y_test = train_test_split(
     X, y, test_size=0.3, random_state=123)
-
-forest = RandomForestRegressor(n_estimators=1000,
-                               criterion='squared_error',
-                               random_state=1,
-                               n_jobs=-1)
+forest = RandomForestRegressor(
+    n_estimators=1000,
+    criterion='squared_error',
+    random_state=1,
+    n_jobs=-1)
 forest.fit(X_train, y_train)
-
 y_pred_random_forest = forest.predict(X_test)
+# ----------
 
 
 
-
-# PÁGINA 302
 
 
 mae = mean_absolute_error(y_test, y_pred_random_forest)
