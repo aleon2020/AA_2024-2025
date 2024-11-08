@@ -10,7 +10,7 @@ IMPORTANTE: SI OBSERVAS QUE HAY ALGÚN ERROR O ALGO QUE FALTE EN ALGÚN ARCHIVO 
 
 Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro): Este directorio contiene todo el código fuente que se ve en el libro de la asignatura, además de varios ejemplos que se han visto durante las clases para facilitar la comprensión de los contenidos vistos en teoría (chXX corresponde a los capítulos del libro, exXX a ejemplos vistos en clase y prXX_20XX-20XX a las prácticas).
 
-A continuación se detallan los contenidos vistos que abarcan el temario del Examen Parcial del Jueves 07/11/2024:
+### 1.1 Examen Parcial (07/11/2024)
 
 **Capítulos del Libro**
 * [Chapter 1](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ch01): Giving Computers the Ability to Learn from Data
@@ -28,7 +28,25 @@ A continuación se detallan los contenidos vistos que abarcan el temario del Exa
 * [Práctica 2 Curso 2018-2019](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/pr02_2018-2019)
 
 **Formulario**
-* [Formulario Examen Parcial 1](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/formulario_ep1)
+* [Formulario Examen Parcial](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/formulario_parcial)
+
+### 1.2 Examen Final (21/01/2025)
+
+**Capítulos del Libro**
+* [Chapter 5](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ch05): Compressing Data via Dimensionality Reduction
+
+**Ejemplos**
+* [Example 4](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex04): Wine Dataset (PCA)
+* [Example 5](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex05): PCA (Principal Component Analysis) Exercise
+* [Example 6](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex06): Wine Dataset (LDA)
+* [Example 7](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex07): LDA (Linear Discriminant Analysis) Exercise
+* [Example 8](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex08): T-Distributed Stochastic Neighbor Embedding
+
+**Prácticas**
+...
+
+**Formulario**
+* [Formulario Examen Final](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/formulario_final)
 
 ## 2. Referencias
 
