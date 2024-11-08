@@ -43,7 +43,7 @@ Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/mai
 * [Example 8](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex08): T-Distributed Stochastic Neighbor Embedding
 
 **Prácticas**
-...
+* ...
 
 **Formulario**
 * [Formulario Examen Final](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/formulario_final)
