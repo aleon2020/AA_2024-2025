@@ -1,4 +1,4 @@
-##  Formulario Examen Parcial 1 Aprendizaje Automático
+##  Formulario Examen Parcial
 
 ### Chapter Outline
 

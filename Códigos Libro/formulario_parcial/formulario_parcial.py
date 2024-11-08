@@ -26,7 +26,7 @@ from sklearn.preprocessing import PolynomialFeatures
 from sklearn.tree import DecisionTreeRegressor
 from sklearn.ensemble import RandomForestRegressor
 
-# # FORMULARIO EXAMEN PARCIAL 1
+# # FORMULARIO EXAMEN PARCIAL
 
 # # ÍNDICE
 
