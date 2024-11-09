@@ -140,8 +140,6 @@ dataset_compression_anonymized.corr()
 # USANDO TODAS LAS CARACTERÍSTICAS DE LOS DATOS
 X = dataset_compression_anonymized
 y = df.get("Target")
-# X = df.iloc[:, 0:-1].values
-# y = df.iloc[:, -1].values
 
 # PÁGINA 55
 print('Class labels:', np.unique(y))
@@ -201,9 +199,9 @@ plt.tight_layout()
 plt.show()
 
 
-# ## 2.6 División de Datos y Estandarización
+# # TEMA 3: Métodos de Compresión de Datos y Reducción Dimensional
 
-# Y por último, se dividen los datos en conjuntos de entrenamiento y prueba, donde las características se estandarizan mediante la función StandardScaler(), de tal forma que se garantice que todas las características tengan media 0 y desviación estándar 1, algo muy importante en algoritmos sensibles a la escala de datos.
+# ## 3.1 Reducción Dimensional No Supervisada mediante Análisis de Componentes Principales (PCA)
 
 
 
@@ -224,14 +222,6 @@ print('Labels counts in y_train:', np.bincount(y_train))
 print('Labels counts in y_test:', np.bincount(y_test))
 # ---------
 
-
-# ANÁLISIS DE LOS RESULTADOS
-# 
-# Como se puede ver, el dataset ha quedado dividido en un 30% de datos de prueba y un 70% de datos de entrenamiento. Es importante mencionar que la estandarización asegura que todas las características se encuentren en una escala comparable, algo esencial para algoritmos como Redes Neuronales o Máquinas de Soporte Vectorial (SVM, Support Vector Machines), lo que les permite mejorar la estabilidad y la precisión del modelo.
-
-# # TEMA 3: Métodos de Compresión de Datos y Reducción Dimensional
-
-# ## 3.1 Reducción Dimensional No Supervisada mediante Análisis de Componentes Principales (PCA)
 
 
 
@@ -415,6 +405,26 @@ plt.show()
 
 
 # ## 3.2 Compresión de Datos Supervisada mediante Análisis Discriminante Lineal (LDA)
+
+
+
+# PÁGINA 143
+X, y = df.iloc[:, 0:-1].values, df.iloc[:, -1].values
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, stratify=y, random_state=0)
+sc = StandardScaler()
+X_train_std = sc.fit_transform(X_train)
+X_test_std = sc.transform(X_test)
+# ----------
+
+
+
+
+# PÁGINA 55
+print('Labels counts in y:', np.bincount(y))
+print('Labels counts in y_train:', np.bincount(y_train))
+print('Labels counts in y_test:', np.bincount(y_test))
+# ---------
+
 
 
 
