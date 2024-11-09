@@ -26,6 +26,39 @@ import matplotlib.patheffects as PathEffects
 #     - [1.2 Verificación de las Versiones de los Paquetes](#12-verificación-de-las-versiones-de-los-paquetes)
 #     - [1.3 Visualización de Imágenes](#13-visualización-de-imágenes)
 #     - [1.4 Importación de Paquetes](#14-importación-de-paquetes)
+# - [TEMA 2: Análisis Exploratorio de Datos (Compresión de Datos y Reducción Dimensional)](#tema-2-análisis-exploratorio-de-datos-compresión-de-datos-y-reducción-dimensional)
+#     - [2.1 Carga y Exploración Inicial del Dataset](#21-carga-y-exploración-inicial-del-dataset)
+#     - [2.2 Anonimización y Cálculo de la Correlación entre Características](#22-anonimización-y-cálculo-de-la-correlación-entre-características)
+#     - [2.3 División de Variables Independientes y Dependiente](#23-división-de-variables-independientes-y-dependiente)
+#     - [2.4 Mapa de Calor de Correlaciones](#24-mapa-de-calor-de-correlaciones)
+#     - [2.5 Histogramas de Distribución de las Características](#25-histogramas-de-distribución-de-las-características)
+# - [TEMA 3: Métodos de Compresión de Datos y Reducción Dimensional](#tema-3-métodos-de-compresión-de-datos-y-reducción-dimensional)
+#     - [3.1 Reducción Dimensional No Supervisada mediante Análisis de Componentes Principales (PCA)](#31-reducción-dimensional-no-supervisada-mediante-análisis-de-componentes-principales-pca)
+#         - [3.1.1 Paso 1: Estandarización del Conjunto de Datos D-Dimensional](#311-paso-1-estandarización-del-conjunto-de-datos-d-dimensional)
+#         - [3.1.2 Paso 2: Construcción de la Matriz de Covarianza](#312-paso-2-construcción-de-la-matriz-de-covarianza)
+#         - [3.1.3 Paso 3: Descomposición de la Matriz de Covarianza en Vectores y Valores Propios](#313-paso-3-descomposición-de-la-matriz-de-covarianza-en-vectores-y-valores-propios)
+#         - [3.1.4 Paso 4: Ordenación de los Valores Propios en Orden Decreciente](#314-paso-4-ordenación-de-los-valores-propios-en-orden-decreciente)
+#         - [3.1.5 Paso 5: Selección de k Vectores Propios correspondientes a los k Valores Propios Más Grandes](#315-paso-5-selección-de-k-vectores-propios-correspondientes-a-los-k-valores-propios-más-grandes)
+#         - [3.1.6 Paso 6: Contrucción de la Matriz de Proyección W](#316-paso-6-contrucción-de-la-matriz-de-proyección-w)
+#         - [3.1.7 Paso 7: Transformación del Dataset mediante la Matriz de Proyección W](#317-paso-7-transformación-del-dataset-mediante-la-matriz-de-proyección-w)
+#         - [3.1.8 Visualización del Nuevo Espacio de Características](#318-visualización-del-nuevo-espacio-de-características)
+#         - [3.1.9 Clasificación y Visualización de las Regiones de Decisión](#319-clasificación-y-visualización-de-las-regiones-de-decisión)
+#         - [3.1.10 Explicación de la Varianza Total](#3110-explicación-de-la-varianza-total)
+#         - [3.1.11 Carga de los Componentes Principales](#3111-carga-de-los-componentes-principales)
+#     - [3.2 Compresión de Datos Supervisada mediante Análisis Discriminante Lineal (LDA)](#32-compresión-de-datos-supervisada-mediante-análisis-discriminante-lineal-lda)
+#         - [3.2.1 Paso 1: Estandarización del Conjunto de Datos D-Dimensional](#321-paso-1-estandarización-del-conjunto-de-datos-d-dimensional)
+#         - [3.2.2 Paso 2: Cálculo del Vector Medio D-Dimensional para cada Clase](#322-paso-2-cálculo-del-vector-medio-d-dimensional-para-cada-clase)
+#         - [3.2.3 Paso 3: Construcción de las Matrices de Dispersión dentro de clases (S_W) y entre Clases (S_B)](#323-paso-3-construcción-de-las-matrices-de-dispersión-dentro-de-clases-s_w-y-entre-clases-s_b)
+#         - [3.2.4 Paso 4: Cálculo de Vectores y Valores Propios de (S_W)^-1 * S_B](#324-paso-4-cálculo-de-vectores-y-valores-propios-de-s_w-1--s_b)
+#         - [3.2.5 Paso 5: Ordenación de los Valores Propios en Orden Decreciente](#325-paso-5-ordenación-de-los-valores-propios-en-orden-decreciente)
+#         - [3.2.6 Paso 6: Selección de los k Vectores Propios Más Grandes para Contruir la Matriz de Tranformación W](#326-paso-6-selección-de-los-k-vectores-propios-más-grandes-para-contruir-la-matriz-de-tranformación-w)
+#         - [3.2.7 Paso 7: Proyección de Ejemplos en el Nuevo Subespacio usando la Matriz de Transformación W](#327-paso-7-proyección-de-ejemplos-en-el-nuevo-subespacio-usando-la-matriz-de-transformación-w)
+#         - [3.2.8 Clasificación y Visualización de las Regiones de Decisión en el Subespacio LDA](#328-clasificación-y-visualización-de-las-regiones-de-decisión-en-el-subespacio-lda)
+#     - [3.3 Técnicas de Reducción Dimensional No Lineal](#33-técnicas-de-reducción-dimensional-no-lineal)
+#         - [3.3.1 Carga y Visualización de Imágenes de Dígitos](#331-carga-y-visualización-de-imágenes-de-dígitos)
+#         - [3.3.2 Obtención de Dimensiones del Dataset y Separación de Características y Etiquetas](#332-obtención-de-dimensiones-del-dataset-y-separación-de-características-y-etiquetas)
+#         - [3.3.3 Aplicación de t-SNE para Reducción Dimensional No Lineal](#333-aplicación-de-t-sne-para-reducción-dimensional-no-lineal)
+#         - [3.3.4 Definición y Aplicación de la Función de Visualización](#334-definición-y-aplicación-de-la-función-de-visualización)
 # - [ANEXO: Convertir Jupyter Notebook a Fichero Python](#anexo-convertir-jupyter-notebook-a-fichero-python)
 #     - [A.1 Script en el Directorio Actual](#a1-script-en-el-directorio-actual)
 #     - [A.2 Script en el Directorio Padre](#a2-script-en-el-directorio-padre)
@@ -203,7 +236,7 @@ plt.show()
 
 # ## 3.1 Reducción Dimensional No Supervisada mediante Análisis de Componentes Principales (PCA)
 
-# **PASO 1: Estandarización del Conjunto de Datos D-Dimensional**
+# ### 3.1.1 Paso 1: Estandarización del Conjunto de Datos D-Dimensional
 
 # La estandarización es un paso previo necesario para el PCA (Principal Component Analysis), ya que asegura que todas las variables contribuyan de manera equitativa. Esto implica escalar los datos para que cada característica tenga media 0 y desviación estándar 1.
 
@@ -227,7 +260,7 @@ print('Labels counts in y_test:', np.bincount(y_test))
 # ---------
 
 
-# **PASO 2: Construcción de la Matriz de Covarianza**
+# ### 3.1.2 Paso 2: Construcción de la Matriz de Covarianza
 
 # La matriz de covarianza refleja la relación de covarianza entre cada par de características en el conjunto de datos estandarizado. Esta matriz es crucial en PCA ya que permite identificar direcciones en el espacio de características con una mayor varianza.
 
@@ -240,9 +273,9 @@ cov_mat = np.cov(X_train_std.T)
 
 # ANÁLISIS DE LOS RESULTADOS
 # 
-# La matriz de covarianza tiene dimensiones dxd, en este caso, 8x8, lo que implica que cada elemento muestra como van variando 2 características juntas. Si se tienen valores grandes en la diagonal se sugiere que la varianza de las características es alta, mientras que el resto de valores hacen referencia a la covarianza entre cada par de características.
+# La matriz de covarianza tiene dimensiones dxd (8x8 en este caso), lo que implica que cada elemento muestra cómo van variando 2 características juntas. Si se tienen valores grandes en la diagonal, se sugiere que la varianza de las características es alta, mientras que el resto de valores hacen referencia a la covarianza entre cada par de características.
 
-# **PASO 3: Descomposición de la Matriz de Covarianza en Vectores y Valores Propios**
+# ### 3.1.3 Paso 3: Descomposición de la Matriz de Covarianza en Vectores y Valores Propios
 
 # La descomposición en valores propios produce un conjunto de valores y vectores propios que describen la dirección y la magnitud de la varianza en todo el dataset.
 
@@ -262,7 +295,7 @@ print('\nEigenvectors \n', eigen_vecs)
 # 
 # Por otro lado, los vectores propios (Eigenvectors) asociados muestran la dirección de las nuevas componentes principales. Un valor propio grande implica que la componente asociada explica una parte significativa de la variación en los datos.
 
-# **PASO 4: Ordenación de los Valores Propios en Orden Decreciente**
+# ### 3.1.4 Paso 4: Ordenación de los Valores Propios en Orden Decreciente
 
 # Este paso permite clasificar los vectores propios de mayor a menor, dependiendo de la cantidad de varianza que comprenda cada uno.
 
@@ -284,9 +317,9 @@ plt.show()
 
 # ANÁLISIS DE LOS RESULTADOS
 # 
-# Este gráfico muestra la varianza de cada componente y su varianza acumulada. Si las dos primeras componentes comprenden, por ejemplo, el 80% de la varianza, significa que una gran parte de la información de los datos originales se retiene en esas componentes, lo que sugeriría reducir el conjunto de datos a esas 2 dimensiones.
+# Este gráfico muestra la varianza de cada componente y su varianza acumulada. Si las dos primeras componentes comprenden, por ejemplo, el 80% de la varianza, significa que una gran parte de la información de los datos originales se retiene en esas componentes, lo que sugeriría reducir el dataset a esas 2 dimensiones.
 
-# **PASO 5: Selección de k Vectores Propios correspondientes a los k Valores Propios Más Grandes**
+# ### 3.1.5 Paso 5: Selección de k Vectores Propios correspondientes a los k Valores Propios Más Grandes
 
 # En este paso, se seleccionan las componentes principales que posean una mayor varianza.
 
@@ -302,7 +335,7 @@ eigen_pairs.sort(key=lambda k: k[0], reverse=True)
 # 
 # Se seleccionan los primeros k vectores propios, lo que implica elegir aquellas componentes que más información conserven del dataset original. Esto permite ayudar a reducir la dimensionalidad de una forma más efectiva.
 
-# **PASO 6: Contrucción de la Matriz de Proyección W**
+# ### 3.1.6 Paso 6: Contrucción de la Matriz de Proyección W
 
 # Se crea la matriz de proyección W usando los vectores propios seleccionados en el paso anterior. Esta matriz se utilizará para transformar los datos originales al nuevo espacio de características reducido.
 
@@ -316,9 +349,9 @@ print('Matrix W:\n', w)
 
 # ANÁLISIS DE LOS RESULTADOS
 # 
-# Como se puede ver, la matriz W es de tamaño dxk, en este caso, 8x2. Los valores de W obtenidos representan las direcciones de los 2 componentes principales más importantes, lo que facilitará la proyección del dataset a un subespacio de menor dimensionalidad.
+# Como se puede ver, la matriz W es de tamaño dxk (8x2 en este caso). Los valores de W obtenidos representan las direcciones de las 2 componentes principales más importantes, lo que facilitará la proyección del dataset a un subespacio de menor dimensionalidad.
 
-# **PASO 7: Transformación del Dataset mediante la Matriz de Proyección W**
+# ### 3.1.7 Paso 7: Transformación del Dataset mediante la Matriz de Proyección W
 
 
 
@@ -340,7 +373,7 @@ X_train_pca = X_train_std.dot(w)
 # 
 # El conjunto de datos proyectado (X_train_pca) se ha convertido en una versión reducida de X_train_std, donde se han mantenido las 2 componentes principales. Este subespacio mantiene una gran parte de la información que tenía inicialmente, lo que permite visualizar y clasificar los datos de una forma más efectiva.
 
-# **Visualización del Nuevo Espacio de Características**
+# ### 3.1.8 Visualización del Nuevo Espacio de Características
 
 # El gráfico resultante de este código muestra la separación de cada clase en función de las 2 componentes principales. Si se muestra una clara separación de las clases, se sugiere que PCA ha capturado bien las características discriminativas.
 
@@ -388,7 +421,7 @@ def plot_decision_regions(X, y, classifier, test_idx=None, resolution=0.02):
 # ----------
 
 
-# **Clasificación y Visualización de las Regiones de Decisión**
+# ### 3.1.9 Clasificación y Visualización de las Regiones de Decisión
 
 # Este código entrena un clasificador de Regresión Logística en los datos proyectados y visualiza las regiones de decisión en el espacio reducido.
 
@@ -409,10 +442,6 @@ plt.show()
 # ----------
 
 
-# ANÁLISIS DE LOS RESULTADOS
-# 
-# Las regiones de decisión indican cómo el modelo clasifica los datos en el espacio de las componentes principales. Si se observan márgenes claros entre las clases, se tiene una señal de que el clasificador logra una buena separación en el espacio reducido.
-
 
 
 # PÁGINA 151
@@ -425,11 +454,13 @@ plt.show()
 # ----------
 
 
-# **Explicación de la Varianza Total**
-
-# Se aplica PCA con todas las componentes para ver la varianza explicada por cada una y cómo contribuyen al total. En este caso, los valores de pca.explained_variance_ratio_ indican qué proporción de la varianza comprende cada componente.
+# ANÁLISIS DE LOS RESULTADOS
 # 
-# Esto ayuda a decidir cuántas componentes se deben usar para mantener un nivel de información suficiente en los datos.
+# Las regiones de decisión indican cómo el modelo clasifica los datos en el espacio de las componentes principales. Si se observan márgenes claros entre las clases, se tiene una señal de que el clasificador logra una buena separación en el espacio reducido.
+
+# ### 3.1.10 Explicación de la Varianza Total
+
+# Se aplica PCA con todas las componentes para ver la varianza explicada por cada una y cómo contribuyen al total. En este caso, los valores de pca.explained_variance_ratio_ indican qué proporción de la varianza comprende cada componente. Esto ayuda a decidir cuántas componentes se deben usar para mantener un nivel de información suficiente en los datos.
 
 
 
@@ -440,9 +471,9 @@ pca.explained_variance_ratio_
 # ----------
 
 
-# **Carga de los Componentes Principales**
+# ### 3.1.11 Carga de los Componentes Principales
 
-# Y por último, se calculan las cargas de los componentes principales, las cuales indican cómo cada característica original contribuye a los nuevos componentes.
+# Y por último, se calculan las cargas de las componentes principales, las cuales indican cómo cada característica original contribuye a los nuevos componentes.
 
 
 
@@ -492,7 +523,7 @@ plt.show()
 
 # ## 3.2 Compresión de Datos Supervisada mediante Análisis Discriminante Lineal (LDA)
 
-# **PASO 1: Estandarización del Conjunto de Datos D-Dimensional**
+# ### 3.2.1 Paso 1: Estandarización del Conjunto de Datos D-Dimensional
 
 # La estandarización es un paso previo necesario para el LDA (Linear Discriminant Analysis), ya que éste depende de la varianza relativa de las características. Esto implica escalar los datos para que cada característica tenga media 0 y desviación estándar 1.
 
@@ -516,7 +547,7 @@ print('Labels counts in y_test:', np.bincount(y_test))
 # ---------
 
 
-# **PASO 2: Cálculo del Vector Medio D-Dimensional para cada Clase**
+# ### 3.2.2 Paso 2: Cálculo del Vector Medio D-Dimensional para cada Clase
 
 # Este paso calcula el vector medio para cada clase, lo que permite representar cada clase en el espacio de características.
 
@@ -533,9 +564,9 @@ for label in range(0, 2):
 
 # ANÁLISIS DE LOS RESULTADOS
 # 
-# Cada uno de los vectores medios obtenidos (MV 0 y MV 1 en este caso) representa el centroide de cada clase en el espacio de características estandarizado. Los vectores medios obtenidos son fundamentales para poder calcular las matrices de dispersión entre clases y dentro de las mismas, lo que ayuda a maximizar la separabilidad entre clases.
+# Cada uno de los vectores medios obtenidos (MV 0 y MV 1 en este caso) representan el centroide de cada clase en el espacio de características estandarizado. Los vectores medios obtenidos son fundamentales para poder calcular las matrices de dispersión entre clases y dentro de las mismas, lo que ayuda a maximizar la separabilidad entre clases.
 
-# **PASO 3: Construcción de las Matrices de Dispersión dentro de clases (S_W) y entre Clases (S_B)**
+# ### 3.2.3 Paso 3: Construcción de las Matrices de Dispersión dentro de clases (S_W) y entre Clases (S_B)
 
 # Estas matrices de dispersión son claves para LDA. La matriz S_W representa la dispersión de cada muestra respecto al centroide de su clase, mientras que S_B mide la dispersión entre los centroides de las diferentes clases.
 
@@ -595,7 +626,7 @@ print('Between-class scatter matrix: 'f'{S_B.shape[0]}x{S_B.shape[1]}')
 # 
 # La matriz de dispersión entre clases (S_B) indica la variabilidad entre cada clase. Si la S_B obtenida es grande en comparación con S_W, se sugiere que las clases están bien clasificadas, lo que facilita la clasificación.
 
-# **PASO 4: Cálculo de Vectores y Valores Propios de (S_W)^-1 * S_B**
+# ### 3.2.4 Paso 4: Cálculo de Vectores y Valores Propios de (S_W)^-1 * S_B
 
 
 
@@ -606,11 +637,11 @@ eigen_vals, eigen_vecs = np.linalg.eig(np.linalg.inv(S_W).dot(S_B))
 
 # ANÁLISIS DE LOS RESULTADOS
 # 
-# Al resolver la ecuación de valores propios para (S_W)^-1 * S_B se obtienen vectores y valores propios que definen las direcciones y magnitudes de máxima separabilidad entre clases.
+# Al resolver la ecuación de valores propios para (S_W)^-1 * S_B se obtienen vectores y valores propios que definen las direcciones y magnitudes de máxima separabilidad entre las clases.
 # 
 # Los valores propios obtenidos indican la capacidad de separabilidad de cada dirección encontrada. Un valor propio grande sugiere que su correspondiente vector propio proporciona una buena discriminación entre clases.
 
-# **PASO 5: Ordenación de los Valores Propios en Orden Decreciente**
+# ### 3.2.5 Paso 5: Ordenación de los Valores Propios en Orden Decreciente
 
 # Se ordenan los valores propios en orden descendente para seleccionar aquellas direcciones que maximicen la separabilidad entre clases.
 
@@ -627,10 +658,6 @@ for eigen_val in eigen_pairs:
     print(eigen_val[0])
 # ----------
 
-
-# ANÁLISIS DE LOS RESULTADOS
-# 
-# Los valores propios ordenados indican la importancia de cada dirección en términos de discriminabilidad, donde los valores más grandes muestran que las primeras direcciones seleccionadas en LDA capturan mejor la variabilidad entre clases, lo cual es útil para reducir dimensiones sin perder información importante.
 
 
 
@@ -652,7 +679,11 @@ plt.show()
 # ----------
 
 
-# **PASO 6: Selección de los k Vectores Propios Más Grandes para Contruir la Matriz de Tranformación W**
+# ANÁLISIS DE LOS RESULTADOS
+# 
+# Los valores propios ordenados indican la importancia de cada dirección en términos de discriminabilidad, donde los valores más grandes muestran que las primeras direcciones seleccionadas en LDA capturan mejor la variabilidad entre clases, lo cual es útil para reducir dimensiones sin perder información importante.
+
+# ### 3.2.6 Paso 6: Selección de los k Vectores Propios Más Grandes para Contruir la Matriz de Tranformación W
 
 # Se eligen los vectores propios correspondientes a los valores propios más altos para construir la matriz W, que proyectará los datos al subespacio de menor dimensión.
 
@@ -668,7 +699,7 @@ print('Matrix W:\n', w)
 # 
 # La matriz de transformación W es de tamaño dxk (8x2 en este caso), donde k es el número de dimensiones seleccionadas. Esto permite reducir el espacio de características y maximizar la discriminación entre clases en el espacio transformado.
 
-# **PASO 7: Proyección de Ejemplos en el Nuevo Subespacio usando la Matriz de Transformación W**
+# ### 3.2.7 Paso 7: Proyección de Ejemplos en el Nuevo Subespacio usando la Matriz de Transformación W
 
 # En el gráfico resultante, las clases deberían aparecer separadas si LDA ha capturado bien las diferencias entre ellas. Una buena separación visual en las primeras dos componentes discriminantes sugiere que el subespacio reducido es efectivo para clasificar las clases.
 
@@ -690,9 +721,9 @@ plt.show()
 # ----------
 
 
-# **Clasificación y Visualización de las Regiones de Decisión en el Subespacio LDA**
+# ### 3.2.8 Clasificación y Visualización de las Regiones de Decisión en el Subespacio LDA
 
-# Y por último, se entrena un clasificador de Regresión Logística en el subespacio LDA y se visualizan las regioens de decisión tanto para el conjunto de entrenamiento como para el de prueba.
+# Y por último, se entrena un clasificador de Regresión Logística en el subespacio LDA y se visualizan las regiones de decisión tanto para el conjunto de entrenamiento como para el conjunto de prueba.
 
 
 
@@ -731,13 +762,13 @@ X_train_lda = lda.fit_transform(X_train_std, y_train)
 
 # ANÁLISIS DE LOS RESULTADOS
 # 
-# La visualización de las regiones de decisión en el subespacio LDA muestra cómo el clasificador separa las clases. Si las regiones están bien definidas y se ajustan a las clases, el modelo es efectivo para discriminar en el subespacio reducido.
+# La visualización de las regiones de decisión en el subespacio LDA muestra cómo el clasificador separa las clases. Si las regiones están bien definidas y se ajustan a las clases, se suugiere que el modelo es efectivo para discriminar en el subespacio reducido.
 
 # ## 3.3 Técnicas de Reducción Dimensional No Lineal
 
-# **Carga y Visualización de Imágenes de Dígitos**
+# ### 3.3.1 Carga y Visualización de Imágenes de Dígitos
 
-# Este bloque carga el conjunto de datos digits y visualiza las primeras imágenes, lo que permite entender mejor la estructura de los datos antes de aplicar la reducción dimensional.
+# Este bloque de código carga el conjunto de datos 'digits' y visualiza las primeras imágenes, lo que permite entender mejor la estructura de los datos antes de aplicar la reducción dimensional.
 
 
 
@@ -758,11 +789,11 @@ plt.show()
 
 # ANÁLISIS DE LOS RESULTADOS
 # 
-# Se muestran las primeras 3 imágenes de dígitos en escala de grises, representando cada imagen como una cuadrícula de píxeles de 8x8. Visualizar estos datos permite verificar que se trata de muestras de dígitos manuscritos con distintas formas y tamaños, lo que da una primera idea de la variabilidad en el conjunto.
+# Se muestran las primeras 3 imágenes de dígitos en escala de grises, representando cada imagen como una cuadrícula de píxeles de 8x8. Esto permite verificar que se trata de muestras de dígitos manuscritos con distintas formas y tamaños, lo que da una primera idea de la variabilidad en el conjunto.
 
-# **Obtención de Dimensiones del Dataset y Separación de Características y Etiquetas**
+# ### 3.3.2 Obtención de Dimensiones del Dataset y Separación de Características y Etiquetas
 
-# En este paso se obtiene la forma de los datos (digits.data.shape) y se separan las características X_digits y las etiquetas y_digits, que representan las imágenes de dígitos y sus valores reales, respectivamente.
+# En este paso, se obtiene la forma de los datos mediante digits.data.shape, y se separan las características (X_digits) y las etiquetas (y_digits), las cuales representan imágenes de dígitos y sus valores reales, respectivamente.
 
 
 
@@ -781,11 +812,11 @@ X_digits = digits.data
 
 # ANÁLISIS DE LOS RESULTADOS
 # 
-# El tamaño de los datos es 1797 filas (una por muestra) y 64 columnas (una por cada píxel de las imágenes de 8x8). Este conjunto tiene X ejemplos y cada uno tiene 64 características, que representan los niveles de intensidad de cada píxel en la imagen. Este alto número de características sugiere la necesidad de reducción dimensional para visualizar mejor los patrones.
+# El tamaño de los datos es 1797 filas y 64 columnas (una por cada píxel de las imágenes de 8x8). Cada conjunto tiene 64 características, que representan los niveles de intensidad de cada píxel en la imagen. Este alto número de características sugiere la necesidad de reducción dimensional para visualizar mejor los patrones.
 
-# **Aplicación de t-SNE para Reducción Dimensional No Lineal**
+# ### 3.3.3 Aplicación de t-SNE para Reducción Dimensional No Lineal
 
-# Este bloque aplica el algoritmo t-SNE para reducir la dimensionalidad de las imágenes de 64 a 2 dimensiones, usando como inicialización PCA. Esto permite visualizar la estructura de los datos en un plano bidimensional.
+# Este bloque de código aplica el algoritmo t-SNE para reducir la dimensionalidad de las imágenes de 64 a 2 dimensiones, usando como inicialización PCA. Esto permite visualizar la estructura de los datos en un plano bidimensional.
 
 
 
@@ -797,9 +828,9 @@ X_digits_tsne = tsne.fit_transform(X_digits)
 
 # ANÁLISIS DE LOS RESULTADOS
 # 
-# La proyección t-SNE transforma los datos a X ejemplos en 2 dimensiones, permitiendo visualizar las relaciones no lineales en el espacio reducido. Esto crea un mapa bidimensional en el que cada grupo debería representar un dígito diferente, idealmente formando grupos compactos y bien definidos.
+# La proyección t-SNE transforma los datos a 2 dimensiones, permitiendo visualizar las relaciones no lineales en el espacio reducido. Esto crea un mapa bidimensional en el que cada grupo representa un dígito diferente, idealmente formando grupos compactos y bien definidos.
 
-# **Definición y Aplicación de la Función de Visualización**
+# ### 3.3.4 Definición y Aplicación de la Función de Visualización
 
 # Este paso define una función plot_projection para visualizar los dígitos en el espacio reducido de 2 dimensiones. Cada dígito tiene un color distinto, y se añade una etiqueta en el centro de cada grupo, indicando el número correspondiente.
 
@@ -831,7 +862,7 @@ plt.show()
 
 # ANÁLISIS DE LOS RESULTADOS
 # 
-# El gráfico resultante muestra los dígitos agrupados en el plano bidimensional, con cada dígito identificado mediante un color y una etiqueta numérica. Si los grupos de dígitos aparecen bien separados, esto indica que t-SNE ha capturado con éxito la estructura no lineal de los datos, lo que permite ver cómo los dígitos similares están más próximos entre sí en el espacio reducido. En caso de solapamiento entre algunos dígitos, se podría ajustar perplexity o explorar otras técnicas de reducción no lineal para mejorar la separación.
+# El gráfico resultante muestra los dígitos agrupados en el plano bidimensional, con cada dígito identificado mediante un color y una etiqueta numérica. Si los grupos de dígitos aparecen bien separados, esto indica que t-SNE ha capturado con éxito la estructura no lineal de los datos, lo que permite ver cómo los dígitos similares están más próximos entre sí en el espacio reducido. En caso de solapamiento entre algunos dígitos, se podría ajustar mediante perplexity o explorar otras técnicas de reducción no lineal para mejorar la separación.
 
 # # ANEXO: Convertir Jupyter Notebook a Fichero Python
 
