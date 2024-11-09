@@ -300,8 +300,8 @@ lr.fit(X_train_lda, y_train)
 
 # Plotting the decision regions in the reduced space for the training dataset
 # plot_decision_regions(X_train_lda, y_train, classifier=lr)
-# plt.xlabel('PC 1')
-# plt.ylabel('PC 2')
+# plt.xlabel('LD 1')
+# plt.ylabel('LD 2')
 # plt.legend(loc='lower left')
 # plt.tight_layout()
 # plt.show()
@@ -312,8 +312,8 @@ lr.fit(X_train_lda, y_train)
 # scikit-learn
 # Plotting the decision regions in the reduced space for the test dataset
 # plot_decision_regions(X_test_lda, y_test, classifier=lr)
-# plt.xlabel('PC 1')
-# plt.ylabel('PC 2')
+# plt.xlabel('LD 1')
+# plt.ylabel('LD 2')
 # plt.legend(loc='lower left')
 # plt.tight_layout()
 # plt.show()
