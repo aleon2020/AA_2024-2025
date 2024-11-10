@@ -216,7 +216,7 @@ X_train_pca = X_train_std.dot(w)
 
 
 
-# Visualize the transformed  training dataset in a two-dimensional scatterplot
+# Visualize the transformed training dataset in a two-dimensional scatterplot
 colors = ['r', 'b', 'g']
 markers = ['o', 's', '^']
 for l, c, m in zip(np.unique(y_train), colors, markers):
