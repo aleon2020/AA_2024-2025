@@ -6,6 +6,7 @@ from python_environment_check import check_packages
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from sklearn.cluster import KMeans
 import seaborn as sb
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
@@ -16,6 +17,8 @@ from sklearn.discriminant_analysis import LinearDiscriminantAnalysis as LDA
 from sklearn.datasets import load_digits
 from sklearn.manifold import TSNE
 import matplotlib.patheffects as PathEffects
+from matplotlib import cm
+from sklearn.metrics import silhouette_samples
 
 # # FORMULARIO EXAMEN FINAL
 
@@ -59,6 +62,14 @@ import matplotlib.patheffects as PathEffects
 #         - [3.3.2 Obtención de Dimensiones del Dataset y Separación de Características y Etiquetas](#332-obtención-de-dimensiones-del-dataset-y-separación-de-características-y-etiquetas)
 #         - [3.3.3 Aplicación de t-SNE para Reducción Dimensional No Lineal](#333-aplicación-de-t-sne-para-reducción-dimensional-no-lineal)
 #         - [3.3.4 Definición y Aplicación de la Función de Visualización](#334-definición-y-aplicación-de-la-función-de-visualización)
+# - [TEMA 4: Métodos de Análisis de Agrupamiento](#tema-4-métodos-de-análisis-de-agrupamiento)
+#     - [4.1 Clustering con K-means](#41-clustering-con-k-means)
+#         - [4.1.1 Preparación de los Datos](#411-preparación-de-los-datos)
+#         - [4.1.2 Método del Codo para Determinar el Número Óptimo de Clusters](#412-método-del-codo-para-determinar-el-número-óptimo-de-clusters)
+#         - [4.1.3 Cálculo del Coeficiente de Silueta por Cluster](#413-cálculo-del-coeficiente-de-silueta-por-cluster)
+#         - [4.1.4 Estandarización de los Datos](#414-estandarización-de-los-datos)
+#         - [4.1.5 Reducción Dimensional con PCA](#415-reducción-dimensional-con-pca)
+#         - [4.1.6 Visualización Final de los Clusters](#416-visualización-final-de-los-clusters)
 # - [ANEXO: Convertir Jupyter Notebook a Fichero Python](#anexo-convertir-jupyter-notebook-a-fichero-python)
 #     - [A.1 Script en el Directorio Actual](#a1-script-en-el-directorio-actual)
 #     - [A.2 Script en el Directorio Padre](#a2-script-en-el-directorio-padre)
@@ -863,6 +874,205 @@ plt.show()
 # ANÁLISIS DE LOS RESULTADOS
 # 
 # El gráfico resultante muestra los dígitos agrupados en el plano bidimensional, con cada dígito identificado mediante un color y una etiqueta numérica. Si los grupos de dígitos aparecen bien separados, esto indica que t-SNE ha capturado con éxito la estructura no lineal de los datos, lo que permite ver cómo los dígitos similares están más próximos entre sí en el espacio reducido. En caso de solapamiento entre algunos dígitos, se podría ajustar mediante perplexity o explorar otras técnicas de reducción no lineal para mejorar la separación.
+
+# # TEMA 4: Métodos de Análisis de Agrupamiento
+
+# ## 4.1 Clustering con K-means
+
+# ### 4.1.1 Preparación de los Datos
+
+
+
+# PÁGINA 143
+X, y = df.iloc[:, 0:-1].values, df.iloc[:, -1].values
+# ----------
+
+
+# ### 4.1.2 Método del Codo para Determinar el Número Óptimo de Clusters
+
+# Este snippet de código implementa el método del codo para estimar el número óptimo de clusters en X. Para ello, se ejecuta KMeans para valores de clusters entre 1 y 14 y se calcula la distorsión/inercia encargada de medir la suma de las distancias cuadradas entre cada punto y su centroide.
+
+
+
+# PÁGINA 313
+distortions = []
+for i in range(1, 15):
+    km = KMeans(n_clusters=i,
+                init='k-means++',
+                n_init=10,
+                max_iter=300,
+                random_state=0)
+    km.fit(X)
+    distortions.append(km.inertia_)
+# ----------
+
+# PÁGINA 314
+plt.plot(range(1,15), distortions, marker='o')
+plt.xlabel('Number of clusters')
+plt.ylabel('Distortion')
+plt.tight_layout()
+plt.show()
+# ----------
+
+
+# ANÁLISIS DE LOS RESULTADOS
+# 
+# Como se puede ver, se busca el punto de codo. En este caso, la distorsión deja de decrecer considerablemente a partir de 4 clusters, por lo que se sugiere que el número óptimo de clusters es 4.
+
+# ### 4.1.3 Cálculo del Coeficiente de Silueta por Cluster
+
+# En este snippet de código se calcula y se representa el coeficiente de silueta para cada punto en X, todos ellos agrupados en 5 clusters (n_clusters=5).
+# 
+# El coeficiente de silueta mide la cohesión dentro del cluster y la separación entre todos ellos. Por último, cada cluster se grafica con barras horizontales para observar la calidad de la agrupación y la media del coeficiente de silueta para todos los puntos.
+
+
+
+# PÁGINA 315
+km = KMeans(n_clusters=5,
+            init='k-means++',
+            n_init=10,
+            max_iter=300,
+            tol=1e-04,
+            random_state=0)
+y_km = km.fit_predict(X)
+
+cluster_labels = np.unique(y_km)
+n_clusters = cluster_labels.shape[0]
+silhouette_vals = silhouette_samples(
+    X, y_km, metric='euclidean'
+)
+y_ax_lower, y_ax_upper = 0, 0
+yticks = []
+for i, c in enumerate(cluster_labels):
+    c_silhouette_vals = silhouette_vals[y_km == c]
+    c_silhouette_vals.sort()
+    y_ax_upper += len(c_silhouette_vals)
+    color = cm.jet(float(i) / n_clusters)
+    plt.barh(range(y_ax_lower, y_ax_upper),
+             c_silhouette_vals,
+             height=1.0,
+             edgecolor='none',
+             color=color)
+    
+    yticks.append((y_ax_lower + y_ax_upper) / 2.)
+    y_ax_lower += len(c_silhouette_vals)
+# ----------
+
+# PÁGINA 316
+silhouette_avg = np.mean(silhouette_vals)
+plt.axvline(silhouette_avg,
+            color="red",
+            linestyle="--")
+plt.yticks(yticks, cluster_labels + 1)
+plt.ylabel('Cluster')
+plt.xlabel('Silhouette coefficient')
+plt.tight_layout()
+plt.show()
+# ----------
+
+
+# ANÁLISIS DE LOS RESULTADOS
+# 
+# Como se puede ver, el coeficiente medio de silueta es 0.4, lo que indica que los clusters son levemente coherentes.
+# 
+# Si el coeficiente de silueta es cercano a 1, se tienen clusters compactos y bien separados. 
+# 
+# Sin embargo, si el coeficiente de silueta es negativo o bajo, es posible que el número de clusters no sea el adecuado o que la estructura de los datos no es fácil de agrupar.
+
+# ### 4.1.4 Estandarización de los Datos
+
+# Se estandarizan las características en X para que tengan una media de 0 y una desviación estándar de 1, además de los centroides de los clusters previamente calculados. Esto es importante para métodos de agrupamiento como KMeans, que dependen de la escala de las características.
+
+
+
+# PÁGINA 143
+sc = StandardScaler()
+X_std = sc.fit_transform(X)
+Cluster_std = sc.transform(km.cluster_centers_)
+# ----------
+
+
+# ### 4.1.5 Reducción Dimensional con PCA
+
+# Se utiliza el análisis de componentes principales (PCA) para reducir las dimensiones de X a dos componentes principales. Esto facilita la visualización de los datos y de los centroides en un espacio bidimensional.
+# 
+# Si los puntos de cada cluster están agrupados y separados visualmente, significa que el algoritmo KMeans ha logrado una buena agrupación.
+
+
+
+# PÁGINA 150
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(X_std)
+X_clusters = pca.transform(Cluster_std)
+# ----------
+
+
+# ### 4.1.6 Visualización Final de los Clusters
+
+# Y por último, se visualizan los clusters en el espacio reducido a 2 dimensiones, donde cada cluster se muestra en un color distinto y los centroides están marcados con estrellas rojas.
+
+
+
+# PÁGINA 317
+km = KMeans(n_clusters=5,
+            init='k-means++',
+            n_init=10,
+            max_iter=300,
+            tol=1e-04,
+            random_state=0)
+y_km = km.fit_predict(X)
+plt.scatter(X_pca[y_km == 0, 0],
+            X_pca[y_km == 0, 1],
+            s=50, c='lightgreen',
+            edgecolor='black',
+            marker='s',
+            label='Cluster 1')
+plt.scatter(X_pca[y_km == 1, 0],
+            X_pca[y_km == 1, 1],
+            s=50,
+            c='orange',
+            edgecolor='black',
+            marker='o',
+            label='Cluster 2')
+plt.scatter(X_pca[y_km == 2, 0],
+            X_pca[y_km == 2, 1],
+            s=50,
+            c='yellow',
+            edgecolor='black',
+            marker='o',
+            label='Cluster 3')
+plt.scatter(X_pca[y_km == 3, 0],
+            X_pca[y_km == 3, 1],
+            s=50,
+            c='red',
+            edgecolor='black',
+            marker='^',
+            label='Cluster 4')
+plt.scatter(X_pca[y_km == 4, 0],
+            X_pca[y_km == 4, 1],
+            s=50,
+            c='blue',
+            edgecolor='black',
+            marker='^',
+            label='Cluster 5')
+plt.scatter(X_clusters[:, 0],
+            X_clusters[:, 1],
+            s=250,
+            marker='*',
+            c='red',
+            label='Centroids')
+plt.xlabel('Feature 1')
+plt.ylabel('Feature 2')
+plt.legend()
+plt.grid()
+plt.tight_layout()
+plt.show()
+# ----------
+
+
+# ANÁLISIS DE LOS RESULTADOS
+# 
+# La visualización de los clusters permite evaluar la separación y dispersión de los grupos. Si los clusters están bien separados, se sugiere tener una buena estructura de agrupamiento. Además, la posición de los centroides puede ayudar a interpretar las características principales de cada grupo.
 
 # # ANEXO: Convertir Jupyter Notebook a Fichero Python
 

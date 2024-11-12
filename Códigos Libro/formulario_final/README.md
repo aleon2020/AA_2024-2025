@@ -35,11 +35,19 @@
         - 3.2.6 Paso 6: Selección de los k Vectores Propios Más Grandes para Contruir la Matriz de Tranformación W
         - 3.2.7 Paso 7: Proyección de Ejemplos en el Nuevo Subespacio usando la Matriz de Transformación W
         - 3.2.8 Clasificación y Visualización de las Regiones de Decisión en el Subespacio LDA
-    - 3.3 Técnicas de Reducción Dimensional No Lineal](#33-técnicas-de-reducción-dimensional-no-lineal)
+    - 3.3 Técnicas de Reducción Dimensional No Lineal
         - 3.3.1 Carga y Visualización de Imágenes de Dígitos
         - 3.3.2 Obtención de Dimensiones del Dataset y Separación de Características y Etiquetas
         - 3.3.3 Aplicación de t-SNE para Reducción Dimensional No Lineal
         - 3.3.4 Definición y Aplicación de la Función de Visualización
+- TEMA 4: Métodos de Análisis de Agrupamiento
+    - 4.1 Clustering con K-means
+        - 4.1.1 Preparación de los Datos
+        - 4.1.2 Método del Codo para Determinar el Número Óptimo de Clusters
+        - 4.1.3 Cálculo del Coeficiente de Silueta por Cluster
+        - 4.1.4 Estandarización de los Datos
+        - 4.1.5 Reducción Dimensional con PCA
+        - 4.1.6 Visualización Final de los Clusters
 - ANEXO: Convertir Jupyter Notebook a Fichero Python
     - A.1 Script en el Directorio Actual
     - A.2 Script en el Directorio Padre
