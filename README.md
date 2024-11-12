@@ -41,6 +41,8 @@ Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/mai
 * [Example 6](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex06): Wine Dataset (LDA)
 * [Example 7](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex07): LDA (Linear Discriminant Analysis) Exercise
 * [Example 8](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex08): T-Distributed Stochastic Neighbor Embedding
+* [Example 9](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex09): K-means clustering Dataset
+* [Example 10](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex10): K-means clustering Exercise
 
 **Prácticas**
 * ...
