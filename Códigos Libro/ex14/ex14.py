@@ -77,6 +77,18 @@ check_packages(d)
 # - [Locating regions of high density via DBSCAN](#locating-regions-of-high-density-via-dbscan)
 # - [Summary](#summary)
 
+# STATEMENT
+# 
+# In this exercise, you will perform an unsupervised analysis using DBSCAN on the data set provided in the 'dataset1.csv' file.
+# 
+# To do this, you will use the following instructions:
+# 
+# - Data normalization: Before applying the algorithm, make sure to normalize the data to improve the accuracy of the analysis.
+# 
+# - Cluster calculation with scikit-learn.
+# 
+# - Graphical representation with PCA: Perform a PCA to reduce the dimensionality of the data and represent the clusters in a two-dimensional graph.
+
 
 
 # * from IPython.display

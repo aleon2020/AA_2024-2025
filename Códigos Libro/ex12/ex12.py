@@ -78,6 +78,20 @@ check_packages(d)
 # - [Applying agglomerative clustering via scikit-learn](#applying-agglomerative-clustering-via-scikit-learn)
 # - [Summary](#summary)
 
+# STATEMENT
+# 
+# In this exercise, you will perform an unsupervised analysis using agglomerative clustering with complete linkage on the data set provided in the 'dataset1.csv' file.
+# 
+# To do this, you will use the following instructions:
+# 
+# - Data normalization: Before applying the algorithm, make sure to normalize the data to improve the accuracy of the analysis.
+# 
+# - Calculation of clusters with scipy or scikit-learn.
+# 
+# - Graphic representation of dendrogram and heat map.
+# 
+# - Graphical representation with PCA: Perform a PCA to reduce the dimensionality of the data and represent the clusters in a two-dimensional graph.
+
 
 
 # * from IPython.display
