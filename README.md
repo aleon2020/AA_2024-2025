@@ -43,6 +43,10 @@ Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/mai
 * [Example 8](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex08): T-Distributed Stochastic Neighbor Embedding
 * [Example 9](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex09): K-means clustering Dataset
 * [Example 10](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex10): K-means clustering Exercise
+* [Example 11](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex11): Hierarchical Tree clustering Dataset
+* [Example 12](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex12): Hierarchical Tree clustering Exercise
+* [Example 13](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex13): DBSCAN High Density Locating Regions Dataset
+* [Example 14](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex14): DBSCAN High Density Locating Regions Exercise
 
 **Prácticas**
 * ...
