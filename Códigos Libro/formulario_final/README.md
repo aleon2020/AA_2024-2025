@@ -48,6 +48,19 @@
         - 4.1.4 Estandarización de los Datos
         - 4.1.5 Reducción Dimensional con PCA
         - 4.1.6 Visualización Final de los Clusters
+    - 4.2 Organización de clusters con Árboles Jerárquicos
+        - 4.2.1 Preparación de los Datos
+        - 4.2.2 Cálculo del Linkage para Clustering Jerárquico
+        - 4.2.3 Visualización de los Clusters con un Dendrograma
+        - 4.2.4 Reorganización de los Datos según el Dendrograma
+        - 4.2.5 Determinación de Clusters y Etiquetas
+        - 4.2.6 Clustering Aglomerativo para Etiquetas
+        - 4.2.7 Escalado de Datos y Reducción de Dimensionalidad con PCA
+        - 4.2.8 Visualización de Clusters en el Espacio PCA
+    - 4.3 Localización de regiones de alta densidad con DBSCAN
+        - 4.3.1 Carga de Datos y Escalado de las Características
+        - 4.3.2 Visualización de Agrupamiento con K-means y Clustering Jerárquico
+        - 4.3.3 Reducción de Dimensionalidad y Clustering con DBSCAN
 - ANEXO: Convertir Jupyter Notebook a Fichero Python
     - A.1 Script en el Directorio Actual
     - A.2 Script en el Directorio Padre
