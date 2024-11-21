@@ -125,66 +125,6 @@ X, y = df.iloc[:, 0:-1].values, df.iloc[:, -1].values # Target variable is the f
 
 # ## Obtaining and preparing the MNIST dataset
 
-# The MNIST dataset is publicly available at http://yann.lecun.com/exdb/mnist/ and consists of the following four parts:
-# 
-# - Training set images: train-images-idx3-ubyte.gz (9.9 MB, 47 MB unzipped, 60,000 examples)
-# - Training set labels: train-labels-idx1-ubyte.gz (29 KB, 60 KB unzipped, 60,000 labels)
-# - Test set images: t10k-images-idx3-ubyte.gz (1.6 MB, 7.8 MB, 10,000 examples)
-# - Test set labels: t10k-labels-idx1-ubyte.gz (5 KB, 10 KB unzipped, 10,000 labels)
-
-
-
-# Obtain the MNIST dataset
-# X, y = fetch_openml('mnist_784', version=1, return_X_y=True)
-# X = X.to_numpy().astype(float)
-# y = y.to_numpy().astype(int)
-
-# print(X.shape)
-# print(y.shape)
-
-
-# Normalize to [-1, 1] range:
-
-
-
-# Normalize images to [-1, 1] range
-# X = ((X / 255.) - .5) * 2
-
-
-# Visualize the first digit of each class:
-
-
-
-# Visualize the first digit of each class
-# fig, ax = plt.subplots(nrows=2, ncols=5, sharex=True, sharey=True)
-# ax = ax.flatten()
-# for i in range(10):
-#     img = X[y == i][0].reshape(28, 28)
-#     ax[i].imshow(img, cmap='Greys')
-
-# ax[0].set_xticks([])
-# ax[0].set_yticks([])
-# plt.tight_layout()
-# plt.show()
-
-
-# Visualize 25 different versions of "7":
-
-
-
-# Visualize 25 different versions of '7' number
-# fig, ax = plt.subplots(nrows=5, ncols=5, sharex=True, sharey=True)
-# ax = ax.flatten()
-# for i in range(25):
-#     img = X[y == 7][i].reshape(28, 28)
-#     ax[i].imshow(img, cmap='Greys')
-
-# ax[0].set_xticks([])
-# ax[0].set_yticks([])
-# plt.tight_layout()
-# plt.show()
-
-
 # Split into training, validation, and test set:
 
 
@@ -474,37 +414,6 @@ plt.show()
 # Compute the test accuracy
 test_mse, test_acc = compute_mse_and_acc(model, X_test, y_test)
 print(f'Test accuracy: {test_acc*100:.2f}%')
-
-
-# Plot failure cases:
-
-
-
-# Plot failure cases
-# X_test_subset = X_test[:1000, :]
-# y_test_subset = y_test[:1000]
-
-# _, probas = model.forward(X_test_subset)
-# test_pred = np.argmax(probas, axis=1)
-
-# misclassified_images = X_test_subset[y_test_subset != test_pred][:25]
-# misclassified_labels = test_pred[y_test_subset != test_pred][:25]
-# correct_labels = y_test_subset[y_test_subset != test_pred][:25]
-
-# fig, ax = plt.subplots(nrows=5, ncols=5, 
-#                        sharex=True, sharey=True, figsize=(8, 8))
-# ax = ax.flatten()
-# for i in range(25):
-#     img = misclassified_images[i].reshape(28, 28)
-#     ax[i].imshow(img, cmap='Greys', interpolation='nearest')
-#     ax[i].set_title(f'{i+1}) '
-#                     f'True: {correct_labels[i]}\n'
-#                     f' Predicted: {misclassified_labels[i]}')
-
-# ax[0].set_xticks([])
-# ax[0].set_yticks([])
-# plt.tight_layout()
-# plt.show()
 
 
 # # Summary
