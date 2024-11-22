@@ -61,6 +61,15 @@
         - 4.3.1 Carga de Datos y Escalado de las Características
         - 4.3.2 Visualización de Agrupamiento con K-means y Clustering Jerárquico
         - 4.3.3 Reducción de Dimensionalidad y Clustering con DBSCAN
+- TEMA 5: Redes Neuronales
+    - 5.1 Preparación de los Datos
+    - 5.2 Definición de Funciones Auxiliares
+    - 5.3 Definición de la Clase NeuralNetMLP
+    - 5.4 Generación de Minibatches
+    - 5.5 Funciones de Evaluación
+    - 5.6 Entrenamiento del Modelo
+    - 5.7 Visualización del Progreso
+    - 5.8 Evaluación en el Conjunto de Prueba
 - ANEXO: Convertir Jupyter Notebook a Fichero Python
     - A.1 Script en el Directorio Actual
     - A.2 Script en el Directorio Padre
