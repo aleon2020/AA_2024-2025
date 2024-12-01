@@ -30,6 +30,9 @@ Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/mai
 **Formulario**
 * [Formulario Examen Parcial](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/formulario_parcial)
 
+**Examen Parcial**
+* [Solución](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex_parcial_2024-2025)
+
 ### 1.2 Examen Final (21/01/2025)
 
 **Capítulos del Libro**
@@ -58,10 +61,13 @@ Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/mai
 * [Example 16](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex16): Neural Network Exercise
 
 **Prácticas**
-* ...
+* [Práctica 2 Curso 2024-2025](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/pr02_2024-2025)
 
 **Formulario**
 * [Formulario Examen Final](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/formulario_final)
+
+**Examen Final**
+* ...
 
 ## 2. Referencias
 
