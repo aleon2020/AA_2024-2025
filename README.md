@@ -59,6 +59,7 @@ Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/mai
 * [Example 14](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex14): DBSCAN High Density Locating Regions Exercise
 * [Example 15](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex15): Neural Network Dataset
 * [Example 16](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex16): Neural Network Exercise
+* [Example 17](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex17): Deep Convolutional Neural Networks Classification
 
 **Prácticas**
 * [Práctica 2 Curso 2024-2025](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/pr02_2024-2025)
