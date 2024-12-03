@@ -70,95 +70,118 @@ Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/mai
 **Examen Final**
 * ...
 
-## 2. Referencias
+## 2. Diapositivas utilizadas en clase
+
+Directorio ['Diapositivas Teoría'](https://github.com/aleon2020/AA_2024-2025/tree/main/Diapositivas%20Teor%C3%ADa): Dentro de este directorio se encuentran las diapositivas utilizadas en clase para abordar los contenidos teóricos de la asignatura.
+
+## 3. Referencias
 
 Directorio ['Referencias'](https://github.com/aleon2020/AA_2024-2025/tree/main/Referencias): Se encuentra el libro que abarca todos los contenidos vistos en las clases de teoría.
 
-## 3. Activación del entorno Conda en los ordenadores de la universidad
+## 4. Activación del entorno miniconda en los ordenadores de la universidad
 
-PASO 1: Ejecuta los siguientes comandos para instalar Conda en los ordenadores de la universidad.
+**PASO 1**: Creación de un directorio para Miniconda
 
-```sh
-mkdir $HOME/tmp/
-```
+Ejecuta el siguiente comando para crear el directorio en el que se instalará miniconda:
 
 ```sh
-wget https://repo.anaconda.com/archive/Anaconda3-2020.11-Linux-x86_64.sh
+mkdir -p ~/miniconda3
 ```
+
+**PASO 2**: Descarga del script de instalación de miniconda
+
+Usa el siguiente comando para descargar el instalador de miniconda:
 
 ```sh
-sh ./Anaconda3-2020.11-Linux-x86_64.sh
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
 ```
 
-PASO 2: Asegúrate que tienes Conda activado si en el fichero .bashrc de tu HOME aparece el siguiente fragmento de texto.
+**PASO 3**: Instalación de miniconda
 
-```bash
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/alumnos/USERNAME/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/alumnos/USERNAME/anaconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/alumnos/USERNAME/anaconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/alumnos/USERNAME/anaconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-```
-
-IMPORTANTE: Sustituye USERNAME por tu nombre de usuario de los laboratorios de la universidad. Algunas de las rutas del fichero PUEDEN variar dependiendo de la ubicacion en la que hayas instalado Conda.
-
-PASO 3: Guarda los cambios en el fichero .bashrc, cierra y vuelve a abrir una nueva terminal, para que los cambios queden guardados.
-
-PASO 4: Una vez abierta una nueva terminal, tu prompt deberia aparecer de la siguiente forma.
+Ejecuta el script descargado con el siguiente comando:
 
 ```sh
-(base) USERNAME@f-lXXXX-pcXX:~$
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 ```
 
-PASO 5: Una vez hecho esto, ejecuta los siguientes comandos en la terminal.
+**PASO 4**: Limpieza de archivos de instalación
+
+Ejecuta el siguiente comando para eliminar el script de instalación para ahorrar espacio:
 
 ```sh
-conda config --append channels conda-forge
+rm ~/miniconda3/miniconda.sh
 ```
+
+**PASO 5**: Activación de miniconda
+
+Activa miniconda en tu terminal con el siguiente comando o añade esta línea en tu fichero .bashrc:
 
 ```sh
-conda create -n "pyml-book" python=3.9 numpy=1.21.2 scipy=1.7.0 scikit-learn=1.0 matplotlib=3.4.3 pandas=1.3.2
+source ~/miniconda3/bin/activate
 ```
+
+**PASO 6**: Creación del entorno de Python 'pyml-book'
+
+Ejecuta el siguiente comando para crear el entorno 'pyml-book':
 
 ```sh
-conda activate "pyml-book"
+conda create --name pyml-book python==3.9
 ```
 
-PASO 6: Una vez ejecutes este último comando, tu prompt deberia aparecer de la siguiente forma.
+**PASO 7**: Activación del entorno 'pyml-book'
+
+Una vez creado el entorno, actívalo con:
 
 ```sh
-(pyml-book) USERNAME@f-lXXXX-pcXX:~$
+conda activate pyml-book
 ```
 
-PASO 7: Instala jupyterlab y las librerías mlxtend y seaborn para poder ejecutar correctamente los ficheros .ipynb.
+**PASO 8**: Instalación de librerías
+
+Instala las librerías de aprendizaje automático, visualización de datos y otras dependencias en el entorno 'pyml-book':
+
+* Librerías básicas para ciencia de datos:
+
+```sh
+conda install numpy scipy scikit-learn matplotlib pandas
+```
+
+* Librerías adicionales para visualización y utilidades:
+
+```sh
+conda install mlxtend seaborn
+```
+
+* Librerías para trabajar con PyTorch:
+
+```sh
+conda install pytorch torchvision torchaudio cpuonly -c pytorch
+```
+
+* JupyterLab para trabajar en notebooks:
 
 ```sh
 conda install -c conda-forge jupyterlab
 ```
 
+**PASO 9**: Verificación de la instalación
+
+Para asegurarte de que el entorno está correctamente configurado, puedes listar las librerías instaladas con:
+
 ```sh
-conda install mlxtend
+conda list
 ```
 
+**PASO 10**: Uso del entorno 'pyml-book'
+
+Siempre que desees usar el entorno 'pyml-book', asegúrate de activarlo con:
+
 ```sh
-conda install seaborn
+conda activate pyml-book
 ```
 
-NOTA: Para instalar las librerías mlxtend y seaborn en tu ordenador linux personal, ejecuta los siguientes comandos.
+Cuando termines de trabajar, puedes desactivar el entorno con:
 
 ```sh
-pip install mlxtend
-```
-
-```sh
-pip install seaborn
+conda deactivate
 ```
