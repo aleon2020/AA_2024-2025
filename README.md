@@ -60,6 +60,7 @@ Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/mai
 * [Example 15](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex15): Neural Network Dataset
 * [Example 16](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex16): Neural Network Exercise
 * [Example 17](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex17): Deep Convolutional Neural Networks Classification
+* [Example 18](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex18): Large Language Model (LLM) Dataset
 
 **Prácticas**
 * [Práctica 2 Curso 2024-2025](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/pr02_2024-2025)
@@ -73,6 +74,11 @@ Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/mai
 ## 2. Diapositivas utilizadas en clase
 
 Directorio ['Diapositivas Teoría'](https://github.com/aleon2020/AA_2024-2025/tree/main/Diapositivas%20Teor%C3%ADa): Dentro de este directorio se encuentran las diapositivas utilizadas en clase para abordar los contenidos teóricos de la asignatura.
+
+* [Chapter 5](https://github.com/aleon2020/AA_2024-2025/tree/main/Diapositivas%20Teor%C3%ADa/Chapter%205%3A%20Compressing%20Data%20via%20Dimensionality%20Reduction): Compressing Data via Dimensionality Reduction
+* [Chapter 10](https://github.com/aleon2020/AA_2024-2025/tree/main/Diapositivas%20Teor%C3%ADa/Chapter%2010%3A%20Working%20with%20Unlabeled%20Data%20-%20Clustering%20Analysis): Working with Unlabeled Data – Clustering Analysis
+* [Chapter 14](https://github.com/aleon2020/AA_2024-2025/tree/main/Diapositivas%20Teor%C3%ADa/Chapter%2014%3A%20Classifying%20Images%20with%20Deep%20Convolutional%20%20Neural%20Networks): Classifying Images with Deep Convolutional Neural Networks
+* [Large Language Models (LLMs)](https://github.com/aleon2020/AA_2024-2025/tree/main/Diapositivas%20Teor%C3%ADa/Large%20Language%20Models%20(LLMs))
 
 ## 3. Referencias
 
@@ -138,7 +144,7 @@ conda activate pyml-book
 
 **PASO 8**: Instalación de librerías
 
-Instala las librerías de aprendizaje automático, visualización de datos y otras dependencias en el entorno 'pyml-book':
+Instala las librerías de aprendizaje automático, visualización de datos y otras dependencias en el entorno:
 
 * Librerías básicas para ciencia de datos:
 
@@ -170,18 +176,4 @@ Para asegurarte de que el entorno está correctamente configurado, puedes listar
 
 ```sh
 conda list
-```
-
-**PASO 10**: Uso del entorno 'pyml-book'
-
-Siempre que desees usar el entorno 'pyml-book', asegúrate de activarlo con:
-
-```sh
-conda activate pyml-book
-```
-
-Cuando termines de trabajar, puedes desactivar el entorno con:
-
-```sh
-conda deactivate
 ```
