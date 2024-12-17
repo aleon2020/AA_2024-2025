@@ -37,6 +37,7 @@ Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/mai
 
 **Capítulos del Libro**
 * [Chapter 5](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ch05): Compressing Data via Dimensionality Reduction
+* [Chapter 6](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ch06): Learning Best Practices for Model Evaluation and Hyperparameter Tuning
 * [Chapter 10](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ch10): Working with Unlabeled Data – Clustering Analysis
 * [Chapter 11](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ch11): Implementing a Multilayer Artificial Neural Network from Scratch
 * [Chapter 12](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ch12): Parallelizing Neural Network Training with PyTorch
@@ -76,6 +77,7 @@ Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/mai
 Directorio ['Diapositivas Teoría'](https://github.com/aleon2020/AA_2024-2025/tree/main/Diapositivas%20Teor%C3%ADa): Dentro de este directorio se encuentran las diapositivas utilizadas en clase para abordar los contenidos teóricos de la asignatura.
 
 * [Chapter 5](https://github.com/aleon2020/AA_2024-2025/tree/main/Diapositivas%20Teor%C3%ADa/Chapter%205%3A%20Compressing%20Data%20via%20Dimensionality%20Reduction): Compressing Data via Dimensionality Reduction
+* Chapter 6: Learning Best Practices for Model Evaluation and Hyperparameter Tuning
 * [Chapter 10](https://github.com/aleon2020/AA_2024-2025/tree/main/Diapositivas%20Teor%C3%ADa/Chapter%2010%3A%20Working%20with%20Unlabeled%20Data%20-%20Clustering%20Analysis): Working with Unlabeled Data – Clustering Analysis
 * [Chapter 14](https://github.com/aleon2020/AA_2024-2025/tree/main/Diapositivas%20Teor%C3%ADa/Chapter%2014%3A%20Classifying%20Images%20with%20Deep%20Convolutional%20%20Neural%20Networks): Classifying Images with Deep Convolutional Neural Networks
 * [Large Language Models (LLMs)](https://github.com/aleon2020/AA_2024-2025/tree/main/Diapositivas%20Teor%C3%ADa/Large%20Language%20Models%20(LLMs))
