@@ -43,8 +43,6 @@ Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/mai
 * [Chapter 12](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ch12): Parallelizing Neural Network Training with PyTorch
 * [Chapter 13](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ch13): Going Deeper – The Mechanics of PyTorch
 * [Chapter 14](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ch14): Classifying Images with Deep Convolutional Neural Networks
-* [Chapter 15](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ch15): Modeling Sequential Data Using Recurrent Neural Networks
-* [Chapter 16](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ch16): Transformers – Improving Natural Language Processing with Attention Mechanisms
 
 **Ejemplos**
 * [Example 4](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex04): Wine Dataset (PCA)
