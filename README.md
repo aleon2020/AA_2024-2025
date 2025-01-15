@@ -8,6 +8,10 @@ IMPORTANTE: SI OBSERVAS QUE HAY ALGÚN ERROR O ALGO QUE FALTE EN ALGÚN ARCHIVO 
 
 ## 1. Ejercicios propuestos, prácticas y exámenes
 
+Fichero ['Resumen Teoría AA.pdf'](https://docs.google.com/document/d/1QU1LmervC9OVwHkRD8FIcqoMqPGMmkT_unmL9G5jMYM/edit?usp=sharing): Resumen de teoría en formato PDF.
+
+IMPORTANTE: Para hacer uso del índice interactivo que viene implementado en el resumen, debes descargar el documento en formato PDF.
+
 Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro): Este directorio contiene todo el código fuente que se ve en el libro de la asignatura, además de varios ejemplos que se han visto durante las clases para facilitar la comprensión de los contenidos vistos en teoría (chXX corresponde a los capítulos del libro, exXX a ejemplos vistos en clase y prXX_20XX-20XX a las prácticas).
 
 ### 1.1 Examen Parcial (07/11/2024)
