@@ -1,10 +1,5 @@
 import numpy as np
 
-
-##########################
-### MODEL
-##########################
-
 def sigmoid(z):
     return 1. / (1. + np.exp(-z))
 
@@ -20,7 +15,8 @@ def int_to_onehot(y, num_labels):
 
 class NeuralNetMLP:
 
-    def __init__(self, num_features, num_hidden, num_classes, random_seed=123):
+    def __init__(self, num_features, num_hidden, 
+                 num_classes, random_seed=123):
         super().__init__()
 
         self.num_classes = num_classes
@@ -39,13 +35,16 @@ class NeuralNetMLP:
 
     def forward(self, x):
         # Hidden layer
-        # input dim: [n_examples, n_features] dot [n_hidden, n_features].T
+
+        # input dim: [n_examples, n_features] 
+        #        dot [n_hidden, n_features].T
         # output dim: [n_examples, n_hidden]
         z_h = np.dot(x, self.weight_h.T) + self.bias_h
         a_h = sigmoid(z_h)
 
         # Output layer
-        # input dim: [n_examples, n_hidden] dot [n_classes, n_hidden].T
+        # input dim: [n_examples, n_hidden] 
+        #        dot [n_classes, n_hidden].T
         # output dim: [n_examples, n_classes]
         z_out = np.dot(a_h, self.weight_out.T) + self.bias_out
         a_out = sigmoid(z_out)
@@ -79,7 +78,8 @@ class NeuralNetMLP:
         # [n_examples, n_hidden]
         d_z_out__dw_out = a_h
         
-        # input dim: [n_classes, n_examples] dot [n_examples, n_hidden]
+        # input dim: [n_classes, n_examples] 
+        #        dot [n_examples, n_hidden]
         # output dim: [n_classes, n_hidden]
         d_loss__dw_out = np.dot(delta_out.T, d_z_out__dw_out)
         d_loss__db_out = np.sum(delta_out, axis=0)
@@ -87,7 +87,8 @@ class NeuralNetMLP:
 
         #################################        
         # Part 2: dLoss/dHiddenWeights
-        ## = DeltaOut * dOutNet/dHiddenAct * dHiddenAct/dHiddenNet * dHiddenNet/dWeight
+        ## = DeltaOut * dOutNet/dHiddenAct * dHiddenAct/dHiddenNet 
+        #    * dHiddenNet/dWeight
         
         # [n_classes, n_hidden]
         d_z_out__a_h = self.weight_out
@@ -102,7 +103,8 @@ class NeuralNetMLP:
         d_z_h__d_w_h = x
         
         # output dim: [n_hidden, n_features]
-        d_loss__d_w_h = np.dot((d_loss__a_h * d_a_h__d_z_h).T, d_z_h__d_w_h)
+        d_loss__d_w_h = np.dot((d_loss__a_h * d_a_h__d_z_h).T, 
+                               d_z_h__d_w_h)
         d_loss__d_b_h = np.sum((d_loss__a_h * d_a_h__d_z_h), axis=0)
 
         return d_loss__dw_out, d_loss__db_out, d_loss__d_w_h, d_loss__d_b_h
