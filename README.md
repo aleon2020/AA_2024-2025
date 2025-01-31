@@ -22,7 +22,7 @@ git pull
 
 ## 1. Ejercicios propuestos, prácticas y exámenes
 
-Fichero ['Resumen Teoría AA.pdf'](https://docs.google.com/document/d/1QU1LmervC9OVwHkRD8FIcqoMqPGMmkT_unmL9G5jMYM/edit?usp=sharing): Resumen de teoría en formato PDF.
+Fichero ['Resumen Teoría AA.pdf'](https://github.com/aleon2020/AA_2024-2025/blob/main/Resumen%20Teor%C3%ADa%20AA.pdf): Resumen de teoría en formato PDF.
 
 IMPORTANTE: Para hacer uso del índice interactivo que viene implementado en el resumen, debes descargar el documento en formato PDF.
 
@@ -86,7 +86,7 @@ Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/mai
 * [Formulario Examen Final](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/formulario_final)
 
 **Examen Final**
-* ...
+* [Solución](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro/ex_final_2024-2025)
 
 ## 2. Diapositivas utilizadas en clase
 
@@ -100,7 +100,7 @@ Directorio ['Diapositivas Teoría'](https://github.com/aleon2020/AA_2024-2025/tr
 
 ## 3. Referencias
 
-Directorio ['Referencias'](https://github.com/aleon2020/AA_2024-2025/tree/main/Referencias): Se encuentra el libro que abarca todos los contenidos vistos en las clases de teoría.
+Directorio ['Referencias'](https://github.com/aleon2020/AA_2024-2025/tree/main/Referencias): Se encuentra el libro que abarca todos los contenidos vistos en las clases de teoría, además de una guía de instalación del entorno miniconda en los ordenadores de los laboratorios de la universidad para ejecutar los ficheros Notebook de Python y un fichero que contiene una lista de todos los ejemplos, ejercicios y prácticas que se deben estudiar en cada uno de los dos exámenes que se realizan a lo largo de la asignatura.
 
 ## 4. Activación del entorno miniconda en los ordenadores de la universidad
 
