@@ -28,7 +28,9 @@ IMPORTANTE: Para hacer uso del índice interactivo que viene implementado en el 
 
 Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro): Este directorio contiene todo el código fuente que se ve en el libro de la asignatura, además de varios ejemplos que se han visto durante las clases para facilitar la comprensión de los contenidos vistos en teoría (chXX corresponde a los capítulos del libro, exXX a ejemplos vistos en clase y prXX_20XX-20XX a las prácticas).
 
-Fichero []'Contenidos Exámenes.pdf'](): Este fichero contiene una lista de todos los ejemplos, ejercicios y prácticas que se deben estudiar en cada uno de los dos exámenes que se realizan a lo largo de la asignatura.
+Fichero ['Contenidos Exámenes.pdf'](): Este fichero contiene una lista de todos los ejemplos, ejercicios y prácticas que se deben estudiar en cada uno de los dos exámenes que se realizan a lo largo de la asignatura.
+
+IMPORTANTE: Para hacer uso de los enlaces que vienen implementados en este documento, debes descargar el documento en formato PDF.
 
 ## 2. Diapositivas utilizadas en clase
 
