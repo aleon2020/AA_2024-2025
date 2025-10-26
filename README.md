@@ -1,40 +1,40 @@
 # Aprendizaje Automático 2024-2025
 
-¡Bienvenido! En este repositorio se encuentran todos los materiales correspondientes a la asignatura de Aprendizaje Automático.
+Welcome! This repository contains all the materials for the subject **Aprendizaje Automático**.
 
-A continuación se detallan brevemente todos los contenidos que se encuentran en este repositorio, con el objetivo de facilitar la preparación del examen final de la asignatura y de abordar la misma lo mejor posible.
+Below is a brief description of all the content found in this repository, with the aim of facilitating preparation for the final exam and helping you tackle the subject as best as possible.
 
-IMPORTANTE: SI OBSERVAS QUE HAY ALGÚN ERROR O ALGO QUE FALTE EN ALGÚN ARCHIVO SUBIDO A ESTE REPOSITORIO (O SI HAY ALGUNA DUDA EN CUANTO A COMPRENSIÓN), DÉJAME UN ISSUE Y TRATARÉ DE RESOLVER EL PROBLEMA LO ANTES POSIBLE. NO TE OLVIDES DEJARME UNA STAR Y ESPERO QUE TODO ESTE MATERIAL TE SEA DE GRAN AYUDA.
+**IMPORTANT**: IF YOU NOTICE ANY MISTAKES OR MISSING IN ANY FILE UPLOADED TO THIS REPOSITORY (OR IF THERE IS ANY DOUBT REGARDING UNDERSTANDING), LEAVE ME AN ISSUE AND I WILL TRY TO RESOLVE THE PROBLEM AS SOON AS POSSIBLE. DON'T FORGET TO LEAVE ME A STAR AND I HOPE THAT ALL THIS MATERIAL IS OF GREAT HELP TO YOU.
 
-Clona este repositorio ejecutando el siguiente comando:
+Clone this repository by running the following command:
 
 ```sh
 git clone https://<token>@github.com/aleon2020/AA_2024-2025.git
 ```
 
-IMPORTANTE: Añade tu token tal y como se muestra. Esto se hace con el objetivo de no tener que introducir el token en la terminal cada vez que se quiera actualizar el repositorio utilizando el comando 'git pull'.
+**IMPORTANT**: Add your token exactly as shown. This is so you don't have to enter the token in the terminal every time you want to update the repository using the 'git pull' command.
 
-Si ya has clonado este repositorio, ejecuta el siguiente comando antes de que empieces a trabajar con él, ya que pueden haberse añadido nuevos cambios o modificaciones. Esto se hace con el objetivo de asegurarte de que tienes clonada la versión más reciente del repositorio:
+If you've already cloned this repository, run the following command before starting to work with it, as new changes or modifications may have been added. This is to ensure you have cloned the most recent version of the repository:
 
 ```sh
 git pull
 ```
 
-## 1. Ejercicios propuestos, prácticas y exámenes
+## 1. Proposed exercises, practices and exams
 
-Fichero ['Resumen Teoría AA.pdf'](https://github.com/aleon2020/AA_2024-2025/blob/main/Resumen%20Teor%C3%ADa%20AA.pdf): Resumen de teoría en formato PDF.
+File ['Resumen Teoría AA.pdf'](https://github.com/aleon2020/AA_2024-2025/blob/main/Resumen%20Teor%C3%ADa%20AA.pdf): Theory summary in PDF format.
 
-IMPORTANTE: Para hacer uso del índice interactivo que viene implementado en el resumen, debes descargar el documento en formato PDF.
+**IMPORTANT**: To use the interactive index included in the summary, you must download the document in PDF format.
 
-Directorio ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro): Este directorio contiene todo el código fuente que se ve en el libro de la asignatura, además de varios ejemplos que se han visto durante las clases para facilitar la comprensión de los contenidos vistos en teoría (chXX corresponde a los capítulos del libro, exXX a ejemplos vistos en clase y prXX_20XX-20XX a las prácticas).
+Directory ['Códigos Libro'](https://github.com/aleon2020/AA_2024-2025/tree/main/C%C3%B3digos%20Libro): This directory contains all the source code seen in the subject book, as well as several examples that have been seen during the classes to facilitate the understanding of the contents seen in theory (chXX corresponds to the chapters of the book, exXX to examples seen in class and prXX_20XX-20XX to the practices).
 
-Fichero ['Contenidos Exámenes.pdf'](https://github.com/aleon2020/AA_2024-2025/blob/main/Contenidos%20Ex%C3%A1menes.pdf): Este fichero contiene una lista de todos los ejemplos, ejercicios y prácticas que se deben estudiar en cada uno de los dos exámenes que se realizan a lo largo de la asignatura.
+File ['Contenidos Exámenes.pdf'](https://github.com/aleon2020/AA_2024-2025/blob/main/Contenidos%20Ex%C3%A1menes.pdf): This file contains a list of all the examples, exercises, and practices that must be studied in each of the two exams taken throughout the course.
 
-IMPORTANTE: Para hacer uso de los enlaces que vienen implementados en este documento, debes descargar el documento en formato PDF.
+**IMPORTANT**: To use the links included in this document, you must download the document in PDF format.
 
-## 2. Diapositivas utilizadas en clase
+## 2. Slides used in class
 
-Directorio ['Diapositivas Teoría'](https://github.com/aleon2020/AA_2024-2025/tree/main/Diapositivas%20Teor%C3%ADa): Dentro de este directorio se encuentran las diapositivas utilizadas en clase para abordar los contenidos teóricos de la asignatura.
+Directory ['Diapositivas Teoría'](https://github.com/aleon2020/AA_2024-2025/tree/main/Diapositivas%20Teor%C3%ADa): This directory contains the slides used in class to address the theoretical content of the subject.
 
 * [Chapter 5](https://github.com/aleon2020/AA_2024-2025/tree/main/Diapositivas%20Teor%C3%ADa/Chapter%205%3A%20Compressing%20Data%20via%20Dimensionality%20Reduction): Compressing Data via Dimensionality Reduction
 * [Chapter 6](https://github.com/aleon2020/AA_2024-2025/tree/main/Diapositivas%20Teor%C3%ADa/Chapter%206%3A%20Learning%20Best%20Practices%20for%20Model%20Evaluation%20and%20Hyperparameter%20Tuning): Learning Best Practices for Model Evaluation and Hyperparameter Tuning
@@ -42,6 +42,6 @@ Directorio ['Diapositivas Teoría'](https://github.com/aleon2020/AA_2024-2025/tr
 * [Chapter 14](https://github.com/aleon2020/AA_2024-2025/tree/main/Diapositivas%20Teor%C3%ADa/Chapter%2014%3A%20Classifying%20Images%20with%20Deep%20Convolutional%20%20Neural%20Networks): Classifying Images with Deep Convolutional Neural Networks
 * [Large Language Models (LLMs)](https://github.com/aleon2020/AA_2024-2025/tree/main/Diapositivas%20Teor%C3%ADa/Large%20Language%20Models%20(LLMs))
 
-## 3. Referencias
+## 3. References
 
-Directorio ['Referencias'](https://github.com/aleon2020/AA_2024-2025/tree/main/Referencias): Se encuentra el libro que abarca todos los contenidos vistos en las clases de teoría, además de una guía de instalación del entorno miniconda en los ordenadores de los laboratorios de la universidad para ejecutar los ficheros Notebook de Python.
+Directory ['Referencias'](https://github.com/aleon2020/AA_2024-2025/tree/main/Referencias): The book covers all the content covered in the theory classes, as well as a guide to installing the miniconda environment on university laboratory computers to run Python notebook files.
